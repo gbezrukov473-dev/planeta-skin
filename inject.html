@@ -23,9 +23,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Schema.org разметка -->
+<!-- Schema.org разметка -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -151,7 +149,7 @@
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html#directions" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-brand-turquoise transition group">
                 <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2 group-hover:bg-brand-light transition">
-                    <i class="fas fa-arrow-left text-xs group-hover:text-brand-turquoise" aria-hidden="true"></i>
+                    <svg class="icon text-xs group-hover:text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-arrow-left"></use></svg>
                 </div>
                 Назад к услугам
             </a>
@@ -199,22 +197,22 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Сертифицированные препараты</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Работаем только с официальными дистрибьюторами. Все препараты имеют регистрационные удостоверения (РУ).</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-user-md" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-user-md"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Врачи-эксперты</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Инъекции выполняют только врачи-косметологи с глубоким знанием анатомии лица и опытом работы более 10 лет.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-magic" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-magic"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Естественность</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Мы за гармонию и сохранение индивидуальности. Ваше лицо не будет выглядеть "перекачанным".</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-shield-alt"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Безопасность</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Соблюдаем все протоколы стерильности. Используем только одноразовые иглы и шприцы.</p>
                     </div>
@@ -241,9 +239,9 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Контурная пластика</h3>
                             <p class="text-sm text-gray-600 mb-4">Моделирование черт лица с помощью филлеров на основе гиалуроновой кислоты. Позволяет увеличить объем губ, скорректировать форму скул и подбородка, заполнить носогубные складки.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Увеличение объема губ</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Коррекция скул и подбородка</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Заполнение носогубных складок</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Увеличение объема губ</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Коррекция скул и подбородка</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Заполнение носогубных складок</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 13 000 &#8381;</div>
                         </div>
@@ -258,9 +256,9 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Биоревитализация</h3>
                             <p class="text-sm text-gray-600 mb-4">Глубокое увлажнение кожи инъекциями гиалуроновой кислоты. Улучшает цвет лица, разглаживает мелкие морщинки, повышает тонус.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Глубокое увлажнение</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Улучшение цвета лица</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Профилактика старения</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Глубокое увлажнение</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Улучшение цвета лица</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Профилактика старения</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 4 000 &#8381;</div>
                         </div>
@@ -275,9 +273,9 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Коллагенотерапия</h3>
                             <p class="text-sm text-gray-600 mb-4">Инъекции стимуляторов коллагена. Уплотняют кожу, создают лифтинг-эффект, устраняют дряблость. Результат нарастает в течение нескольких месяцев.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Лифтинг-эффект</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Уплотнение кожи</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Устранение дряблости</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Лифтинг-эффект</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Уплотнение кожи</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Устранение дряблости</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 19 500 &#8381;</div>
                         </div>
@@ -292,9 +290,9 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Ботулинотерапия</h3>
                             <p class="text-sm text-gray-600 mb-4">Устранение мимических морщин на лбу, межбровье и вокруг глаз. Также эффективно лечим гипергидроз. Сохраняем живую мимику без эффекта маски.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Разглаживание морщин</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Лечение гипергидроза</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Естественная мимика</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Разглаживание морщин</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Лечение гипергидроза</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Естественная мимика</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 140 &#8381; / ед</div>
                         </div>
@@ -309,8 +307,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Липолитики</h3>
                             <p class="text-sm text-gray-600 mb-4">Уменьшение локальных жировых отложений на лице и теле. Безоперационная коррекция фигуры.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Локальное уменьшение жира</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> На лице и теле</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Локальное уменьшение жира</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> На лице и теле</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 3 700 &#8381;</div>
                         </div>
@@ -325,8 +323,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Мезотерапия</h3>
                             <p class="text-sm text-gray-600 mb-4">Витаминные коктейли для кожи головы (рост волос) и лица. Индивидуальный подбор препаратов.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Стимуляция роста волос</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Улучшение состояния кожи</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Стимуляция роста волос</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Улучшение состояния кожи</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 3 000 &#8381;</div>
                         </div>
@@ -370,9 +368,9 @@
                                 Реальные результаты контурной пластики и омоложения. Мы используем только сертифицированные препараты и натуральные техники введения.
                             </p>
                             <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Естественный результат</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Сертифицированные препараты</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Индивидуальный подход</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Естественный результат</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Сертифицированные препараты</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Индивидуальный подход</li>
                             </ul>
                             <p class="text-xs text-gray-400">Нажмите на фото для увеличения</p>
                         </div>
@@ -386,9 +384,9 @@
                                     <div data-img-url="/img/inject-result-4.webp"></div>
                                 </div>
                                 <div class="nav-container">
-                                    <button data-index-change="-1" aria-label="Предыдущий"><i class="fas fa-chevron-left"></i></button>
+                                    <button data-index-change="-1" aria-label="Предыдущий"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg></button>
                                     <div class="index-container"></div>
-                                    <button data-index-change="1" aria-label="Следующий"><i class="fas fa-chevron-right"></i></button>
+                                    <button data-index-change="1" aria-label="Следующий"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg></button>
                                 </div>
                             </div>
                         </div>
@@ -581,7 +579,7 @@
                              role="radio"
                              aria-checked="true"
                            >
-                             <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                             <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
                            </button>
 
                            <button
@@ -684,13 +682,13 @@
     <!-- Лайтбокс -->
     <div id="lightbox" class="hidden fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4">
         <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10" aria-label="Закрыть">
-            <i class="fas fa-times" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-times"></use></svg>
         </button>
         <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Предыдущее изображение">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg>
         </button>
         <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Следующее изображение">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg>
         </button>
         <img id="lightbox-img" src="" alt="Увеличенное изображение" class="max-w-full max-h-full object-contain">
     </div>

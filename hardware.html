@@ -23,9 +23,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Стили для слайдера результатов -->
+<!-- Стили для слайдера результатов -->
     <style>
         .results-slider {
             position: relative;
@@ -152,7 +150,7 @@
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html#directions" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-brand-turquoise transition group">
                 <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2 group-hover:bg-brand-light transition">
-                    <i class="fas fa-arrow-left text-xs group-hover:text-brand-turquoise" aria-hidden="true"></i>
+                    <svg class="icon text-xs group-hover:text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-arrow-left"></use></svg>
                 </div>
                 Назад к услугам
             </a>
@@ -205,21 +203,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
                         <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition">
-                            <i class="fas fa-medal" aria-hidden="true"></i>
+                            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-medal"></use></svg>
                         </div>
                         <h3 class="font-serif text-xl font-bold mb-3">Оригинальное оборудование</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Только сертифицированные аппараты с регистрационными удостоверениями (DEKA, Capello, Bio-Ultimate).</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
                         <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition">
-                            <i class="fas fa-magic" aria-hidden="true"></i>
+                            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-magic"></use></svg>
                         </div>
                         <h3 class="font-serif text-xl font-bold mb-3">Без операций</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Достигаем выраженного лифтинг-эффекта и омоложения без хирургического вмешательства и длительной реабилитации.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
                         <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition">
-                            <i class="fas fa-user-md" aria-hidden="true"></i>
+                            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-user-md"></use></svg>
                         </div>
                         <h3 class="font-serif text-xl font-bold mb-3">Врачи-эксперты</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Процедуры проводят врачи-косметологи, прошедшие специальное обучение работе на каждом аппарате.</p>
@@ -247,8 +245,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">SMAS-лифтинг BEELIFTBEE</h3>
                             <p class="text-sm text-gray-600 mb-4">Безоперационная подтяжка лица сфокусированным ультразвуком. Воздействует на глубокий мышечный слой (SMAS), создавая четкий каркас лица. Эффект нарастает в течение 3-х месяцев и сохраняется до 2-х лет.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Гравитационный птоз</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Брыли и второй подбородок</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Гравитационный птоз</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Брыли и второй подбородок</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold mb-4">от 13 500 &#8381;</div>
                             <button type="button" class="js-scroll-to-form bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition text-sm">Записаться</button>
@@ -265,8 +263,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">DEKA DOT SmartXide2</h3>
                             <p class="text-sm text-gray-600 mb-4">Фракционное омоложение (DOT-терапия) и глубокая шлифовка. Эффективно убирает морщины, рубцы постакне, шрамы и растяжки. Стимулирует мощное обновление кожи, выравнивает рельеф и цвет лица.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Морщины и рубцы</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Растяжки и шрамы</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Морщины и рубцы</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Растяжки и шрамы</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold mb-4">от 6 000 &#8381;</div>
                             <button type="button" class="js-scroll-to-form bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition text-sm">Записаться</button>
@@ -283,8 +281,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Capello E-light</h3>
                             <p class="text-sm text-gray-600 mb-4">Технология E-light объединяет импульсный свет и RF-ток. Это мощный инструмент для удаления пигментации, лечения купероза и сосудистых звездочек. Процедура также выравнивает тон кожи, сужает поры и дает эффект сияния.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Пигментация и купероз</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Сосудистые звездочки</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Пигментация и купероз</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Сосудистые звездочки</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold mb-4">от 2 000 &#8381;</div>
                             <button type="button" class="js-scroll-to-form bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition text-sm">Записаться</button>
@@ -301,8 +299,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Bio-Ultimate Gold</h3>
                             <p class="text-sm text-gray-600 mb-4">Золотой стандарт микротоковой терапии. Процедура работает как «фитнес для лица»: тонизирует мышцы, выводит лишнюю жидкость (лимфодренаж), улучшает цвет лица. Идеально для реабилитации после операций или как процедура «на выход».</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Лимфодренаж</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Тонизация мышц</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Лимфодренаж</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Тонизация мышц</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold mb-4">от 2 500 &#8381;</div>
                             <button type="button" class="js-scroll-to-form bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition text-sm">Записаться</button>
@@ -319,8 +317,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">DEKA Onda Coolwaves</h3>
                             <p class="text-sm text-gray-600 mb-4">Революционная система коррекции фигуры. Микроволны Coolwaves™ проникают глубоко в жировую ткань, разрушая мембраны адипоцитов, при этом верхние слои кожи остаются холодными. Эффективно борется с локальными жировыми отложениями и целлюлитом.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Локальные жировые отложения</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Целлюлит</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Локальные жировые отложения</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Целлюлит</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold mb-4">2 400 &#8381; / зона</div>
                             <button type="button" class="js-scroll-to-form bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition text-sm">Записаться</button>
@@ -342,9 +340,9 @@
                                 Посмотрите результаты SMAS-лифтинга, лазерной шлифовки и фотоомоложения. Каждая процедура подбирается индивидуально врачом-косметологом.
                             </p>
                             <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Эффект лифтинга</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Омоложение кожи</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Без хирургического вмешательства</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Эффект лифтинга</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Омоложение кожи</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Без хирургического вмешательства</li>
                             </ul>
                             <p class="text-xs text-gray-400">Нажмите на фото для увеличения</p>
                         </div>
@@ -366,9 +364,9 @@
                                     <div data-img-url="/img/onda-result-3.webp"></div>
                                 </div>
                                 <div class="nav-container">
-                                    <button data-index-change="-1" aria-label="Предыдущий"><i class="fas fa-chevron-left"></i></button>
+                                    <button data-index-change="-1" aria-label="Предыдущий"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg></button>
                                     <div class="index-container"></div>
-                                    <button data-index-change="1" aria-label="Следующий"><i class="fas fa-chevron-right"></i></button>
+                                    <button data-index-change="1" aria-label="Следующий"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg></button>
                                 </div>
                             </div>
                         </div>
@@ -557,7 +555,7 @@
                              role="radio"
                              aria-checked="true"
                            >
-                             <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                             <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
                            </button>
 
                            <button
@@ -660,13 +658,13 @@
     <!-- Лайтбокс -->
     <div id="lightbox" class="hidden fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4">
         <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10" aria-label="Закрыть">
-            <i class="fas fa-times" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-times"></use></svg>
         </button>
         <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Предыдущее изображение">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg>
         </button>
         <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Следующее изображение">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg>
         </button>
         <img id="lightbox-img" src="" alt="Увеличенное изображение" class="max-w-full max-h-full object-contain">
     </div>

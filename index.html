@@ -30,9 +30,7 @@
     <link rel="preload" href="/fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- Font Awesome (CSS версия) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==">
-
-    <!-- Критические стили -->
+<!-- Критические стили -->
     <style>
         /* Прелоадер */
         .preloader-hidden { opacity: 0; pointer-events: none; }
@@ -177,8 +175,8 @@
                     </div>
                     
                     <!-- Кнопки навигации: скрыты на мобильных (<1024px) -->
-                    <button type="button" id="slider-prev" class="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-brand-tiffany w-12 h-12 rounded-full items-center justify-center backdrop-blur-md transition duration-300 z-30 border border-white/30" aria-label="Предыдущий слайд"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                    <button type="button" id="slider-next" class="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-brand-tiffany w-12 h-12 rounded-full items-center justify-center backdrop-blur-md transition duration-300 z-30 border border-white/30" aria-label="Следующий слайд"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                    <button type="button" id="slider-prev" class="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-brand-tiffany w-12 h-12 rounded-full items-center justify-center backdrop-blur-md transition duration-300 z-30 border border-white/30" aria-label="Предыдущий слайд"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg></button>
+                    <button type="button" id="slider-next" class="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-brand-tiffany w-12 h-12 rounded-full items-center justify-center backdrop-blur-md transition duration-300 z-30 border border-white/30" aria-label="Следующий слайд"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg></button>
 
                     <!-- Невидимые зоны клика для мобильных (исключаем нижнюю часть где кнопки) -->
                     <div id="slider-click-left" class="absolute top-0 left-0 bottom-24 w-1/2 z-40 lg:hidden cursor-pointer pointer-events-auto"></div>
@@ -192,7 +190,7 @@
                     
                     <div class="relative z-10 flex flex-col h-full justify-between">
                         <div>
-                            <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"><i class="fas fa-fire" aria-hidden="true"></i> Акция</div>
+                            <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-fire"></use></svg> Акция</div>
                             <!-- Убрал whitespace-nowrap для переноса заголовка -->
                             <h3 class="font-serif text-2xl sm:text-3xl lg:text-xl xl:text-2xl leading-none mb-3 font-bold">
                                 Лазерная эпиляция MOVEO
@@ -377,15 +375,15 @@
                                         Мы не экономим на качестве. В нашем арсенале только сертифицированное оборудование от мировых лидеров индустрии.
                                     </p>
                                     <ul class="space-y-3 mb-8 font-medium text-sm">
-                                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-turquoise" aria-hidden="true"></i> DEKA SmartXide2 DOT (Италия)</li>
-                                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-turquoise" aria-hidden="true"></i> DEKA Motus AX (Италия)</li>
-                                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-turquoise" aria-hidden="true"></i> DEKA Onda (Италия)</li>
-                                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-turquoise" aria-hidden="true"></i> Capello (Россия-Италия)</li>
-                                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-turquoise" aria-hidden="true"></i> SMAS BEELIFTBEE (Корея)</li>
+                                        <li class="flex items-center gap-3"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg> DEKA SmartXide2 DOT (Италия)</li>
+                                        <li class="flex items-center gap-3"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg> DEKA Motus AX (Италия)</li>
+                                        <li class="flex items-center gap-3"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg> DEKA Onda (Италия)</li>
+                                        <li class="flex items-center gap-3"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg> Capello (Россия-Италия)</li>
+                                        <li class="flex items-center gap-3"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg> SMAS BEELIFTBEE (Корея)</li>
                                     </ul>
                                     <!-- Кнопка "Смотреть всё оборудование" -->
                                     <a href="equipment.html" class="inline-flex items-center font-bold text-brand-peach hover:text-white transition border-b border-brand-peach hover:border-white pb-1">
-                                        Смотреть всё оборудование <i class="fas fa-arrow-right ml-2 text-xs" aria-hidden="true"></i>
+                                        Смотреть всё оборудование <svg class="icon ml-2 text-xs" aria-hidden="true"><use href="/img/icons.svg#i-arrow-right"></use></svg>
                                     </a>
                                 </div>
                                 <!-- Слайдер кликабельный и ведущий на equipment.html -->
@@ -491,7 +489,7 @@
                 <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-200">
                     <div class="text-center mb-6">
                         <div class="inline-block bg-brand-peach text-brand-dark px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-                            <i class="fas fa-gift mr-2" aria-hidden="true"></i> Подарочные сертификаты
+                            <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-gift"></use></svg> Подарочные сертификаты
                         </div>
                         <h2 class="font-serif text-3xl text-brand-dark mb-3">Подарите красоту и здоровье</h2>
                         <p class="text-gray-600 leading-relaxed">
@@ -503,7 +501,7 @@
                             Выбрать сертификат
                         </a>
                         <a href="tel:+79112717888" class="bg-white border-2 border-brand-turquoise text-brand-turquoise font-bold py-4 px-8 rounded-full hover:bg-brand-light transition text-center">
-                            <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i> Узнать подробнее
+                            <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg> Узнать подробнее
                         </a>
                     </div>
                 </div>
@@ -516,14 +514,14 @@
                 <div class="text-center mb-12">
                     <h2 class="font-serif text-3xl text-brand-dark mb-4">Отзывы клиентов</h2>
                     <div class="flex justify-center gap-2 text-yellow-400 text-xl">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg>
                         <span class="text-gray-400 text-sm ml-2 font-sans text-base text-black font-bold">5.0 на Яндекс</span>
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm relative">
-                        <i class="fas fa-quote-right absolute top-6 right-6 text-4xl text-brand-peach/20" aria-hidden="true"></i>
+                        <svg class="icon absolute top-6 right-6 text-4xl text-brand-peach/20" aria-hidden="true"><use href="/img/icons.svg#i-quote-right"></use></svg>
                         <p class="text-gray-600 mb-6 text-sm italic leading-relaxed">"Прохожу курс Moveo, результат потрясающий уже после 3-й процедуры. Абсолютно не больно, как и обещали. Врачи очень внимательные, клиника чистая."</p>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-brand-tiffany text-white flex items-center justify-center font-bold">А</div>
@@ -535,7 +533,7 @@
                     </div>
                     
                     <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm relative">
-                        <i class="fas fa-quote-right absolute top-6 right-6 text-4xl text-brand-peach/20" aria-hidden="true"></i>
+                        <svg class="icon absolute top-6 right-6 text-4xl text-brand-peach/20" aria-hidden="true"><use href="/img/icons.svg#i-quote-right"></use></svg>
                         <p class="text-gray-600 mb-6 text-sm italic leading-relaxed">"Удалял родинки у доктора. Быстро, стерильно, зажило без следов. Понравилось, что сразу сделали дерматоскопию. Рекомендую."</p>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-brand-peach text-brand-dark flex items-center justify-center font-bold">И</div>
@@ -547,7 +545,7 @@
                     </div>
 
                     <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm relative">
-                        <i class="fas fa-quote-right absolute top-6 right-6 text-4xl text-brand-peach/20" aria-hidden="true"></i>
+                        <svg class="icon absolute top-6 right-6 text-4xl text-brand-peach/20" aria-hidden="true"><use href="/img/icons.svg#i-quote-right"></use></svg>
                         <p class="text-gray-600 mb-6 text-sm italic leading-relaxed">"Делала SMAS-лифтинг. Эффект заметила через месяц, лицо подтянулось. Спасибо врачам за профессионализм и честность!"</p>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-brand-turquoise text-white flex items-center justify-center font-bold">Е</div>
@@ -651,7 +649,7 @@
         role="radio"
         aria-checked="true"
       >
-        <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+        <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
       </button>
 
       <button
@@ -744,8 +742,8 @@
     Нажимая кнопку, вы подтверждаете согласие на <a href="policy.html" class="underline hover:text-brand-turquoise transition">обработку персональных данных</a>.
   </p>
 </form>
-                     </div>
-                 </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

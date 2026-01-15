@@ -23,7 +23,6 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
@@ -34,7 +33,7 @@
       <div class="container mx-auto px-6 sm:px-8 lg:px-12 py-3 flex items-center justify-between">
           <a href="index.html" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-brand-turquoise transition group">
               <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2 group-hover:bg-brand-light transition">
-                  <i class="fas fa-arrow-left text-xs group-hover:text-brand-turquoise" aria-hidden="true"></i>
+                  <svg class="icon text-xs group-hover:text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-arrow-left"></use></svg>
               </div>
               На главную
           </a>
@@ -69,7 +68,7 @@
                   
                   <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
                       <div class="lg:w-2/3">
-                          <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"><i class="far fa-clock"></i> Будни до 15:00</div>
+                          <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-clock-outline"></use></svg> Будни до 15:00</div>
                           <h2 class="font-serif text-3xl md:text-4xl mb-4">Счастливые часы на лазерную эпиляцию</h2>
                           <p class="text-white/90 text-lg mb-6 max-w-xl">Скидка до 30% на комплексы лазерной эпиляции Moveo. Запишитесь на процедуру в будние дни с 10:00 до 15:00.</p>
                           
@@ -157,7 +156,7 @@
                   <div class="group bg-gradient-to-br from-brand-peach/20 to-brand-light rounded-3xl border border-brand-peach/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="p-8 flex flex-col flex-grow items-center text-center justify-center">
                           <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl text-brand-peach mb-6 shadow-md">
-                              <i class="fas fa-gift"></i>
+                              <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-gift"></use></svg>
                           </div>
                           <h3 class="font-serif text-2xl text-brand-dark mb-3">Скидка в День Рождения</h3>
                           <p class="text-gray-600 text-sm mb-6 flex-grow">Дарим скидку <strong>10%</strong> на все услуги клиники за 3 дня до и 3 дня после вашего праздника.</p>
@@ -241,7 +240,7 @@
                            role="radio"
                            aria-checked="true"
                          >
-                           <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                           <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
                          </button>
 
                          <button

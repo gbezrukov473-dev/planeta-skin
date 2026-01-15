@@ -26,8 +26,6 @@
     <meta name="msapplication-TileImage" content="/favicon-144x144.png">
     <meta name="msapplication-config" content="/browserconfig.xml">
 
-    <!-- Иконки -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
@@ -35,7 +33,7 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 sm:px-8 lg:px-12 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
-                <i class="fas fa-arrow-left text-brand-turquoise text-xl"></i>
+                <svg class="icon text-brand-turquoise text-xl" aria-hidden="true"><use href="/img/icons.svg#i-arrow-left"></use></svg>
                 <img src="/img/logo.svg" alt="Логотип" class="w-10 h-10 object-contain">
                 <span class="font-serif font-bold text-brand-tiffany text-lg hidden md:block">На главную</span>
             </a>
