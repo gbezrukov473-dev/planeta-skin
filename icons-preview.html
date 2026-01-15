@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Превью иконок | Планета здоровой кожи</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .info {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .icon-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .icon-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .icon {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: -0.125em;
+            overflow: visible;
+        }
+        .icon-display {
+            font-size: 2.5rem;
+            color: #44C8D2;
+            margin-bottom: 0.75rem;
+        }
+        .icon-name {
+            font-size: 0.75rem;
+            color: #666;
+            word-break: break-all;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        .section-title {
+            grid-column: 1 / -1;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #44C8D2;
+            padding: 1rem 0 0.5rem;
+            border-bottom: 2px solid #44C8D2;
+            margin-top: 1rem;
+        }
+        .color-test {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .color-test h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .color-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .color-item span {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        .text-turquoise { color: #44C8D2; }
+        .text-peach { color: #F4B8A4; }
+        .text-red { color: #e53e3e; }
+        .text-green { color: #38a169; }
+        .text-dark { color: #2D3748; }
+        .bg-dark {
+            background: #2D3748;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        .text-white { color: white; }
+    </style>
+</head>
+<body>
+    <h1>Превью SVG-иконок</h1>
+    <p class="info">Всего 57 иконок из @fortawesome/fontawesome-free@6.4.0 • Файл: /img/icons.svg</p>
+    
+    <div class="grid">
+        <div class="section-title">Solid иконки (53)</div>
+        
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-arrow-left"></use></svg></div>
+            <div class="icon-name">i-arrow-left</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-arrow-right"></use></svg></div>
+            <div class="icon-name">i-arrow-right</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-arrow-up"></use></svg></div>
+            <div class="icon-name">i-arrow-up</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-bars"></use></svg></div>
+            <div class="icon-name">i-bars</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-bolt"></use></svg></div>
+            <div class="icon-name">i-bolt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-calendar-alt"></use></svg></div>
+            <div class="icon-name">i-calendar-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-calendar-check"></use></svg></div>
+            <div class="icon-name">i-calendar-check</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg></div>
+            <div class="icon-name">i-check</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg></div>
+            <div class="icon-name">i-check-circle</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-check-double"></use></svg></div>
+            <div class="icon-name">i-check-double</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-down"></use></svg></div>
+            <div class="icon-name">i-chevron-down</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg></div>
+            <div class="icon-name">i-chevron-left</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg></div>
+            <div class="icon-name">i-chevron-right</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-clock"></use></svg></div>
+            <div class="icon-name">i-clock</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-credit-card"></use></svg></div>
+            <div class="icon-name">i-credit-card</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-crosshairs"></use></svg></div>
+            <div class="icon-name">i-crosshairs</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-exchange-alt"></use></svg></div>
+            <div class="icon-name">i-exchange-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-feather-alt"></use></svg></div>
+            <div class="icon-name">i-feather-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-file-medical"></use></svg></div>
+            <div class="icon-name">i-file-medical</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-fire"></use></svg></div>
+            <div class="icon-name">i-fire</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-gift"></use></svg></div>
+            <div class="icon-name">i-gift</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-hand-sparkles"></use></svg></div>
+            <div class="icon-name">i-hand-sparkles</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-heart"></use></svg></div>
+            <div class="icon-name">i-heart</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-image"></use></svg></div>
+            <div class="icon-name">i-image</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-infinity"></use></svg></div>
+            <div class="icon-name">i-infinity</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-key"></use></svg></div>
+            <div class="icon-name">i-key</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-layer-group"></use></svg></div>
+            <div class="icon-name">i-layer-group</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-leaf"></use></svg></div>
+            <div class="icon-name">i-leaf</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-magic"></use></svg></div>
+            <div class="icon-name">i-magic</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-male"></use></svg></div>
+            <div class="icon-name">i-male</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-map-marked-alt"></use></svg></div>
+            <div class="icon-name">i-map-marked-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-map-marker-alt"></use></svg></div>
+            <div class="icon-name">i-map-marker-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-medal"></use></svg></div>
+            <div class="icon-name">i-medal</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-microchip"></use></svg></div>
+            <div class="icon-name">i-microchip</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-microscope"></use></svg></div>
+            <div class="icon-name">i-microscope</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-parking"></use></svg></div>
+            <div class="icon-name">i-parking</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg></div>
+            <div class="icon-name">i-phone-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-plus"></use></svg></div>
+            <div class="icon-name">i-plus</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-quote-right"></use></svg></div>
+            <div class="icon-name">i-quote-right</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-running"></use></svg></div>
+            <div class="icon-name">i-running</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-search-plus"></use></svg></div>
+            <div class="icon-name">i-search-plus</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-shield-alt"></use></svg></div>
+            <div class="icon-name">i-shield-alt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-shopping-bag"></use></svg></div>
+            <div class="icon-name">i-shopping-bag</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-shopping-cart"></use></svg></div>
+            <div class="icon-name">i-shopping-cart</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-smile"></use></svg></div>
+            <div class="icon-name">i-smile</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-snowflake"></use></svg></div>
+            <div class="icon-name">i-snowflake</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg></div>
+            <div class="icon-name">i-star</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-sun"></use></svg></div>
+            <div class="icon-name">i-sun</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-times"></use></svg></div>
+            <div class="icon-name">i-times</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-tshirt"></use></svg></div>
+            <div class="icon-name">i-tshirt</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-user-md"></use></svg></div>
+            <div class="icon-name">i-user-md</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-walking"></use></svg></div>
+            <div class="icon-name">i-walking</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-wave-square"></use></svg></div>
+            <div class="icon-name">i-wave-square</div>
+        </div>
+        
+        <div class="section-title">Regular иконки (1)</div>
+        
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-clock-outline"></use></svg></div>
+            <div class="icon-name">i-clock-outline</div>
+        </div>
+        
+        <div class="section-title">Brands иконки (3)</div>
+        
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-instagram"></use></svg></div>
+            <div class="icon-name">i-instagram</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-vk"></use></svg></div>
+            <div class="icon-name">i-vk</div>
+        </div>
+        <div class="icon-card">
+            <div class="icon-display"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-yandex"></use></svg></div>
+            <div class="icon-name">i-yandex</div>
+        </div>
+    </div>
+    
+    <div class="color-test">
+        <h2>Тест цветов (CSS currentColor)</h2>
+        <div class="color-row">
+            <div class="color-item text-turquoise">
+                <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg>
+                <span>text-turquoise</span>
+            </div>
+            <div class="color-item text-peach">
+                <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-heart"></use></svg>
+                <span>text-peach</span>
+            </div>
+            <div class="color-item text-red">
+                <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-fire"></use></svg>
+                <span>text-red</span>
+            </div>
+            <div class="color-item text-green">
+                <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-leaf"></use></svg>
+                <span>text-green</span>
+            </div>
+            <div class="color-item text-dark">
+                <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-star"></use></svg>
+                <span>text-dark</span>
+            </div>
+            <div class="color-item bg-dark text-white">
+                <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>
+                <span>text-white на темном фоне</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

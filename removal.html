@@ -23,9 +23,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Schema.org разметка -->
+<!-- Schema.org разметка -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -154,7 +152,7 @@
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html#directions" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-brand-turquoise transition group">
                 <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2 group-hover:bg-brand-light transition">
-                    <i class="fas fa-arrow-left text-xs group-hover:text-brand-turquoise" aria-hidden="true"></i>
+                    <svg class="icon text-xs group-hover:text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-arrow-left"></use></svg>
                 </div>
                 Назад к услугам
             </a>
@@ -191,22 +189,22 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-microscope" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-microscope"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Дерматоскопия</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Обязательная проверка новообразования перед удалением для исключения злокачественных процессов.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-file-medical" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-file-medical"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Гистология</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">При необходимости отправляем удаленный материал на гистологическое исследование в лабораторию.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-feather-alt" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-feather-alt"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Без шрамов</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Используем современные лазеры DEKA. Ткани заживают быстро и эстетично.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-user-md" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-user-md"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Врачи-эксперты</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Процедуру проводят дерматологи с онконастороженностью и опытом работы более 10 лет.</p>
                     </div>
@@ -232,8 +230,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Родинки (Невусы)</h3>
                             <p class="text-sm text-gray-600 mb-4">Требуют особого внимания. Удаляются по эстетическим показаниям или при травмировании. Обязательна дерматоскопия.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> На лице и теле</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> В сложных зонах</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> На лице и теле</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> В сложных зонах</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 2 000 &#8381;</div>
                         </div>
@@ -248,8 +246,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Папилломы</h3>
                             <p class="text-sm text-gray-600 mb-4">Вирусные образования, которые могут распространяться. Удаляются быстро, часто без анестезии.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Множественные</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> На веках и шее</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Множественные</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> На веках и шее</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 200 &#8381; / шт</div>
                         </div>
@@ -264,8 +262,8 @@
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Бородавки и Кератомы</h3>
                             <p class="text-sm text-gray-600 mb-4">Возрастные изменения (кератомы) и вирусные бородавки. Удаляются лазером с коагуляцией сосудов.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Подошвенные бородавки</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Себорейные кератомы</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Подошвенные бородавки</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Себорейные кератомы</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">от 700 &#8381;</div>
                         </div>
@@ -274,15 +272,15 @@
                     <!-- Другое (Карточка с плюсом) -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-1/4 h-64 md:h-auto relative bg-brand-light flex items-center justify-center shrink-0 overflow-hidden border-none">
-                            <i class="fas fa-plus text-6xl text-brand-peach/50 transition-transform duration-700 group-hover:scale-110" aria-hidden="true"></i>
+                            <svg class="icon text-6xl text-brand-peach/50 transition-transform duration-700 group-hover:scale-110" aria-hidden="true"><use href="/img/icons.svg#i-plus"></use></svg>
                         </div>
                         <div class="md:w-3/4 p-8 flex flex-col justify-center">
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">А также</h3>
                             <p class="text-sm text-gray-600 mb-4">Мы работаем со сложными случаями и редкими образованиями.</p>
                             <ul class="text-sm space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Милиумы и атеромы</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Ксантелазмы (веки)</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Гемангиомы (сосуды)</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Милиумы и атеромы</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Ксантелазмы (веки)</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Гемангиомы (сосуды)</li>
                             </ul>
                             <div class="text-brand-tiffany font-bold">Индивидуальный подход</div>
                         </div>
@@ -326,9 +324,9 @@
                                 Реальные результаты лазерного удаления родинок, папиллом и других новообразований. Процедура проводится с дерматоскопией и гистологическим исследованием при необходимости.
                             </p>
                             <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Минимальная травматизация</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Быстрое заживление</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Без рубцов и шрамов</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Минимальная травматизация</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Быстрое заживление</li>
+                                <li class="flex items-center gap-2"><svg class="icon text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-check"></use></svg> Без рубцов и шрамов</li>
                             </ul>
                             <p class="text-xs text-gray-400">Нажмите на фото для увеличения</p>
             </div>
@@ -350,9 +348,9 @@
                                     <div data-img-url="/img/removal-result-12.webp"></div>
                 </div>
                 <div class="nav-container">
-                    <button data-index-change="-1" aria-label="Предыдущий"><i class="fas fa-chevron-left"></i></button>
+                    <button data-index-change="-1" aria-label="Предыдущий"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg></button>
                                     <div class="index-container"></div>
-                    <button data-index-change="1" aria-label="Следующий"><i class="fas fa-chevron-right"></i></button>
+                    <button data-index-change="1" aria-label="Следующий"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg></button>
                                 </div>
                             </div>
                         </div>
@@ -545,7 +543,7 @@
                              role="radio"
                              aria-checked="true"
                            >
-                             <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                             <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
                            </button>
 
                            <button
@@ -649,13 +647,13 @@
     <!-- Лайтбокс с навигацией -->
     <div id="lightbox" class="fixed inset-0 z-[10000] bg-black/90 hidden flex items-center justify-center p-4">
         <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10" aria-label="Закрыть">
-            <i class="fas fa-times" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-times"></use></svg>
         </button>
         <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Предыдущее изображение">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-left"></use></svg>
         </button>
         <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Следующее изображение">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg>
         </button>
         <img id="lightbox-img" src="" alt="Увеличенное изображение" class="max-w-full max-h-full object-contain rounded-lg shadow-xl">
     </div>
