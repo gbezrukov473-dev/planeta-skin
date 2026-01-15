@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://hs-planet.ru/promo.html">
   <meta property="og:title" content="Акции и спецпредложения | Планета здоровой кожи">
   <meta property="og:description" content="Скидки до 30% на лазерную эпиляцию и косметологию.">
-  <meta property="og:image" content="https://hs-planet.ru/img/promo-hero.jpg">
+  <meta property="og:image" content="https://hs-planet.ru/img/promo-hero.webp">
 
     <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -27,104 +27,11 @@
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
-  <!-- === ПРЕЛОАДЕР === -->
-  <div id="preloader" class="fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-500">
-      <div class="relative w-48 h-auto">
-          <img src="/img/logo.svg" alt="Loading..." class="w-full h-full grayscale opacity-20 block">
-          <div id="preloader-color" class="absolute inset-0 overflow-hidden w-full h-full" style="clip-path: inset(100% 0 0 0);">
-              <img src="/img/logo.svg" alt="Loading..." class="w-full h-full block">
-          </div>
-      </div>
-  </div>
-
-  <!-- === ШАПКА === -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center py-3 text-sm">
-              <!-- Левое меню -->
-              <nav class="hidden lg:flex lg:gap-4 xl:gap-6 font-semibold text-gray-800">
-                  <a href="about.html" class="hover:text-brand-tiffany transition whitespace-nowrap">О клинике</a>
-                  <a href="specialists.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Врачи</a>
-                  <a href="equipment.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Оборудование</a>
-                  <!-- Активный пункт -->
-                  <a href="promo.html" class="text-brand-turquoise font-bold cursor-default transition whitespace-nowrap" aria-current="page">Акции</a>
-                  <a href="reviews.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Отзывы</a>
-                  <a href="certificates.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Сертификаты</a>
-              </nav>
-
-              <!-- Правые контакты -->
-              <div class="hidden lg:flex items-center lg:gap-4 xl:gap-8 text-gray-800 font-medium ml-auto">
-                  <span><i class="fas fa-map-marker-alt text-brand-turquoise mr-2" aria-hidden="true"></i>Кудрово</span>
-                  <span><i class="far fa-clock text-brand-turquoise mr-2" aria-hidden="true"></i>10:00 – 22:00</span>
-                  <a href="tel:+79112717888" class="font-bold text-lg hover:text-brand-tiffany whitespace-nowrap transition">
-                      <i class="fas fa-phone-alt text-brand-turquoise mr-2 text-sm" aria-hidden="true"></i>+7 (911) 271-78-88
-                  </a>
-              </div>
-
-              <!-- Мобильная кнопка -->
-              <div class="lg:hidden flex justify-between w-full items-center">
-                  <div class="flex items-center">
-                      <a href="index.html" aria-label="На главную">
-                        <img src="/img/logo.svg" alt="Логотип" class="h-14 w-auto object-contain">
-                      </a>
-                  </div>
-                  <button id="mobile-menu-btn" type="button" class="text-2xl text-brand-tiffany p-2" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-                      <i class="fas fa-bars" aria-hidden="true"></i>
-                  </button>
-              </div>
-          </div>
-      </div>
-
-      <div class="border-b border-gray-200 hidden lg:block relative z-10"></div>
-
-      <!-- 2 УРОВЕНЬ -->
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 hidden lg:flex justify-between items-center py-4 relative z-20">
-          <a href="index.html" class="flex items-center shrink-0 mr-4 hover:opacity-90 transition relative group" aria-label="На главную">
-              <img src="/img/logo.svg" alt="Логотип Планета здоровой кожи" class="lg:w-24 lg:h-24 xl:w-32 xl:h-32 object-contain -my-10 relative z-20 drop-shadow-sm" width="128" height="128">
-          </a>
-          <nav class="flex lg:gap-2 xl:gap-6 lg:text-[10px] xl:text-[13px] font-bold text-gray-800 uppercase justify-center items-center text-center leading-tight">
-              <a href="laser.html" class="nav-service-link lg:w-auto xl:w-24 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Лазерная<br>эпиляция</a>
-              <a href="removal.html" class="nav-service-link lg:w-auto xl:w-36 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Удаление<br>новообразований</a>
-              <a href="hardware.html" class="nav-service-link lg:w-auto xl:w-28 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Аппаратная<br>косметология</a>
-              <a href="inject.html" class="nav-service-link lg:w-auto xl:w-32 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Инъекционная<br>косметология</a>
-              <a href="aesthetic.html" class="nav-service-link lg:w-auto xl:w-32 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Эстетическая<br>косметология</a>
-              <a href="body.html" class="nav-service-link lg:w-auto xl:w-24 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Коррекция<br>фигуры</a>
-          </nav>
-          <div class="ml-4 shrink-0">
-              <button type="button" class="js-scroll-to-form bg-brand-turquoise text-white lg:px-4 lg:py-2 xl:px-6 xl:py-3 rounded-full font-bold lg:text-[10px] xl:text-sm uppercase tracking-wide hover:bg-brand-tiffany transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200 whitespace-nowrap h-auto leading-tight text-center">
-                  Записаться на приём
-              </button>
-            </div>
-      </div>
-
-      <!-- Мобильное меню -->
-      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full left-0 top-full shadow-2xl max-h-[85vh] overflow-y-auto z-50">
-          <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-700">
-              <div class="pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg">Навигация</div>
-              <a href="about.html" class="pl-2 hover:text-brand-turquoise">О клинике</a>
-              <a href="specialists.html" class="pl-2 hover:text-brand-turquoise">Врачи</a>
-              <a href="equipment.html" class="pl-2 hover:text-brand-turquoise">Оборудование</a>
-              <a href="promo.html" class="pl-2 text-brand-turquoise font-bold">Акции</a>
-              <a href="reviews.html" class="pl-2 hover:text-brand-turquoise">Отзывы</a>
-              <a href="certificates.html" class="pl-2 hover:text-brand-turquoise">Сертификаты</a>
-              <a href="#contacts" class="pl-2 hover:text-brand-turquoise">Контакты</a>
-              
-              <div class="pt-2 pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg mt-2">Наши услуги</div>
-              <a href="laser.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Лазерная эпиляция</a>
-              <a href="removal.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Удаление новообразований</a>
-              <a href="hardware.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Аппаратная косметология</a>
-              <a href="inject.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Инъекционная косметология</a>
-              <a href="aesthetic.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Эстетическая косметология</a>
-              <a href="body.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Коррекция фигуры</a>
-              
-              <button type="button" class="js-scroll-to-form mt-6 w-full bg-brand-turquoise text-white py-4 rounded-xl text-center font-bold uppercase shadow-md active:scale-95 transition">Записаться на приём</button>
-          </nav>
-      </div>
-  </header>
+    <!-- HEADER_PLACEHOLDER -->
 
   <!-- NAV -->
   <div class="bg-white border-b border-gray-100 shadow-sm relative z-10">
-      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="container mx-auto px-6 sm:px-8 lg:px-12 py-3 flex items-center justify-between">
           <a href="index.html" class="inline-flex items-center text-sm font-bold text-gray-500 hover:text-brand-turquoise transition group">
               <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2 group-hover:bg-brand-light transition">
                   <i class="fas fa-arrow-left text-xs group-hover:text-brand-turquoise" aria-hidden="true"></i>
@@ -141,14 +48,14 @@
 
   <main>
       <!-- HERO -->
-      <section class="relative bg-brand-peach/10 py-16 lg:py-24 overflow-hidden">
-          <div class="absolute -right-20 -top-20 w-96 h-96 bg-brand-peach/30 rounded-full blur-3xl"></div>
-          <div class="absolute -left-20 bottom-0 w-80 h-80 bg-brand-turquoise/20 rounded-full blur-3xl"></div>
+      <section class="relative h-[500px] flex items-center overflow-hidden bg-brand-dark">
+          <img src="/img/promo-hero.webp" alt="Акции и спецпредложения" class="absolute inset-0 w-full h-full object-cover opacity-40" aria-hidden="true">
+          <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
 
-          <div class="container mx-auto px-4 relative z-10 text-center">
-                <span class="text-brand-turquoise font-bold tracking-widest uppercase text-xs mb-4 block">Специальные предложения</span>
-                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-dark mb-6">Инвестируйте в свою <br><span class="text-brand-tiffany">красоту выгодно</span></h1>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg mb-8">Мы регулярно обновляем список акций, чтобы вы могли попробовать лучшие процедуры по приятным ценам.</p>
+          <div class="container mx-auto px-4 relative z-10 text-center text-white">
+                <span class="text-brand-peach font-bold tracking-widest uppercase text-xs mb-4 block">Специальные предложения</span>
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">Инвестируйте в свою <br><span class="text-brand-tiffany">красоту выгодно</span></h1>
+                <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto">Мы регулярно обновляем список акций, чтобы вы могли попробовать лучшие процедуры по приятным ценам.</p>
           </div>
       </section>
 
@@ -184,7 +91,7 @@
                   <!-- Акция 1: Знакомство -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <img src="/img/aesthetic-hero.jpg" alt="Знакомство с клиникой" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                          <img src="/img/aesthetic-hero.webp" alt="Знакомство с клиникой" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                           <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-15%</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
@@ -199,7 +106,7 @@
                   <!-- Акция 2: SMAS -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <img src="/img/smas-beelift-ep.jpg" alt="SMAS Лифтинг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                          <img src="/img/smas-beelift-ep.webp" alt="SMAS Лифтинг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                           <div class="absolute top-4 left-4 bg-brand-peach text-brand-dark text-xs font-bold px-3 py-1.5 rounded-lg uppercase">Выгодно</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
@@ -216,7 +123,7 @@
                   <!-- Акция 3: Чистка + Пилинг -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <img src="/img/aesthetic-peeling.jpg" alt="Чистка + Пилинг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                          <img src="/img/aesthetic-peeling.webp" alt="Чистка + Пилинг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                           <div class="absolute top-4 left-4 bg-brand-turquoise text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">Комплекс</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
@@ -233,7 +140,7 @@
                   <!-- Акция 4: Губы -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <img src="/img/inject-result-1.jpg" alt="Губы" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                          <img src="/img/inject-result-1.webp" alt="Губы" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
                           <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Увлажнение губ</h3>
@@ -277,11 +184,151 @@
                    <h2 class="font-serif text-3xl md:text-4xl mb-4 text-brand-dark">Запишитесь по акции</h2>
                    <p class="mb-8 text-sm text-gray-500 leading-relaxed">Оставьте заявку, и мы забронируем за вами спецпредложение.</p>
                    
-                   <form class="space-y-4" method="POST" action="/send-form">
-                        <input type="text" name="name" placeholder="Ваше имя" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition" required>
-                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition" required>
-                        <button type="submit" class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm">Отправить заявку</button>
-                        <p class="text-[10px] text-gray-400 mt-2">Нажимая кнопку, вы соглашаетесь с <a href="policy.html" class="underline hover:text-brand-turquoise transition">политикой обработки персональных данных</a></p>
+                   <form
+                     id="lead-form"
+                     class="js-lead-form space-y-5"
+                     method="post"
+                     action="/send-form/index.php"
+                     novalidate
+                     data-form-id="lead_promo"
+                     data-service=""
+                     data-thanks="thanks.html"
+                   >
+                     <!-- Honeypot -->
+                     <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                     <!-- Телефон -->
+                     <div>
+                       <label for="lead-phone-promo" class="sr-only">Телефон</label>
+                       <input
+                         id="lead-phone-promo"
+                         name="phone"
+                         type="tel"
+                         inputmode="tel"
+                         autocomplete="tel"
+                         placeholder="Номер телефона"
+                         class="mask-phone w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                         required
+                       >
+                       <p class="mt-2 text-xs text-red-600 hidden" data-error-for="phone"></p>
+                     </div>
+
+                     <!-- Имя (опционально) -->
+                     <div>
+                       <label for="lead-name-promo" class="sr-only">Как к вам обращаться</label>
+                       <input
+                         id="lead-name-promo"
+                         name="name"
+                         type="text"
+                         autocomplete="name"
+                         placeholder="Как к вам обращаться (необязательно)"
+                         class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                         minlength="2"
+                         maxlength="60"
+                       >
+                       <p class="mt-2 text-xs text-red-600 hidden" data-error-for="name"></p>
+                     </div>
+
+                     <!-- Способ связи (только звонок + Max) -->
+                     <div>
+                       <div class="text-xs font-semibold text-gray-600">Как связаться?</div>
+
+                       <div class="mt-2 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Способ связи">
+                         <button
+                           type="button"
+                           class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-brand-turquoise text-white border-brand-turquoise"
+                           data-method="call"
+                           role="radio"
+                           aria-checked="true"
+                         >
+                           <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                         </button>
+
+                         <button
+                           type="button"
+                           class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
+                           data-method="max"
+                           role="radio"
+                           aria-checked="false"
+                         >
+                           <img src="/img/max-logo.svg" alt="" class="w-4 h-4 mr-2 inline-block align-middle max-logo-icon">Max
+                         </button>
+                       </div>
+
+                       <input type="hidden" name="contact_method" value="call">
+                     </div>
+
+                     <!-- Комментарий (опционально) -->
+                     <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4">
+                       <summary class="cursor-pointer text-sm font-semibold text-gray-700 select-none">
+                         Есть вопрос? Напишите
+                         <span class="ml-2 text-xs text-gray-400 group-open:hidden">(необязательно)</span>
+                       </summary>
+                       <div class="pt-3">
+                         <label for="lead-comment-promo" class="sr-only">Коротко: что беспокоит?</label>
+                         <textarea
+                           id="lead-comment-promo"
+                           name="comment"
+                           rows="3"
+                           placeholder="Коротко: что беспокоит?"
+                           class="w-full resize-none rounded-xl border border-gray-200 bg-white p-3 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                         ></textarea>
+                       </div>
+                     </details>
+
+                     <!-- (Опционально) строка с услугой -->
+                     <div class="hidden text-xs text-gray-500" data-service-row>
+                       Услуга: <span class="font-semibold text-gray-700" data-service-label></span>
+                     </div>
+
+                     <!-- Согласие (текст по центру чекбокса) -->
+                     <div>
+                       <div class="flex items-center gap-3">
+                         <input
+                           id="lead-consent-promo"
+                           name="consent"
+                           type="checkbox"
+                           required
+                           class="h-4 w-4 rounded border-gray-300 text-brand-turquoise focus:ring-brand-turquoise"
+                         >
+                         <label for="lead-consent-promo" class="text-xs text-gray-500 leading-snug">
+                           Согласен на обработку персональных данных и ознакомлен(а) с
+                           <a href="policy.html" class="underline hover:text-brand-turquoise transition">политикой</a>.
+                         </label>
+                       </div>
+                       <p class="mt-2 text-xs text-red-600 hidden" data-error-for="consent"></p>
+                     </div>
+
+                     <p class="text-xs text-gray-500">
+                       Не спамим. Только по записи. Ответит администратор клиники.
+                     </p>
+
+                     <!-- Общие сообщения -->
+                     <div class="hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700" data-form-error></div>
+                     <div class="hidden rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800" data-form-success></div>
+
+                     <!-- Скрытые поля -->
+                     <input type="hidden" name="page" value="">
+                     <input type="hidden" name="service" value="">
+                     <input type="hidden" name="policy_version" value="2025-12-12">
+                     <input type="hidden" name="referrer" value="">
+                     <input type="hidden" name="form_id" value="lead_promo">
+                     <input type="hidden" name="fill_time_ms" value="">
+
+                     <input type="hidden" name="utm_source" value="">
+                     <input type="hidden" name="utm_medium" value="">
+                     <input type="hidden" name="utm_campaign" value="">
+                     <input type="hidden" name="utm_content" value="">
+                     <input type="hidden" name="utm_term" value="">
+                     <input type="hidden" name="gclid" value="">
+                     <input type="hidden" name="yclid" value="">
+
+                     <button
+                       type="submit"
+                       class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm"
+                     >
+                       Жду звонка
+                     </button>
                    </form>
                </div>
           </div>
@@ -289,42 +336,7 @@
 
   </main>
 
-  <!-- ПОДВАЛ -->
-  <footer id="contacts" class="bg-gray-50 text-gray-700 pt-16 pb-8 mt-8 footer-shadow">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col lg:flex-row gap-12 mb-12">
-              <div class="lg:w-4/12">
-                  <div class="mb-8"><img src="/img/logo.svg" alt="Планета здоровой кожи" class="w-48 h-auto" width="192" height="60"></div>
-                  <p class="text-gray-500 mb-8 text-sm leading-relaxed">Лицензированная медицинская клиника в Кудрово. Мы объединяем эстетику и здоровье.</p>
-                  
-                  <div class="space-y-5 text-sm font-medium">
-                      <div class="flex items-center gap-4"><div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><span>г. Кудрово, <br>Европейский пр., д. 22</span></div>
-                      <div class="flex items-center gap-4"><div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="fas fa-phone-alt" aria-hidden="true"></i></div><a href="tel:+79112717888" class="hover:text-brand-peach transition">+7 (911) 271-78-88</a></div>
-                      <div class="flex items-center gap-4"><div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="far fa-clock" aria-hidden="true"></i></div><span>Ежедневно 10:00 – 22:00</span></div>
-                  </div>
-                  
-                  <div class="flex gap-4 mt-10">
-                      <a href="https://www.instagram.com/planet_hs2024/" target="_blank" rel="noopener noreferrer" aria-label="Instagram клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                      <a href="https://vk.com/planetofhealthyskin" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-vk" aria-hidden="true"></i></a>
-                      <a href="https://api.whatsapp.com/send/?phone=79112717888&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                  </div>
-              </div>
-
-              <div class="lg:w-8/12 rounded-3xl overflow-hidden h-[350px] bg-white relative shadow-lg border border-gray-200">
-                  <iframe src="https://yandex.ru/map-widget/v1/?ll=30.521447%2C59.911771&z=16" width="100%" height="100%" frameborder="0" allowfullscreen="true" title="Карта расположения клиники Планета здоровой кожи" loading="lazy"></iframe>
-                  <div class="absolute top-4 right-4 bg-white text-brand-dark px-4 py-2 rounded-lg shadow-lg text-xs font-bold z-10"><i class="fas fa-parking mr-1 text-brand-turquoise" aria-hidden="true"></i> Есть парковка</div>
-              </div>
-          </div>
-
-          <div class="border-t border-gray-200 pt-8 flex flex-col justify-between items-center text-xs text-gray-500 gap-4">
-              <div class="flex flex-col md:flex-row justify-between w-full items-center gap-4">
-                  <p>&copy; 2024 ООО «Планета здоровой кожи». Все права защищены.</p>
-                  <div class="flex gap-6"><a href="policy.html" class="hover:text-brand-turquoise transition">Политика конфиденциальности</a></div>
-              </div>
-              <p class="text-[10px] text-gray-400 mt-4 w-full text-left">* Деятельность Meta (Facebook и Instagram) запрещена в России как экстремистская.</p>
-          </div>
-      </div>
-  </footer>
+    <!-- FOOTER_PLACEHOLDER -->
 
   <script type="module" src="/src/main.js"></script>
 </body>

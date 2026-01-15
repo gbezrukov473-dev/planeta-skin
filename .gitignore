@@ -25,3 +25,16 @@ dist-ssr
 
 .vercel
 Thumbs.db
+
+# Данные и логи
+data/leads.jsonl
+data/ratelimit/
+*.jsonl
+
+# Временные файлы
+*.tmp
+*.temp
+
+.env
+.env.*
+

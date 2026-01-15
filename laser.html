@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://hs-planet.ru/laser.html">
     <meta property="og:title" content="Лазерная эпиляция Moveo без боли | Планета здоровой кожи">
     <meta property="og:description" content="Революционная технология DEKA Moveo. Удаляет любые волосы, даже на загорелой коже.">
-    <meta property="og:image" content="https://hs-planet.ru/img/s-laser.jpg">
+    <meta property="og:image" content="https://hs-planet.ru/img/s-laser.webp">
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -24,93 +24,142 @@
     
     <!-- Font Awesome (CSS версия) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org разметка -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Лазерная эпиляция Moveo",
+      "description": "Александритовый лазер DEKA Motus AX Moveo для удаления волос. Без боли, можно загорать, эффективно для светлых волос.",
+      "provider": {
+        "@type": "MedicalBusiness",
+        "name": "Планета здоровой кожи",
+        "telephone": "+79112717888",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Кудрово",
+          "addressRegion": "Ленинградская область",
+          "addressCountry": "RU"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Кудрово"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Бикини + Подмышки",
+          "priceCurrency": "RUB",
+          "price": "4900",
+          "description": "Акция: скидка на комплекс"
+        }
+      ],
+      "serviceType": "LaserHairRemoval"
+    }
+    </script>
+
+    <!-- Стили для слайдера результатов -->
+    <style>
+        .results-slider {
+            position: relative;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 320px;
+        }
+
+        .results-slider .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transform: translateX(0%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .results-slider .slider > div {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: zoom-in;
+        }
+
+        .results-slider .nav-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 1;
+        }
+
+        .results-slider button[data-index-change] {
+            font-size: 16px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .results-slider button[data-index-change]:hover {
+            background-color: #44C8D2;
+        }
+
+        .results-slider .index-container {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .results-slider .index-container > button {
+            width: 8px;
+            height: 8px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .results-slider .index-container > button:hover,
+        .results-slider .index-container > button.active {
+            background-color: #44C8D2;
+            transform: scale(1.2);
+        }
+
+        @media (min-width: 1024px) {
+            .results-slider {
+                height: 360px;
+            }
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
-    <!-- === ШАПКА === -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-3 text-sm">
-                <!-- Левое меню -->
-                <nav class="hidden lg:flex lg:gap-4 xl:gap-6 font-semibold text-gray-800">
-                    <a href="about.html" class="hover:text-brand-tiffany transition whitespace-nowrap">О клинике</a>
-                    <a href="specialists.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Врачи</a>
-                    <a href="equipment.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Оборудование</a>
-                    <a href="promo.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Акции</a>
-                    <a href="reviews.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Отзывы</a>
-                    <a href="certificates.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Сертификаты</a>
-                </nav>
-
-                <!-- Правые контакты -->
-                <div class="hidden lg:flex items-center lg:gap-4 xl:gap-8 text-gray-800 font-medium ml-auto">
-                    <span><i class="fas fa-map-marker-alt text-brand-turquoise mr-2" aria-hidden="true"></i>Кудрово</span>
-                    <span><i class="far fa-clock text-brand-turquoise mr-2" aria-hidden="true"></i>10:00 – 22:00</span>
-                    <a href="tel:+79112717888" class="font-bold text-lg hover:text-brand-tiffany whitespace-nowrap transition">
-                        <i class="fas fa-phone-alt text-brand-turquoise mr-2 text-sm" aria-hidden="true"></i>+7 (911) 271-78-88
-                    </a>
-                </div>
-
-                <!-- Мобильная кнопка -->
-                <div class="lg:hidden flex justify-between w-full items-center">
-                    <div class="flex items-center">
-                        <a href="index.html" aria-label="На главную">
-                            <img src="/img/logo.svg" alt="Логотип" class="h-14 w-auto object-contain">
-                        </a>
-                    </div>
-                    <button id="mobile-menu-btn" type="button" class="text-2xl text-brand-tiffany p-2" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-                        <i class="fas fa-bars" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-b border-gray-200 hidden lg:block relative z-10"></div>
-
-        <!-- 2 УРОВЕНЬ -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 hidden lg:flex justify-between items-center py-4 relative z-20">
-            <a href="index.html" class="flex items-center shrink-0 mr-4 hover:opacity-90 transition relative group" aria-label="На главную">
-                <img src="/img/logo.svg" alt="Логотип Планета здоровой кожи" class="lg:w-24 lg:h-24 xl:w-32 xl:h-32 object-contain -my-10 relative z-20 drop-shadow-sm" width="128" height="128">
-            </a>
-            <nav class="flex lg:gap-2 xl:gap-6 lg:text-[10px] xl:text-[13px] font-bold text-gray-800 uppercase justify-center items-center text-center leading-tight">
-                <a href="laser.html" class="nav-service-link lg:w-auto xl:w-24 lg:px-1 xl:px-0 text-brand-turquoise cursor-default transition duration-200">Лазерная<br>эпиляция</a>
-                <a href="removal.html" class="nav-service-link lg:w-auto xl:w-36 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Удаление<br>новообразований</a>
-                <a href="hardware.html" class="nav-service-link lg:w-auto xl:w-28 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Аппаратная<br>косметология</a>
-                <a href="inject.html" class="nav-service-link lg:w-auto xl:w-32 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Инъекционная<br>косметология</a>
-                <a href="aesthetic.html" class="nav-service-link lg:w-auto xl:w-32 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Эстетическая<br>косметология</a>
-                <a href="body.html" class="nav-service-link lg:w-auto xl:w-24 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Коррекция<br>фигуры</a>
-            </nav>
-            <div class="ml-4 shrink-0">
-                <button type="button" class="js-scroll-to-form bg-brand-turquoise text-white lg:px-4 lg:py-2 xl:px-6 xl:py-3 rounded-full font-bold lg:text-[10px] xl:text-sm uppercase tracking-wide hover:bg-brand-tiffany transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200 whitespace-nowrap h-auto leading-tight text-center">
-                    Записаться на приём
-                </button>
-            </div>
-        </div>
-
-        <!-- Мобильное меню -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full left-0 top-full shadow-2xl max-h-[85vh] overflow-y-auto z-50">
-            <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-700">
-                <div class="pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg">Навигация</div>
-                <a href="index.html" class="pl-2 hover:text-brand-turquoise">На главную</a>
-                <a href="about.html" class="pl-2 hover:text-brand-turquoise">О клинике</a>
-                <a href="specialists.html" class="pl-2 hover:text-brand-turquoise">Врачи</a>
-                <a href="equipment.html" class="pl-2 hover:text-brand-turquoise">Оборудование</a>
-                <a href="promo.html" class="pl-2 hover:text-brand-turquoise">Акции</a>
-                <a href="reviews.html" class="pl-2 hover:text-brand-turquoise">Отзывы</a>
-                <a href="certificates.html" class="pl-2 hover:text-brand-turquoise">Сертификаты</a>
-                <a href="#contacts" class="pl-2 hover:text-brand-turquoise">Контакты</a>
-                
-                <div class="pt-2 pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg mt-2">Наши услуги</div>
-                <a href="laser.html" class="pl-2 text-sm flex items-center text-brand-turquoise font-bold"><i class="fas fa-chevron-right text-xs mr-2" aria-hidden="true"></i>Лазерная эпиляция</a>
-                <a href="removal.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Удаление новообразований</a>
-                <a href="hardware.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Аппаратная косметология</a>
-                <a href="inject.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Инъекционная косметология</a>
-                <a href="aesthetic.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Эстетическая косметология</a>
-                <a href="body.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Коррекция фигуры</a>
-                
-                <button type="button" class="js-scroll-to-form mt-6 w-full bg-brand-turquoise text-white py-4 rounded-xl text-center font-bold uppercase shadow-md active:scale-95 transition">Записаться на приём</button>
-            </nav>
-        </div>
-    </header>
+    <!-- HEADER_PLACEHOLDER -->
 
     <!-- NAV -->
     <div class="bg-white border-b border-gray-100 shadow-sm relative z-10">
@@ -135,7 +184,7 @@
     <main>
         <!-- HERO -->
         <section class="relative h-[500px] md:h-[600px] flex items-center overflow-hidden bg-brand-dark">
-            <img src="/img/s-laser.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-50" aria-hidden="true">
+            <img src="/img/s-laser.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-50" aria-hidden="true">
             <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
             <div class="container mx-auto px-4 relative z-10 text-white">
                 <div class="max-w-3xl">
@@ -201,97 +250,75 @@
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-4xl mx-auto">
                             <!-- Акция 1 -->
-                            <div class="bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center">
+                            <button type="button" class="js-scroll-to-moveo-form bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center cursor-pointer text-left w-full">
                                 <div class="font-bold text-sm sm:text-base pr-4">Бикини тотальное (вместе с межъягодичной областью) <br> + Подмышки</div>
                                 <div class="text-right shrink-0">
                                     <div class="text-2xl font-bold text-brand-peach font-serif whitespace-nowrap">4 900 &#8381;</div>
                                     <div class="text-sm line-through opacity-60 whitespace-nowrap">6 700 &#8381;</div>
                                 </div>
-                            </div>
+                            </button>
                             <!-- Акция 2 -->
-                            <div class="bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center">
+                            <button type="button" class="js-scroll-to-moveo-form bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center cursor-pointer text-left w-full">
                                 <div class="font-bold text-sm sm:text-base pr-4">Бикини тотальное (вместе с межъягодичной областью) <br> + Подмышки + Голени</div>
                                 <div class="text-right shrink-0">
                                     <div class="text-2xl font-bold text-brand-peach font-serif whitespace-nowrap">8 500 &#8381;</div>
                                     <div class="text-sm line-through opacity-60 whitespace-nowrap">11 700 &#8381;</div>
                                 </div>
-                            </div>
+                            </button>
                             <!-- Акция 3 -->
-                            <div class="bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center">
+                            <button type="button" class="js-scroll-to-moveo-form bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center cursor-pointer text-left w-full">
                                 <div class="font-bold text-sm sm:text-base pr-4">Голени + Подмышки</div>
                                 <div class="text-right shrink-0">
                                     <div class="text-2xl font-bold text-brand-peach font-serif whitespace-nowrap">4 500 &#8381;</div>
                                     <div class="text-sm line-through opacity-60 whitespace-nowrap">6 200 &#8381;</div>
                                 </div>
-                            </div>
+                            </button>
                             <!-- Акция 4 -->
-                            <div class="bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center">
+                            <button type="button" class="js-scroll-to-moveo-form bg-white/10 px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/20 transition flex justify-between items-center cursor-pointer text-left w-full">
                                 <div class="font-bold text-sm sm:text-base pr-4">Бикини тотальное (вместе с межъягодичной областью) <br> + Подмышки + Ноги полностью</div>
                                 <div class="text-right shrink-0">
                                     <div class="text-2xl font-bold text-brand-peach font-serif whitespace-nowrap">11 690 &#8381;</div>
                                     <div class="text-sm line-through opacity-60 whitespace-nowrap">16 700 &#8381;</div>
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- РЕЗУЛЬТАТЫ ДО/ПОСЛЕ -->
-                <div class="mb-20">
-                    <h3 class="font-serif text-3xl text-brand-dark mb-8 text-center">Результаты процедуры</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                         <!-- Заглушка 1 -->
-                         <div class="bg-white p-2 rounded-2xl shadow-md">
-                             <div class="grid grid-cols-2 gap-1">
-                                 <div class="relative aspect-square bg-gray-200 rounded-l-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=До" class="absolute inset-0 w-full h-full object-cover" alt="До процедуры">
-                                 </div>
-                                 <div class="relative aspect-square bg-gray-200 rounded-r-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=После" class="absolute inset-0 w-full h-full object-cover" alt="После процедуры">
-                                 </div>
-                             </div>
-                             <p class="text-center text-sm mt-3 text-gray-500 font-bold">Подмышки</p>
-                             <p class="text-center text-xs text-gray-400">3 процедуры</p>
-                         </div>
-                         <!-- Заглушка 2 -->
-                         <div class="bg-white p-2 rounded-2xl shadow-md">
-                             <div class="grid grid-cols-2 gap-1">
-                                 <div class="relative aspect-square bg-gray-200 rounded-l-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=До" class="absolute inset-0 w-full h-full object-cover" alt="До процедуры">
-                                 </div>
-                                 <div class="relative aspect-square bg-gray-200 rounded-r-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=После" class="absolute inset-0 w-full h-full object-cover" alt="После процедуры">
-                                 </div>
-                             </div>
-                             <p class="text-center text-sm mt-3 text-gray-500 font-bold">Бикини</p>
-                             <p class="text-center text-xs text-gray-400">5 процедур</p>
-                         </div>
-                         <!-- Заглушка 3 -->
-                         <div class="bg-white p-2 rounded-2xl shadow-md">
-                             <div class="grid grid-cols-2 gap-1">
-                                 <div class="relative aspect-square bg-gray-200 rounded-l-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=До" class="absolute inset-0 w-full h-full object-cover" alt="До процедуры">
-                                 </div>
-                                 <div class="relative aspect-square bg-gray-200 rounded-r-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=После" class="absolute inset-0 w-full h-full object-cover" alt="После процедуры">
-                                 </div>
-                             </div>
-                             <p class="text-center text-sm mt-3 text-gray-500 font-bold">Голени</p>
-                             <p class="text-center text-xs text-gray-400">4 процедуры</p>
-                         </div>
-                         <!-- Заглушка 4 -->
-                         <div class="bg-white p-2 rounded-2xl shadow-md">
-                             <div class="grid grid-cols-2 gap-1">
-                                 <div class="relative aspect-square bg-gray-200 rounded-l-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=До" class="absolute inset-0 w-full h-full object-cover" alt="До процедуры">
-                                 </div>
-                                 <div class="relative aspect-square bg-gray-200 rounded-r-xl overflow-hidden">
-                                     <img src="https://placehold.co/400x400/EEE/999?text=После" class="absolute inset-0 w-full h-full object-cover" alt="После процедуры">
-                                 </div>
-                             </div>
-                             <p class="text-center text-sm mt-3 text-gray-500 font-bold">Руки</p>
-                             <p class="text-center text-xs text-gray-400">3 процедуры</p>
-                         </div>
+                <div class="mb-20 bg-white rounded-3xl p-6 lg:p-10 shadow-lg border border-gray-100">
+                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+                        <!-- Текст слева -->
+                        <div class="lg:w-5/12">
+                            <span class="text-brand-turquoise font-bold uppercase tracking-widest text-xs mb-3 block">Галерея</span>
+                            <h3 class="font-serif text-2xl lg:text-3xl text-brand-dark mb-4">Результаты лазерной эпиляции</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Посмотрите реальные результаты наших клиентов. Гладкая кожа без раздражения после курса процедур на аппарате DEKA Moveo.
+                            </p>
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Результат после 3-5 процедур</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Долгосрочный эффект</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Подходит для любых зон</li>
+                            </ul>
+                            <p class="text-xs text-gray-400">Нажмите на фото для увеличения</p>
+                        </div>
+                        <!-- Карусель справа -->
+                        <div class="lg:w-7/12 w-full">
+                            <div class="results-slider">
+                                <div class="slider">
+                                    <!-- ФОТО: laser-result-1.webp, laser-result-2.webp, laser-result-3.webp, laser-result-4.webp -->
+                                    <div data-img-url="/img/laser-result-1.webp"></div>
+                                    <div data-img-url="/img/laser-result-2.webp"></div>
+                                    <div data-img-url="/img/laser-result-3.webp"></div>
+                                    <div data-img-url="/img/laser-result-4.webp"></div>
+                                </div>
+                                <div class="nav-container">
+                                    <button data-index-change="-1" aria-label="Предыдущий"><i class="fas fa-chevron-left"></i></button>
+                                    <div class="index-container"></div>
+                                    <button data-index-change="1" aria-label="Следующий"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -521,71 +548,179 @@
         <section id="form" class="py-20 bg-brand-tiffany relative overflow-hidden text-gray-800 scroll-mt-32">
             <div class="absolute inset-0 bg-brand-tiffany"><div class="absolute right-0 top-0 w-[800px] h-[800px] bg-brand-turquoise rounded-full mix-blend-overlay blur-[100px] opacity-50 translate-x-1/3 -translate-y-1/3"></div></div>
             <div class="container mx-auto px-4 relative z-10">
-                 <div class="max-w-lg mx-auto bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl text-center">
-                     <h2 class="font-serif text-3xl md:text-4xl mb-4 text-brand-dark">Запишитесь на Moveo</h2>
-                     <p class="mb-8 text-sm text-gray-500 leading-relaxed">Оставьте заявку, мы свяжемся с вами для подбора удобного времени и ответим на все вопросы.</p>
-                     <form class="space-y-4" method="POST" action="/send-form">
-                         <input type="text" name="name" placeholder="Ваше имя" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition" required>
-                         <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition" required>
-                         <button type="submit" class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm">Отправить заявку</button>
-                         <p class="text-[10px] text-gray-400 mt-2">Нажимая кнопку, вы соглашаетесь с <a href="policy.html" class="underline hover:text-brand-turquoise transition">политикой обработки персональных данных</a></p>
+                 <div class="max-w-lg mx-auto bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
+                     <h2 class="font-serif text-3xl md:text-4xl mb-3 text-brand-dark text-center">Запишитесь на Moveo</h2>
+                     <p class="mb-6 text-sm text-gray-500 leading-relaxed text-center">Перезвоним в течение 15 минут в рабочее время (10:00-22:00).</p>
+                     <form
+                       id="lead-form-laser"
+                       class="js-lead-form space-y-5"
+                       method="post"
+                       action="/send-form/index.php"
+                       novalidate
+                       data-form-id="lead_laser"
+                       data-service="Лазерная эпиляция Moveo"
+                       data-thanks="thanks.html"
+                     >
+                       <!-- Honeypot -->
+                       <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                       <!-- Телефон -->
+                       <div>
+                         <label for="lead-phone-laser" class="sr-only">Телефон</label>
+                         <input
+                           id="lead-phone-laser"
+                           name="phone"
+                           type="tel"
+                           inputmode="tel"
+                           autocomplete="tel"
+                           placeholder="Номер телефона"
+                           class="mask-phone w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                           required
+                         >
+                         <p class="mt-2 text-xs text-red-600 hidden" data-error-for="phone"></p>
+                       </div>
+
+                       <!-- Имя (опционально) -->
+                       <div>
+                         <label for="lead-name-laser" class="sr-only">Как к вам обращаться</label>
+                         <input
+                           id="lead-name-laser"
+                           name="name"
+                           type="text"
+                           autocomplete="name"
+                           placeholder="Как к вам обращаться (необязательно)"
+                           class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                           minlength="2"
+                           maxlength="60"
+                         >
+                         <p class="mt-2 text-xs text-red-600 hidden" data-error-for="name"></p>
+                       </div>
+
+                       <!-- Способ связи (только звонок + Max) -->
+                       <div>
+                         <div class="text-xs font-semibold text-gray-600">Как связаться?</div>
+
+                         <div class="mt-2 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Способ связи">
+                           <button
+                             type="button"
+                             class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-brand-turquoise text-white border-brand-turquoise"
+                             data-method="call"
+                             role="radio"
+                             aria-checked="true"
+                           >
+                             <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                           </button>
+
+                           <button
+                             type="button"
+                             class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
+                             data-method="max"
+                             role="radio"
+                             aria-checked="false"
+                           >
+                             <img src="/img/max-logo.svg" alt="" class="w-4 h-4 mr-2 inline-block align-middle max-logo-icon">Max
+                           </button>
+                         </div>
+
+                         <input type="hidden" name="contact_method" value="call">
+                       </div>
+
+                       <!-- Комментарий (опционально) -->
+                       <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4">
+                         <summary class="cursor-pointer text-sm font-semibold text-gray-700 select-none">
+                           Есть вопрос? Напишите
+                           <span class="ml-2 text-xs text-gray-400 group-open:hidden">(необязательно)</span>
+                         </summary>
+                         <div class="pt-3">
+                           <label for="lead-comment-laser" class="sr-only">Коротко: что беспокоит?</label>
+                           <textarea
+                             id="lead-comment-laser"
+                             name="comment"
+                             rows="3"
+                             placeholder="Коротко: что беспокоит?"
+                             class="w-full resize-none rounded-xl border border-gray-200 bg-white p-3 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                           ></textarea>
+                         </div>
+                       </details>
+
+                       <!-- (Опционально) строка с услугой -->
+                       <div class="hidden text-xs text-gray-500" data-service-row>
+                         Услуга: <span class="font-semibold text-gray-700" data-service-label></span>
+                       </div>
+
+                       <!-- Согласие (текст по центру чекбокса) -->
+                       <div>
+                         <div class="flex items-center gap-3">
+                           <input
+                             id="lead-consent-laser"
+                             name="consent"
+                             type="checkbox"
+                             required
+                             class="h-4 w-4 rounded border-gray-300 text-brand-turquoise focus:ring-brand-turquoise"
+                           >
+                           <label for="lead-consent-laser" class="text-xs text-gray-500 leading-snug">
+                             Согласен на обработку персональных данных и ознакомлен(а) с
+                             <a href="policy.html" class="underline hover:text-brand-turquoise transition">политикой</a>.
+                           </label>
+                         </div>
+                         <p class="mt-2 text-xs text-red-600 hidden" data-error-for="consent"></p>
+                       </div>
+
+                       <p class="text-xs text-gray-500">
+                         Не спамим. Только по записи. Ответит администратор клиники.
+                       </p>
+
+                       <!-- Общие сообщения -->
+                       <div class="hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700" data-form-error></div>
+                       <div class="hidden rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800" data-form-success></div>
+
+                       <!-- Скрытые поля -->
+                       <input type="hidden" name="page" value="laser.html">
+                       <input type="hidden" name="service" value="Лазерная эпиляция Moveo">
+                       <input type="hidden" name="policy_version" value="2025-12-12">
+                       <input type="hidden" name="referrer" value="">
+                       <input type="hidden" name="form_id" value="lead_laser">
+                       <input type="hidden" name="fill_time_ms" value="">
+
+                       <input type="hidden" name="utm_source" value="">
+                       <input type="hidden" name="utm_medium" value="">
+                       <input type="hidden" name="utm_campaign" value="">
+                       <input type="hidden" name="utm_content" value="">
+                       <input type="hidden" name="utm_term" value="">
+                       <input type="hidden" name="gclid" value="">
+                       <input type="hidden" name="yclid" value="">
+
+                       <button
+                         type="submit"
+                         class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm"
+                       >
+                         Жду звонка
+                       </button>
+
+                       <p class="text-[10px] text-gray-400 mt-2 text-center">
+                         Нажимая кнопку, вы подтверждаете согласие на <a href="policy.html" class="underline hover:text-brand-turquoise transition">обработку персональных данных</a>.
+                       </p>
                      </form>
                  </div>
             </div>
         </section>
     </main>
 
-    <!-- ПОДВАЛ (С ГЛАВНОЙ) -->
-    <footer id="contacts" class="bg-gray-50 text-gray-700 pt-16 pb-8 mt-8 footer-shadow">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-12 mb-12">
-                <div class="lg:w-4/12">
-                    <div class="mb-8">
-                         <img src="/img/logo.svg" alt="Планета здоровой кожи" class="w-48 h-auto" width="192" height="60">
-                    </div>
-                    <p class="text-gray-500 mb-8 text-sm leading-relaxed">
-                        Лицензированная медицинская клиника в Кудрово. Мы объединяем эстетику и здоровье.
-                    </p>
-                    
-                    <div class="space-y-5 text-sm font-medium">
-                        <div class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
-                            <span>г. Кудрово, <br>Европейский пр., д. 22</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="fas fa-phone-alt" aria-hidden="true"></i></div>
-                            <a href="tel:+79112717888" class="hover:text-brand-peach transition">+7 (911) 271-78-88</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                             <div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="far fa-clock" aria-hidden="true"></i></div>
-                            <span>Ежедневно 10:00 – 22:00</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-4 mt-10">
-                        <a href="https://www.instagram.com/planet_hs2024/" target="_blank" rel="noopener noreferrer" aria-label="Instagram клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://vk.com/planetofhealthyskin" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-vk" aria-hidden="true"></i></a>
-                        <a href="https://api.whatsapp.com/send/?phone=79112717888&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                    </div>
-                </div>
+    <!-- FOOTER_PLACEHOLDER -->
 
-                <div class="lg:w-8/12 rounded-3xl overflow-hidden h-[350px] bg-white relative shadow-lg border border-gray-200">
-                    <iframe src="https://yandex.ru/map-widget/v1/?ll=30.521447%2C59.911771&z=16" width="100%" height="100%" frameborder="0" allowfullscreen="true" title="Карта расположения клиники Планета здоровой кожи" loading="lazy"></iframe>
-                    <div class="absolute top-4 right-4 bg-white text-brand-dark px-4 py-2 rounded-lg shadow-lg text-xs font-bold z-10"><i class="fas fa-parking mr-1 text-brand-turquoise" aria-hidden="true"></i> Есть парковка</div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 pt-8 flex flex-col justify-between items-center text-xs text-gray-500 gap-4">
-                <div class="flex flex-col md:flex-row justify-between w-full items-center gap-4">
-                    <p>&copy; 2024 ООО «Планета здоровой кожи». Все права защищены.</p>
-                    <div class="flex gap-6">
-                        <a href="policy.html" class="hover:text-brand-turquoise transition">Политика конфиденциальности</a>
-                    </div>
-                </div>
-                <p class="text-[10px] text-gray-400 mt-4 w-full text-left">* Деятельность Meta (Facebook и Instagram) запрещена в России как экстремистская.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Лайтбокс -->
+    <div id="lightbox" class="hidden fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10" aria-label="Закрыть">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+        <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Предыдущее изображение">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Следующее изображение">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Увеличенное изображение" class="max-w-full max-h-full object-contain">
+    </div>
 
     <script type="module" src="/src/main.js"></script>
     
@@ -615,33 +750,83 @@
                 btn.setAttribute('tabindex', '-1');
             };
             
+            // Функция переключения с сохранением позиции
+            const switchTab = (showEl, hideEl, activeBtn, inactiveBtn) => {
+                // Сохраняем позицию кнопки относительно viewport
+                const btnRect = activeBtn.getBoundingClientRect();
+                const scrollY = window.scrollY;
+                
+                setActive(activeBtn);
+                setInactive(inactiveBtn);
+                
+                showEl.classList.remove('hidden');
+                showEl.classList.add('grid');
+                showEl.removeAttribute('hidden');
+                
+                hideEl.classList.add('hidden');
+                hideEl.classList.remove('grid');
+                hideEl.setAttribute('hidden', '');
+                
+                // Восстанавливаем позицию, чтобы кнопка осталась на месте
+                requestAnimationFrame(() => {
+                    const newBtnRect = activeBtn.getBoundingClientRect();
+                    const diff = newBtnRect.top - btnRect.top;
+                    if (Math.abs(diff) > 1) {
+                        window.scrollTo({
+                            top: scrollY + diff,
+                            behavior: 'instant'
+                        });
+                    }
+                });
+            };
+            
             if(btnWomen && btnMen && womenPrices && menPrices) {
                 btnWomen.addEventListener('click', () => {
-                    setActive(btnWomen);
-                    setInactive(btnMen);
-                    
-                    womenPrices.classList.remove('hidden');
-                    womenPrices.classList.add('grid');
-                    womenPrices.removeAttribute('hidden');
-                    
-                    menPrices.classList.add('hidden');
-                    menPrices.classList.remove('grid');
-                    menPrices.setAttribute('hidden', '');
+                    switchTab(womenPrices, menPrices, btnWomen, btnMen);
                 });
                 
                 btnMen.addEventListener('click', () => {
-                    setActive(btnMen);
-                    setInactive(btnWomen);
-                    
-                    menPrices.classList.remove('hidden');
-                    menPrices.classList.add('grid');
-                    menPrices.removeAttribute('hidden');
-                    
-                    womenPrices.classList.add('hidden');
-                    womenPrices.classList.remove('grid');
-                    womenPrices.setAttribute('hidden', '');
+                    switchTab(menPrices, womenPrices, btnMen, btnWomen);
                 });
             }
+
+            // Прокрутка к форме Moveo при клике на кнопки комплексов в блоке "Счастливые часы"
+            const scrollButtons = document.querySelectorAll('.js-scroll-to-moveo-form');
+            const moveoForm = document.getElementById('form');
+            
+            if (moveoForm) {
+                scrollButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        moveoForm.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                });
+            }
+            
+            // Предотвращение скачков при открытии/закрытии details
+            const allDetails = document.querySelectorAll('details');
+            allDetails.forEach(detail => {
+                detail.addEventListener('toggle', (e) => {
+                    // Сохраняем позицию summary относительно viewport
+                    const summary = detail.querySelector('summary');
+                    if (!summary) return;
+                    
+                    const rect = summary.getBoundingClientRect();
+                    
+                    // Если элемент выше viewport после toggle, прокручиваем к нему
+                    requestAnimationFrame(() => {
+                        const newRect = summary.getBoundingClientRect();
+                        if (newRect.top < 0) {
+                            window.scrollBy({
+                                top: newRect.top - 20,
+                                behavior: 'instant'
+                            });
+                        }
+                    });
+                });
+            });
         });
     </script>
 </body>
