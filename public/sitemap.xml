@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Главная страница -->
+  <url>
+    <loc>https://hs-planet.ru/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- О клинике -->
+  <url>
+    <loc>https://hs-planet.ru/about.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Врачи -->
+  <url>
+    <loc>https://hs-planet.ru/specialists.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Оборудование -->
+  <url>
+    <loc>https://hs-planet.ru/equipment.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Акции -->
+  <url>
+    <loc>https://hs-planet.ru/promo.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Отзывы -->
+  <url>
+    <loc>https://hs-planet.ru/reviews.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Подарочные сертификаты -->
+  <url>
+    <loc>https://hs-planet.ru/certificates.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Юридическая информация -->
+  <url>
+    <loc>https://hs-planet.ru/legal.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Услуги -->
+  <url>
+    <loc>https://hs-planet.ru/laser.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://hs-planet.ru/removal.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://hs-planet.ru/hardware.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://hs-planet.ru/inject.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://hs-planet.ru/aesthetic.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://hs-planet.ru/body.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+</urlset>

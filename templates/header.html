@@ -1,0 +1,63 @@
+<!-- === ШАПКА САЙТА === -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="flex justify-between items-center py-3 text-sm">
+            
+            <!-- Левое меню -->
+            <nav class="hidden lg:flex lg:gap-4 xl:gap-6 font-semibold text-gray-800">
+                <!-- MAIN_MENU_PLACEHOLDER -->
+            </nav>
+
+            <!-- Правые контакты -->
+            <div class="hidden lg:flex items-center lg:gap-4 xl:gap-8 text-gray-800 font-medium ml-auto">
+                <a href="https://yandex.ru/maps/?pt=30.521447,59.911771&z=16" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap hover:text-brand-turquoise transition cursor-pointer" aria-label="Открыть адрес клиники на Яндекс.Картах">
+                    <i class="fas fa-map-marker-alt text-brand-turquoise mr-2" aria-hidden="true"></i>Кудрово
+                </a>
+                <span class="whitespace-nowrap"><i class="far fa-clock text-brand-turquoise mr-2" aria-hidden="true"></i>10:00 – 22:00</span>
+                <a href="tel:+79112717888" class="font-bold text-lg hover:text-brand-tiffany whitespace-nowrap transition">
+                    <i class="fas fa-phone-alt text-brand-turquoise mr-2 text-sm" aria-hidden="true"></i>+7 (911) 271-78-88
+                </a>
+            </div>
+
+            <!-- МОБИЛЬНАЯ ШАПКА -->
+            <div class="lg:hidden flex justify-between w-full items-center">
+                <div class="flex items-center">
+                    <img src="/img/logo.svg" alt="Логотип Планета здоровой кожи" class="h-14 w-auto object-contain" width="56" height="56">
+                </div>
+                <!-- aria-controls и aria-expanded для доступности -->
+                <button id="mobile-menu-btn" type="button" class="text-2xl text-brand-tiffany p-2" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-b border-gray-200 hidden lg:block relative z-10"></div>
+
+    <!-- 2 УРОВЕНЬ -->
+    <div class="container mx-auto px-6 sm:px-8 lg:px-12 hidden lg:flex justify-between items-center py-4 relative z-20">
+        <a href="index.html" class="inline-block shrink-0 mr-4 hover:opacity-90 transition leading-none p-0" aria-label="На главную">
+            <img src="/img/logo.svg" alt="Логотип Планета здоровой кожи" class="lg:w-24 xl:w-32 h-auto object-contain block relative z-20 drop-shadow-sm" width="128" height="128">
+        </a>
+        <nav class="flex lg:gap-2 xl:gap-6 lg:text-[10px] xl:text-[13px] font-bold text-gray-800 uppercase justify-center items-center text-center leading-tight">
+            <!-- SERVICE_MENU_PLACEHOLDER -->
+        </nav>
+        <div class="ml-4 shrink-0">
+            <!-- Адаптивная кнопка -->
+            <button type="button" class="js-scroll-to-form bg-brand-turquoise text-white lg:px-4 lg:py-2 xl:px-6 xl:py-3 rounded-full font-bold lg:text-[10px] xl:text-sm uppercase tracking-wide hover:bg-brand-tiffany transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200 h-auto leading-tight text-center whitespace-nowrap">
+                Записаться на приём
+            </button>
+        </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full left-0 top-full shadow-2xl max-h-[85vh] overflow-y-auto z-50">
+        <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-700">
+            <div class="pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg">Навигация</div>
+            <!-- MOBILE_MAIN_MENU_PLACEHOLDER -->
+            
+            <div class="pt-2 pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg mt-2">Наши услуги</div>
+            <!-- MOBILE_SERVICE_MENU_PLACEHOLDER -->
+        </nav>
+    </div>
+</header>

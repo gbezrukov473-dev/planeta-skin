@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://hs-planet.ru/body.html">
     <meta property="og:title" content="Коррекция фигуры в Кудрово | Стройность без усилий">
     <meta property="og:description" content="Устранение жировых ловушек и целлюлита. Аппаратные и инъекционные методики.">
-    <meta property="og:image" content="https://hs-planet.ru/img/body-hero.jpg">
+    <meta property="og:image" content="https://hs-planet.ru/img/body-hero.webp">
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -24,92 +24,127 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org разметка -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Коррекция фигуры",
+      "description": "Аппаратное похудение DEKA Onda, липолитики, лечение целлюлита. Эффективные методики без операций и диет.",
+      "provider": {
+        "@type": "MedicalBusiness",
+        "name": "Планета здоровой кожи",
+        "telephone": "+79112717888"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Кудрово"
+      },
+      "serviceType": "BodyContouring"
+    }
+    </script>
+
+    <!-- Стили для слайдера результатов -->
+    <style>
+        .results-slider {
+            position: relative;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 320px;
+        }
+
+        .results-slider .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transform: translateX(0%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .results-slider .slider > div {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: zoom-in;
+        }
+
+        .results-slider .nav-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 1;
+        }
+
+        .results-slider button[data-index-change] {
+            font-size: 16px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .results-slider button[data-index-change]:hover {
+            background-color: #44C8D2;
+        }
+
+        .results-slider .index-container {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .results-slider .index-container > button {
+            width: 8px;
+            height: 8px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .results-slider .index-container > button:hover,
+        .results-slider .index-container > button.active {
+            background-color: #44C8D2;
+            transform: scale(1.2);
+        }
+
+        @media (min-width: 1024px) {
+            .results-slider {
+                height: 360px;
+            }
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
-    <!-- === ШАПКА === -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-3 text-sm">
-                <!-- Левое меню -->
-                <nav class="hidden lg:flex lg:gap-4 xl:gap-6 font-semibold text-gray-800">
-                    <a href="about.html" class="hover:text-brand-tiffany transition whitespace-nowrap">О клинике</a>
-                    <a href="specialists.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Врачи</a>
-                    <a href="equipment.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Оборудование</a>
-                    <a href="promo.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Акции</a>
-                    <a href="reviews.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Отзывы</a>
-                    <a href="certificates.html" class="hover:text-brand-tiffany transition whitespace-nowrap">Сертификаты</a>
-                </nav>
-
-                <!-- Правые контакты -->
-                <div class="hidden lg:flex items-center lg:gap-4 xl:gap-8 text-gray-800 font-medium ml-auto">
-                    <span><i class="fas fa-map-marker-alt text-brand-turquoise mr-2" aria-hidden="true"></i>Кудрово</span>
-                    <span><i class="far fa-clock text-brand-turquoise mr-2" aria-hidden="true"></i>10:00 – 22:00</span>
-                    <a href="tel:+79112717888" class="font-bold text-lg hover:text-brand-tiffany whitespace-nowrap transition">
-                        <i class="fas fa-phone-alt text-brand-turquoise mr-2 text-sm" aria-hidden="true"></i>+7 (911) 271-78-88
-                    </a>
-                </div>
-
-                <!-- Мобильная кнопка -->
-                <div class="lg:hidden flex justify-between w-full items-center">
-                    <div class="flex items-center">
-                        <a href="index.html" aria-label="На главную">
-                            <img src="/img/logo.svg" alt="Логотип" class="h-14 w-auto object-contain">
-                        </a>
-                    </div>
-                    <button id="mobile-menu-btn" type="button" class="text-2xl text-brand-tiffany p-2" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-                        <i class="fas fa-bars" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-b border-gray-200 hidden lg:block relative z-10"></div>
-
-        <!-- 2 УРОВЕНЬ -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 hidden lg:flex justify-between items-center py-4 relative z-20">
-            <a href="index.html" class="flex items-center shrink-0 mr-4 hover:opacity-90 transition relative group" aria-label="На главную">
-                <img src="/img/logo.svg" alt="Логотип Планета здоровой кожи" class="lg:w-24 lg:h-24 xl:w-32 xl:h-32 object-contain -my-10 relative z-20 drop-shadow-sm" width="128" height="128">
-            </a>
-            <nav class="flex lg:gap-2 xl:gap-6 lg:text-[10px] xl:text-[13px] font-bold text-gray-800 uppercase justify-center items-center text-center leading-tight">
-                <a href="laser.html" class="nav-service-link lg:w-auto xl:w-24 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Лазерная<br>эпиляция</a>
-                <a href="removal.html" class="nav-service-link lg:w-auto xl:w-36 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Удаление<br>новообразований</a>
-                <a href="hardware.html" class="nav-service-link lg:w-auto xl:w-28 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Аппаратная<br>косметология</a>
-                <a href="inject.html" class="nav-service-link lg:w-auto xl:w-32 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Инъекционная<br>косметология</a>
-                <a href="aesthetic.html" class="nav-service-link lg:w-auto xl:w-32 lg:px-1 xl:px-0 hover:text-brand-turquoise transition duration-200">Эстетическая<br>косметология</a>
-                <a href="body.html" class="nav-service-link lg:w-auto xl:w-24 lg:px-1 xl:px-0 text-brand-turquoise cursor-default transition duration-200">Коррекция<br>фигуры</a>
-            </nav>
-            <div class="ml-4 shrink-0">
-                <button type="button" class="js-scroll-to-form bg-brand-turquoise text-white lg:px-4 lg:py-2 xl:px-6 xl:py-3 rounded-full font-bold lg:text-[10px] xl:text-sm uppercase tracking-wide hover:bg-brand-tiffany transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200 whitespace-nowrap h-auto leading-tight text-center">
-                    Записаться на приём
-                </button>
-            </div>
-        </div>
-
-        <!-- Мобильное меню -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full left-0 top-full shadow-2xl max-h-[85vh] overflow-y-auto z-50">
-            <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-700">
-                <div class="pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg">Навигация</div>
-                <a href="about.html" class="pl-2 hover:text-brand-turquoise">О клинике</a>
-                <a href="specialists.html" class="pl-2 hover:text-brand-turquoise">Врачи</a>
-                <a href="equipment.html" class="pl-2 hover:text-brand-turquoise">Оборудование</a>
-                <a href="promo.html" class="pl-2 hover:text-brand-turquoise">Акции</a>
-                <a href="reviews.html" class="pl-2 hover:text-brand-turquoise">Отзывы</a>
-                <a href="certificates.html" class="pl-2 hover:text-brand-turquoise">Сертификаты</a>
-                <a href="#contacts" class="pl-2 hover:text-brand-turquoise">Контакты</a>
-                
-                <div class="pt-2 pb-2 border-b border-brand-peach/30 font-serif font-bold text-brand-tiffany text-lg mt-2">Наши услуги</div>
-                <a href="laser.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Лазерная эпиляция</a>
-                <a href="removal.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Удаление новообразований</a>
-                <a href="hardware.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Аппаратная косметология</a>
-                <a href="inject.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Инъекционная косметология</a>
-                <a href="aesthetic.html" class="pl-2 text-sm flex items-center"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>Эстетическая косметология</a>
-                <a href="body.html" class="pl-2 text-sm flex items-center text-brand-turquoise font-bold"><i class="fas fa-chevron-right text-xs mr-2" aria-hidden="true"></i>Коррекция фигуры</a>
-                
-                <button type="button" class="js-scroll-to-form mt-6 w-full bg-brand-turquoise text-white py-4 rounded-xl text-center font-bold uppercase shadow-md active:scale-95 transition">Записаться на приём</button>
-            </nav>
-        </div>
-    </header>
+    <!-- HEADER_PLACEHOLDER -->
 
     <!-- NAV -->
     <div class="bg-white border-b border-gray-100 shadow-sm relative z-10">
@@ -133,190 +168,206 @@
     <main>
         <!-- HERO -->
         <section class="relative h-[500px] flex items-center overflow-hidden bg-brand-dark">
-            <!-- ФОТО: body-hero.jpg -->
-            <img src="/img/body-hero.jpg" alt="Коррекция фигуры" class="absolute inset-0 w-full h-full object-cover opacity-50" aria-hidden="true">
+            <img src="/img/body-hero.webp" alt="Коррекция фигуры" class="absolute inset-0 w-full h-full object-cover opacity-60" aria-hidden="true">
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
             <div class="container mx-auto px-4 relative z-10 text-white">
                 <div class="max-w-3xl">
-                    <div class="inline-block bg-brand-turquoise text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-widest mb-4 shadow-lg">
-                        Стройность и Тонус
-                    </div>
-                    <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">
-                        Идеальный силуэт <br><span class="text-brand-peach">без операций</span>
-                    </h1>
-                    <p class="text-base md:text-xl opacity-90 mb-8 font-light max-w-xl leading-relaxed">
-                        Аппаратное моделирование фигуры, лечение целлюлита и устранение локальных жировых отложений.
-                    </p>
+                    <div class="inline-block bg-brand-peach text-brand-dark px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-widest mb-4 shadow-lg">Стройность и Тонус</div>
+                    <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">Идеальный силуэт <br><span class="text-brand-turquoise">без операций</span></h1>
+                    <p class="text-base md:text-xl opacity-90 mb-8 font-light max-w-xl leading-relaxed">Аппаратное моделирование фигуры, лечение целлюлита и устранение локальных жировых отложений.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button type="button" class="js-scroll-to-form bg-brand-peach text-brand-dark font-bold py-4 px-8 rounded-full hover:bg-white transition shadow-[0_0_20px_rgba(229,193,172,0.4)] transform hover:-translate-y-1">
-                            Записаться к врачу
-                        </button>
+                        <button type="button" class="js-scroll-to-form bg-brand-turquoise text-white font-bold py-4 px-8 rounded-full hover:bg-brand-tiffany transition shadow-[0_0_20px_rgba(68,200,210,0.4)] transform hover:-translate-y-1">Записаться на консультацию</button>
+                        <button onclick="document.getElementById('prices').scrollIntoView({behavior: 'smooth'})" class="border border-white/30 backdrop-blur-md text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-brand-dark transition">Смотреть цены</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ПРЕИМУЩЕСТВА -->
-        <section class="py-16 bg-white border-b border-gray-100">
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <span class="text-brand-turquoise font-bold tracking-widest uppercase text-xs mb-2 block">Технологии</span>
-                    <h2 class="font-serif text-3xl text-brand-dark">Преимущества наших методик</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-slate-50 p-8 rounded-3xl text-center hover:shadow-lg transition duration-300">
-                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto text-brand-turquoise text-2xl shadow-sm mb-6">
-                            <i class="fas fa-bolt" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="font-serif text-xl text-brand-dark mb-3">Быстрый результат</h3>
-                        <p class="text-sm text-gray-500">Уменьшение объемов заметно уже после первой процедуры на аппарате Onda.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Быстрый результат</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Уменьшение объемов заметно уже после первой процедуры на аппарате Onda.</p>
                     </div>
-                    <div class="bg-slate-50 p-8 rounded-3xl text-center hover:shadow-lg transition duration-300">
-                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto text-brand-turquoise text-2xl shadow-sm mb-6">
-                            <i class="fas fa-running" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="font-serif text-xl text-brand-dark mb-3">Без реабилитации</h3>
-                        <p class="text-sm text-gray-500">Вы можете вернуться к привычному образу жизни сразу после сеанса. Никаких синяков и отеков.</p>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-running" aria-hidden="true"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Без реабилитации</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Вернитесь к привычному образу жизни сразу после сеанса. Никаких синяков и отеков.</p>
                     </div>
-                    <div class="bg-slate-50 p-8 rounded-3xl text-center hover:shadow-lg transition duration-300">
-                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto text-brand-turquoise text-2xl shadow-sm mb-6">
-                            <i class="fas fa-layer-group" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="font-serif text-xl text-brand-dark mb-3">Комплексный подход</h3>
-                        <p class="text-sm text-gray-500">Сочетаем аппаратные и инъекционные методики для достижения максимального эффекта.</p>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Комплексный подход</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Сочетаем аппаратные и инъекционные методики для максимального эффекта.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- НАВИГАЦИЯ ПО МЕТОДИКАМ -->
-        <section class="bg-white border-b border-gray-100 sticky top-[72px] z-30 shadow-sm">
-            <div class="container mx-auto px-4 py-4 overflow-x-auto no-scrollbar">
-                <div class="flex flex-wrap gap-3 text-xs sm:text-sm whitespace-nowrap justify-center">
-                    <a href="#onda" class="px-4 py-2 rounded-full bg-slate-100 hover:bg-brand-tiffany hover:text-white transition">DEKA Onda</a>
-                    <a href="#lipo" class="px-4 py-2 rounded-full bg-slate-100 hover:bg-brand-tiffany hover:text-white transition">Липолитики</a>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Безопасность</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Сертифицированное оборудование DEKA и препараты с регистрационными удостоверениями.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ПРОЦЕДУРЫ -->
-        <div class="bg-white">
-            
-            <!-- 1. DEKA Onda (БЕЛЫЙ ФОН) -->
-            <section id="onda" class="py-20 scroll-mt-32 border-b border-gray-100">
-                <div class="container mx-auto px-4 max-w-6xl">
-                    <div class="text-center mb-10">
-                        <p class="text-brand-turquoise font-bold text-sm uppercase mb-2 tracking-wider">Микроволновая коррекция</p>
-                        <h2 class="font-serif text-3xl md:text-4xl text-brand-dark">DEKA Onda Coolwaves</h2>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-12 items-start">
-                        <div class="md:w-5/12 aspect-[4/3] relative rounded-[2rem] overflow-hidden shadow-xl group bg-gray-100">
-                            <!-- ФОТО: body-onda.jpg -->
-                            <img src="/img/body-onda.jpg" alt="DEKA Onda" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <section class="py-16 bg-brand-light/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Методики коррекции фигуры</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Эффективные решения для устранения жировых отложений и целлюлита без хирургического вмешательства.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- DEKA Onda -->
+                    <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
+                        <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
+                            <img src="/img/body-onda.webp" alt="DEKA Onda" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
                             <div class="absolute top-4 left-4 bg-brand-peach text-brand-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase shadow">Хит</div>
                         </div>
-                        <div class="md:w-7/12">
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Революционная технология коррекции фигуры с использованием микроволн Coolwaves™. Избирательно воздействует на жировые клетки, разрушая их мембраны, при этом подтягивая кожу и устраняя целлюлит.
-                            </p>
-                            
-                            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                                <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Стоимость</h3>
-                                <div class="space-y-3 mb-6">
-                                    <div class="flex justify-between items-center border-b border-gray-200 pb-2 border-dashed">
-                                        <div class="flex flex-col">
-                                            <span class="text-gray-700 font-medium">Обработка одной зоны</span>
-                                            <span class="text-xs text-gray-400 mt-1">квадрат 15×15 см</span>
-                                        </div>
-                                        <span class="font-bold text-2xl text-brand-dark">2 400 &#8381;</span>
-                                    </div>
-                                </div>
-                                <button type="button" class="js-scroll-to-form w-full bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition">Записаться</button>
-                            </div>
+                        <div class="md:w-7/12 p-8 flex flex-col justify-center">
+                            <h3 class="font-serif text-2xl text-brand-dark mb-3">DEKA Onda Coolwaves</h3>
+                            <p class="text-sm text-gray-600 mb-4">Революционная технология с микроволнами Coolwaves™. Избирательно разрушает жировые клетки, подтягивает кожу и устраняет целлюлит.</p>
+                            <ul class="text-sm space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Уменьшение объемов</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Подтяжка кожи</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Лечение целлюлита</li>
+                            </ul>
+                            <div class="text-brand-tiffany font-bold">от 2 400 &#8381; / зона</div>
+                        </div>
+                    </div>
+
+                    <!-- Липолитики -->
+                    <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
+                        <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
+                            <img src="/img/body-lipo.webp" alt="Липолитики" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
+                        </div>
+                        <div class="md:w-7/12 p-8 flex flex-col justify-center">
+                            <h3 class="font-serif text-2xl text-brand-dark mb-3">Липолитики</h3>
+                            <p class="text-sm text-gray-600 mb-4">Инъекционная методика для устранения локальных жировых отложений («ловушек»), которые сложно убрать спортом.</p>
+                            <ul class="text-sm space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Живот и бока</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Второй подбородок</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Бёдра и колени</li>
+                            </ul>
+                            <div class="text-brand-tiffany font-bold">от 3 700 &#8381;</div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- 2. Липолитики (СЕРЫЙ ФОН) -->
-            <section id="lipo" class="py-20 bg-slate-50 scroll-mt-32 border-b border-gray-100">
-                <div class="container mx-auto px-4 max-w-6xl">
-                    <div class="text-center mb-10">
-                        <p class="text-brand-turquoise font-bold text-sm uppercase mb-2 tracking-wider">Инъекции стройности</p>
-                        <h2 class="font-serif text-3xl md:text-4xl text-brand-dark">Липолитики</h2>
-                    </div>
-                    <div class="flex flex-col md:flex-row-reverse gap-12 items-start">
-                        <div class="md:w-5/12 aspect-[4/3] relative rounded-[2rem] overflow-hidden shadow-xl group bg-white">
-                            <!-- ФОТО: body-lipo.jpg -->
-                            <img src="/img/body-lipo.jpg" alt="Липолитики" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        </div>
-                        <div class="md:w-7/12">
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Инъекционная методика для устранения локальных жировых отложений («ловушек»), которые сложно убрать спортом. Препараты расщепляют жир и выводят его из организма естественным путем.
-                            </p>
-                            
-                            <div class="bg-white rounded-2xl p-6 border border-gray-100 text-sm space-y-3">
-                                <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Стоимость</h3>
-                                <div class="flex justify-between border-b border-gray-200 pb-2 border-dashed"><span>Акваликс (1 флакон)</span><span class="font-bold">13 500 &#8381;</span></div>
-                                <div class="flex justify-between border-b border-gray-200 pb-2 border-dashed"><span>Акваликс (2 флакона)</span><span class="font-bold">23 500 &#8381;</span></div>
-                                <div class="flex justify-between border-b border-gray-200 pb-2 border-dashed"><span>Акваликс (3 флакона)</span><span class="font-bold">33 000 &#8381;</span></div>
-                                <div class="flex justify-between border-b border-gray-200 pb-2 border-dashed"><span>Липолитик PHDC (Mesopharm)</span><span class="font-bold">3 700 &#8381;</span></div>
-                                <div class="flex justify-between"><span>Fat Apoptosis XL</span><span class="font-bold">16 000 &#8381;</span></div>
-                                <button type="button" class="js-scroll-to-form w-full bg-brand-tiffany text-white font-bold py-3 rounded-xl hover:bg-brand-turquoise transition mt-4">Записаться</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <!-- РЕЗУЛЬТАТЫ ДО/ПОСЛЕ -->
-        <section class="py-16 bg-brand-light/20 overflow-hidden">
-             <div class="container mx-auto px-4 mb-8 relative">
-                <div class="text-center mx-auto max-w-2xl">
-                    <h2 class="font-serif text-3xl text-brand-dark mb-2">Результаты процедур</h2>
-                    <p class="text-gray-500 text-sm">До и после курса</p>
-                </div>
-                
-                <!-- Кнопки управления -->
-                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                     <button id="results-prev" class="pointer-events-auto w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition shadow-md">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                </div>
-                <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <button id="results-next" class="pointer-events-auto w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition shadow-md">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div id="results-slider" class="flex overflow-x-auto gap-4 px-4 pb-8 snap-x snap-mandatory scroll-smooth">
-                 <!-- 3 коллажа -->
-                 <div class="snap-start shrink-0 result-item">
-                    <img src="/img/body-result-1.jpg" alt="Результат Живот" class="h-64 w-auto rounded-2xl shadow-md cursor-zoom-in hover:opacity-95 transition lightbox-trigger" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x300/EEE/999?text=Фото+отсутствует';">
-                 </div>
-                 <div class="snap-start shrink-0 result-item">
-                    <img src="/img/body-result-2.jpg" alt="Результат Бедра" class="h-64 w-auto rounded-2xl shadow-md cursor-zoom-in hover:opacity-95 transition lightbox-trigger" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x300/EEE/999?text=Фото+отсутствует';">
-                 </div>
-                 <div class="snap-start shrink-0 result-item">
-                    <img src="/img/body-result-3.jpg" alt="Результат Ягодицы" class="h-64 w-auto rounded-2xl shadow-md cursor-zoom-in hover:opacity-95 transition lightbox-trigger" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x300/EEE/999?text=Фото+отсутствует';">
-                 </div>
             </div>
         </section>
 
-        <!-- ВРАЧИ НАПРАВЛЕНИЯ -->
+        <!-- ИНФОРМАЦИОННЫЙ БЛОК (ТЕМНЫЙ ФОН) -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="bg-brand-tiffany rounded-[3rem] p-8 lg:p-16 text-white relative overflow-hidden flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 relative z-10">
+                        <span class="text-brand-turquoise font-bold uppercase tracking-widest text-xs mb-4 block">Технология Coolwaves™</span>
+                        <h2 class="font-serif text-3xl lg:text-4xl mb-6">Как работает DEKA Onda?</h2>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Аппарат генерирует микроволны особой частоты, которые избирательно воздействуют на жировые клетки, разрушая их мембраны. При этом окружающие ткани, сосуды и нервы остаются неповрежденными.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-8">
+                            Разрушенный жир выводится из организма естественным путем через лимфатическую систему в течение нескольких недель. Результат нарастает постепенно и сохраняется надолго.
+                        </p>
+                        <button type="button" class="js-scroll-to-form bg-brand-peach text-brand-dark font-bold py-4 px-8 rounded-full hover:bg-white transition shadow-lg">Записаться на процедуру</button>
+                    </div>
+                    <div class="lg:w-1/2 relative z-10">
+                        <img src="/img/body-onda.webp" alt="DEKA Onda процедура" class="rounded-3xl shadow-2xl border-4 border-white/10 w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КАРУСЕЛЬ РЕЗУЛЬТАТОВ -->
+        <section class="py-16 bg-white overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="bg-slate-50 rounded-3xl p-6 lg:p-10 border border-gray-100">
+                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+                        <!-- Текст слева -->
+                        <div class="lg:w-5/12">
+                            <span class="text-brand-turquoise font-bold uppercase tracking-widest text-xs mb-3 block">Галерея</span>
+                            <h3 class="font-serif text-2xl lg:text-3xl text-brand-dark mb-4">Результаты коррекции фигуры</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Реальные результаты уменьшения объемов и лечения целлюлита на аппарате DEKA Onda. Без операций, без синяков, без реабилитации.
+                            </p>
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Уменьшение объемов</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Разглаживание целлюлита</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand-turquoise" aria-hidden="true"></i> Подтяжка кожи</li>
+                            </ul>
+                            <p class="text-xs text-gray-400">Нажмите на фото для увеличения</p>
+                        </div>
+                        <!-- Карусель справа -->
+                        <div class="lg:w-7/12 w-full">
+                            <div class="results-slider">
+                                <div class="slider">
+                                    <!-- ФОТО: body-result-1.webp ... body-result-5.webp -->
+                                    <div data-img-url="/img/body-result-1.webp"></div>
+                                    <div data-img-url="/img/body-result-2.webp"></div>
+                                    <div data-img-url="/img/body-result-3.webp"></div>
+                                    <div data-img-url="/img/body-result-4.webp"></div>
+                                    <div data-img-url="/img/body-result-5.webp"></div>
+                                </div>
+                                <div class="nav-container">
+                                    <button data-index-change="-1" aria-label="Предыдущий"><i class="fas fa-chevron-left"></i></button>
+                                    <div class="index-container"></div>
+                                    <button data-index-change="1" aria-label="Следующий"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАЙС -->
+        <section id="prices" class="py-16 lg:py-24 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl text-brand-dark mb-4">Стоимость процедур</h2>
+                    <p class="text-gray-500 text-sm">Окончательная стоимость зависит от количества зон и выбранной методики.</p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden divide-y divide-gray-100">
+                    
+                    <!-- DEKA Onda -->
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-brand-dark mb-4 text-brand-tiffany">DEKA Onda Coolwaves</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Обработка одной зоны (15×15 см)</span><span class="font-bold whitespace-nowrap">2 400 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Живот (4 зоны)</span><span class="font-bold whitespace-nowrap">9 600 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Бёдра (4 зоны)</span><span class="font-bold whitespace-nowrap">9 600 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Комплекс «Всё тело» (10 зон)</span><span class="font-bold whitespace-nowrap">20 000 &#8381;</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Липолитики -->
+                    <div class="p-6 bg-brand-light/20">
+                        <h3 class="font-serif text-xl text-brand-dark mb-4 text-brand-tiffany">Липолитики</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Акваликс (1 флакон)</span><span class="font-bold whitespace-nowrap">13 500 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Акваликс (2 флакона)</span><span class="font-bold whitespace-nowrap">23 500 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Акваликс (3 флакона)</span><span class="font-bold whitespace-nowrap">33 000 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Липолитик PHDC (Mesopharm)</span><span class="font-bold whitespace-nowrap">3 700 &#8381;</span></div>
+                            <div class="flex justify-between items-end"><span class="text-sm text-gray-600">Fat Apoptosis XL</span><span class="font-bold whitespace-nowrap">16 000 &#8381;</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ВРАЧИ -->
         <section class="py-16 bg-white border-t border-gray-100">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="font-serif text-3xl text-brand-dark mb-4">Врачи направления</h2>
-                    <p class="text-gray-500 max-w-2xl mx-auto">
-                        Эксперты по коррекции фигуры и аппаратным методикам.
-                    </p>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Эксперты по коррекции фигуры и аппаратным методикам.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
-                    <!-- Врач 1: Леоненко Е.В. -->
+                    <!-- Врач 1 -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
                             <img src="/img/LEV-vn.webp" alt="Леоненко Екатерина Витальевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
@@ -324,11 +375,13 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Леоненко Екатерина Витальевна</h3>
                             <p class="text-brand-turquoise text-xs font-bold uppercase tracking-wider mb-2">Косметолог-эстетист</p>
-                            <p class="text-sm text-gray-600 mb-4">Специализируется на коррекции фигуры (Onda) и составлении индивидуальных программ похудения.</p>
-                            <a href="specialists.html#leonenko" class="block w-full bg-brand-peach text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-turquoise hover:text-white transition mt-auto text-center">Подробнее о враче</a>
+                            <p class="text-sm text-gray-600 mb-4">Специализируется на коррекции фигуры (Onda) и программах похудения.</p>
+                            <a href="specialists.html#leonenko" class="block w-full bg-brand-peach text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-turquoise hover:text-white transition mt-auto text-center">
+                                Подробнее о враче
+                            </a>
                         </div>
                     </div>
-                    <!-- Врач 2: Волкова Т.О. -->
+                    <!-- Врач 2 -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
                             <img src="/img/VTO-vn.webp" alt="Волкова Татьяна Олеговна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
@@ -337,7 +390,9 @@
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Волкова Татьяна Олеговна</h3>
                             <p class="text-brand-turquoise text-xs font-bold uppercase tracking-wider mb-2">Врач-дерматолог, косметолог</p>
                             <p class="text-sm text-gray-600 mb-4">Эксперт по аппаратным методикам и липолитической терапии.</p>
-                            <a href="specialists.html#volkova" class="block w-full bg-brand-peach text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-turquoise hover:text-white transition mt-auto text-center">Подробнее о враче</a>
+                            <a href="specialists.html#volkova" class="block w-full bg-brand-peach text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-turquoise hover:text-white transition mt-auto text-center">
+                                Подробнее о враче
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -348,57 +403,178 @@
         <section id="form" class="py-20 bg-brand-tiffany relative overflow-hidden text-gray-800 scroll-mt-32">
             <div class="absolute inset-0 bg-brand-tiffany"><div class="absolute right-0 top-0 w-[800px] h-[800px] bg-brand-turquoise rounded-full mix-blend-overlay blur-[100px] opacity-50 translate-x-1/3 -translate-y-1/3"></div></div>
             <div class="container mx-auto px-4 relative z-10">
-                 <div class="max-w-lg mx-auto bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl text-center">
-                     <h2 class="font-serif text-3xl md:text-4xl mb-4 text-brand-dark">Запишитесь на коррекцию</h2>
-                     <p class="mb-8 text-sm text-gray-500 leading-relaxed">Оставьте заявку, мы свяжемся с вами и подберем удобное время.</p>
-                     <form class="space-y-4" method="POST" action="/send-form">
-                         <input type="text" name="name" placeholder="Ваше имя" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition" required>
-                         <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition" required>
-                         <button type="submit" class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm">Отправить заявку</button>
-                         <p class="text-[10px] text-gray-400 mt-2">Нажимая кнопку, вы соглашаетесь с <a href="policy.html" class="underline hover:text-brand-turquoise transition">политикой обработки персональных данных</a></p>
+                 <div class="max-w-lg mx-auto bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
+                     <h2 class="font-serif text-3xl md:text-4xl mb-3 text-brand-dark text-center">Запишитесь на коррекцию</h2>
+                     <p class="mb-6 text-sm text-gray-500 leading-relaxed text-center">Перезвоним в течение 15 минут в рабочее время (10:00-22:00).</p>
+                     <form
+                       id="lead-form-body"
+                       class="js-lead-form space-y-5"
+                       method="post"
+                       action="/send-form/index.php"
+                       novalidate
+                       data-form-id="lead_body"
+                       data-service="Коррекция фигуры"
+                       data-thanks="thanks.html"
+                     >
+                       <!-- Honeypot -->
+                       <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                       <!-- Телефон -->
+                       <div>
+                         <label for="lead-phone-body" class="sr-only">Телефон</label>
+                         <input
+                           id="lead-phone-body"
+                           name="phone"
+                           type="tel"
+                           inputmode="tel"
+                           autocomplete="tel"
+                           placeholder="Номер телефона"
+                           class="mask-phone w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                           required
+                         >
+                         <p class="mt-2 text-xs text-red-600 hidden" data-error-for="phone"></p>
+                       </div>
+
+                       <!-- Имя (опционально) -->
+                       <div>
+                         <label for="lead-name-body" class="sr-only">Как к вам обращаться</label>
+                         <input
+                           id="lead-name-body"
+                           name="name"
+                           type="text"
+                           autocomplete="name"
+                           placeholder="Как к вам обращаться (необязательно)"
+                           class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                           minlength="2"
+                           maxlength="60"
+                         >
+                         <p class="mt-2 text-xs text-red-600 hidden" data-error-for="name"></p>
+                       </div>
+
+                       <!-- Способ связи (только звонок + Max) -->
+                       <div>
+                         <div class="text-xs font-semibold text-gray-600">Как связаться?</div>
+
+                         <div class="mt-2 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Способ связи">
+                           <button
+                             type="button"
+                             class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-brand-turquoise text-white border-brand-turquoise"
+                             data-method="call"
+                             role="radio"
+                             aria-checked="true"
+                           >
+                             <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>Звонок
+                           </button>
+
+                           <button
+                             type="button"
+                             class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
+                             data-method="max"
+                             role="radio"
+                             aria-checked="false"
+                           >
+                             <img src="/img/max-logo.svg" alt="" class="w-4 h-4 mr-2 inline-block align-middle max-logo-icon">Max
+                           </button>
+                         </div>
+
+                         <input type="hidden" name="contact_method" value="call">
+                       </div>
+
+                       <!-- Комментарий (опционально) -->
+                       <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4">
+                         <summary class="cursor-pointer text-sm font-semibold text-gray-700 select-none">
+                           Есть вопрос? Напишите
+                           <span class="ml-2 text-xs text-gray-400 group-open:hidden">(необязательно)</span>
+                         </summary>
+                         <div class="pt-3">
+                           <label for="lead-comment-body" class="sr-only">Коротко: что беспокоит?</label>
+                           <textarea
+                             id="lead-comment-body"
+                             name="comment"
+                             rows="3"
+                             placeholder="Коротко: что беспокоит?"
+                             class="w-full resize-none rounded-xl border border-gray-200 bg-white p-3 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
+                           ></textarea>
+                         </div>
+                       </details>
+
+                       <!-- (Опционально) строка с услугой -->
+                       <div class="hidden text-xs text-gray-500" data-service-row>
+                         Услуга: <span class="font-semibold text-gray-700" data-service-label></span>
+                       </div>
+
+                       <!-- Согласие (текст по центру чекбокса) -->
+                       <div>
+                         <div class="flex items-center gap-3">
+                           <input
+                             id="lead-consent-body"
+                             name="consent"
+                             type="checkbox"
+                             required
+                             class="h-4 w-4 rounded border-gray-300 text-brand-turquoise focus:ring-brand-turquoise"
+                           >
+                           <label for="lead-consent-body" class="text-xs text-gray-500 leading-snug">
+                             Согласен на обработку персональных данных и ознакомлен(а) с
+                             <a href="policy.html" class="underline hover:text-brand-turquoise transition">политикой</a>.
+                           </label>
+                         </div>
+                         <p class="mt-2 text-xs text-red-600 hidden" data-error-for="consent"></p>
+                       </div>
+
+                       <p class="text-xs text-gray-500">
+                         Не спамим. Только по записи. Ответит администратор клиники.
+                       </p>
+
+                       <!-- Общие сообщения -->
+                       <div class="hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700" data-form-error></div>
+                       <div class="hidden rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800" data-form-success></div>
+
+                       <!-- Скрытые поля -->
+                       <input type="hidden" name="page" value="body.html">
+                       <input type="hidden" name="service" value="Коррекция фигуры">
+                       <input type="hidden" name="policy_version" value="2025-12-12">
+                       <input type="hidden" name="referrer" value="">
+                       <input type="hidden" name="form_id" value="lead_body">
+                       <input type="hidden" name="fill_time_ms" value="">
+
+                       <input type="hidden" name="utm_source" value="">
+                       <input type="hidden" name="utm_medium" value="">
+                       <input type="hidden" name="utm_campaign" value="">
+                       <input type="hidden" name="utm_content" value="">
+                       <input type="hidden" name="utm_term" value="">
+                       <input type="hidden" name="gclid" value="">
+                       <input type="hidden" name="yclid" value="">
+
+                       <button
+                         type="submit"
+                         class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm"
+                       >
+                         Жду звонка
+                       </button>
+
+                       <p class="text-[10px] text-gray-400 mt-2 text-center">
+                         Нажимая кнопку, вы подтверждаете согласие на <a href="policy.html" class="underline hover:text-brand-turquoise transition">обработку персональных данных</a>.
+                       </p>
                      </form>
                  </div>
             </div>
         </section>
     </main>
 
-    <!-- ПОДВАЛ -->
-    <footer id="contacts" class="bg-gray-50 text-gray-700 pt-16 pb-8 mt-8 footer-shadow">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-12 mb-12">
-                <div class="lg:w-4/12">
-                    <div class="mb-8"><img src="/img/logo.svg" alt="Планета здоровой кожи" class="w-48 h-auto" width="192" height="60"></div>
-                    <p class="text-gray-500 mb-8 text-sm leading-relaxed">Лицензированная медицинская клиника в Кудрово. Мы объединяем эстетику и здоровье.</p>
-                    <div class="space-y-5 text-sm font-medium">
-                        <div class="flex items-center gap-4"><div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><span>г. Кудрово, <br>Европейский пр., д. 22</span></div>
-                        <div class="flex items-center gap-4"><div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="fas fa-phone-alt" aria-hidden="true"></i></div><a href="tel:+79112717888" class="hover:text-brand-peach transition">+7 (911) 271-78-88</a></div>
-                        <div class="flex items-center gap-4"><div class="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center text-brand-turquoise shrink-0 shadow-sm"><i class="far fa-clock" aria-hidden="true"></i></div><span>Ежедневно 10:00 – 22:00</span></div>
-                    </div>
-                    <div class="flex gap-4 mt-10">
-                        <a href="https://www.instagram.com/planet_hs2024/" target="_blank" rel="noopener noreferrer" aria-label="Instagram клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://vk.com/planetofhealthyskin" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-vk" aria-hidden="true"></i></a>
-                        <a href="https://api.whatsapp.com/send/?phone=79112717888&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                <div class="lg:w-8/12 rounded-3xl overflow-hidden h-[350px] bg-white relative shadow-lg border border-gray-200">
-                    <iframe src="https://yandex.ru/map-widget/v1/?ll=30.521447%2C59.911771&z=16" width="100%" height="100%" frameborder="0" allowfullscreen="true" title="Карта расположения клиники Планета здоровой кожи" loading="lazy"></iframe>
-                    <div class="absolute top-4 right-4 bg-white text-brand-dark px-4 py-2 rounded-lg shadow-lg text-xs font-bold z-10"><i class="fas fa-parking mr-1 text-brand-turquoise" aria-hidden="true"></i> Есть парковка</div>
-                </div>
-            </div>
-            <div class="border-t border-gray-200 pt-8 flex flex-col justify-between items-center text-xs text-gray-500 gap-4">
-                <div class="flex flex-col md:flex-row justify-between w-full items-center gap-4">
-                    <p>&copy; 2024 ООО «Планета здоровой кожи». Все права защищены.</p>
-                    <div class="flex gap-6"><a href="policy.html" class="hover:text-brand-turquoise transition">Политика конфиденциальности</a></div>
-                </div>
-                <p class="text-[10px] text-gray-400 mt-4 w-full text-left">* Деятельность Meta (Facebook и Instagram) запрещена в России как экстремистская.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- FOOTER_PLACEHOLDER -->
 
     <!-- Лайтбокс -->
-    <div id="lightbox" class="fixed inset-0 z-[10000] bg-black/90 hidden flex items-center justify-center p-4">
-        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-brand-turquoise transition">&times;</button>
-        <img id="lightbox-img" src="" alt="Full view" class="max-w-full max-h-full rounded-lg shadow-2xl">
+    <div id="lightbox" class="hidden fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10" aria-label="Закрыть">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+        <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Предыдущее изображение">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center" aria-label="Следующее изображение">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Увеличенное изображение" class="max-w-full max-h-full object-contain">
     </div>
 
     <script type="module" src="/src/main.js"></script>

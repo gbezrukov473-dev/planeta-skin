@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных страниц
+Disallow: /send-form/
+Disallow: /data/
+
+# Разрешаем индексацию основных страниц
+Allow: /index.html
+Allow: /about.html
+Allow: /specialists.html
+Allow: /equipment.html
+Allow: /promo.html
+Allow: /reviews.html
+Allow: /certificates.html
+Allow: /legal.html
+Allow: /laser.html
+Allow: /removal.html
+Allow: /hardware.html
+Allow: /inject.html
+Allow: /aesthetic.html
+Allow: /body.html
+
+# Sitemap
+Sitemap: https://hs-planet.ru/sitemap.xml
