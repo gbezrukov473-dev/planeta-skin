@@ -161,7 +161,7 @@
                             <div class="absolute bottom-0 left-0 p-8 lg:p-12 w-full text-white z-10 flex flex-col items-start justify-end h-full">
                                 <h1 class="font-serif text-3xl lg:text-5xl mb-3 leading-tight">Врачи-дерматологи с опытом 10+ лет</h1>
                                 <p class="text-lg opacity-90 font-light mb-6">Комплексный подход к здоровью вашей кожи</p>
-                                <a href="specialists.html" class="bg-brand-peach text-brand-dark font-bold py-3 px-8 rounded-full hover:bg-white transition shadow-lg text-sm uppercase tracking-wide relative z-30">Наши специалисты</a>
+                                <a href="specialists.html" class="bg-brand-peach text-brand-dark font-bold py-3 px-8 rounded-full hover:bg-white transition shadow-lg text-sm uppercase tracking-wide relative z-[60] pointer-events-auto">Наши специалисты</a>
                             </div>
                         </div>
                         <!-- Слайд 2 (ЛАЗЕР) -->
@@ -171,7 +171,7 @@
                             <div class="absolute bottom-0 left-0 p-8 lg:p-12 w-full text-white z-10 flex flex-col items-start justify-end h-full">
                                 <h2 class="font-serif text-3xl lg:text-5xl mb-3 leading-tight">Лучшие лазеры в СПб</h2>
                                 <p class="text-lg opacity-90 font-light mb-6">Безопасная и эффективная эпиляция Moveo</p>
-                                <a href="laser.html" class="bg-brand-peach text-brand-dark font-bold py-3 px-8 rounded-full hover:bg-white transition shadow-lg text-sm uppercase tracking-wide relative z-30">Подробнее</a>
+                                <a href="laser.html" class="bg-brand-peach text-brand-dark font-bold py-3 px-8 rounded-full hover:bg-white transition shadow-lg text-sm uppercase tracking-wide relative z-[60] pointer-events-auto">Подробнее</a>
                             </div>
                         </div>
                     </div>
@@ -180,9 +180,9 @@
                     <button type="button" id="slider-prev" class="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-brand-tiffany w-12 h-12 rounded-full items-center justify-center backdrop-blur-md transition duration-300 z-30 border border-white/30" aria-label="Предыдущий слайд"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                     <button type="button" id="slider-next" class="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-brand-tiffany w-12 h-12 rounded-full items-center justify-center backdrop-blur-md transition duration-300 z-30 border border-white/30" aria-label="Следующий слайд"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
 
-                    <!-- Невидимые зоны клика для мобильных -->
-                    <div id="slider-click-left" class="absolute inset-y-0 left-0 w-1/2 z-20 lg:hidden cursor-pointer"></div>
-                    <div id="slider-click-right" class="absolute inset-y-0 right-0 w-1/2 z-20 lg:hidden cursor-pointer"></div>
+                    <!-- Невидимые зоны клика для мобильных (исключаем нижнюю часть где кнопки) -->
+                    <div id="slider-click-left" class="absolute top-0 left-0 bottom-24 w-1/2 z-40 lg:hidden cursor-pointer pointer-events-auto"></div>
+                    <div id="slider-click-right" class="absolute top-0 right-0 bottom-24 w-1/2 z-40 lg:hidden cursor-pointer pointer-events-auto"></div>
                 </div>
 
                 <!-- БАННЕР АКЦИИ -->
