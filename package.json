@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "icons": "node scripts/build-icons-sprite.mjs",
     "critical": "vite build && node scripts/critical.mjs",
-    "build:prod": "vite build && node scripts/critical.mjs"
+    "build:prod": "vite build && node scripts/critical.mjs",
+    "social-meta": "node scripts/inject-social-meta.mjs",
+    "lazy-images": "node scripts/inject-lazy-images.mjs"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",

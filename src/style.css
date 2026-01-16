@@ -49,6 +49,11 @@ body {
     @apply text-gray-700 font-sans antialiased bg-slate-50;
 }
 
+/* Skip to content: отступ для фиксированной шапки */
+#main-content {
+    scroll-margin-top: 120px;
+}
+
 .service-card:hover .service-overlay { 
     opacity: 1; 
     bottom: 0; 
@@ -91,4 +96,21 @@ body {
 /* duration 1.5s — время заполнения */
 .animate-fill {
     animation: fillLogo 1.5s ease-in-out forwards;
+}
+
+/* === LAZY LOAD IMAGES (blur-up эффект) === */
+.lazy-img {
+    filter: blur(16px);
+    opacity: 0.9;
+    /* Не используем transform здесь, чтобы не блокировать hover:scale */
+}
+
+.lazy-img.is-loaded {
+    filter: blur(0);
+    opacity: 1;
+}
+
+.lazy-img.is-error {
+    filter: none;
+    opacity: 1;
 }

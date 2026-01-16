@@ -141,6 +141,7 @@ export function initRemovalSlider() {
       const url = div.getAttribute("data-img-url");
       if (!url) return;
 
+      // Устанавливаем background-image (браузер загрузит его)
       div.style.backgroundImage = `url(${url})`;
 
       // Добавляем класс lightbox-trigger и data-src для интеграции с lightbox.js

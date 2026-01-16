@@ -11,19 +11,13 @@
     <link rel="canonical" href="https://hs-planet.ru/hardware.html">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://hs-planet.ru/hardware.html">
-    <meta property="og:title" content="Аппаратная косметология | Эффективное омоложение">
-    <meta property="og:description" content="SMAS-лифтинг, лазерная шлифовка, микротоки и коррекция фигуры на оригинальных аппаратах.">
-    <meta property="og:image" content="https://hs-planet.ru/img/hardware-hero.webp">
-
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
     <!-- Font Awesome -->
-<!-- Стили для слайдера результатов -->
+    <!-- Стили для слайдера результатов -->
     <style>
         .results-slider {
             position: relative;
@@ -48,6 +42,8 @@
 
         .results-slider .slider > div {
             min-width: 100%;
+            width: 100%;
+            flex-shrink: 0;
             height: 100%;
             background-size: cover;
             background-position: center;
@@ -139,6 +135,23 @@
       "serviceType": "CosmeticProcedure"
     }
     </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Планета здоровой кожи">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Аппаратная косметология | Планета здоровой кожи">
+    <meta property="og:description" content="Аппаратная косметология в Кудрово: SMAS-лифтинг, лазерная шлифовка CO2, фотоомоложение, микротоки, коррекция фигуры ONDA. Оригинальное оборудование DEKA, Capello.">
+    <meta property="og:url" content="https://hs-planet.ru/hardware.html">
+    <meta property="og:image" content="https://hs-planet.ru/img/hardware-hero.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Аппаратная косметология | Планета здоровой кожи">
+    <meta name="twitter:description" content="Аппаратная косметология в Кудрово: SMAS-лифтинг, лазерная шлифовка CO2, фотоомоложение, микротоки, коррекция фигуры ONDA. Оригинальное оборудование DEKA, Capello.">
+    <meta name="twitter:image" content="https://hs-planet.ru/img/hardware-hero.webp">
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
@@ -164,7 +177,7 @@
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <!-- HERO -->
         <section class="relative h-[500px] flex items-center overflow-hidden bg-brand-dark">
             <!-- ФОТО: hardware-hero.jpg -->
@@ -187,7 +200,7 @@
                         </button>
                     <button type="button" onclick="document.getElementById('prices')?.scrollIntoView({ behavior: 'smooth' })" class="border border-white/30 backdrop-blur-md text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-brand-dark transition">
                         Смотреть цены
-                    </button>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -238,7 +251,7 @@
                     <!-- 1. SMAS ЛИФТИНГ -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <img src="/img/smas-beelift-ep.webp" alt="SMAS лифтинг BEELIFTBEE" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/smas-beelift-ep.webp" alt="SMAS лифтинг BEELIFTBEE" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img">
                             <div class="absolute top-4 left-4 bg-brand-tiffany text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">HIFU</div>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
@@ -256,7 +269,7 @@
                     <!-- 2. Лазерная шлифовка DEKA -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <img src="/img/deka-smartxide-ep.webp" alt="DEKA SmartXide2 DOT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/deka-smartxide-ep.webp" alt="DEKA SmartXide2 DOT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img">
                             <div class="absolute top-4 right-4 bg-brand-peach text-brand-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase">CO2 Лазер</div>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
@@ -274,7 +287,7 @@
                     <!-- 3. Фотоомоложение Capello -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <img src="/img/capello-ep.webp" alt="Capello E-light" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/capello-ep.webp" alt="Capello E-light" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img">
                             <div class="absolute top-4 left-4 bg-brand-turquoise text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.2em] shadow">E-LIGHT</div>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
@@ -292,7 +305,7 @@
                     <!-- 4. Микротоки -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <img src="/img/bio-ultimate-ep.webp" alt="Bio-Ultimate Gold" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/bio-ultimate-ep.webp" alt="Bio-Ultimate Gold" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img">
                             <div class="absolute top-4 right-4 bg-brand-dark text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase shadow">США</div>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
@@ -310,7 +323,7 @@
                     <!-- 5. DEKA Onda -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <img src="/img/deka-onda-ep.webp" alt="DEKA Onda" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/deka-onda-ep.webp" alt="DEKA Onda" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img">
                             <div class="absolute top-4 left-4 bg-brand-peach text-brand-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase shadow">Coolwaves™</div>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
@@ -466,7 +479,7 @@
                     <!-- Врач 1: Павлова А.С. -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
-                            <img src="/img/PAS-vn.webp" alt="Павлова Алёна Сергеевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/PAS-vn.webp" alt="Павлова Алёна Сергеевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Павлова Алёна Сергеевна</h3>
@@ -478,7 +491,7 @@
                     <!-- Врач 2: Волкова Т.О. -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
-                            <img src="/img/VTO-vn.webp" alt="Волкова Татьяна Олеговна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/VTO-vn.webp" alt="Волкова Татьяна Олеговна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Волкова Татьяна Олеговна</h3>

@@ -11,18 +11,132 @@
     <link rel="canonical" href="https://hs-planet.ru/reviews.html">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hs-planet.ru/reviews.html">
-    <meta property="og:title" content="Отзывы о клинике Планета здоровой кожи">
-    <meta property="og:description" content="Узнайте, что говорят о нас пациенты. Реальные истории преображения.">
-    <meta property="og:image" content="https://hs-planet.ru/img/reviews-hero.webp">
-
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
-    <!-- Font Awesome -->
+    <!-- Schema.org разметка клиники -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"MedicalBusiness","name":"Планета здоровой кожи","url":"https://hs-planet.ru","telephone":"+79112717888","image":"https://hs-planet.ru/img/logo.svg","address":{"@type":"PostalAddress","streetAddress":"Европейский пр., д. 22","addressLocality":"Кудрово","addressRegion":"Ленинградская область","addressCountry":"RU"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"22:00"},"sameAs":["https://www.instagram.com/planet_hs2024/","https://vk.com/planetofhealthyskin"]}
+    </script>
+
+    <!-- Schema.org разметка отзывов (без aggregateRating по правилам Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "Review",
+          "position": 1,
+          "author": {"@type": "Person", "name": "Екатерина У."},
+          "datePublished": "2025-10-07",
+          "reviewBody": "Здравствуйте. Была сегодня на комбинированной чистке лица у Марии Михайловны. Очень понравилось! Мне есть с чем сравнивать, и поэтому могу сказать, что это было не больно, деликатно и самое главное качественно.",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 2,
+          "author": {"@type": "Person", "name": "Helena"},
+          "datePublished": "2025-11-16",
+          "reviewBody": "Волкова Татьяна Олеговна - прекрасный врач, настоящий профессионал и супер приятный человек! Вчера впервые сделали мне процедуру Red Touch и эффект вижу уже сегодня. Кожа стала нежнее и плотнее.",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 3,
+          "author": {"@type": "Person", "name": "Светлана Мещалкина"},
+          "datePublished": "2025-09-13",
+          "reviewBody": "Была в клинике впервые и сразу решила, что приду туда еще не раз. Приветливая девушка за стойкой быстро оформила документы, а врач Алена опытный и компетентный специалист!",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 4,
+          "author": {"@type": "Person", "name": "MsMimis"},
+          "datePublished": "2025-11-05",
+          "reviewBody": "Огромное спасибо Татьяне Олеговне Волковой за прекрасную работу! Мимические морщины ушли, лицо выглядит отдохнувшим и свежим. Настоящий профессионал, к которому хочется возвращаться.",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 5,
+          "author": {"@type": "Person", "name": "Алена Карнет"},
+          "datePublished": "2025-01-11",
+          "reviewBody": "Была на биоревитализации у косметолога Волковой Татьяны Олеговны. Все прошло идеально. Врач все делал профессионально и что самое главное - безболезненно!",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 6,
+          "author": {"@type": "Person", "name": "Евгения Ш."},
+          "datePublished": "2025-10-19",
+          "reviewBody": "Была на удаление милиумов. Всё прошло хорошо. Врач всё рассказал, сделал всё безболезненно, дал рекомендации по уходу за ранками. Однозначно рекомендую.",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 7,
+          "author": {"@type": "Person", "name": "O C"},
+          "datePublished": "2024-11-07",
+          "reviewBody": "Очень хорошая клиника. Все очень чисто, уютно. Энергия доброты и заботы! Доверилась Татьяне Олеговне от и до. Она настоящий профессионал своего дела!",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 8,
+          "author": {"@type": "Person", "name": "Светлана Птичкина"},
+          "datePublished": "2024-06-26",
+          "reviewBody": "Замечательная клиника. Приятный и вежливый персонал, очень уютная обстановка. Врач-косметолог Алена Сергеевна профессионал своего дела. За красотой и здоровьем только к ней.",
+          "publisher": {"@type": "Organization", "name": "2ГИС"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 9,
+          "author": {"@type": "Person", "name": "Анастасия Зуева"},
+          "datePublished": "2024-09-07",
+          "reviewBody": "Очень качественно и быстро удалили родинку, проведя перед этим диагностику. Рекомендую.",
+          "publisher": {"@type": "Organization", "name": "2ГИС"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "position": 10,
+          "author": {"@type": "Person", "name": "Марина Павлова"},
+          "datePublished": "2024-11-02",
+          "reviewBody": "Обслуживание здесь просто замечательное! Мастер оказалась настоящим профессионалом. Я делала лазерную депиляцию и удаление родинки — все прошло безболезненно и очень аккуратно.",
+          "publisher": {"@type": "Organization", "name": "Яндекс"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        }
+      ]
+    }
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Планета здоровой кожи">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Отзывы пациентов | Планета здоровой кожи">
+    <meta property="og:description" content="Честные отзывы пациентов клиники «Планета здоровой кожи» в Кудрово. Результаты процедур, впечатления о врачах и сервисе. Рейтинг 5.0 на Яндекс.Картах.">
+    <meta property="og:url" content="https://hs-planet.ru/reviews.html">
+    <meta property="og:image" content="https://hs-planet.ru/img/reviews-hero.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Отзывы пациентов | Планета здоровой кожи">
+    <meta name="twitter:description" content="Честные отзывы пациентов клиники «Планета здоровой кожи» в Кудрово. Результаты процедур, впечатления о врачах и сервисе. Рейтинг 5.0 на Яндекс.Картах.">
+    <meta name="twitter:image" content="https://hs-planet.ru/img/reviews-hero.webp">
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
 
@@ -45,7 +159,7 @@
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <!-- HERO (Увеличены отступы) -->
         <section class="relative h-[500px] flex items-center overflow-hidden bg-brand-dark">
             <img src="/img/reviews-hero.webp" alt="Счастливые пациенты" class="absolute inset-0 w-full h-full object-cover opacity-40" aria-hidden="true">
@@ -355,7 +469,7 @@
                  <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                      <!-- Левая часть: Фото -->
                      <div class="md:w-5/12 bg-brand-light relative min-h-[300px] flex items-center justify-center overflow-hidden group">
-                        <img src="/img/form-bg.webp" alt="Запись" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" width="400" height="600">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/form-bg.webp" alt="Запись" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="600">
                         <div class="absolute inset-0 bg-black/20 z-10"></div>
                         <div class="relative text-white text-center p-6 z-20">
                             <h3 class="font-serif text-2xl mb-2">Ждем вас</h3>

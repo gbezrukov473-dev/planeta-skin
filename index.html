@@ -11,14 +11,6 @@
     <link rel="canonical" href="https://hs-planet.ru/">
 
     <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hs-planet.ru/">
-    <meta property="og:title" content="Планета здоровой кожи | Косметология Кудрово">
-    <meta property="og:description" content="Лазерная эпиляция Moveo, удаление новообразований, врачи-дерматологи.">
-    <meta property="og:image" content="https://hs-planet.ru/img/slide-1.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
     <!-- 3.1 Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -73,7 +65,8 @@
         <style>#preloader { display: none !important; }</style>
     </noscript>
 
-    <!-- Schema.org разметка для SEO -->
+    <!-- Schema.org разметка клиники (MedicalBusiness) -->
+    <!-- Для изменения данных: телефон, адрес, соцсети — редактировать здесь -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,11 +75,15 @@
       "description": "Лицензированная клиника косметологии в Кудрово. Лазерная эпиляция Moveo, удаление новообразований, аппаратная и инъекционная косметология.",
       "url": "https://hs-planet.ru",
       "telephone": "+79112717888",
+      "image": "https://hs-planet.ru/img/logo.svg",
+      "logo": "https://hs-planet.ru/img/logo.svg",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Европейский пр., д. 22",
         "addressLocality": "Кудрово",
         "addressRegion": "Ленинградская область",
+        "postalCode": "188691",
         "addressCountry": "RU"
       },
       "geo": {
@@ -94,43 +91,40 @@
         "latitude": "59.911771",
         "longitude": "30.521447"
       },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "10:00",
-          "closes": "22:00"
-        }
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/planet_hs2024/",
+        "https://vk.com/planetofhealthyskin"
       ],
       "areaServed": {
         "@type": "City",
         "name": "Кудрово"
       },
-      "medicalSpecialty": ["CosmeticDermatology", "LaserTherapy"],
-      "service": [
-        {
-          "@type": "Service",
-          "name": "Лазерная эпиляция Moveo",
-          "description": "Александритовый лазер для удаления волос"
-        },
-        {
-          "@type": "Service",
-          "name": "Удаление новообразований",
-          "description": "Удаление папиллом, родинок, бородавок, кератом"
-        },
-        {
-          "@type": "Service",
-          "name": "Аппаратная косметология",
-          "description": "Процедуры на современном оборудовании"
-        },
-        {
-          "@type": "Service",
-          "name": "Инъекционная косметология",
-          "description": "Инъекции для омоложения и коррекции"
-        }
-      ]
+      "medicalSpecialty": ["Dermatology", "Cosmetology"]
     }
     </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Планета здоровой кожи">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Планета здоровой кожи | Клиника косметологии Кудрово">
+    <meta property="og:description" content="Лицензированная клиника косметологии в Кудрово «Планета здоровой кожи». Лазерная эпиляция Moveo, удаление новообразований, аппаратная и инъекционная косметология. Врачи-дерматологи с опытом более 10 лет.">
+    <meta property="og:url" content="https://hs-planet.ru/">
+    <meta property="og:image" content="https://hs-planet.ru/img/slide-1.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Планета здоровой кожи | Клиника косметологии Кудрово">
+    <meta name="twitter:description" content="Лицензированная клиника косметологии в Кудрово «Планета здоровой кожи». Лазерная эпиляция Moveo, удаление новообразований, аппаратная и инъекционная косметология. Врачи-дерматологи с опытом более 10 лет.">
+    <meta name="twitter:image" content="https://hs-planet.ru/img/slide-1.webp">
 </head>
 <body class="text-gray-700 font-sans antialiased bg-slate-50">
 
@@ -146,7 +140,7 @@
 
     <!-- HEADER_PLACEHOLDER -->
 
-    <main>
+    <main id="main-content">
         <!-- === 1. ГЛАВНЫЙ ЭКРАН + АКЦИИ === -->
         <section class="container mx-auto px-6 sm:px-8 lg:px-12 py-6 lg:py-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[550px]">
@@ -154,7 +148,7 @@
                     <div id="hero-slider" class="h-full w-full relative" aria-live="polite">
                         <!-- Слайд 1 (ВРАЧИ) -->
                         <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 opacity-100 z-20 pointer-events-auto">
-                            <img src="/img/slide-1.webp" alt="Интерьер клиники" class="w-full h-full object-cover" width="800" height="550">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/slide-1.webp" alt="Интерьер клиники" class="w-full h-full object-cover lazy-img" width="800" height="550">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 p-8 lg:p-12 w-full text-white z-10 flex flex-col items-start justify-end h-full">
                                 <h1 class="font-serif text-3xl lg:text-5xl mb-3 leading-tight">Врачи-дерматологи с опытом 10+ лет</h1>
@@ -164,7 +158,7 @@
                         </div>
                         <!-- Слайд 2 (ЛАЗЕР) -->
                         <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 opacity-0 z-10 pointer-events-none" aria-hidden="true">
-                            <img src="/img/slide-2.webp" alt="Лазерное оборудование" class="w-full h-full object-cover" width="800" height="550">
+                            <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/slide-2.webp" alt="Лазерное оборудование" class="w-full h-full object-cover lazy-img" width="800" height="550">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 p-8 lg:p-12 w-full text-white z-10 flex flex-col items-start justify-end h-full">
                                 <h2 class="font-serif text-3xl lg:text-5xl mb-3 leading-tight">Лучшие лазеры в СПб</h2>
@@ -230,7 +224,7 @@
                     <a href="laser.html" class="group relative h-[360px] rounded-2xl overflow-hidden shadow-md cursor-pointer bg-gray-200 block">
                         <picture class="absolute inset-0 w-full h-full">
                             <source srcset="/img/s-laser.webp" type="image/webp">
-                            <img src="/img/s-laser.webp" alt="Лазерная эпиляция Moveo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="360">
+                            <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/s-laser.webp" alt="Лазерная эпиляция Moveo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="360">
                         </picture>
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-tiffany/90 via-brand-tiffany/20 to-transparent opacity-90 transition duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full text-white z-10">
@@ -246,7 +240,7 @@
 
                     <!-- Удаление новообразований -->
                     <a href="removal.html" class="group relative h-[360px] rounded-2xl overflow-hidden shadow-md cursor-pointer bg-gray-200 block">
-                        <img src="/img/s-remove.webp" alt="Удаление новообразований" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="360">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/s-remove.webp" alt="Удаление новообразований" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="360">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-tiffany/90 via-brand-tiffany/20 to-transparent opacity-90 transition duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full text-white z-10">
                             <div class="transform transition duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">
@@ -261,7 +255,7 @@
 
                     <!-- Аппаратная косметология -->
                     <a href="hardware.html" class="group relative h-[360px] rounded-2xl overflow-hidden shadow-md cursor-pointer bg-gray-200 block">
-                        <img src="/img/s-hard.webp" alt="Аппаратная косметология" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="360">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/s-hard.webp" alt="Аппаратная косметология" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="360">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-tiffany/90 via-brand-tiffany/20 to-transparent opacity-90 transition duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full text-white z-10">
                             <div class="transform transition duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">
@@ -276,7 +270,7 @@
 
                     <!-- Инъекционная косметология -->
                     <a href="inject.html" class="group relative h-[360px] rounded-2xl overflow-hidden shadow-md cursor-pointer bg-gray-200 block">
-                        <img src="/img/s-inject.webp" alt="Инъекционная косметология" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="360">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/s-inject.webp" alt="Инъекционная косметология" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="360">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-tiffany/90 via-brand-tiffany/20 to-transparent opacity-90 transition duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full text-white z-10">
                             <div class="transform transition duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">
@@ -291,7 +285,7 @@
 
                     <!-- Эстетическая косметология -->
                     <a href="aesthetic.html" class="group relative h-[360px] rounded-2xl overflow-hidden shadow-md cursor-pointer bg-gray-200 block">
-                        <img src="/img/s-aest.webp" alt="Эстетическая косметология" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="360">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/s-aest.webp" alt="Эстетическая косметология" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="360">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-tiffany/90 via-brand-tiffany/20 to-transparent opacity-90 transition duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full text-white z-10">
                             <div class="transform transition duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">
@@ -306,7 +300,7 @@
 
                     <!-- Коррекция фигуры -->
                     <a href="body.html" class="group relative h-[360px] rounded-2xl overflow-hidden shadow-md cursor-pointer bg-gray-200 block">
-                        <img src="/img/s-body.webp" alt="Коррекция фигуры" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" width="400" height="360">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/s-body.webp" alt="Коррекция фигуры" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="360">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-tiffany/90 via-brand-tiffany/20 to-transparent opacity-90 transition duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full text-white z-10">
                             <div class="transform transition duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">
@@ -350,9 +344,9 @@
                         <!-- 1. Фото врачей кликабельные -->
                         <a href="specialists.html" class="flex items-center gap-4 group hover:opacity-90 transition">
                              <div class="flex -space-x-4">
-                                <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="/img/team-1.webp" alt="Сотрудник" loading="lazy" width="48" height="48">
-                                <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="/img/team-2.webp" alt="Сотрудник" loading="lazy" width="48" height="48">
-                                <img class="w-12 h-12 rounded-full border-2 border-white object-cover" src="/img/team-3.webp" alt="Сотрудник" loading="lazy" width="48" height="48">
+                                <img decoding="async" class="w-12 h-12 rounded-full border-2 border-white object-cover lazy-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/team-1.webp" alt="Сотрудник" loading="lazy" width="48" height="48">
+                                <img decoding="async" class="w-12 h-12 rounded-full border-2 border-white object-cover lazy-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/team-2.webp" alt="Сотрудник" loading="lazy" width="48" height="48">
+                                <img decoding="async" class="w-12 h-12 rounded-full border-2 border-white object-cover lazy-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/team-3.webp" alt="Сотрудник" loading="lazy" width="48" height="48">
                                 <div class="w-12 h-12 rounded-full bg-gray-400 border-2 border-white flex items-center justify-center text-xs font-bold text-white bg-brand-tiffany">+15</div>
                              </div>
                              <div class="text-sm text-gray-500 group-hover:text-brand-turquoise transition">
@@ -389,15 +383,15 @@
                                 <!-- Слайдер кликабельный и ведущий на equipment.html -->
                                 <a href="equipment.html" class="block w-full md:w-56 shrink-0 relative h-[350px] cursor-pointer" id="equip-slider">
                                     <div class="equip-slide absolute top-0 left-0 w-full h-full opacity-100 transition-opacity duration-1000 flex flex-col items-center">
-                                        <img src="/img/deka-moveo.webp" class="rounded-xl shadow-lg rotate-3 bg-white/10 backdrop-blur-sm p-2 w-full object-cover h-full" alt="DEKA Moveo" loading="lazy" width="300" height="500">
+                                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/deka-moveo.webp" class="rounded-xl shadow-lg rotate-3 bg-white/10 backdrop-blur-sm p-2 w-full object-cover h-full lazy-img" alt="DEKA Moveo" loading="lazy" width="300" height="500">
                                         <p class="text-center text-xs mt-2 text-white font-bold absolute bottom-4 bg-brand-tiffany/90 px-2 py-1 rounded">DEKA Moveo</p>
                                     </div>
                                     <div class="equip-slide absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1000 flex flex-col items-center">
-                                        <img src="/img/capello.webp" class="rounded-xl shadow-lg rotate-3 bg-white/10 backdrop-blur-sm p-2 w-full object-cover h-full" alt="Capello" loading="lazy" width="300" height="500">
+                                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/capello.webp" class="rounded-xl shadow-lg rotate-3 bg-white/10 backdrop-blur-sm p-2 w-full object-cover h-full lazy-img" alt="Capello" loading="lazy" width="300" height="500">
                                         <p class="text-center text-xs mt-2 text-white font-bold absolute bottom-4 bg-brand-tiffany/90 px-2 py-1 rounded">Capello</p>
                                     </div>
                                     <div class="equip-slide absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1000 flex flex-col items-center">
-                                        <img src="/img/deka-onda.webp" class="rounded-xl shadow-lg rotate-3 bg-white/10 backdrop-blur-sm p-2 w-full object-cover h-full" alt="ONDA Coolwaves" loading="lazy" width="300" height="500">
+                                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/deka-onda.webp" class="rounded-xl shadow-lg rotate-3 bg-white/10 backdrop-blur-sm p-2 w-full object-cover h-full lazy-img" alt="ONDA Coolwaves" loading="lazy" width="300" height="500">
                                         <p class="text-center text-xs mt-2 text-white font-bold absolute bottom-4 bg-brand-tiffany/90 px-2 py-1 rounded">ONDA Coolwaves</p>
                                     </div>
                                 </a>
@@ -417,7 +411,7 @@
                         <div class="absolute -left-6 -top-6 w-32 h-32 bg-brand-peach/20 rounded-full blur-2xl group-hover:bg-brand-peach/40 transition duration-700"></div>
                         <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-brand-turquoise/20 rounded-full blur-2xl group-hover:bg-brand-turquoise/40 transition duration-700"></div>
                         <div class="relative z-10 transform group-hover:scale-[1.02] transition duration-500">
-                            <img src="/img/team-main.webp" alt="Команда клиники" class="rounded-2xl w-full h-auto shadow-xl" loading="lazy" width="600" height="400">
+                            <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/team-main.webp" alt="Команда клиники" class="rounded-2xl w-full h-auto shadow-xl lazy-img" loading="lazy" width="600" height="400">
                         </div>
                     </div>
                     <div>
@@ -445,7 +439,7 @@
                 <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
                     <a href="legal.html" class="block w-48 h-64 bg-slate-50 border border-gray-200 rounded-lg p-2 hover:shadow-lg transition relative group">
                          <div class="w-full h-full flex items-center justify-center text-gray-300 overflow-hidden">
-                            <img src="/img/reg-udostoverenie-beeliftbee.webp" alt="РУ BeeliftBee" class="w-full h-full object-contain" loading="lazy" width="200" height="280">
+                            <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/reg-udostoverenie-beeliftbee.webp" alt="РУ BeeliftBee" class="w-full h-full object-contain lazy-img" loading="lazy" width="200" height="280">
                          </div>
                          <div class="absolute inset-0 bg-brand-dark/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg">
                              <span class="text-white text-xs font-bold px-4 text-center">РУ BeeliftBee</span>
@@ -453,7 +447,7 @@
                      </a>
                     <a href="legal.html" class="block w-48 h-64 bg-slate-50 border border-gray-200 rounded-lg p-2 hover:shadow-lg transition relative group">
                          <div class="w-full h-full flex items-center justify-center text-gray-300 overflow-hidden">
-                            <img src="/img/reg-udostoverenie-deka-synchro.webp" alt="РУ DEKA Synchro" class="w-full h-full object-contain" loading="lazy" width="200" height="280">
+                            <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/reg-udostoverenie-deka-synchro.webp" alt="РУ DEKA Synchro" class="w-full h-full object-contain lazy-img" loading="lazy" width="200" height="280">
                          </div>
                          <div class="absolute inset-0 bg-brand-dark/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg">
                              <span class="text-white text-xs font-bold px-4 text-center">РУ DEKA Synchro</span>
@@ -461,7 +455,7 @@
                      </a>
                     <a href="legal.html" class="block w-48 h-64 bg-slate-50 border border-gray-200 rounded-lg p-2 hover:shadow-lg transition relative group">
                         <div class="w-full h-full flex items-center justify-center text-gray-300 overflow-hidden">
-                            <img src="/img/reg-udostoverenie-capello.webp" alt="РУ Capello" class="w-full h-full object-contain" loading="lazy" width="200" height="280">
+                            <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/reg-udostoverenie-capello.webp" alt="РУ Capello" class="w-full h-full object-contain lazy-img" loading="lazy" width="200" height="280">
                         </div>
                         <div class="absolute inset-0 bg-brand-dark/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg">
                             <span class="text-white text-xs font-bold px-4 text-center">РУ Capello</span>
@@ -469,7 +463,7 @@
                     </a>
                     <a href="legal.html" class="block w-48 h-64 bg-slate-50 border border-gray-200 rounded-lg p-2 hover:shadow-lg transition relative group">
                         <div class="w-full h-full flex items-center justify-center text-gray-300 overflow-hidden">
-                            <img src="/img/reg-udostoverenie-deka-onda.webp" alt="РУ DEKA Onda" class="w-full h-full object-contain" loading="lazy" width="200" height="280">
+                            <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/reg-udostoverenie-deka-onda.webp" alt="РУ DEKA Onda" class="w-full h-full object-contain lazy-img" loading="lazy" width="200" height="280">
                         </div>
                         <div class="absolute inset-0 bg-brand-dark/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg">
                             <span class="text-white text-xs font-bold px-4 text-center">РУ DEKA Onda</span>
@@ -575,7 +569,7 @@
                  <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                      <!-- Левая часть: Фото -->
                      <div class="md:w-5/12 bg-brand-light relative min-h-[300px] flex items-center justify-center overflow-hidden group">
-                        <img src="/img/form-bg.webp" alt="Запись" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" width="400" height="600">
+                        <img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/form-bg.webp" alt="Запись" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 lazy-img" loading="lazy" width="400" height="600">
                         <div class="absolute inset-0 bg-brand-tiffany/30 z-10"></div>
                         <div class="relative text-white text-center p-6 z-20">
                             <h3 class="font-serif text-2xl mb-2">Ждем вас</h3>
