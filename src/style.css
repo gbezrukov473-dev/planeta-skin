@@ -114,3 +114,26 @@ body {
     filter: none;
     opacity: 1;
 }
+
+/* === AVIF для CSS background-image ===
+ * Пример использования image-set() для поддержки AVIF с fallback:
+ *
+ * .hero-bg {
+ *     background-image: url('/img/hero.webp');
+ *     background-image: image-set(
+ *         url('/img/hero.avif') type('image/avif'),
+ *         url('/img/hero.webp') type('image/webp')
+ *     );
+ * }
+ *
+ * Или с @supports для старых браузеров:
+ *
+ * .hero-bg {
+ *     background-image: url('/img/hero.webp');
+ * }
+ * @supports (background-image: url('/img/hero.avif')) {
+ *     .hero-bg {
+ *         background-image: url('/img/hero.avif');
+ *     }
+ * }
+ */
