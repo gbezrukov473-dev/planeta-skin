@@ -141,16 +141,8 @@ export function initRemovalSlider() {
       const url = div.getAttribute("data-img-url");
       if (!url) return;
 
-      // Предзагружаем изображение, чтобы оно точно загрузилось
-      const img = new Image();
-      img.onload = () => {
-        div.style.backgroundImage = `url(${url})`;
-      };
-      img.onerror = () => {
-        console.warn(`[RemovalSlider] Failed to load image: ${url}`);
-        div.style.backgroundImage = `url(${url})`; // Все равно устанавливаем, может загрузится позже
-      };
-      img.src = url;
+      // Устанавливаем background-image (браузер загрузит его)
+      div.style.backgroundImage = `url(${url})`;
 
       // Добавляем класс lightbox-trigger и data-src для интеграции с lightbox.js
       div.classList.add("lightbox-trigger");
