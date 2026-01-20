@@ -198,5 +198,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initLeadForms();
   initScrollToTop();
   initCookieBanner();
-  initLazyImages();
 });

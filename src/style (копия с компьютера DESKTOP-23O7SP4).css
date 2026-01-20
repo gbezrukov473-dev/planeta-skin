@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* === ПОДКЛЮЧЕНИЕ ШРИФТОВ === */
+
+/* 1. ANTICVA (Заголовки) */
+@font-face {
+    font-family: 'Anticva';
+    src: url('/fonts/Anticva-Regular.woff2') format('woff2'),
+         url('/fonts/Anticva-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /* Важно для быстрой загрузки */
+}
+
+/* 2. OPEN SANS (Основной текст - Обычный) */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.woff2') format('woff2'),
+         url('/fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 3. OPEN SANS (Основной текст - Жирный) */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Bold.woff2') format('woff2'),
+         url('/fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* === SVG ICON SYSTEM === */
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.125em;
+    overflow: visible;
+    fill: currentColor;
+}
+
+/* === ГЛОБАЛЬНЫЕ СТИЛИ === */
+body { 
+    scroll-behavior: smooth; 
+    @apply text-gray-700 font-sans antialiased bg-slate-50;
+}
+
+/* Skip to content: отступ для фиксированной шапки */
+#main-content {
+    scroll-margin-top: 120px;
+}
+
+.service-card:hover .service-overlay { 
+    opacity: 1; 
+    bottom: 0; 
+}
+
+.service-overlay { 
+    transition: all 0.4s ease; 
+    opacity: 0; 
+    bottom: -20px; 
+}
+
+.fade-enter { opacity: 0; }
+.fade-enter-active { opacity: 1; transition: opacity 500ms ease-in; }
+
+.nav-service-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.1;
+    height: 40px;
+    transition: color 0.2s;
+}
+.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Анимация наполнения цветом */
+@keyframes fillLogo {
+    0% {
+        clip-path: inset(100% 0 0 0); /* Полностью скрыт (обрезан снизу) */
+    }
+    100% {
+        clip-path: inset(0 0 0 0); /* Полностью виден */
+    }
+}
+
+/* Применяем анимацию к цветному контейнеру */
+/* duration 1.5s — время заполнения */
+.animate-fill {
+    animation: fillLogo 1.5s ease-in-out forwards;
+}
+
+/* === LAZY LOAD IMAGES (blur-up эффект) === */
+.lazy-img {
+    filter: blur(16px);
+    opacity: 0.9;
+    /* Не используем transform здесь, чтобы не блокировать hover:scale */
+}
+
+.lazy-img.is-loaded {
+    filter: blur(0);
+    opacity: 1;
+}
+
+.lazy-img.is-error {
+    filter: none;
+    opacity: 1;
+}
+
+/* === AVIF для CSS background-image ===
+ * Пример использования image-set() для поддержки AVIF с fallback:
+ *
+ * .hero-bg {
+ *     background-image: url('/img/hero.webp');
+ *     background-image: image-set(
+ *         url('/img/hero.avif') type('image/avif'),
+ *         url('/img/hero.webp') type('image/webp')
+ *     );
+ * }
+ *
+ * Или с @supports для старых браузеров:
+ *
+ * .hero-bg {
+ *     background-image: url('/img/hero.webp');
+ * }
+ * @supports (background-image: url('/img/hero.avif')) {
+ *     .hero-bg {
+ *         background-image: url('/img/hero.avif');
+ *     }
+ * }
+ */
