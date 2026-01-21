@@ -28,9 +28,12 @@ export default defineConfig({
     },
     cssCodeSplit: true, // Разделение CSS для лучшего кеширования
     minify: 'esbuild', // Минификация JS (быстрее чем terser, встроен в Vite)
-    // esbuild автоматически удаляет console.log в production
     // Оптимизация chunk размеров
     chunkSizeWarningLimit: 1000,
+  },
+  // Убираем console.log и debugger в production
+  esbuild: {
+    drop: ['console', 'debugger'],
   },
   // Оптимизация зависимостей
   optimizeDeps: {

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена | Планета здоровой кожи</title>
+    
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+    <!-- Preload шрифтов -->
+    <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <style>
+        @font-face {
+            font-family: 'Anticva';
+            src: url('/fonts/Anticva-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Open Sans';
+            src: url('/fonts/OpenSans-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #334155;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .error-code {
+            font-family: 'Anticva', Georgia, serif;
+            font-size: 8rem;
+            font-weight: 400;
+            color: #017B8C;
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(1, 123, 140, 0.1);
+        }
+        
+        h1 {
+            font-family: 'Anticva', Georgia, serif;
+            font-size: 1.75rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        
+        p {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: #44C8D2;
+            color: white;
+            box-shadow: 0 4px 14px rgba(68, 200, 210, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #017B8C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(1, 123, 140, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #334155;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #44C8D2;
+            color: #017B8C;
+        }
+        
+        .contact {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .contact p {
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .contact a {
+            color: #017B8C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/img/logo.svg" alt="Планета здоровой кожи" class="logo">
+        
+        <div class="error-code">404</div>
+        
+        <h1>Страница не найдена</h1>
+        
+        <p>
+            К сожалению, запрашиваемая страница не существует или была перемещена. 
+            Возможно, вы перешли по устаревшей ссылке.
+        </p>
+        
+        <div class="buttons">
+            <a href="/" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                На главную
+            </a>
+            <a href="javascript:history.back()" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                </svg>
+                Назад
+            </a>
+        </div>
+        
+        <div class="contact">
+            <p>Нужна помощь? Свяжитесь с нами:</p>
+            <a href="tel:+79112717888">+7 (911) 271-78-88</a>
+        </div>
+    </div>
+</body>
+</html>

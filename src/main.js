@@ -12,6 +12,7 @@ import { initLeadForms } from "./js/modules/forms.js";
 import { initScrollToTop } from "./js/modules/scrollToTop.js";
 import { initCookieBanner } from "./js/modules/cookieBanner.js";
 import { initLazyImages } from "./js/modules/lazyImages.js";
+import { initPhoneMask } from "./js/modules/phoneMask.js";
 
 // === SERVICE WORKER REGISTRATION ===
 if ('serviceWorker' in navigator) {
@@ -198,4 +199,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initLeadForms();
   initScrollToTop();
   initCookieBanner();
+  initPhoneMask();
 });

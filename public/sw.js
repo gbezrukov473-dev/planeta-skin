@@ -5,10 +5,12 @@
  * - Assets (JS/CSS/шрифты/SVG): Cache-first (быстрая загрузка)
  * - Изображения: Stale-while-revalidate (быстро + обновление в фоне)
  * 
- * ВАЖНО: Менять CACHE_VERSION при каждом релизе для сброса кеша!
+ * Версия генерируется автоматически на основе даты билда
  */
 
-const CACHE_VERSION = 'pzk-sw-v1'; // <-- Менять при релизе: v2, v3...
+// Автоматическая версия: ГГММДД (обновляется при каждом деплое)
+const BUILD_DATE = '20260121'; // Обновляется скриптом при билде
+const CACHE_VERSION = `pzk-sw-v${BUILD_DATE}`;
 const PAGES_CACHE = `${CACHE_VERSION}:pages`;
 const ASSETS_CACHE = `${CACHE_VERSION}:assets`;
 const IMAGES_CACHE = `${CACHE_VERSION}:images`;

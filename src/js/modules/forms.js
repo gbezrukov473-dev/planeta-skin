@@ -44,8 +44,8 @@ function setupLeadForm(form) {
 
   persistAndFillTracking(form);
 
-  // Способ связи (call / max)
-  const allowedMethods = ["call", "max"];
+  // Способ связи (call / whatsapp)
+  const allowedMethods = ["call", "whatsapp"];
 
   const setMethod = (method) => {
     if (!allowedMethods.includes(method)) method = "call";
@@ -70,7 +70,7 @@ function setupLeadForm(form) {
     setMethod((methodHidden?.value || "call").trim() || "call");
   }
 
-  // Маска телефона (инициализируется через jQuery в footer)
+  // Маска телефона (инициализируется нативным модулем phoneMask.js)
   if (phoneEl) {
     // Функция проверки и снятия ошибки при полном номере
     const checkPhoneComplete = () => {

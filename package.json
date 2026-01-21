@@ -5,11 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/update-sw-version.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "icons": "node scripts/build-icons-sprite.mjs",
-    "critical": "vite build && node scripts/critical.mjs",
-    "build:prod": "vite build && node scripts/critical.mjs"
+    "critical": "node scripts/update-sw-version.mjs && vite build && node scripts/critical.mjs",
+    "build:prod": "node scripts/update-sw-version.mjs && vite build && node scripts/critical.mjs",
+    "social-meta": "node scripts/inject-social-meta.mjs",
+    "lazy-images": "node scripts/inject-lazy-images.mjs",
+    "images:avif": "node scripts/make-avif.mjs",
+    "images:picture": "node scripts/inject-picture-tags.mjs"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
@@ -17,7 +22,9 @@
     "autoprefixer": "^10.4.22",
     "critters": "^0.0.23",
     "esbuild": "^0.25.12",
+    "fast-glob": "^3.3.3",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.17",
     "vite": "npm:rolldown-vite@7.2.2"
   },
