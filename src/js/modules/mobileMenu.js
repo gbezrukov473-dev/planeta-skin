@@ -9,12 +9,17 @@ export function initMobileMenu() {
 
   const closeMenu = () => {
     menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.classList.remove("is-open");
+    menuBtn.setAttribute("aria-label", "Открыть меню");
     mobileMenu.classList.add("hidden");
   };
 
   const toggleMenu = () => {
     const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
-    menuBtn.setAttribute("aria-expanded", String(!isExpanded));
+    const next = !isExpanded;
+    menuBtn.setAttribute("aria-expanded", String(next));
+    menuBtn.classList.toggle("is-open", next);
+    menuBtn.setAttribute("aria-label", next ? "Закрыть меню" : "Открыть меню");
     mobileMenu.classList.toggle("hidden");
   };
 

@@ -97,3 +97,54 @@ body {
 .animate-fill {
     animation: fillLogo 1.5s ease-in-out forwards;
 }
+
+/* === MOBILE HAMBURGER (3 lines -> X) === */
+.hamburger-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+    transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s ease;
+    content: "";
+}
+
+/* middle line */
+.hamburger-icon {
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* top & bottom lines */
+.hamburger-icon::before {
+    top: -7px;
+}
+.hamburger-icon::after {
+    top: 7px;
+}
+
+/* open state: make X */
+.hamburger-btn.is-open .hamburger-icon {
+    transform: translateY(-50%) rotate(45deg);
+}
+.hamburger-btn.is-open .hamburger-icon::before {
+    top: 0;
+    opacity: 0;
+}
+.hamburger-btn.is-open .hamburger-icon::after {
+    top: 0;
+    transform: rotate(90deg);
+}
