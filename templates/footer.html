@@ -41,7 +41,8 @@
 
         <div class="border-t border-gray-200 pt-8 flex flex-col justify-between items-center text-xs text-gray-500 gap-4">
             <div class="flex flex-col md:flex-row justify-between w-full items-center gap-4">
-                <p>&copy; 2024 ООО «Планета здоровой кожи». Все права защищены.</p>
+                <p>&copy; <span id="footer-year">2024</span> ООО «Планета здоровой кожи». Все права защищены.</p>
+<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
                 <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
                     <a href="policy.html" class="hover:text-brand-turquoise transition">Политика конфиденциальности</a>
                     <a href="legal.html" class="hover:text-brand-turquoise transition">Юридическая информация</a>
@@ -150,27 +151,5 @@
   }
 </style>
 
-<!-- Подключение скриптов -->
-<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://snipp.ru/cdn/maskedinput/jquery.maskedinput.min.js"></script>
-<script>
-  // Инициализация маски телефона
-  function initPhoneMask() {
-    if (typeof $ !== 'undefined' && typeof $.mask !== 'undefined') {
-      $.mask.definitions['h'] = "[0|1|3|4|5|6|7|9]";
-      // autoclear: false - не очищать неполный номер при потере фокуса
-      $(".mask-phone").mask("+7 (h99) 999-99-99", { autoclear: false });
-    }
-  }
-  
-  // Инициализация при загрузке DOM
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPhoneMask);
-  } else {
-    initPhoneMask();
-  }
-  
-  // Повторная инициализация для динамически добавленных элементов
-  setTimeout(initPhoneMask, 100);
-</script>
+<!-- Подключение скриптов (без jQuery - используем нативную маску) -->
 <script type="module" src="/src/main.js"></script>
