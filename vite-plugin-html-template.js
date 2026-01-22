@@ -45,7 +45,7 @@ function renderHeader(currentPage) {
       ? 'text-brand-turquoise cursor-default' 
       : 'hover:text-brand-tiffany';
     const ariaCurrent = isActive ? ' aria-current="page"' : '';
-    return `<a href="${item.href}" class="font-semibold ${activeClass} transition whitespace-nowrap"${ariaCurrent}>${item.text}</a>`;
+    return `<a href="${item.href}" class="font-medium ${activeClass} transition whitespace-nowrap"${ariaCurrent}>${item.text}</a>`;
   }).join('\n                ');
   
   header = header.replace('<!-- MAIN_MENU_PLACEHOLDER -->', mainMenuHtml);

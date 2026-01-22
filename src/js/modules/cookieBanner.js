@@ -40,6 +40,8 @@ export function initCookieBanner() {
     acceptButton.addEventListener("click", () => {
       localStorage.setItem(storageKey, "true");
       banner.classList.add("hidden");
+      // Уведомляем другие модули об изменении видимости баннера
+      window.dispatchEvent(new CustomEvent("cookieBannerClosed"));
     });
   }
 
