@@ -75,113 +75,112 @@
       <!-- СПИСОК АКЦИЙ -->
       <section class="py-16 bg-white">
           <div class="container mx-auto px-4">
-              
-              <!-- Баннер: Счастливые часы (Лазер) -->
-              <div class="bg-brand-tiffany text-white rounded-[2.5rem] p-8 md:p-12 mb-16 shadow-xl relative overflow-hidden group">
-                  <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-white/20 transition duration-700"></div>
-                  
-                  <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-                      <div class="lg:w-2/3">
-                          <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-clock-outline"></use></svg> Будни до 15:00</div>
-                          <h2 class="font-serif text-3xl md:text-4xl mb-4">Счастливые часы на лазерную эпиляцию</h2>
-                          <p class="text-white/90 text-lg mb-6 max-w-xl">Скидка до 30% на комплексы лазерной эпиляции Moveo. Запишитесь на процедуру в будние дни с 10:00 до 15:00.</p>
-                          
-                          <div class="flex flex-wrap gap-4 text-sm font-bold">
-                              <div class="bg-white/20 backdrop-blur rounded-xl px-4 py-2 border border-white/30">Бикини + Подмышки = 4 900 ₽</div>
-                              <div class="bg-white/20 backdrop-blur rounded-xl px-4 py-2 border border-white/30">Голени + Подмышки = 4 500 ₽</div>
-                          </div>
-                      </div>
-                      
-                      <div class="lg:w-1/3 flex justify-center lg:justify-end w-full">
-                          <button type="button" class="js-scroll-to-form w-full sm:w-auto bg-white text-brand-tiffany font-bold py-4 px-10 rounded-2xl hover:bg-brand-peach hover:text-brand-dark transition shadow-lg text-center">Записаться по акции</button>
-                      </div>
-                  </div>
-              </div>
 
-              <!-- Сетка акций -->
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Сетка основных скидок -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
-                  <!-- Акция 1: Знакомство -->
+                  <!-- Скидка на первый визит -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <picture><source srcset="/img/aesthetic-hero.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/aesthetic-hero.webp" alt="Знакомство с клиникой" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
+                          <picture><source srcset="/img/aesthetic-hero.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/aesthetic-hero.webp" alt="Скидка на первый визит" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
                           <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-15%</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
-                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Знакомство с клиникой</h3>
-                          <p class="text-gray-500 text-sm mb-6 flex-grow">Скидка 15% на первый визит к косметологу на любую уходовую процедуру или чистку лица.</p>
+                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Скидка на первый визит</h3>
+                          <p class="text-gray-500 text-sm mb-6 flex-grow">Скидка <strong>15%</strong> для новых пациентов на первое посещение клиники.</p>
                           <div class="mt-auto">
                               <button type="button" class="js-scroll-to-form w-full border-2 border-brand-dark text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-dark hover:text-white transition">Получить скидку</button>
                           </div>
                       </div>
                   </div>
 
-                  <!-- Акция 2: SMAS -->
-                  <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
-                      <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <picture><source srcset="/img/smas-beelift-ep.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/smas-beelift-ep.webp" alt="SMAS Лифтинг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
-                          <div class="absolute top-4 left-4 bg-brand-peach text-brand-dark text-xs font-bold px-3 py-1.5 rounded-lg uppercase">Выгодно</div>
-                      </div>
-                      <div class="p-8 flex flex-col flex-grow">
-                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">SMAS-лифтинг: Овал лица</h3>
-                          <p class="text-gray-500 text-sm mb-6 flex-grow">Безоперационная подтяжка нижней трети лица (500 линий). Мгновенный результат.</p>
-                          <div class="mt-auto flex items-end justify-between mb-4">
-                              <span class="text-gray-400 line-through text-sm">28 000 ₽</span>
-                              <span class="text-2xl font-bold text-brand-tiffany font-serif">22 500 ₽</span>
-                          </div>
-                          <button type="button" class="js-scroll-to-form w-full bg-brand-turquoise text-white font-bold py-3 rounded-xl hover:bg-brand-tiffany transition">Записаться</button>
-                      </div>
-                  </div>
-
-                  <!-- Акция 3: Чистка + Пилинг -->
-                  <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
-                      <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <picture><source srcset="/img/aesthetic-peeling.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/aesthetic-peeling.webp" alt="Чистка + Пилинг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
-                          <div class="absolute top-4 left-4 bg-brand-turquoise text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">Комплекс</div>
-                      </div>
-                      <div class="p-8 flex flex-col flex-grow">
-                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Идеальная кожа</h3>
-                          <p class="text-gray-500 text-sm mb-6 flex-grow">Комбинированная чистка лица + поверхностный пилинг по типу кожи в одну процедуру.</p>
-                          <div class="mt-auto flex items-end justify-between mb-4">
-                              <span class="text-gray-400 line-through text-sm">6 500 ₽</span>
-                              <span class="text-2xl font-bold text-brand-tiffany font-serif">5 500 ₽</span>
-                          </div>
-                          <button type="button" class="js-scroll-to-form w-full bg-brand-turquoise text-white font-bold py-3 rounded-xl hover:bg-brand-tiffany transition">Записаться</button>
-                      </div>
-                  </div>
-
-                  <!-- Акция 4: Губы -->
-                  <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
-                      <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <picture><source srcset="/img/inject-result-1.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/inject-result-1.webp" alt="Губы" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
-                      </div>
-                      <div class="p-8 flex flex-col flex-grow">
-                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Увлажнение губ</h3>
-                          <p class="text-gray-500 text-sm mb-6 flex-grow">Контурная пластика препаратом Belotero Lips (0.6 мл). Естественный объем и увлажнение.</p>
-                          <div class="mt-auto flex items-end justify-between mb-4">
-                              <span class="text-gray-400 line-through text-sm">20 000 ₽</span>
-                              <span class="text-2xl font-bold text-brand-tiffany font-serif">18 000 ₽</span>
-                          </div>
-                          <button type="button" class="js-scroll-to-form w-full bg-brand-turquoise text-white font-bold py-3 rounded-xl hover:bg-brand-tiffany transition">Записаться</button>
-                      </div>
-                  </div>
-
-                  <!-- Акция 5: День рождения -->
+                  <!-- День рождения -->
                   <div class="group bg-gradient-to-br from-brand-peach/20 to-brand-light rounded-3xl border border-brand-peach/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="p-8 flex flex-col flex-grow items-center text-center justify-center">
                           <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl text-brand-peach mb-6 shadow-md">
                               <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-gift"></use></svg>
                           </div>
                           <h3 class="font-serif text-2xl text-brand-dark mb-3">Скидка в День Рождения</h3>
-                          <p class="text-gray-600 text-sm mb-6 flex-grow">Дарим скидку <strong>10%</strong> на все услуги клиники за 3 дня до и 3 дня после вашего праздника.</p>
+                          <p class="text-gray-600 text-sm mb-6 flex-grow">Дарим скидку <strong>10%</strong> на все услуги клиники в честь вашего праздника.</p>
                           <button type="button" class="js-scroll-to-form w-full bg-white text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-peach hover:text-white transition shadow-sm">Хочу скидку</button>
+                      </div>
+                  </div>
+
+                  <!-- Комбо услуг -->
+                  <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
+                      <div class="h-60 relative overflow-hidden bg-gray-100">
+                          <picture><source srcset="/img/smas-beelift-ep.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/smas-beelift-ep.webp" alt="Комбо услуг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
+                          <div class="absolute top-4 left-4 bg-brand-turquoise text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-10%</div>
+                      </div>
+                      <div class="p-8 flex flex-col flex-grow">
+                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Комбо услуг</h3>
+                          <p class="text-gray-500 text-sm mb-4 flex-grow">Скидка <strong>10%</strong> на весь чек при сочетании: <span class="text-brand-tiffany font-semibold">Аппаратная процедура + Инъекционная процедура</span>.</p>
+                          <p class="text-gray-400 text-xs mb-4">Примеры: СМАС-лифтинг + укол; Фотолечение + препарат.</p>
+                          <p class="text-red-500 text-xs font-medium mb-4">* Не распространяется на лазерную эпиляцию.</p>
+                          <div class="mt-auto">
+                              <button type="button" class="js-scroll-to-form w-full bg-brand-turquoise text-white font-bold py-3 rounded-xl hover:bg-brand-tiffany transition">Записаться</button>
+                          </div>
                       </div>
                   </div>
 
               </div>
 
-              <div class="mt-12 text-center">
-                  <p class="text-xs text-gray-400">* Скидки и акции не суммируются. Подробности уточняйте у администраторов.</p>
+              <!-- Баннер: Счастливые часы -->
+              <div class="bg-brand-tiffany text-white rounded-[2.5rem] p-8 md:p-12 mb-16 shadow-xl relative overflow-hidden group">
+                  <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-white/20 transition duration-700"></div>
+                  
+                  <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                      <div class="lg:w-2/3">
+                          <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                              <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-clock-outline"></use></svg> Ограниченное время
+                          </div>
+                          <h2 class="font-serif text-3xl md:text-4xl mb-4">«Счастливые часы»</h2>
+                          <p class="text-white/90 text-lg max-w-xl">Специальные условия на процедуры в определённые часы. Уточняйте у администратора актуальное расписание и скидки.</p>
+                      </div>
+                      
+                      <div class="lg:w-1/3 flex justify-center lg:justify-end w-full">
+                          <button type="button" class="js-scroll-to-form w-full sm:w-auto bg-white text-brand-tiffany font-bold py-4 px-10 rounded-2xl hover:bg-brand-peach hover:text-brand-dark transition shadow-lg text-center">Узнать подробности</button>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Условия по консультациям -->
+              <div class="mb-16">
+                  <h2 class="font-serif text-3xl text-brand-dark text-center mb-10">Условия по консультациям</h2>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      
+                      <!-- Бесплатная консультация по новообразованиям -->
+                      <div class="bg-gradient-to-br from-green-50 to-white rounded-3xl border border-green-100 p-8 shadow-sm">
+                          <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-2xl text-green-600 mb-6">
+                              <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-check-circle"></use></svg>
+                          </div>
+                          <h3 class="font-serif text-xl text-brand-dark mb-4">Бесплатная консультация по новообразованиям</h3>
+                          <p class="text-gray-600 text-sm leading-relaxed">Осмотр родинок и новообразований проводится <strong>бесплатно</strong>. Если клиника не может помочь — пациента просто перенаправляют; если могут — удаляют (платно).</p>
+                      </div>
+
+                      <!-- Депозитная система -->
+                      <div class="bg-gradient-to-br from-brand-light to-white rounded-3xl border border-brand-turquoise/20 p-8 shadow-sm">
+                          <div class="w-14 h-14 bg-brand-turquoise/10 rounded-2xl flex items-center justify-center text-2xl text-brand-turquoise mb-6">
+                              <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-credit-card"></use></svg>
+                          </div>
+                          <h3 class="font-serif text-xl text-brand-dark mb-4">Депозитная система консультации косметолога</h3>
+                          <ul class="text-gray-600 text-sm leading-relaxed space-y-3">
+                              <li>• Стоимость консультации: <strong>2 000 ₽</strong></li>
+                              <li>• Если пациент делает процедуру <strong>сразу</strong> — консультация бесплатная (вычитается из стоимости).</li>
+                              <li>• Если пациент делает процедуру <strong>в течение месяца</strong> после консультации — эти 2 000 ₽ вычитаются из стоимости процедуры.</li>
+                          </ul>
+                      </div>
+                      
+                  </div>
+              </div>
+
+              <!-- Важное примечание -->
+              <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-center">
+                  <p class="text-amber-800 font-semibold text-sm">
+                      <svg class="icon inline-block mr-2 text-amber-600" aria-hidden="true"><use href="/img/icons.svg#i-bolt"></use></svg>
+                      Важно: скидки не суммируются. Например, нельзя применить скидку на первый визит к цене «Счастливых часов».
+                  </p>
               </div>
 
           </div>
