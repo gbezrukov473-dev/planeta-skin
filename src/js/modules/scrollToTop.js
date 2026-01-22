@@ -9,20 +9,15 @@ export function initScrollToTop() {
 
   // Обновляем позицию кнопки в зависимости от видимости баннера
   function updateButtonPosition() {
-    if (cookieBanner && !cookieBanner.classList.contains("hidden")) {
-      // Если баннер виден, поднимаем кнопку выше
-      if (window.innerWidth <= 640) {
-        button.style.bottom = "10rem";
-      } else {
-        button.style.bottom = "10rem";
-      }
+    const bannerVisible = cookieBanner && !cookieBanner.classList.contains("hidden");
+    const isMobile = window.innerWidth <= 640;
+    
+    if (bannerVisible) {
+      // Если баннер виден, поднимаем кнопку выше баннера
+      button.style.bottom = isMobile ? "9rem" : "8rem";
     } else {
-      // Обычная позиция
-      if (window.innerWidth <= 640) {
-        button.style.bottom = "6rem";
-      } else {
-        button.style.bottom = "2rem";
-      }
+      // Обычная позиция - в углу
+      button.style.bottom = isMobile ? "1.5rem" : "2rem";
     }
   }
 
@@ -47,27 +42,28 @@ export function initScrollToTop() {
   });
 
   // Слушаем событие прокрутки
-  window.addEventListener("scroll", toggleButton);
+  window.addEventListener("scroll", toggleButton, { passive: true });
   
   // Следим за изменением размера окна
   window.addEventListener("resize", updateButtonPosition);
   
-  // Следим за появлением/исчезновением баннера
+  // Следим за появлением/исчезновением баннера через MutationObserver
   if (cookieBanner) {
-    const observer = new MutationObserver(updateButtonPosition);
+    const observer = new MutationObserver(() => {
+      // Небольшая задержка для завершения анимации
+      setTimeout(updateButtonPosition, 50);
+    });
     observer.observe(cookieBanner, {
       attributes: true,
       attributeFilter: ["class"]
     });
   }
   
-  // Слушаем событие закрытия баннера
+  // Слушаем кастомное событие закрытия баннера
   window.addEventListener("cookieBannerClosed", () => {
-    // Небольшая задержка для завершения анимации закрытия
-    setTimeout(updateButtonPosition, 100);
+    setTimeout(updateButtonPosition, 50);
   });
   
   // Проверяем начальное состояние
   toggleButton();
-  updateButtonPosition();
 }

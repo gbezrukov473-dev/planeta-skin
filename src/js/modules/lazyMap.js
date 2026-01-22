@@ -2,59 +2,28 @@
  * Модуль для ленивой загрузки карты Яндекс при достижении 70% страницы
  */
 export function initLazyMap() {
-  const mapContainer = document.querySelector('footer iframe[title*="Карта"]');
-  if (!mapContainer) return;
+  const mapIframe = document.querySelector('footer iframe[data-src]');
+  if (!mapIframe) return;
 
-  // Если карта уже загружена, выходим
-  if (mapContainer.src && !mapContainer.src.includes('data:')) {
-    return;
-  }
+  const mapSrc = mapIframe.getAttribute('data-src');
+  if (!mapSrc) return;
 
-  // Сохраняем оригинальный src
-  const originalSrc = mapContainer.getAttribute('data-src') || mapContainer.src;
-  if (!originalSrc) return;
-
-  // Устанавливаем пустой src или data-src
-  mapContainer.src = '';
-  mapContainer.setAttribute('data-src', originalSrc);
+  let mapLoaded = false;
 
   // Функция для загрузки карты
   function loadMap() {
-    if (mapContainer.src) return; // Уже загружена
+    if (mapLoaded) return;
     
-    const src = mapContainer.getAttribute('data-src');
-    if (src) {
-      mapContainer.src = src;
-      mapContainer.removeAttribute('data-src');
-    }
+    mapIframe.src = mapSrc;
+    mapIframe.removeAttribute('data-src');
+    mapLoaded = true;
+    
+    // Удаляем слушатели после загрузки
+    window.removeEventListener('scroll', checkScrollPosition);
+    if (observer) observer.disconnect();
   }
 
-  // Используем IntersectionObserver для определения, когда пользователь достиг 70% страницы
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Вычисляем процент прокрутки страницы
-          const scrollPercent = 
-            ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100;
-          
-          // Загружаем карту, если пользователь прокрутил на 70% или больше
-          if (scrollPercent >= 70) {
-            loadMap();
-            observer.disconnect();
-          }
-        }
-      });
-    },
-    {
-      // Начинаем отслеживать, когда контейнер карты находится в viewport
-      rootMargin: '0px',
-      threshold: 0.1
-    }
-  );
-
-  // Альтернативный подход: отслеживаем прокрутку страницы
-  let mapLoaded = false;
+  // Проверяем процент прокрутки страницы
   function checkScrollPosition() {
     if (mapLoaded) return;
     
@@ -63,29 +32,46 @@ export function initLazyMap() {
     
     if (scrollPercent >= 70) {
       loadMap();
-      mapLoaded = true;
-      window.removeEventListener('scroll', checkScrollPosition, { passive: true });
-      observer.disconnect();
     }
   }
 
-  // Начинаем отслеживать прокрутку
-  window.addEventListener('scroll', checkScrollPosition, { passive: true });
-  
-  // Также отслеживаем видимость контейнера карты
-  observer.observe(mapContainer.parentElement);
+  // IntersectionObserver для отслеживания видимости футера
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !mapLoaded) {
+          loadMap();
+        }
+      });
+    },
+    {
+      rootMargin: '200px', // Загружаем немного раньше, чем футер станет полностью видимым
+      threshold: 0.1
+    }
+  );
 
-  // Если страница короткая или пользователь уже прокрутил достаточно, загружаем сразу
+  // Отслеживаем футер
+  const footer = document.querySelector('footer');
+  if (footer) {
+    observer.observe(footer);
+  }
+
+  // Также отслеживаем прокрутку страницы
+  window.addEventListener('scroll', checkScrollPosition, { passive: true });
+
+  // Проверяем начальное состояние - если страница короткая, загружаем через 2 секунды
   setTimeout(() => {
     if (!mapLoaded) {
-      const scrollPercent = 
-        ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100;
-      if (document.documentElement.scrollHeight <= window.innerHeight * 1.5 || scrollPercent >= 70) {
+      const pageHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      
+      // Если страница короткая (футер виден или почти виден)
+      if (pageHeight <= viewportHeight * 1.5) {
         loadMap();
-        mapLoaded = true;
-        window.removeEventListener('scroll', checkScrollPosition, { passive: true });
-        observer.disconnect();
+      } else {
+        // Проверяем текущий скролл
+        checkScrollPosition();
       }
     }
-  }, 1000);
+  }, 2000);
 }
