@@ -9,7 +9,7 @@
  */
 
 // Автоматическая версия: ГГММДД (обновляется при каждом деплое)
-const BUILD_DATE = '20260121'; // Обновляется скриптом при билде
+const BUILD_DATE = '20260122'; // Обновляется скриптом при билде
 const CACHE_VERSION = `pzk-sw-v${BUILD_DATE}`;
 const PAGES_CACHE = `${CACHE_VERSION}:pages`;
 const ASSETS_CACHE = `${CACHE_VERSION}:assets`;
