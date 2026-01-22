@@ -61,6 +61,12 @@ export function initScrollToTop() {
     });
   }
   
+  // Слушаем событие закрытия баннера
+  window.addEventListener("cookieBannerClosed", () => {
+    // Небольшая задержка для завершения анимации закрытия
+    setTimeout(updateButtonPosition, 100);
+  });
+  
   // Проверяем начальное состояние
   toggleButton();
   updateButtonPosition();
