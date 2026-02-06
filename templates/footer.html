@@ -31,8 +31,8 @@
                 <div class="flex gap-4 mt-10">
                     <a href="https://www.instagram.com/planet_hs2024/" target="_blank" rel="noopener noreferrer" aria-label="Instagram клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-instagram"></use></svg></a>
                     <a href="https://vk.com/planetofhealthyskin" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-vk"></use></svg></a>
-                    <a href="https://api.whatsapp.com/send/?phone=79112717888&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Max клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center transition border border-gray-200 hover:bg-brand-turquoise hover:border-brand-turquoise shadow-sm group">
-                        <img src="/img/max-logo.svg" alt="" class="w-5 h-5 max-logo-icon">
+                    <a href="https://api.whatsapp.com/send/?phone=79112717888&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Max клиники" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition border border-gray-200 hover:border-brand-turquoise shadow-sm">
+                        <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-max"></use></svg>
                     </a>
                 </div>
             </div>
@@ -131,19 +131,8 @@
   }
 </style>
 
-<!-- Стили для иконки Max -->
+<!-- Стили для иконки Max в формах -->
 <style>
-  /* Иконка Max в подвале - бирюзовая по умолчанию, белая при hover */
-  footer .max-logo-icon {
-    filter: none;
-    fill: #44C8D2;
-    transition: filter 0.3s;
-  }
-    footer .group:hover .max-logo-icon {
-    filter: brightness(0) invert(1);
-  }
-  
-  /* Иконка Max в формах - белая при активном состоянии */
   .method-btn.bg-brand-turquoise .max-logo-icon,
   .method-btn.bg-brand-turquoise img.max-logo-icon {
     filter: brightness(0) invert(1) !important;

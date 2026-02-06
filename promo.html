@@ -14,7 +14,11 @@
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#44C8D2">
   
     <!-- Schema.org разметка клиники -->
     <script type="application/ld+json">
@@ -95,8 +99,14 @@
                   </div>
 
                   <!-- День рождения -->
-                  <div class="group bg-gradient-to-br from-brand-peach/20 to-brand-light rounded-3xl border border-brand-peach/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
-                      <div class="p-8 flex flex-col flex-grow items-center text-center justify-center">
+                  <div class="group bg-gradient-to-br from-brand-peach/20 to-brand-light rounded-3xl border border-brand-peach/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full relative">
+                      <div class="absolute inset-0">
+                          <picture>
+                              <source srcset="/img/birthday.avif" type="image/avif">
+                              <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/birthday.webp" alt="" class="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500 lazy-img" aria-hidden="true">
+                          </picture>
+                      </div>
+                      <div class="p-8 flex flex-col flex-grow items-center text-center justify-center relative z-10">
                           <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl text-brand-peach mb-6 shadow-md">
                               <svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-gift"></use></svg>
                           </div>

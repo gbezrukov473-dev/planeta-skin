@@ -12,9 +12,9 @@ import fs from 'fs';
 
 // Настройки AVIF
 const AVIF_OPTIONS = {
-  quality: 45,
+  quality: 75,
   effort: 4,
-  chromaSubsampling: '4:2:0'
+  chromaSubsampling: '4:4:4'
 };
 
 // Директория с изображениями
