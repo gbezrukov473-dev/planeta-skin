@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О клинике - Планета здоровой кожи</title>
     
-    <!-- SEO Meta -->
     <meta name="description" content="Лицензированная медицинская клиника косметологии в Кудрово. Врачи-дерматологи с опытом более 10 лет. Современное оборудование DEKA, Capello, Motus AX. Индивидуальный подход к каждому пациенту.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hs-planet.ru/about.html">
 
-    <!-- Open Graph -->
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -19,6 +17,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#44C8D2">
+    
+    <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- Schema.org разметка клиники -->
     <script type="application/ld+json">
@@ -42,7 +44,11 @@
         "opens": "10:00",
         "closes": "22:00"
       },
-      "sameAs": ["https://www.instagram.com/planet_hs2024/", "https://vk.com/planetofhealthyskin"]
+      "sameAs": ["https://www.instagram.com/planet_hs2024/", "https://vk.com/planetofhealthyskin"],
+      "areaServed": [
+        {"@type": "City", "name": "Кудрово"},
+        {"@type": "City", "name": "Санкт-Петербург"}
+      ]
     }
     </script>
 
@@ -62,8 +68,34 @@
     <meta name="twitter:title" content="О клинике - Планета здоровой кожи">
     <meta name="twitter:description" content="Лицензированная медицинская клиника косметологии в Кудрово. Врачи-дерматологи с опытом более 10 лет. Современное оборудование DEKA, Capello, Motus AX. Индивидуальный подход к каждому пациенту.">
     <meta name="twitter:image" content="https://hs-planet.ru/img/team-main.webp">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://hs-planet.ru/"},
+        {"@type": "ListItem", "position": 2, "name": "О клинике", "item": "https://hs-planet.ru/about.html"}
+      ]
+    }
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(99676053, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <!-- /Yandex.Metrika counter -->
+    <!-- TODO: Вставить VK Пиксель -->
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
+<noscript><div><img src="https://mc.yandex.ru/watch/99676053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
     <!-- HEADER_PLACEHOLDER -->
 
@@ -380,7 +412,7 @@
                                 <p class="mt-2 text-xs text-red-600 hidden" data-error-for="name"></p>
                             </div>
 
-                            <!-- Способ связи (только звонок + WhatsApp) -->
+                            <!-- Способ связи (звонок или Max) -->
                             <div>
                                 <div class="text-xs font-semibold text-gray-600">Как связаться?</div>
 

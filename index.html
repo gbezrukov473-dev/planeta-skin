@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Планета здоровой кожи | Клиника косметологии Кудрово</title>
     
-    <!-- 3.2 SEO Meta -->
     <meta name="description" content="Лицензированная клиника косметологии в Кудрово «Планета здоровой кожи». Лазерная эпиляция Moveo, удаление новообразований, аппаратная и инъекционная косметология. Врачи-дерматологи с опытом более 10 лет.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hs-planet.ru/">
 
-    <!-- Open Graph / Social Sharing -->
-    <!-- 3.1 Favicons -->
+    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -20,13 +18,11 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#44C8D2">
     
-    <!-- Preload критических шрифтов -->
     <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
     
-    <!-- Font Awesome (CSS версия) -->
-<!-- Критические стили -->
+    <!-- Критические стили -->
     <style>
         /* Прелоадер */
         .preloader-hidden { opacity: 0; pointer-events: none; }
@@ -64,13 +60,11 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 
-    <!-- 1) Failsafe для прелоадера, если JS отключен -->
     <noscript>
         <style>#preloader { display: none !important; }</style>
     </noscript>
 
-    <!-- Schema.org разметка клиники (MedicalBusiness) -->
-    <!-- Для изменения данных: телефон, адрес, соцсети — редактировать здесь -->
+    <!-- Schema.org MedicalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -105,10 +99,10 @@
         "https://www.instagram.com/planet_hs2024/",
         "https://vk.com/planetofhealthyskin"
       ],
-      "areaServed": {
-        "@type": "City",
-        "name": "Кудрово"
-      },
+      "areaServed": [
+        {"@type": "City", "name": "Кудрово"},
+        {"@type": "City", "name": "Санкт-Петербург"}
+      ],
       "medicalSpecialty": ["Dermatology", "Cosmetology"]
     }
     </script>
@@ -129,8 +123,23 @@
     <meta name="twitter:title" content="Планета здоровой кожи | Клиника косметологии Кудрово">
     <meta name="twitter:description" content="Лицензированная клиника косметологии в Кудрово «Планета здоровой кожи». Лазерная эпиляция Moveo, удаление новообразований, аппаратная и инъекционная косметология. Врачи-дерматологи с опытом более 10 лет.">
     <meta name="twitter:image" content="https://hs-planet.ru/img/slide-1.webp">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(99676053, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <!-- /Yandex.Metrika counter -->
+    <!-- TODO: Вставить VK Пиксель -->
 </head>
 <body class="text-gray-700 font-sans antialiased bg-slate-50">
+<noscript><div><img src="https://mc.yandex.ru/watch/99676053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
     <!-- === ПРЕЛОАДЕР (только на главной) === -->
     <div id="preloader" class="fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-500">
@@ -145,6 +154,7 @@
     <!-- HEADER_PLACEHOLDER -->
 
     <main id="main-content">
+        <h1 class="sr-only">Планета здоровой кожи — клиника косметологии в Кудрово</h1>
         <!-- === 1. ГЛАВНЫЙ ЭКРАН + АКЦИИ === -->
         <section class="container mx-auto px-6 sm:px-8 lg:px-12 py-6 lg:py-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[550px]">
@@ -155,7 +165,7 @@
                             <picture><source srcset="/img/slide-1.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/slide-1.webp" alt="Врачи-дерматологи" class="w-full h-full object-cover lazy-img" width="800" height="550"></picture>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 p-8 lg:p-12 w-full text-white z-10 flex flex-col items-start justify-end h-full">
-                                <h1 class="font-serif text-3xl lg:text-5xl mb-3 leading-tight">Опытные врачи-дерматологи</h1>
+                                <h2 class="font-serif text-3xl lg:text-5xl mb-3 leading-tight">Опытные врачи-дерматологи</h2>
                                 <p class="text-lg opacity-90 font-light mb-6">Комплексный подход к здоровью вашей кожи</p>
                                 <a href="specialists.html" class="bg-brand-peach text-brand-dark font-bold py-3 px-8 rounded-full hover:bg-white transition shadow-lg text-sm uppercase tracking-wide relative z-[60] pointer-events-auto">Наши специалисты</a>
                             </div>
@@ -189,7 +199,6 @@
                     <div class="relative z-10 flex flex-col h-full justify-between">
                         <div>
                             <div class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-fire"></use></svg> Акция</div>
-                            <!-- Убрал whitespace-nowrap для переноса заголовка -->
                             <h3 class="font-serif text-2xl sm:text-3xl lg:text-xl xl:text-2xl leading-none mb-3 font-bold">
                                 Лазерная эпиляция MOVEO
                             </h3>
@@ -719,7 +728,7 @@
     <p class="mt-2 text-xs text-red-600 hidden" data-error-for="name"></p>
   </div>
 
-  <!-- Способ связи (только звонок + WhatsApp) -->
+  <!-- Способ связи (звонок или Max) -->
   <div>
     <div class="text-xs font-semibold text-gray-600">Как связаться?</div>
 
@@ -831,6 +840,5 @@
     </main>
 
     <!-- FOOTER_PLACEHOLDER -->
-    <script type="module" src="/src/main.js"></script>
 </body>
 </html>

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Заявка принята | Планета здоровой кожи</title>
   <meta name="robots" content="noindex, nofollow">
-  <!-- Подключаем основной JS (чтобы подтянулся Tailwind и шрифты) -->
   <script type="module" src="/src/main.js"></script>
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -14,8 +13,24 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
   <meta name="theme-color" content="#44C8D2">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(99676053, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <!-- /Yandex.Metrika counter -->
+    <!-- TODO: Вставить VK Пиксель -->
+    <!-- TODO: Добавить цель конверсии ym(99676053, 'reachGoal', 'form_submit'); -->
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased flex items-center justify-center min-h-screen">
+<noscript><div><img src="https://mc.yandex.ru/watch/99676053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   
   <main id="main-content" class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-10 text-center m-4">
       <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">

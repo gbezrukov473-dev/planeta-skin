@@ -1,6 +1,7 @@
 {
   "name": "Планета здоровой кожи",
   "short_name": "ПЗК",
+  "start_url": "/",
   "icons": [
     { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/favicon-310x310.png", "sizes": "310x310", "type": "image/png" }

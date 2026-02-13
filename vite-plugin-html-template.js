@@ -92,7 +92,7 @@ function renderHeader(currentPage) {
   let mobileServiceMenuHtml = mobileServiceMenuItems.map(item => {
     const isActive = pageInfo.service === item.key;
     const activeClass = isActive ? 'text-brand-turquoise font-bold' : '';
-    return `<a href="${item.href}" class="pl-2 text-sm flex items-center ${activeClass}"><i class="fas fa-chevron-right text-brand-turquoise text-xs mr-2" aria-hidden="true"></i>${item.text}</a>`;
+    return `<a href="${item.href}" class="pl-2 text-sm flex items-center ${activeClass}"><svg class="icon text-brand-turquoise text-xs mr-2" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg>${item.text}</a>`;
   }).join('\n                ');
   
   header = header.replace('<!-- MOBILE_SERVICE_MENU_PLACEHOLDER -->', mobileServiceMenuHtml);

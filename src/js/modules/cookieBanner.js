@@ -8,10 +8,10 @@ export function initCookieBanner() {
   const acceptButton = document.getElementById("cookie-accept");
   const storageKey = "cookie_consent_accepted";
 
-  // Проверяем, было ли уже дано согласие
   const consentGiven = localStorage.getItem(storageKey);
+  const consentDeclined = localStorage.getItem("cookie_consent");
   
-  if (consentGiven === "true") {
+  if (consentGiven === "true" || consentDeclined === "declined") {
     banner.classList.add("hidden");
     return;
   }
@@ -40,7 +40,16 @@ export function initCookieBanner() {
     acceptButton.addEventListener("click", () => {
       localStorage.setItem(storageKey, "true");
       banner.classList.add("hidden");
-      // Уведомляем другие модули об изменении видимости баннера
+      window.dispatchEvent(new CustomEvent("cookieBannerClosed"));
+    });
+  }
+
+  // Обработчик отклонения
+  const declineButton = document.getElementById("cookie-decline");
+  if (declineButton) {
+    declineButton.addEventListener("click", () => {
+      banner.classList.add("hidden");
+      localStorage.setItem("cookie_consent", "declined");
       window.dispatchEvent(new CustomEvent("cookieBannerClosed"));
     });
   }

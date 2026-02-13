@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Коррекция фигуры | Планета здоровой кожи</title>
     
-    <!-- SEO Meta -->
     <meta name="description" content="Коррекция фигуры в Кудрово: аппаратное похудение DEKA Onda, липолитики, лечение целлюлита. Эффективные методики без операций и диет.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hs-planet.ru/body.html">
 
-    <!-- Open Graph -->
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -20,7 +18,10 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#44C8D2">
     
-    <!-- Font Awesome -->
+    <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- Schema.org разметка -->
     <script type="application/ld+json">
     {
@@ -33,10 +34,10 @@
         "name": "Планета здоровой кожи",
         "telephone": "+79112717888"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Кудрово"
-      },
+      "areaServed": [
+        {"@type": "City", "name": "Кудрово"},
+        {"@type": "City", "name": "Санкт-Петербург"}
+      ],
       "serviceType": "BodyContouring"
     }
     </script>
@@ -140,7 +141,6 @@
         }
     </style>
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Планета здоровой кожи">
     <meta property="og:locale" content="ru_RU">
@@ -156,8 +156,34 @@
     <meta name="twitter:title" content="Коррекция фигуры | Планета здоровой кожи">
     <meta name="twitter:description" content="Коррекция фигуры в Кудрово: аппаратное похудение DEKA Onda, липолитики, лечение целлюлита. Эффективные методики без операций и диет.">
     <meta name="twitter:image" content="https://hs-planet.ru/img/body-hero.webp">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://hs-planet.ru/"},
+        {"@type": "ListItem", "position": 2, "name": "Коррекция фигуры", "item": "https://hs-planet.ru/body.html"}
+      ]
+    }
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(99676053, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <!-- /Yandex.Metrika counter -->
+    <!-- TODO: Вставить VK Пиксель -->
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased">
+<noscript><div><img src="https://mc.yandex.ru/watch/99676053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
     <!-- HEADER_PLACEHOLDER -->
 
