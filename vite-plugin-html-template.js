@@ -103,26 +103,28 @@ function renderHeader(currentPage) {
 export function htmlTemplatePlugin() {
   return {
     name: 'html-template',
-    enforce: 'post', // Выполняется после стандартной обработки Vite, чтобы не мешать обработке путей
-    transformIndexHtml(html, context) {
-      const footerPath = resolve(__dirname, 'templates/footer.html');
-      
-      // Определяем текущую страницу
-      const filename = context.filename ? basename(context.filename) : 'index.html';
-      const currentPage = filename;
-      
-      try {
-        const header = renderHeader(currentPage);
-        const footer = readFileSync(footerPath, 'utf-8');
+    transformIndexHtml: {
+      order: 'pre', // Выполняется ДО обработки Vite, чтобы Vite мог обработать script/link теги из шаблонов
+      handler(html, context) {
+        const footerPath = resolve(__dirname, 'templates/footer.html');
         
-        // Заменяем плейсхолдеры
-        html = html.replace('<!-- HEADER_PLACEHOLDER -->', header);
-        html = html.replace('<!-- FOOTER_PLACEHOLDER -->', footer);
-      } catch (error) {
-        console.warn('HTML Template Plugin: Could not read templates', error.message);
+        // Определяем текущую страницу
+        const filename = context.filename ? basename(context.filename) : 'index.html';
+        const currentPage = filename;
+        
+        try {
+          const header = renderHeader(currentPage);
+          const footer = readFileSync(footerPath, 'utf-8');
+          
+          // Заменяем плейсхолдеры
+          html = html.replace('<!-- HEADER_PLACEHOLDER -->', header);
+          html = html.replace('<!-- FOOTER_PLACEHOLDER -->', footer);
+        } catch (error) {
+          console.warn('HTML Template Plugin: Could not read templates', error.message);
+        }
+        
+        return html;
       }
-      
-      return html;
     }
   };
 }
