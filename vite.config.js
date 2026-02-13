@@ -18,7 +18,13 @@ function getHtmlEntries() {
   return pages;
 }
 
+// Для GitHub Pages (project site): base = /repo-name/
+const base = process.env.GITHUB_REPOSITORY
+  ? '/' + process.env.GITHUB_REPOSITORY.split('/')[1] + '/'
+  : '/';
+
 export default defineConfig({
+  base,
   plugins: [
     htmlTemplatePlugin(), // Плагин для вставки header/footer
   ],
