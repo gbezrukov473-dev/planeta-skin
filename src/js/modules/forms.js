@@ -164,7 +164,7 @@ function setupLeadForm(form) {
         if (data && data.ok) {
           showSuccess(successBox, "Спасибо! Мы скоро перезвоним.");
           setTimeout(() => {
-            window.location.href = data.redirect || form.dataset.thanks || "thanks.html";
+            window.location.href = data.redirect || form.dataset.thanks || "/thanks/";
           }, 900);
           return;
         }
@@ -211,7 +211,7 @@ function setupLeadForm(form) {
   });
 
   function goThanks(form) {
-    window.location.href = form.dataset.thanks || "thanks.html";
+    window.location.href = form.dataset.thanks || "/thanks/";
   }
 }
 

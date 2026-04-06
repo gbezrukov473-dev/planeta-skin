@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /
+
+# 1. Убираем index.html для главной страницы
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 2. Перенаправляем страницы с .html на адреса без .html (со слэшем на конце)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ /$1/ [R=301,L]
+
+# 3. Внутренняя обработка: сервер отдает .html файл, когда запрашивают красивый адрес
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.*?)/?$ $1.html [L]

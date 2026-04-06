@@ -20,6 +20,8 @@ const pageMap = {
   'inject.html': { main: null, service: 'inject' },
   'aesthetic.html': { main: null, service: 'aesthetic' },
   'body.html': { main: null, service: 'body' },
+  'contacts.html': { main: 'contacts', service: null },
+  'cosmetics.html': { main: 'cosmetics', service: null },
 };
 
 function renderHeader(currentPage) {
@@ -30,12 +32,14 @@ function renderHeader(currentPage) {
   
   // Подсветка в верхнем меню (десктоп)
   const mainMenuItems = [
-    { key: 'about', href: 'about.html', text: 'О клинике' },
-    { key: 'specialists', href: 'specialists.html', text: 'Врачи' },
-    { key: 'equipment', href: 'equipment.html', text: 'Оборудование' },
-    { key: 'promo', href: 'promo.html', text: 'Акции' },
-    { key: 'reviews', href: 'reviews.html', text: 'Отзывы' },
-    { key: 'certificates', href: 'certificates.html', text: 'Сертификаты' },
+    { key: 'about', href: '/about/', text: 'О клинике' },
+    { key: 'specialists', href: '/specialists/', text: 'Врачи' },
+    { key: 'equipment', href: '/equipment/', text: 'Оборудование' },
+    { key: 'promo', href: '/promo/', text: 'Акции' },
+    { key: 'reviews', href: '/reviews/', text: 'Отзывы' },
+    { key: 'certificates', href: '/certificates/', text: 'Сертификаты' },
+    { key: 'cosmetics', href: '/cosmetics/', text: 'Косметика' },
+    { key: 'contacts', href: '/contacts/', text: 'Контакты' },
   ];
   
   // Десктопное верхнее меню
@@ -52,12 +56,12 @@ function renderHeader(currentPage) {
   
   // Подсветка в меню услуг (второй уровень)
   const serviceMenuItems = [
-    { key: 'laser', href: 'laser.html', text: 'Лазерная<br>эпиляция', width: 'xl:w-24' },
-    { key: 'removal', href: 'removal.html', text: 'Удаление<br>новообразований', width: 'xl:w-36' },
-    { key: 'hardware', href: 'hardware.html', text: 'Аппаратная<br>косметология', width: 'xl:w-28' },
-    { key: 'inject', href: 'inject.html', text: 'Инъекционная<br>косметология', width: 'xl:w-32' },
-    { key: 'aesthetic', href: 'aesthetic.html', text: 'Эстетическая<br>косметология', width: 'xl:w-32' },
-    { key: 'body', href: 'body.html', text: 'Коррекция<br>фигуры', width: 'xl:w-24' },
+    { key: 'laser', href: '/laser/', text: 'Лазерная<br>эпиляция', width: 'xl:w-24' },
+    { key: 'removal', href: '/removal/', text: 'Удаление<br>новообразований', width: 'xl:w-36' },
+    { key: 'hardware', href: '/hardware/', text: 'Аппаратная<br>косметология', width: 'xl:w-28' },
+    { key: 'inject', href: '/inject/', text: 'Инъекционная<br>косметология', width: 'xl:w-32' },
+    { key: 'aesthetic', href: '/aesthetic/', text: 'Эстетическая<br>косметология', width: 'xl:w-32' },
+    { key: 'body', href: '/body/', text: 'Коррекция<br>фигуры', width: 'xl:w-24' },
   ];
   
   let serviceMenuHtml = serviceMenuItems.map(item => {
@@ -81,12 +85,12 @@ function renderHeader(currentPage) {
   
   // Мобильное меню услуг
   const mobileServiceMenuItems = [
-    { key: 'laser', href: 'laser.html', text: 'Лазерная эпиляция' },
-    { key: 'removal', href: 'removal.html', text: 'Удаление новообразований' },
-    { key: 'hardware', href: 'hardware.html', text: 'Аппаратная косметология' },
-    { key: 'inject', href: 'inject.html', text: 'Инъекционная косметология' },
-    { key: 'aesthetic', href: 'aesthetic.html', text: 'Эстетическая косметология' },
-    { key: 'body', href: 'body.html', text: 'Коррекция фигуры' },
+    { key: 'laser', href: '/laser/', text: 'Лазерная эпиляция' },
+    { key: 'removal', href: '/removal/', text: 'Удаление новообразований' },
+    { key: 'hardware', href: '/hardware/', text: 'Аппаратная косметология' },
+    { key: 'inject', href: '/inject/', text: 'Инъекционная косметология' },
+    { key: 'aesthetic', href: '/aesthetic/', text: 'Эстетическая косметология' },
+    { key: 'body', href: '/body/', text: 'Коррекция фигуры' },
   ];
   
   let mobileServiceMenuHtml = mobileServiceMenuItems.map(item => {

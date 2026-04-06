@@ -23,10 +23,30 @@ const base = process.env.GITHUB_REPOSITORY
   ? '/' + process.env.GITHUB_REPOSITORY.split('/')[1] + '/'
   : '/';
 
+function cleanUrlPlugin() {
+  return {
+    name: 'clean-url-rewrite',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const url = req.url.split('?')[0];
+        if (url !== '/' && !url.includes('.') && !url.endsWith('.html')) {
+          const clean = url.endsWith('/') ? url.slice(0, -1) : url;
+          const htmlPath = resolve(__dirname, clean.slice(1) + '.html');
+          if (fs.existsSync(htmlPath)) {
+            req.url = clean + '.html';
+          }
+        }
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig({
   base,
   plugins: [
-    htmlTemplatePlugin(), // Плагин для вставки header/footer
+    cleanUrlPlugin(),
+    htmlTemplatePlugin(),
   ],
   build: {
     rollupOptions: {
