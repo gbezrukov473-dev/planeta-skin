@@ -1,16 +1,44 @@
 RewriteEngine On
 RewriteBase /
 
-# 1. Убираем index.html для главной страницы
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
-RewriteRule ^index\.html$ / [R=301,L]
+# === Канонизация URL ===
 
-# 2. Перенаправляем страницы с .html на адреса без .html (со слэшем на конце)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+# 1. Убираем index.html из любых URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*/)?index\.html[\ ?] [NC]
+RewriteRule ^(.*/)?index\.html$ /%1 [R=301,L]
+
+# 2. Редирект /page.html -> /page/ (на случай старых ссылок/закладок)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html[\ ?] [NC]
 RewriteRule ^([^.]+)\.html$ /$1/ [R=301,L]
 
-# 3. Внутренняя обработка: сервер отдает .html файл, когда запрашивают красивый адрес
-RewriteCond %{REQUEST_FILENAME} !-d
+# 3. Добавляем завершающий слэш к "папочным" URL
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(.*?)/?$ $1.html [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/ -d
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# === Заголовки безопасности ===
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # HSTS включайте ТОЛЬКО если сайт полностью на HTTPS и не будете откатываться:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Долгоживущее кеширование для неизменных ассетов (hash в имени файла)
+  <FilesMatch "\.(?:js|css|woff2|woff|svg|png|jpg|jpeg|webp|avif|gif|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML — не кешируем агрессивно (пусть SW/браузер перепроверяют)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# === GZIP ===
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>

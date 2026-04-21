@@ -12,6 +12,20 @@ declare(strict_types=1);
 
 session_start();
 
+/* ---------------- config ---------------- */
+
+// Куда редиректим после успеха
+const THANKS_URL = '/thanks/';
+
+// Разрешённые origins для cross-origin отправки форм (GitHub Pages preview и т.п.).
+// Добавьте сюда домены, с которых формам разрешено отправлять на этот бэкенд.
+const ALLOWED_ORIGINS = [
+    'https://hs-planet.ru',
+    'https://www.hs-planet.ru',
+    // GitHub Pages (замените на ваш логин/организацию):
+    // 'https://YOUR-GITHUB-USER.github.io',
+];
+
 /* ---------------- helpers ---------------- */
 
 function wants_json(): bool {
@@ -136,6 +150,27 @@ function rate_limit_ok(string $dir, string $ip, int $maxAttempts = 10, int $wind
 
 /* ---------------- main ---------------- */
 
+// CORS / Origin check
+$origin = (string)($_SERVER['HTTP_ORIGIN'] ?? '');
+$selfHost = (string)($_SERVER['HTTP_HOST'] ?? '');
+$isSameOrigin = $origin === '' || parse_url($origin, PHP_URL_HOST) === $selfHost;
+
+if ($origin !== '' && !$isSameOrigin) {
+    if (!in_array($origin, ALLOWED_ORIGINS, true)) {
+        json_out(false, ['message' => 'Origin not allowed'], 403);
+    }
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+    header('Access-Control-Allow-Methods: POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Accept, Content-Type, X-Requested-With');
+}
+
+// Preflight
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     redirect_303('/');
 }
@@ -149,15 +184,15 @@ $returnToWithAnchor = $returnTo . (str_contains($returnTo, '#') ? '' : '#form');
 $honeypot = str_trim((string)($_POST['website'] ?? ''), 200);
 if ($honeypot !== '') {
     // делаем вид, что всё ок
-    if (wants_json()) json_out(true, ['redirect' => '/thanks.html']);
-    redirect_303('/thanks.html');
+    if (wants_json()) json_out(true, ['redirect' => THANKS_URL]);
+    redirect_303(THANKS_URL);
 }
 
 // слишком быстрое заполнение (тихий дроп, чтобы не подсказывать ботам)
 $fillTimeMs = (int)($_POST['fill_time_ms'] ?? 0);
 if ($fillTimeMs > 0 && $fillTimeMs < 900) {
-    if (wants_json()) json_out(true, ['redirect' => '/thanks.html']);
-    redirect_303('/thanks.html');
+    if (wants_json()) json_out(true, ['redirect' => THANKS_URL]);
+    redirect_303(THANKS_URL);
 }
 
 // rate-limit по IP
@@ -290,6 +325,6 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 // успех
 if (wants_json()) {
-    json_out(true, ['redirect' => '/thanks.html']);
+    json_out(true, ['redirect' => THANKS_URL]);
 }
-redirect_303('/thanks.html');
+redirect_303(THANKS_URL);

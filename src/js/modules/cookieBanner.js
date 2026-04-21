@@ -1,72 +1,57 @@
 /**
- * Модуль баннера согласия на cookies
+ * Баннер согласия на cookies. Показывается один раз — либо после того,
+ * как пользователь прокрутил больше ~30% страницы, либо через 5 секунд
+ * бездействия, в зависимости от того, что произойдёт раньше.
  */
 export function initCookieBanner() {
   const banner = document.getElementById("cookie-banner");
   if (!banner) return;
 
-  const acceptButton = document.getElementById("cookie-accept");
-  const storageKey = "cookie_consent_accepted";
+  const STORAGE_KEY = "cookie_consent";
+  const STATE_ACCEPTED = "accepted";
+  const STATE_DECLINED = "declined";
 
-  const consentGiven = localStorage.getItem(storageKey);
-  const consentDeclined = localStorage.getItem("cookie_consent");
-  
-  if (consentGiven === "true" || consentDeclined === "declined") {
+  const state = safeGet(STORAGE_KEY);
+  if (state === STATE_ACCEPTED || state === STATE_DECLINED) {
     banner.classList.add("hidden");
     return;
   }
 
-  // Показываем баннер, когда пользователь прокрутил примерно до середины страницы
-  let bannerShown = false;
-  
-  function checkScrollPosition() {
-    if (bannerShown) return;
-    
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
-    const scrollPercent = (scrollPosition / documentHeight) * 100;
-    
-    // Показываем баннер, когда пользователь прокрутил примерно на 40-60% страницы
-    if (scrollPercent >= 40 && scrollPercent <= 60) {
-      banner.classList.remove("hidden");
-      bannerShown = true;
-      // Удаляем обработчик после показа
-      window.removeEventListener("scroll", checkScrollPosition);
-    }
-  }
+  let shown = false;
 
-  // Обработчик согласия
-  if (acceptButton) {
-    acceptButton.addEventListener("click", () => {
-      localStorage.setItem(storageKey, "true");
-      banner.classList.add("hidden");
-      window.dispatchEvent(new CustomEvent("cookieBannerClosed"));
-    });
-  }
+  const show = () => {
+    if (shown) return;
+    shown = true;
+    banner.classList.remove("hidden");
+    window.removeEventListener("scroll", onScroll);
+    clearTimeout(fallbackTimer);
+  };
 
-  // Обработчик отклонения
-  const declineButton = document.getElementById("cookie-decline");
-  if (declineButton) {
-    declineButton.addEventListener("click", () => {
-      banner.classList.add("hidden");
-      localStorage.setItem("cookie_consent", "declined");
-      window.dispatchEvent(new CustomEvent("cookieBannerClosed"));
-    });
-  }
+  const finalize = (value) => {
+    safeSet(STORAGE_KEY, value);
+    banner.classList.add("hidden");
+    window.dispatchEvent(new CustomEvent("cookieBannerClosed", { detail: { state: value } }));
+  };
 
-  // Показываем баннер при прокрутке
-  window.addEventListener("scroll", checkScrollPosition, { passive: true });
-  
-  // Если страница короткая или пользователь уже прокрутил, показываем через небольшую задержку
-  setTimeout(() => {
-    if (!bannerShown) {
-      const scrollPercent = ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100;
-      // Если страница короткая или пользователь уже прокрутил достаточно
-      if (document.documentElement.scrollHeight <= window.innerHeight * 1.5 || scrollPercent >= 30) {
-        banner.classList.remove("hidden");
-        bannerShown = true;
-        window.removeEventListener("scroll", checkScrollPosition);
-      }
-    }
-  }, 3000);
+  const onScroll = () => {
+    const viewport = window.scrollY + window.innerHeight;
+    const docH = document.documentElement.scrollHeight || 1;
+    if ((viewport / docH) * 100 >= 30) show();
+  };
+
+  const acceptBtn = document.getElementById("cookie-accept");
+  if (acceptBtn) acceptBtn.addEventListener("click", () => finalize(STATE_ACCEPTED));
+
+  const declineBtn = document.getElementById("cookie-decline");
+  if (declineBtn) declineBtn.addEventListener("click", () => finalize(STATE_DECLINED));
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  const fallbackTimer = setTimeout(show, 5000);
+}
+
+function safeGet(key) {
+  try { return localStorage.getItem(key); } catch (_) { return null; }
+}
+function safeSet(key, val) {
+  try { localStorage.setItem(key, val); } catch (_) { /* no-op */ }
 }

@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -29,10 +30,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build (production + Critical CSS)
+        run: npm run build:prod
         env:
+          # base-путь для project-site: /<repo>/
           GITHUB_REPOSITORY: ${{ github.repository }}
+          # Формы на GH Pages уходят cross-origin на prod-домен с PHP
+          PROD_ORIGIN: https://hs-planet.ru
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

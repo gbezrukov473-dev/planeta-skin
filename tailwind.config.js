@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
+    "./*.html",
+    "./templates/**/*.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./*.html" 
+    "./vite-plugin-html-template.js",
   ],
   theme: {
     // Настройка контейнера ГЛОБАЛЬНО

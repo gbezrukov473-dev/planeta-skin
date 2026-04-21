@@ -23,7 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-.vercel
+.vercel/
+.netlify/
 Thumbs.db
 
 # Данные и логи

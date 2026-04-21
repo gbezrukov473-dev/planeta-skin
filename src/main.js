@@ -15,9 +15,13 @@ import { initLazyImages } from "./js/modules/lazyImages.js";
 import { initPhoneMask } from "./js/modules/phoneMask.js";
 
 // === SERVICE WORKER REGISTRATION ===
+// base-путь проекта (BASE_URL заканчивается слэшем: '/' или '/planeta-skin/')
+const BASE = import.meta.env.BASE_URL || '/';
+const SW_URL = `${BASE}sw.js`;
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+    navigator.serviceWorker.register(SW_URL, { scope: BASE })
       .then((registration) => {
         console.log('[App] ServiceWorker registered:', registration.scope);
         

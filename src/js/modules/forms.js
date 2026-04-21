@@ -163,8 +163,14 @@ function setupLeadForm(form) {
 
         if (data && data.ok) {
           showSuccess(successBox, "Спасибо! Мы скоро перезвоним.");
+          // Клиент знает свой base-путь лучше сервера (важно для GH Pages),
+          // поэтому dataset.thanks имеет приоритет над серверным redirect.
+          const thanksUrl =
+            form.dataset.thanks ||
+            data.redirect ||
+            `${import.meta.env.BASE_URL || "/"}thanks/`;
           setTimeout(() => {
-            window.location.href = data.redirect || form.dataset.thanks || "/thanks/";
+            window.location.href = thanksUrl;
           }, 900);
           return;
         }
@@ -211,7 +217,8 @@ function setupLeadForm(form) {
   });
 
   function goThanks(form) {
-    window.location.href = form.dataset.thanks || "/thanks/";
+    const base = import.meta.env.BASE_URL || "/";
+    window.location.href = form.dataset.thanks || `${base}thanks/`;
   }
 }
 
