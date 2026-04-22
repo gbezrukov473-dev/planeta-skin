@@ -95,7 +95,7 @@ function processHtmlFile(filePath) {
   let replacements = 0;
   const examples = [];
 
-  // Находим все <img ...> теги с помощью более надёжной регулярки
+  // Находим все <img ...> теги с помощью более надежной регулярки
   const imgRegex = /<img\s[^>]*>/gi;
   
   // Собираем все совпадения

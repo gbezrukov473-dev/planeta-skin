@@ -1,7 +1,7 @@
 /**
  * Скрипт генерации AVIF изображений
  * 
- * Находит все JPG/PNG/WebP в public/img и создаёт рядом .avif версии
+ * Находит все JPG/PNG/WebP в public/img и создает рядом .avif версии
  * Запуск: npm run images:avif
  */
 

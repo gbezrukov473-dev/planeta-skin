@@ -45,7 +45,7 @@ function applyPhoneMask(input) {
  * Форматирует строку цифр в маску +7 (XXX) XXX-XX-XX
  */
 function formatPhone(digits) {
-  // Убираем всё кроме цифр
+  // Убираем все кроме цифр
   digits = digits.replace(/\D/g, '');
   
   // Убираем ведущую 7 или 8 если есть (мы добавим 7 сами)
@@ -129,12 +129,45 @@ function handleKeydown(e) {
     }
   }
   
-  // Не даём удалить "+7 ("
+  // Корректное поведение Backspace:
+  //  1) не даем стереть префикс "+7 ("
+  //  2) если слева от курсора разделитель (пробел, скобка, дефис),
+  //     перепрыгиваем через него и удаляем предыдущую ЦИФРУ, иначе
+  //     forматтер тут же дорисует разделитель обратно и пользователь
+  //     «застревает» на месте.
   if (e.key === 'Backspace') {
-    const cursorPos = input.selectionStart;
-    if (cursorPos <= 4) {
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+
+    // Если есть выделение — пусть браузер удаляет сам, потом handleInput переформатирует.
+    if (start !== end) return;
+
+    // Охраняем префикс "+7 ("
+    if (start <= 4) {
       e.preventDefault();
       return;
+    }
+
+    const charBefore = input.value[start - 1];
+    if (charBefore && !/\d/.test(charBefore)) {
+      // Слева — разделитель. Находим ближайшую цифру слева и удаляем ее.
+      e.preventDefault();
+      let pos = start - 1;
+      while (pos > 4 && !/\d/.test(input.value[pos - 1])) pos--;
+      if (pos <= 4) return; // удалять нечего (мы у префикса)
+
+      // Вырезаем один символ-цифру на позиции pos-1
+      const next = input.value.slice(0, pos - 1) + input.value.slice(start);
+      input.value = next;
+
+      // Переформатируем и сообщаем формам/валидатору, что значение поменялось.
+      const digits = extractDigits(input.value);
+      input.value = formatPhone(digits);
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+
+      // Курсор в конец — ставим ПОСЛЕ dispatchEvent (он может перезаписать позицию).
+      const len = input.value.length;
+      input.setSelectionRange(len, len);
     }
   }
 }

@@ -25,7 +25,7 @@ const MAX_QTY_PER_ITEM = 20;
 // Максимальное количество разных позиций в одной заявке
 const MAX_CART_ITEMS = 30;
 
-// Разрешённые origins для cross-origin отправки форм (GitHub Pages preview и т.п.).
+// Разрешенные origins для cross-origin отправки форм (GitHub Pages preview и т.п.).
 // Добавьте сюда домены, с которых формам разрешено отправлять на этот бэкенд.
 const ALLOWED_ORIGINS = [
     'https://hs-planet.ru',
@@ -117,7 +117,7 @@ function ensure_dir(string $dir): void {
 
 /**
  * Валидирует корзину, пришедшую с клиента, против серверного каталога.
- * Цены и названия берём только с сервера, с клиента принимаем лишь id и qty.
+ * Цены и названия берем только с сервера, с клиента принимаем лишь id и qty.
  *
  * @param string $rawJson raw JSON из поля cart_json
  * @return array{ok:bool, items:array<int,array{id:string,name:string,size:string,price:int,qty:int,sum:int,line:string}>, total:int, error?:string}
@@ -250,7 +250,7 @@ $returnToWithAnchor = $returnTo . (str_contains($returnTo, '#') ? '' : '#form');
 // honeypot
 $honeypot = str_trim((string)($_POST['website'] ?? ''), 200);
 if ($honeypot !== '') {
-    // делаем вид, что всё ок
+    // делаем вид, что все ок
     if (wants_json()) json_out(true, ['redirect' => THANKS_URL]);
     redirect_303(THANKS_URL);
 }
@@ -413,7 +413,7 @@ if ($isOrder) {
     }
     $lines[] = '';
     $lines[] = 'Итого: ' . number_format($order['total'], 0, ',', ' ') . ' ₽';
-    // Подсказка про расчёт — в клинике подтверждают заказ и согласуют оплату и получение.
+    // Подсказка про расчет — в клинике подтверждают заказ и согласуют оплату и получение.
     $subject = 'Заказ с сайта на ' . number_format($order['total'], 0, ',', ' ') . ' ₽';
 }
 

@@ -6,19 +6,26 @@ export function initScrollToTop() {
   if (!button) return;
 
   const cookieBanner = document.getElementById("cookie-banner");
+  const cartToggle = document.querySelector("[data-cart-toggle]");
 
-  // Обновляем позицию кнопки в зависимости от видимости баннера
+  // Обновляем позицию кнопки в зависимости от видимости баннера и наличия корзины
   function updateButtonPosition() {
     const bannerVisible = cookieBanner && !cookieBanner.classList.contains("hidden");
     const isMobile = window.innerWidth <= 640;
-    
+
+    // Если на странице есть плавающая кнопка корзины — ставим "Наверх" над ней,
+    // чтобы они не перекрывали друг друга. Кнопка корзины живет на bottom-6 (1.5rem).
+    // На мобиле она шире (иконка + итого), поэтому нужен доп. запас.
+    const hasCart = !!cartToggle && !cartToggle.classList.contains("hidden");
+    const cartOffset = hasCart ? (isMobile ? 5 : 5.5) : 0; // rem — высота кнопки корзины + зазор
+
+    let bottomRem;
     if (bannerVisible) {
-      // Если баннер виден, поднимаем кнопку выше баннера
-      button.style.bottom = isMobile ? "9rem" : "8rem";
+      bottomRem = (isMobile ? 9 : 8) + cartOffset;
     } else {
-      // Обычная позиция - в углу
-      button.style.bottom = isMobile ? "1.5rem" : "2rem";
+      bottomRem = (isMobile ? 1.5 : 2) + cartOffset;
     }
+    button.style.bottom = bottomRem + "rem";
   }
 
   // Показываем/скрываем кнопку при прокрутке

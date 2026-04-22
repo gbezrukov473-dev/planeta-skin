@@ -26,7 +26,7 @@ const base = isGhPages
 const PROD_ORIGIN = process.env.PROD_ORIGIN || 'https://hs-planet.ru';
 
 /**
- * Dev-сервер: на reg.ru красивые URL /about/ отдаёт Apache. Чтобы это работало
+ * Dev-сервер: на reg.ru красивые URL /about/ отдает Apache. Чтобы это работало
  * и локально, подставляем .html для путей без расширения.
  */
 function devCleanUrlPlugin() {

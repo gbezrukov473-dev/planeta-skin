@@ -5,7 +5,7 @@
  *  - рендерит каталог из src/data/products.js;
  *  - держит корзину в localStorage;
  *  - управляет drawer (боковая панель с товарами);
- *  - перед submit формы заказа кладёт cart_json и передаёт инициативу
+ *  - перед submit формы заказа кладет cart_json и передает инициативу
  *    стандартному initLeadForms (валидация, нормализация, отправка, ошибки).
  *
  * Активируется только если на странице есть <div id="shop-root">.
@@ -81,17 +81,21 @@ function renderCategories(root) {
   const bar = root.querySelector("[data-category-bar]");
   if (!bar) return;
 
-  bar.innerHTML = CATEGORIES.map((c) => `
-    <button
-      type="button"
-      data-filter="${c.id}"
-      class="category-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide border transition
-        ${c.id === state.filter
-          ? "bg-brand-turquoise text-white border-brand-turquoise"
-          : "bg-white text-gray-600 border-gray-200 hover:border-brand-turquoise hover:text-brand-turquoise"}">
-      ${c.label}
-    </button>
-  `).join("");
+  bar.innerHTML = CATEGORIES.map((c) => {
+    const active = c.id === state.filter;
+    // Hover-классы добавляем только неактивным чипам — чтобы при наведении
+    // на активную (окрашенную) кнопку текст не «терялся» в фоне.
+    const variant = active
+      ? "bg-brand-turquoise text-white border-brand-turquoise"
+      : "bg-white text-gray-600 border-gray-200 hover:border-brand-turquoise hover:text-brand-turquoise";
+    return `
+      <button
+        type="button"
+        data-filter="${c.id}"
+        class="category-chip whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide border transition ${variant}">
+        ${c.label}
+      </button>`;
+  }).join("");
 
   bar.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-filter]");
@@ -105,6 +109,11 @@ function renderCategories(root) {
       b.classList.toggle("bg-white", !active);
       b.classList.toggle("text-gray-600", !active);
       b.classList.toggle("border-gray-200", !active);
+      // hover-эффекты должны работать только на НЕактивных чипах, иначе
+      // при наведении текст окрашивается в тот же turquoise, что и фон,
+      // и надпись «пропадает».
+      b.classList.toggle("hover:border-brand-turquoise", !active);
+      b.classList.toggle("hover:text-brand-turquoise", !active);
     });
     renderCatalog(root);
   });
@@ -254,7 +263,9 @@ function attachCartUI(root) {
   const toggle = root.querySelector("[data-cart-toggle]");
   const drawer = root.querySelector("[data-cart-drawer]");
   const backdrop = root.querySelector("[data-cart-backdrop]");
-  const closeBtn = root.querySelector("[data-cart-close]");
+  const closeBtns = root.querySelectorAll("[data-cart-close]");
+  const gotoCatalogBtns = root.querySelectorAll("[data-cart-goto-catalog]");
+  const openCartBtns = root.querySelectorAll("[data-open-cart]");
   const checkoutBtn = root.querySelector("[data-cart-checkout]");
   const clearBtn = root.querySelector("[data-cart-clear]");
 
@@ -272,10 +283,27 @@ function attachCartUI(root) {
   };
 
   toggle?.addEventListener("click", open);
-  closeBtn?.addEventListener("click", close);
+  // В drawer может быть несколько элементов с data-cart-close (крестик и т.п.) —
+  // вешаем обработчик на каждый, иначе querySelector берет только первый.
+  closeBtns.forEach((el) => el.addEventListener("click", close));
   backdrop?.addEventListener("click", close);
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !drawer?.classList.contains("translate-x-full")) close();
+  });
+
+  // «Вернуться к каталогу» в пустом состоянии корзины: закрыть drawer и прокрутить к каталогу.
+  gotoCatalogBtns.forEach((el) => {
+    el.addEventListener("click", () => {
+      close();
+      const catalog = document.getElementById("catalog");
+      if (catalog) catalog.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // Кнопка «Изменить» в форме заказа — открываем drawer корзины,
+  // чтобы можно было поменять количества, а не уходить обратно в каталог.
+  openCartBtns.forEach((el) => {
+    el.addEventListener("click", open);
   });
 
   checkoutBtn?.addEventListener("click", () => {
@@ -290,7 +318,7 @@ function attachCartUI(root) {
     state.cart = {};
     saveCart();
     refreshCartUI();
-    // перерисуем все карточки (кнопка «В корзину» вернётся)
+    // перерисуем все карточки (кнопка «В корзину» вернется)
     Object.keys(state.cart); // no-op
     document.querySelectorAll("[data-qty-wrap]").forEach((w) => {
       const id = w.getAttribute("data-qty-wrap");
@@ -369,7 +397,7 @@ function setCartContext(hasItems, itemsCount, total) {
   const form = document.getElementById("order-form");
   if (!form) return;
 
-  // cart_json — единственное поле, которое реально идёт на сервер для сборки заказа
+  // cart_json — единственное поле, которое реально идет на сервер для сборки заказа
   const hidden = form.querySelector('input[name="cart_json"]');
   if (hidden) {
     hidden.value = JSON.stringify(
@@ -393,9 +421,14 @@ function setCartContext(hasItems, itemsCount, total) {
     submit.classList.toggle("cursor-not-allowed", !hasItems);
   }
 
-  // баннер «Корзина пуста» внутри формы
+  // баннер «Корзина пуста» внутри формы — показываем, когда корзина пуста
   const emptyHint = form.querySelector("[data-order-empty]");
   if (emptyHint) emptyHint.classList.toggle("hidden", hasItems);
+
+  // Блок «Состав заказа» — прячем полностью, когда корзина пуста,
+  // чтобы не висел мертвый «Итого 0 ₽» с кнопкой «Изменить».
+  const summaryWrap = form.querySelector("[data-order-summary-wrap]");
+  if (summaryWrap) summaryWrap.classList.toggle("hidden", !hasItems);
 
   // сводка в форме
   const summary = form.querySelector("[data-order-summary]");
@@ -417,7 +450,7 @@ function attachOrderForm(root) {
   const form = root.querySelector("#order-form");
   if (!form) return;
 
-  // На сабмит актуализируем cart_json ещё раз (на случай, если пользователь
+  // На сабмит актуализируем cart_json еще раз (на случай, если пользователь
   // менял количество с другой вкладки).
   form.addEventListener("submit", () => {
     setCartContext(!!Object.keys(state.cart).length, cartEntries().length, cartTotal());

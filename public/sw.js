@@ -7,7 +7,7 @@
  *  - Картинки: stale-while-revalidate с ограничением размера кеша
  *
  * Версия (__BUILD_VERSION__) подставляется vite-plugin-deploy при сборке.
- * Scope/base берётся из registration.scope — не захардкожено в код.
+ * Scope/base берется из registration.scope — не захардкожено в код.
  */
 
 const BUILD_VERSION = '__BUILD_VERSION__';

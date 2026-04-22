@@ -105,7 +105,7 @@ async function main() {
     fs.writeFileSync(INDEX_HTML, finalHtml);
     
     const savedSize = (finalHtml.length / 1024).toFixed(2);
-    console.log(`   ✅ Сохранён dist/index.html (${savedSize} KB)\n`);
+    console.log(`   ✅ Сохранен dist/index.html (${savedSize} KB)\n`);
     
     // Проверяем результат
     console.log('4️⃣  Проверка результата...');
@@ -135,7 +135,7 @@ async function main() {
     }
     
     console.log('═══════════════════════════════════════════');
-    console.log('✅ Critical CSS успешно внедрён!');
+    console.log('✅ Critical CSS успешно внедрен!');
     console.log('');
     console.log('Проверка:');
     console.log('  npm run preview');

@@ -33,10 +33,10 @@
       "telephone": "+79112717888",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "ул. Столичная, 5к1",
+        "streetAddress": "Европейский пр., д. 22",
         "addressLocality": "Кудрово",
         "addressRegion": "Ленинградская область",
-        "postalCode": "188692",
+        "postalCode": "188691",
         "addressCountry": "RU"
       },
       "areaServed": [
@@ -72,7 +72,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Магазин Pro You Professional — Планета здоровой кожи, Кудрово">
-    <meta name="twitter:description" content="Профессиональная корейская косметика Pro You Professional. Оформите заказ онлайн — заберёте в клинике в Кудрово.">
+    <meta name="twitter:description" content="Профессиональная корейская косметика Pro You Professional. Оформите заказ онлайн — заберете в клинике в Кудрово.">
     <meta name="twitter:image" content="https://hs-planet.ru/img/cosmetics-hero.webp">
 
     <!-- Yandex.Metrika counter -->
@@ -154,12 +154,12 @@
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
                         <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-user-md"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Подбор врачом</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Сомневаетесь, что подойдёт? Запишитесь на консультацию — дерматокосметолог подберёт программу ухода.</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">Сомневаетесь, что подойдет? Запишитесь на консультацию — дерматокосметолог подберет программу ухода.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
                         <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-map-marker-alt"></use></svg></div>
                         <h3 class="font-serif text-xl font-bold mb-3">Забрать в клинике</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Кудрово, ул. Столичная, 5к1. Ежедневно с 10:00 до 21:00 — удобно совместить с процедурой.</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">г. Кудрово, Европейский пр., д. 22. Ежедневно с 10:00 до 21:00 — удобно совместить с процедурой.</p>
                     </div>
                     <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
                         <div class="w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center text-3xl text-brand-tiffany mb-6 shadow-sm group-hover:bg-brand-tiffany group-hover:text-white transition"><svg class="icon" aria-hidden="true"><use href="/img/icons.svg#i-shield-alt"></use></svg></div>
@@ -180,12 +180,14 @@
                     <div>
                         <div class="inline-block bg-brand-peach text-brand-dark px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-widest mb-3">Каталог</div>
                         <h2 class="font-serif text-3xl md:text-4xl text-brand-dark">Ходовые средства Pro You</h2>
-                        <p class="text-gray-500 mt-2 text-sm max-w-xl">Стартовый ассортимент — самые популярные позиции. Постепенно расширяем каталог. Не нашли нужное? Напишите в форме ниже — привезём под заказ.</p>
+                        <p class="text-gray-500 mt-2 text-sm max-w-xl">Стартовый ассортимент — самые популярные позиции. Постепенно расширяем каталог. Не нашли нужное? Напишите в форме ниже — привезем под заказ.</p>
                     </div>
                 </div>
 
-                <!-- Фильтр по категориям -->
-                <div data-category-bar class="flex gap-2 overflow-x-auto pb-3 mb-6 -mx-2 px-2 scrollbar-none" role="tablist"></div>
+                <!-- Фильтр по категориям (горизонтальный скролл на мобиле, чтобы кнопки не улетали за край экрана) -->
+                <div class="relative -mx-6 sm:-mx-8 lg:-mx-12 mb-6 overflow-x-auto scrollbar-none">
+                    <div data-category-bar class="flex gap-2 pb-3 px-6 sm:px-8 lg:px-12 w-max min-w-full" role="tablist"></div>
+                </div>
 
                 <!-- Сетка карточек (наполняется JS-модулем shop.js) -->
                 <div data-catalog-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
@@ -208,7 +210,7 @@
                     <li class="bg-slate-50 rounded-3xl p-6 border border-slate-100 relative">
                         <div class="absolute -top-4 left-6 w-10 h-10 rounded-full bg-brand-turquoise text-white font-bold flex items-center justify-center shadow-md">2</div>
                         <h3 class="font-serif text-lg text-brand-dark mt-4 mb-2">Оставьте заявку</h3>
-                        <p class="text-sm text-gray-500">Телефон и способ связи — всё, что нужно. Данные карт не просим.</p>
+                        <p class="text-sm text-gray-500">Телефон и способ связи — все, что нужно. Данные карт не просим.</p>
                     </li>
                     <li class="bg-slate-50 rounded-3xl p-6 border border-slate-100 relative">
                         <div class="absolute -top-4 left-6 w-10 h-10 rounded-full bg-brand-turquoise text-white font-bold flex items-center justify-center shadow-md">3</div>
@@ -217,8 +219,8 @@
                     </li>
                     <li class="bg-slate-50 rounded-3xl p-6 border border-slate-100 relative">
                         <div class="absolute -top-4 left-6 w-10 h-10 rounded-full bg-brand-turquoise text-white font-bold flex items-center justify-center shadow-md">4</div>
-                        <h3 class="font-serif text-lg text-brand-dark mt-4 mb-2">Заберёте в клинике</h3>
-                        <p class="text-sm text-gray-500">Кудрово, ул. Столичная, 5к1. Удобно совместить с визитом к косметологу.</p>
+                        <h3 class="font-serif text-lg text-brand-dark mt-4 mb-2">Заберете в клинике</h3>
+                        <p class="text-sm text-gray-500">г. Кудрово, Европейский пр., д. 22. Удобно совместить с визитом к косметологу.</p>
                     </li>
                 </ol>
             </div>
@@ -232,14 +234,6 @@
                     <h2 class="font-serif text-3xl md:text-4xl mb-3 text-brand-dark text-center">Оформление заказа</h2>
                     <p class="mb-6 text-sm text-gray-500 leading-relaxed text-center">Администратор клиники свяжется с вами, подтвердит наличие и согласует оплату и получение.</p>
 
-                    <!-- Пустая корзина: подсказка -->
-                    <div data-order-empty class="mb-6 rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center">
-                        <p class="text-sm text-gray-500 mb-3">Ваша корзина пока пуста.</p>
-                        <a href="#catalog" class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark font-bold py-3 px-6 rounded-xl hover:bg-brand-turquoise hover:text-white transition text-sm shadow-sm">
-                            Выбрать средства
-                        </a>
-                    </div>
-
                     <form
                         id="order-form"
                         class="js-lead-form space-y-5"
@@ -252,11 +246,19 @@
                     >
                         <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
-                        <!-- Сводка заказа (наполняется из shop.js) -->
-                        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+                        <!-- Пустая корзина: подсказка (shop.js показывает/скрывает по состоянию корзины) -->
+                        <div data-order-empty class="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center">
+                            <p class="text-sm text-gray-500 mb-3">Ваша корзина пока пуста.</p>
+                            <a href="#catalog" class="inline-flex items-center gap-2 bg-brand-peach text-brand-dark font-bold py-3 px-6 rounded-xl hover:bg-brand-turquoise hover:text-white transition text-sm shadow-sm">
+                                Выбрать средства
+                            </a>
+                        </div>
+
+                        <!-- Сводка заказа (наполняется из shop.js; скрыта, пока корзина пуста) -->
+                        <div data-order-summary-wrap class="rounded-2xl border border-gray-200 bg-gray-50 p-5 hidden">
                             <div class="flex items-center justify-between mb-3">
                                 <h3 class="font-serif text-lg text-brand-dark">Состав заказа</h3>
-                                <button type="button" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})" class="text-xs text-brand-turquoise hover:underline">Изменить</button>
+                                <button type="button" data-open-cart class="text-xs text-brand-turquoise hover:underline">Изменить</button>
                             </div>
                             <ul data-order-summary class="space-y-2 mb-4"></ul>
                             <div class="flex items-center justify-between border-t border-gray-200 pt-3">
@@ -399,7 +401,7 @@
                         <svg class="icon text-3xl text-brand-turquoise" aria-hidden="true"><use href="/img/icons.svg#i-shopping-bag"></use></svg>
                     </div>
                     <p class="text-gray-500 mb-4">Корзина пока пуста</p>
-                    <button type="button" data-cart-close class="text-sm text-brand-turquoise hover:underline">Вернуться к каталогу</button>
+                    <button type="button" data-cart-goto-catalog class="text-sm text-brand-turquoise hover:underline">Вернуться к каталогу</button>
                 </div>
                 <ul data-cart-items class="divide-y divide-gray-100"></ul>
             </div>
@@ -435,21 +437,21 @@
                             <span>Можно получить заказ с доставкой?</span>
                             <span class="text-brand-turquoise group-open:rotate-45 transition">+</span>
                         </summary>
-                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">Основной вариант — самовывоз из клиники в Кудрово (ул. Столичная, 5к1). По Санкт-Петербургу и области можем отправить курьером или СДЭК — напишите в комментарии к заказу, и администратор рассчитает стоимость.</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">Основной вариант — самовывоз из клиники в Кудрово (Европейский пр., д. 22). По Санкт-Петербургу и области можем отправить курьером или СДЭК — напишите в комментарии к заказу, и администратор рассчитает стоимость.</p>
                     </details>
                     <details class="group bg-white rounded-2xl border border-gray-100 p-5 open:shadow-md transition">
                         <summary class="cursor-pointer font-semibold text-brand-dark flex items-center justify-between">
-                            <span>Я не уверен(а), что подойдёт именно это средство</span>
+                            <span>Я не уверен(а), что подойдет именно это средство</span>
                             <span class="text-brand-turquoise group-open:rotate-45 transition">+</span>
                         </summary>
-                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">Запишитесь на консультацию к дерматокосметологу — подберём схему ухода под ваш тип кожи и задачи. Если вы уже наш пациент, администратор может уточнить у врача, что вам подходит, и посоветовать перед заказом.</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">Запишитесь на консультацию к дерматокосметологу — подберем схему ухода под ваш тип кожи и задачи. Если вы уже наш пациент, администратор может уточнить у врача, что вам подходит, и посоветовать перед заказом.</p>
                     </details>
                     <details class="group bg-white rounded-2xl border border-gray-100 p-5 open:shadow-md transition">
                         <summary class="cursor-pointer font-semibold text-brand-dark flex items-center justify-between">
-                            <span>Не нашёл(а) нужное средство в каталоге</span>
+                            <span>Не нашел(а) нужное средство в каталоге</span>
                             <span class="text-brand-turquoise group-open:rotate-45 transition">+</span>
                         </summary>
-                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">На сайте — только самые ходовые позиции, но у нас в клинике ассортимент шире. Напишите в комментарии к заказу название или артикул из прайса Pro You — привезём под заказ.</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">На сайте — только самые ходовые позиции, но у нас в клинике ассортимент шире. Напишите в комментарии к заказу название или артикул из прайса Pro You — привезем под заказ.</p>
                     </details>
                 </div>
             </div>
