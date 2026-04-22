@@ -12,10 +12,18 @@ declare(strict_types=1);
 
 session_start();
 
+require_once __DIR__ . '/catalog.php';
+
 /* ---------------- config ---------------- */
 
 // Куда редиректим после успеха
 const THANKS_URL = '/thanks/';
+
+// Максимальное количество одной позиции в корзине (защита от фиктивных заказов на миллион)
+const MAX_QTY_PER_ITEM = 20;
+
+// Максимальное количество разных позиций в одной заявке
+const MAX_CART_ITEMS = 30;
 
 // Разрешённые origins для cross-origin отправки форм (GitHub Pages preview и т.п.).
 // Добавьте сюда домены, с которых формам разрешено отправлять на этот бэкенд.
@@ -105,6 +113,65 @@ function ensure_dir(string $dir): void {
     if (!is_dir($dir)) {
         @mkdir($dir, 0755, true);
     }
+}
+
+/**
+ * Валидирует корзину, пришедшую с клиента, против серверного каталога.
+ * Цены и названия берём только с сервера, с клиента принимаем лишь id и qty.
+ *
+ * @param string $rawJson raw JSON из поля cart_json
+ * @return array{ok:bool, items:array<int,array{id:string,name:string,size:string,price:int,qty:int,sum:int,line:string}>, total:int, error?:string}
+ */
+function build_order_from_cart(string $rawJson): array {
+    $rawJson = trim($rawJson);
+    if ($rawJson === '') {
+        return ['ok' => false, 'items' => [], 'total' => 0, 'error' => 'Корзина пустая.'];
+    }
+
+    $decoded = json_decode($rawJson, true);
+    if (!is_array($decoded)) {
+        return ['ok' => false, 'items' => [], 'total' => 0, 'error' => 'Не удалось прочитать корзину.'];
+    }
+
+    if (count($decoded) > MAX_CART_ITEMS) {
+        return ['ok' => false, 'items' => [], 'total' => 0, 'error' => 'Слишком много позиций в заказе.'];
+    }
+
+    $catalog = shop_catalog();
+    $items = [];
+    $total = 0;
+
+    foreach ($decoded as $row) {
+        if (!is_array($row)) continue;
+
+        $id = isset($row['id']) ? (string)$row['id'] : '';
+        $qty = isset($row['qty']) ? (int)$row['qty'] : 0;
+
+        if ($id === '' || !isset($catalog[$id])) continue;
+        if ($qty < 1) continue;
+        if ($qty > MAX_QTY_PER_ITEM) $qty = MAX_QTY_PER_ITEM;
+
+        $p = $catalog[$id];
+        $sum = $p['price'] * $qty;
+
+        $items[] = [
+            'id'    => $id,
+            'name'  => $p['name'],
+            'size'  => $p['size'],
+            'price' => $p['price'],
+            'qty'   => $qty,
+            'sum'   => $sum,
+            'line'  => $p['line'],
+        ];
+
+        $total += $sum;
+    }
+
+    if (empty($items)) {
+        return ['ok' => false, 'items' => [], 'total' => 0, 'error' => 'В корзине нет действительных позиций.'];
+    }
+
+    return ['ok' => true, 'items' => $items, 'total' => $total];
 }
 
 function rate_limit_ok(string $dir, string $ip, int $maxAttempts = 10, int $windowSec = 600): bool {
@@ -214,6 +281,22 @@ $formId = str_trim((string)($_POST['form_id'] ?? ''), 60);
 $policyVersion = str_trim((string)($_POST['policy_version'] ?? ''), 40);
 $referrer = str_trim((string)($_POST['referrer'] ?? ''), 400);
 
+// Заказ косметики (если форма пришла из магазина)
+$isShopOrder = $formId === 'shop_cosmetics_order' || !empty($_POST['cart_json']);
+$order = null;
+if ($isShopOrder) {
+    $order = build_order_from_cart((string)($_POST['cart_json'] ?? ''));
+    if (!$order['ok']) {
+        $msg = $order['error'] ?? 'Корзина не заполнена.';
+        if (wants_json()) json_out(false, ['message' => $msg], 422);
+        redirect_303($returnToWithAnchor . (str_contains($returnToWithAnchor, '?') ? '&' : '?') . 'lead_error=cart');
+    }
+    // Для заказов service собираем сами: «Заказ магазина — N позиций на X ₽»
+    if ($service === '' || stripos($service, 'подбор') !== false) {
+        $service = 'Заказ косметики Pro You — ' . count($order['items']) . ' поз. на ' . number_format($order['total'], 0, ',', ' ') . ' ₽';
+    }
+}
+
 $consent = isset($_POST['consent']);
 
 $utm = [
@@ -287,6 +370,13 @@ $logData = [
     'utm' => $utm,
 ];
 
+if ($order && $order['ok']) {
+    $logData['order'] = [
+        'items' => $order['items'],
+        'total' => $order['total'],
+    ];
+}
+
 @file_put_contents(
     $logDir . '/leads.jsonl',
     json_encode($logData, JSON_UNESCAPED_UNICODE) . PHP_EOL,
@@ -298,21 +388,43 @@ $to = 'mc@hs-planet.ru';
 $subject = 'Новая заявка с сайта';
 
 $lines = [];
-$lines[] = "Новая заявка";
-$lines[] = "";
-$lines[] = "Телефон: " . $normalized['display'];
-if ($name !== '') $lines[] = "Имя: " . $name;
-$lines[] = "Способ связи: " . $contactMethod;
-if ($service !== '') $lines[] = "Услуга: " . $service;
-$lines[] = "Страница: " . ($pageFromPost !== '' ? $pageFromPost : $returnTo);
+$isOrder = $order && $order['ok'];
+
+$lines[] = $isOrder ? 'Новый заказ косметики Pro You' : 'Новая заявка';
+$lines[] = '';
+$lines[] = 'Телефон: ' . $normalized['display'];
+if ($name !== '') $lines[] = 'Имя: ' . $name;
+$lines[] = 'Способ связи: ' . $contactMethod;
+if ($service !== '') $lines[] = 'Услуга: ' . $service;
+$lines[] = 'Страница: ' . ($pageFromPost !== '' ? $pageFromPost : $returnTo);
+
+if ($isOrder) {
+    $lines[] = '';
+    $lines[] = 'Состав заказа:';
+    foreach ($order['items'] as $it) {
+        $lines[] = sprintf(
+            ' — %s (%s) × %d × %s ₽ = %s ₽',
+            $it['name'],
+            $it['size'],
+            $it['qty'],
+            number_format($it['price'], 0, ',', ' '),
+            number_format($it['sum'], 0, ',', ' ')
+        );
+    }
+    $lines[] = '';
+    $lines[] = 'Итого: ' . number_format($order['total'], 0, ',', ' ') . ' ₽';
+    // Подсказка про расчёт — в клинике подтверждают заказ и согласуют оплату и получение.
+    $subject = 'Заказ с сайта на ' . number_format($order['total'], 0, ',', ' ') . ' ₽';
+}
+
 if ($comment !== '') {
-    $lines[] = "";
-    $lines[] = "Комментарий:";
+    $lines[] = '';
+    $lines[] = 'Комментарий:';
     $lines[] = $comment;
 }
-$lines[] = "";
-$lines[] = "Дата: " . date('d.m.Y H:i');
-$lines[] = "Согласие: получено";
+$lines[] = '';
+$lines[] = 'Дата: ' . date('d.m.Y H:i');
+$lines[] = 'Согласие: получено';
 $body = implode("\n", $lines);
 
 // лучше использовать From на домене сайта (поменяешь под свой домен)

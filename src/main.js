@@ -13,6 +13,7 @@ import { initScrollToTop } from "./js/modules/scrollToTop.js";
 import { initCookieBanner } from "./js/modules/cookieBanner.js";
 import { initLazyImages } from "./js/modules/lazyImages.js";
 import { initPhoneMask } from "./js/modules/phoneMask.js";
+import { initShop } from "./js/modules/shop.js";
 
 // === SERVICE WORKER REGISTRATION ===
 // base-путь проекта (BASE_URL заканчивается слэшем: '/' или '/planeta-skin/')
@@ -204,4 +205,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollToTop();
   initCookieBanner();
   initPhoneMask();
+  initShop();
 });
