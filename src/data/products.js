@@ -20,6 +20,9 @@
  *  price    — цена в ₽ (целое число)
  *  code     — артикул из прайса (для админа)
  *  badge    — опциональная плашка («Хит», «Новинка», «SPF»)
+ *  image    — опциональный путь к webp-картинке товара.
+ *             Если не задан — в карточке рисуется градиент-плейсхолдер.
+ *             Файлы лежат в public/img/ с именем, совпадающим с id товара.
  */
 
 export const CATEGORIES = [
@@ -45,6 +48,7 @@ export const PRODUCTS = [
     price: 9600,
     code: '1-15A',
     badge: 'Хит',
+    image: '/img/mic-calendula.webp',
   },
   {
     id: 'enzyme-powder',
@@ -55,6 +59,7 @@ export const PRODUCTS = [
     size: '70 г',
     price: 9770,
     code: '1-9A',
+    image: '/img/enzyme-powder.webp',
   },
   {
     id: 'foam-lemon',
@@ -65,6 +70,7 @@ export const PRODUCTS = [
     size: '120 г',
     price: 8900,
     code: '1-14A',
+    image: '/img/foam-lemon.webp',
   },
 
   // --- Тоники ---
@@ -77,6 +83,7 @@ export const PRODUCTS = [
     size: '130 мл',
     price: 9700,
     code: '2-1А',
+    image: '/img/toner-wrinkle.webp',
   },
   {
     id: 'toner-aroma-ac',
@@ -87,6 +94,7 @@ export const PRODUCTS = [
     size: '130 мл',
     price: 8400,
     code: '2-5А',
+    image: '/img/toner-aroma-ac.webp',
   },
 
   // --- Сыворотки и концентраты ---
@@ -100,6 +108,7 @@ export const PRODUCTS = [
     price: 13100,
     code: '6-1А',
     badge: 'Хит',
+    image: '/img/serum-wrinkle.webp',
   },
   {
     id: 'serum-whitening',
@@ -110,6 +119,7 @@ export const PRODUCTS = [
     size: '50 мл',
     price: 13100,
     code: '6-2А',
+    image: '/img/serum-whitening.webp',
   },
   {
     id: 'fluid-vitc',
@@ -120,6 +130,7 @@ export const PRODUCTS = [
     size: '30 мл',
     price: 13100,
     code: '5-7А',
+    image: '/img/fluid-vitc.webp',
   },
 
   // --- Кремы ---
@@ -132,6 +143,7 @@ export const PRODUCTS = [
     size: '40 г',
     price: 9800,
     code: '8-11А',
+    image: '/img/cream-retinol.webp',
   },
   {
     id: 'cream-wrinkle',
@@ -142,6 +154,7 @@ export const PRODUCTS = [
     size: '60 г',
     price: 13200,
     code: '7-1А',
+    image: '/img/cream-wrinkle.webp',
   },
   {
     id: 'cream-hydration',
@@ -152,6 +165,7 @@ export const PRODUCTS = [
     size: '60 г',
     price: 11800,
     code: '7-6А',
+    image: '/img/cream-hydration.webp',
   },
   {
     id: 'cream-spf50',
@@ -163,6 +177,7 @@ export const PRODUCTS = [
     price: 9100,
     code: '8-6А',
     badge: 'SPF 50',
+    image: '/img/cream-spf50.webp',
   },
 
   // --- Для глаз ---
@@ -176,6 +191,7 @@ export const PRODUCTS = [
     price: 5000,
     code: 'PPP',
     badge: 'Хит',
+    image: '/img/patch-black-pearl.webp',
   },
   {
     id: 'eye-cream-wrinkle',
@@ -186,6 +202,7 @@ export const PRODUCTS = [
     size: '30 г',
     price: 13200,
     code: '8-1А',
+    image: '/img/eye-cream-wrinkle.webp',
   },
 
   // --- Маски ---
@@ -198,6 +215,7 @@ export const PRODUCTS = [
     size: '150 г',
     price: 9600,
     code: '11-6А',
+    image: '/img/mask-phyto-collagen.webp',
   },
   {
     id: 'mask-sheet-placenta',
@@ -208,6 +226,7 @@ export const PRODUCTS = [
     size: '25 мл × 10 шт',
     price: 9900,
     code: '16-7А',
+    image: '/img/mask-sheet-placenta.webp',
   },
 
   // --- Наборы ---
@@ -221,6 +240,7 @@ export const PRODUCTS = [
     price: 2100,
     code: 'SS-3',
     badge: 'Попробовать',
+    image: '/img/set-mini-wrinkle.webp',
   },
   {
     id: 'set-metacos',
@@ -232,5 +252,6 @@ export const PRODUCTS = [
     price: 57800,
     code: '25-1S',
     badge: 'Premium',
+    image: '/img/set-metacos.webp',
   },
 ];

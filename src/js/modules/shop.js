@@ -150,17 +150,28 @@ function renderCatalog(root) {
 
 function productCard(p) {
   const qty = state.cart[p.id] || 0;
-  const initial = p.line?.[0] || p.name[0];
 
-  // Placeholder «фото»: градиент под цвет линии + первая буква (крупно).
-  // Когда появятся настоящие фото — подменим блок .product-art на <img>.
-  const hue = hashHue(p.line || p.id);
-  const art = `
-    <div class="product-art relative aspect-square w-full overflow-hidden bg-gradient-to-br"
-         style="background-image: linear-gradient(135deg, hsl(${hue} 60% 92%) 0%, hsl(${(hue + 40) % 360} 55% 84%) 100%);">
-      <span class="absolute inset-0 flex items-center justify-center font-serif text-6xl font-bold text-white/70 select-none">${escapeHtml(initial)}</span>
-      ${p.badge ? `<span class="absolute top-3 left-3 bg-white/90 text-brand-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide shadow-sm">${escapeHtml(p.badge)}</span>` : ""}
-    </div>`;
+  // Если у товара задан image — рендерим настоящую картинку.
+  // Иначе — градиент-плейсхолдер с первой буквой линии (для будущих товаров без фото).
+  // Пропорции 3:2 (горизонтальные) — под формат снимков Pro You.
+  let art;
+  if (p.image) {
+    art = `
+      <div class="product-art relative aspect-[3/2] w-full overflow-hidden bg-slate-50">
+        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        ${p.badge ? `<span class="absolute top-3 left-3 bg-white/95 text-brand-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide shadow-sm">${escapeHtml(p.badge)}</span>` : ""}
+      </div>`;
+  } else {
+    const initial = p.line?.[0] || p.name[0];
+    const hue = hashHue(p.line || p.id);
+    art = `
+      <div class="product-art relative aspect-[3/2] w-full overflow-hidden bg-gradient-to-br"
+           style="background-image: linear-gradient(135deg, hsl(${hue} 60% 92%) 0%, hsl(${(hue + 40) % 360} 55% 84%) 100%);">
+        <span class="absolute inset-0 flex items-center justify-center font-serif text-6xl font-bold text-white/70 select-none">${escapeHtml(initial)}</span>
+        ${p.badge ? `<span class="absolute top-3 left-3 bg-white/90 text-brand-dark text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide shadow-sm">${escapeHtml(p.badge)}</span>` : ""}
+      </div>`;
+  }
 
   const qtyBlock = qty > 0
     ? `
@@ -361,8 +372,13 @@ function refreshCartUI() {
   emptyBox.classList.add("hidden");
   if (checkoutBtn) checkoutBtn.disabled = false;
 
-  itemsBox.innerHTML = entries.map(({ product: p, qty }) => `
+  itemsBox.innerHTML = entries.map(({ product: p, qty }) => {
+    const thumb = p.image
+      ? `<img src="${escapeHtml(p.image)}" alt="" loading="lazy" decoding="async" class="w-24 h-16 object-cover bg-slate-50 rounded-xl shrink-0">`
+      : "";
+    return `
     <li class="flex gap-3 py-4 border-b border-gray-100 last:border-b-0">
+      ${thumb}
       <div class="flex-1 min-w-0">
         <div class="text-[10px] font-bold text-brand-turquoise uppercase tracking-wider mb-0.5">${escapeHtml(p.line || "Pro You")}</div>
         <p class="text-sm font-semibold text-brand-dark leading-snug mb-1">${escapeHtml(p.name)}</p>
@@ -377,8 +393,8 @@ function refreshCartUI() {
         </div>
       </div>
       <div class="font-bold text-brand-dark whitespace-nowrap">${formatRub(p.price * qty)}</div>
-    </li>
-  `).join("");
+    </li>`;
+  }).join("");
 
   itemsBox.querySelectorAll("[data-inc]").forEach((b) => b.addEventListener("click", () => changeQty(b.dataset.inc, +1)));
   itemsBox.querySelectorAll("[data-dec]").forEach((b) => b.addEventListener("click", () => changeQty(b.dataset.dec, -1)));
