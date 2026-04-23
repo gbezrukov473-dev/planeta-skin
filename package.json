@@ -12,7 +12,7 @@
     "critical": "node scripts/critical.mjs",
     "social-meta": "node scripts/inject-social-meta.mjs",
     "lazy-images": "node scripts/inject-lazy-images.mjs",
-    "images:avif": "node scripts/make-avif.mjs",
+    "images:compress": "node scripts/compress-images.mjs",
     "images:picture": "node scripts/inject-picture-tags.mjs"
   },
   "devDependencies": {

@@ -1,0 +1,1782 @@
+{
+  "about-hero": {
+    "webpHash": "40cd0cf9435906bf",
+    "avifHash": "eb8127ba33cf091c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 57056,
+    "avifSize": 41644,
+    "updatedAt": "2026-04-23"
+  },
+  "aesthetic-care": {
+    "webpHash": "4b02869936d5e6e5",
+    "avifHash": "b2b0b1d6c9087eac",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 102978,
+    "avifSize": 66499,
+    "updatedAt": "2026-04-23"
+  },
+  "aesthetic-cleaning": {
+    "webpHash": "04cbbcad61e3822a",
+    "avifHash": "b64d35b0220b2820",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 73304,
+    "avifSize": 44443,
+    "updatedAt": "2026-04-23"
+  },
+  "aesthetic-hero": {
+    "webpHash": "9f689939064ec107",
+    "avifHash": "d4ba2536abe7499c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 87508,
+    "avifSize": 51398,
+    "updatedAt": "2026-04-23"
+  },
+  "aesthetic-massage": {
+    "webpHash": "ec0dadc2e7f76dd3",
+    "avifHash": "8e8933ccd94b0fd8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 71882,
+    "avifSize": 40899,
+    "updatedAt": "2026-04-23"
+  },
+  "aesthetic-peeling": {
+    "webpHash": "9e68075fa8375a02",
+    "avifHash": "422d559da5ebc577",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 49572,
+    "avifSize": 32989,
+    "updatedAt": "2026-04-23"
+  },
+  "bio-ultimate-ep": {
+    "webpHash": "eabaca1f90b71cb7",
+    "avifHash": "25c5955a3621d4ae",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 27338,
+    "avifSize": 18389,
+    "updatedAt": "2026-04-23"
+  },
+  "bio-ultimate-result": {
+    "webpHash": "298013713a8e6093",
+    "avifHash": "c533417e01cf3d3b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 258576,
+    "avifSize": 186984,
+    "updatedAt": "2026-04-23"
+  },
+  "birthday": {
+    "webpHash": "55a35f50319ac422",
+    "avifHash": "514509dfc813d09b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 111504,
+    "avifSize": 107758,
+    "updatedAt": "2026-04-23"
+  },
+  "body-hero": {
+    "webpHash": "f200370b401e3481",
+    "avifHash": "f3b785e98331031c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 54290,
+    "avifSize": 30874,
+    "updatedAt": "2026-04-23"
+  },
+  "body-lipo": {
+    "webpHash": "edcc8a978a225e45",
+    "avifHash": "201552fb13ba5b84",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 43868,
+    "avifSize": 33033,
+    "updatedAt": "2026-04-23"
+  },
+  "body-onda": {
+    "webpHash": "13393be833c4d105",
+    "avifHash": "fb1be6724263bb3f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 145820,
+    "avifSize": 105701,
+    "updatedAt": "2026-04-23"
+  },
+  "body-result-1": {
+    "webpHash": "f5b7fb50d3d9b88a",
+    "avifHash": "a7f0195b4041c9a5",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 62532,
+    "avifSize": 36799,
+    "updatedAt": "2026-04-23"
+  },
+  "body-result-2": {
+    "webpHash": "09c7490387d57d30",
+    "avifHash": "b7fbb63316731370",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 73222,
+    "avifSize": 43618,
+    "updatedAt": "2026-04-23"
+  },
+  "body-result-3": {
+    "webpHash": "cdcf983e33e65781",
+    "avifHash": "aa6ec009b6672ba6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 232642,
+    "avifSize": 153182,
+    "updatedAt": "2026-04-23"
+  },
+  "body-result-4": {
+    "webpHash": "f58ed75a53feac7d",
+    "avifHash": "8340e51fc4b272bc",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 220664,
+    "avifSize": 152888,
+    "updatedAt": "2026-04-23"
+  },
+  "body-result-5": {
+    "webpHash": "22f4fec617e0a28f",
+    "avifHash": "3997204897c4547b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 215508,
+    "avifSize": 147165,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-1": {
+    "webpHash": "dc89d6c142928693",
+    "avifHash": "ae9de203559a7937",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 159126,
+    "avifSize": 103969,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-2": {
+    "webpHash": "9713b31679686123",
+    "avifHash": "1b5a091f10a32e9c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 262812,
+    "avifSize": 217323,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-3": {
+    "webpHash": "7724a05dc6292c9b",
+    "avifHash": "b05a20059b52be65",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 138026,
+    "avifSize": 100834,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-4": {
+    "webpHash": "7aad8be3ee1bacf4",
+    "avifHash": "a31682c21b24eca2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 160684,
+    "avifSize": 109540,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-5": {
+    "webpHash": "c4178faa75660505",
+    "avifHash": "f5f432d13ffaf780",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 187218,
+    "avifSize": 141196,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-6": {
+    "webpHash": "57e7e4dd6ff08329",
+    "avifHash": "633228c26fb1e22b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 251322,
+    "avifSize": 207204,
+    "updatedAt": "2026-04-23"
+  },
+  "botulino-result-7": {
+    "webpHash": "656e25b833fae197",
+    "avifHash": "e89edc8d754f9c0c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 69460,
+    "avifSize": 50936,
+    "updatedAt": "2026-04-23"
+  },
+  "capello": {
+    "webpHash": "35e9cb777c41e113",
+    "avifHash": "0f6c7fc787d4dfc4",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 38786,
+    "avifSize": 25556,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-ep": {
+    "webpHash": "224d042ac2559c52",
+    "avifHash": "5c5f8dd47143ff38",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 26130,
+    "avifSize": 17688,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-1": {
+    "webpHash": "879554d1352dc995",
+    "avifHash": "7018a7c8b3a1f14e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 67708,
+    "avifSize": 66584,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-2": {
+    "webpHash": "c37707eafb721b4c",
+    "avifHash": "d4f0e1f1a3dc0573",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 79404,
+    "avifSize": 77506,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-3": {
+    "webpHash": "1110b3161f163e3b",
+    "avifHash": "3d35376dd035097f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 213132,
+    "avifSize": 135633,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-4": {
+    "webpHash": "39638107e39cf21e",
+    "avifHash": "7484c7d5c486a0fa",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 258490,
+    "avifSize": 172805,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-5": {
+    "webpHash": "897e4a59297bb0b9",
+    "avifHash": "a9c0e16c4b127ea8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 59158,
+    "avifSize": 78354,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-6": {
+    "webpHash": "6447587a6ac05fac",
+    "avifHash": "4be888008c1a6bb1",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 199152,
+    "avifSize": 125916,
+    "updatedAt": "2026-04-23"
+  },
+  "capello-result-7": {
+    "webpHash": "567a809577d812e8",
+    "avifHash": "3bfd4562c09dda62",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 69400,
+    "avifSize": 85030,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-1": {
+    "webpHash": "f9183b73811f6ac2",
+    "avifHash": "3c653afedeca4c6a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 199466,
+    "avifSize": 122231,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-2": {
+    "webpHash": "a2f6d6b7b7098093",
+    "avifHash": "1d2f05aabd8f994e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 119558,
+    "avifSize": 66603,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-3": {
+    "webpHash": "d56d72b782955e15",
+    "avifHash": "c4cba109822464c0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 142070,
+    "avifSize": 83490,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-4": {
+    "webpHash": "4649698f3434851e",
+    "avifHash": "9f3859df93468839",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 117250,
+    "avifSize": 71313,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-5": {
+    "webpHash": "4e8ad68f3a941078",
+    "avifHash": "398a1a15540f1439",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 149040,
+    "avifSize": 88421,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-6": {
+    "webpHash": "2ca9307bf7bf8212",
+    "avifHash": "2cb4357c3fb42388",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 100904,
+    "avifSize": 67861,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-7": {
+    "webpHash": "cc432321202c87d3",
+    "avifHash": "dad4d3838cfa4adb",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 59374,
+    "avifSize": 35260,
+    "updatedAt": "2026-04-23"
+  },
+  "contour-result-8": {
+    "webpHash": "793e260c278a8249",
+    "avifHash": "fc8a0f727ee772bc",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 41048,
+    "avifSize": 26821,
+    "updatedAt": "2026-04-23"
+  },
+  "cream-hydration": {
+    "webpHash": "87ef14e07e013467",
+    "avifHash": "e1acaa20d6744692",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 36650,
+    "avifSize": 36304,
+    "updatedAt": "2026-04-23"
+  },
+  "cream-retinol": {
+    "webpHash": "840a9e3dec051ca0",
+    "avifHash": "dee39c7c050b78b1",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 32692,
+    "avifSize": 33416,
+    "updatedAt": "2026-04-23"
+  },
+  "cream-spf50": {
+    "webpHash": "92491a9aa4c9c659",
+    "avifHash": "7583e469fff1a6f1",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 37546,
+    "avifSize": 39382,
+    "updatedAt": "2026-04-23"
+  },
+  "cream-wrinkle": {
+    "webpHash": "d77ce086881b4e55",
+    "avifHash": "bbe5a30f051f4038",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 46410,
+    "avifSize": 45886,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-moveo": {
+    "webpHash": "19f0556beca1e63b",
+    "avifHash": "57b0665581a8a645",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 96990,
+    "avifSize": 69073,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-moveo-ep": {
+    "webpHash": "f2693d7bf7b57c42",
+    "avifHash": "7bb169632a0dcd0e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 51820,
+    "avifSize": 37774,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-onda": {
+    "webpHash": "158fdc1b757bf759",
+    "avifHash": "d5f5dc6acd35474d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 11664,
+    "avifSize": 8763,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-onda-ep": {
+    "webpHash": "4e8c492a49f12ced",
+    "avifHash": "aa332b4dfe5da049",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 18316,
+    "avifSize": 12069,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-redtouch-ep": {
+    "webpHash": "fe3951034d2c6fae",
+    "avifHash": "6b362bd145e89aa8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 21198,
+    "avifSize": 14731,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-1": {
+    "webpHash": "b490ab05694d9bf6",
+    "avifHash": "aaccffd843421f80",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 218128,
+    "avifSize": 166941,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-10": {
+    "webpHash": "8825054b5a9e0e97",
+    "avifHash": "f3e967203d193c6a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 212338,
+    "avifSize": 128345,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-11": {
+    "webpHash": "863fa554ab41cc2a",
+    "avifHash": "9d1561a793ca788b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 172422,
+    "avifSize": 102903,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-12": {
+    "webpHash": "32788ace7f966b24",
+    "avifHash": "11b36cb3771f8725",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 168216,
+    "avifSize": 93700,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-13": {
+    "webpHash": "d451f1c1a950cb7a",
+    "avifHash": "ce1a376d2c87aff9",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 136906,
+    "avifSize": 73379,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-14": {
+    "webpHash": "9045f2aa2ebd6f47",
+    "avifHash": "9533415ebd1d588f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 185450,
+    "avifSize": 108579,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-2": {
+    "webpHash": "5c576ea0d8d8e92b",
+    "avifHash": "105563dc422c9450",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 132486,
+    "avifSize": 93709,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-3": {
+    "webpHash": "ac7c7b29de04b922",
+    "avifHash": "7b052b84b724ada9",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 292794,
+    "avifSize": 215903,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-4": {
+    "webpHash": "298013713a8e6093",
+    "avifHash": "c533417e01cf3d3b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 258576,
+    "avifSize": 186984,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-5": {
+    "webpHash": "6b780b2df7f4d2dd",
+    "avifHash": "46c3da75bac5eebe",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 154192,
+    "avifSize": 86084,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-6": {
+    "webpHash": "327ec9c722b04c52",
+    "avifHash": "f3e2f364d8239ce8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 193400,
+    "avifSize": 118880,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-7": {
+    "webpHash": "201624a1470d9f3f",
+    "avifHash": "f8904430c11e483b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 211038,
+    "avifSize": 131288,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-8": {
+    "webpHash": "1041c2a5dc4b5354",
+    "avifHash": "fdbc52a52017e26b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 216424,
+    "avifSize": 130240,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-result-9": {
+    "webpHash": "5500944b2d3072c0",
+    "avifHash": "0c6b7ede095db5ea",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 198342,
+    "avifSize": 125878,
+    "updatedAt": "2026-04-23"
+  },
+  "deka-smartxide-ep": {
+    "webpHash": "d867e332a2cd53cb",
+    "avifHash": "002755c487b67849",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 18424,
+    "avifSize": 13401,
+    "updatedAt": "2026-04-23"
+  },
+  "dermatoscopy": {
+    "webpHash": "989cbc89575bb864",
+    "avifHash": "a5bf30e6200590e2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 51286,
+    "avifSize": 34380,
+    "updatedAt": "2026-04-23"
+  },
+  "DMM": {
+    "webpHash": "6747f5ee02ac6200",
+    "avifHash": "9c695f9d9427e32e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 111848,
+    "avifSize": 77919,
+    "updatedAt": "2026-04-23"
+  },
+  "DMM-vn": {
+    "webpHash": "a8a86837c2622458",
+    "avifHash": "c7e78e45dc1dcec0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 147334,
+    "avifSize": 115277,
+    "updatedAt": "2026-04-23"
+  },
+  "enzyme-powder": {
+    "webpHash": "653d3d1b66f1c1dc",
+    "avifHash": "95622f1a5465ddb2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 45536,
+    "avifSize": 45802,
+    "updatedAt": "2026-04-23"
+  },
+  "eye-cream-wrinkle": {
+    "webpHash": "eb435037b8dbd8dc",
+    "avifHash": "0f86e8fe54e8c3b2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 38846,
+    "avifSize": 38495,
+    "updatedAt": "2026-04-23"
+  },
+  "fluid-vitc": {
+    "webpHash": "01e7c2763405a161",
+    "avifHash": "1ff63420951be39b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 32320,
+    "avifSize": 33865,
+    "updatedAt": "2026-04-23"
+  },
+  "foam-lemon": {
+    "webpHash": "250e95edc9943477",
+    "avifHash": "27e3dbf7085f406d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 38906,
+    "avifSize": 37307,
+    "updatedAt": "2026-04-23"
+  },
+  "form-bg": {
+    "webpHash": "100c2d61fd0ae818",
+    "avifHash": "6d83067f666ac2c6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 70620,
+    "avifSize": 42869,
+    "updatedAt": "2026-04-23"
+  },
+  "gift-certificate": {
+    "webpHash": "c18ccf09b62dc9f4",
+    "avifHash": "2d0c5959d8145ce5",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 61152,
+    "avifSize": 35311,
+    "updatedAt": "2026-04-23"
+  },
+  "gift-hero": {
+    "webpHash": "d4e22351a4153afa",
+    "avifHash": "f7304c8d70fc320f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 33818,
+    "avifSize": 19801,
+    "updatedAt": "2026-04-23"
+  },
+  "hardware-hero": {
+    "webpHash": "ca76c6b4b92c48b8",
+    "avifHash": "8f620a78f97191d4",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 109744,
+    "avifSize": 74698,
+    "updatedAt": "2026-04-23"
+  },
+  "hardware-hero2": {
+    "webpHash": "e57f2c497d314b2c",
+    "avifHash": "2d9425ea65dbe22b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 103754,
+    "avifSize": 69012,
+    "updatedAt": "2026-04-23"
+  },
+  "hardware-hero3": {
+    "webpHash": "c6e920bfd632b4b0",
+    "avifHash": "f42e1d623afe85fb",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 106388,
+    "avifSize": 67650,
+    "updatedAt": "2026-04-23"
+  },
+  "hero-cosmetics": {
+    "webpHash": "5360cdb032fea76e",
+    "avifHash": "92e1e35c5b295ff7",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 57056,
+    "avifSize": 52653,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-bio": {
+    "webpHash": "1386303572162568",
+    "avifHash": "0888bd59f3f43526",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 54750,
+    "avifSize": 43006,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-botox": {
+    "webpHash": "dc6fda4c762f77ea",
+    "avifHash": "1b9b237345550fd2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 46664,
+    "avifSize": 31798,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-collagen": {
+    "webpHash": "6b99936de7ecfdd2",
+    "avifHash": "97445f6819d0c106",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 46006,
+    "avifSize": 31402,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-contour": {
+    "webpHash": "3800d05e51746e36",
+    "avifHash": "07b22ca7ba53579e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 46476,
+    "avifSize": 31823,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-hero": {
+    "webpHash": "2f32399cd61c9fc9",
+    "avifHash": "682ae4b73da9ddf5",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 90780,
+    "avifSize": 58140,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-lipo": {
+    "webpHash": "716470a082b00a69",
+    "avifHash": "7961dfc6f5e0a567",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 43668,
+    "avifSize": 33152,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-meso": {
+    "webpHash": "ac7de6fed2b270a8",
+    "avifHash": "fe97a51e53275a91",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 38706,
+    "avifSize": 27353,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-result-1": {
+    "webpHash": "54fafc02a23233c3",
+    "avifHash": "55290970ca547997",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 75256,
+    "avifSize": 48640,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-result-2": {
+    "webpHash": "2b57c47de088f3d3",
+    "avifHash": "21628886fadc71f0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 163490,
+    "avifSize": 130373,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-result-3": {
+    "webpHash": "e68f8c43251807a7",
+    "avifHash": "efafedc395f95ef0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 193280,
+    "avifSize": 159189,
+    "updatedAt": "2026-04-23"
+  },
+  "inject-result-4": {
+    "webpHash": "3d9c398c77a56a33",
+    "avifHash": "88732fab98e0c36d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 157944,
+    "avifSize": 125580,
+    "updatedAt": "2026-04-23"
+  },
+  "lahta-milon-ep": {
+    "webpHash": "33440a063c31a5e0",
+    "avifHash": "f43c6b6ce5256d69",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 43588,
+    "avifSize": 34788,
+    "updatedAt": "2026-04-23"
+  },
+  "laser-result-1": {
+    "webpHash": "b5f4ab7f10a74513",
+    "avifHash": "c8d534b5d37acf27",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 84918,
+    "avifSize": 58230,
+    "updatedAt": "2026-04-23"
+  },
+  "laser-result-2": {
+    "webpHash": "90b83edfc4658e4e",
+    "avifHash": "c549e76c99d206ab",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 72390,
+    "avifSize": 48680,
+    "updatedAt": "2026-04-23"
+  },
+  "laser-result-3": {
+    "webpHash": "b57b4e00ad363450",
+    "avifHash": "1768803a2b737bd7",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 48496,
+    "avifSize": 44278,
+    "updatedAt": "2026-04-23"
+  },
+  "laser-result-4": {
+    "webpHash": "001f332d6bd31094",
+    "avifHash": "ddad154e0ce8b80a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 63556,
+    "avifSize": 52603,
+    "updatedAt": "2026-04-23"
+  },
+  "legal-hero": {
+    "webpHash": "8a4c9d5a67dac9ed",
+    "avifHash": "827d643075a1c585",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 76702,
+    "avifSize": 45879,
+    "updatedAt": "2026-04-23"
+  },
+  "LEV": {
+    "webpHash": "7b9d55fd571ede01",
+    "avifHash": "90deea811dec9472",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 290044,
+    "avifSize": 225202,
+    "updatedAt": "2026-04-23"
+  },
+  "LEV-vn": {
+    "webpHash": "3e307ffdced85bbf",
+    "avifHash": "0f6a05c660558308",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 152096,
+    "avifSize": 122140,
+    "updatedAt": "2026-04-23"
+  },
+  "mask-phyto-collagen": {
+    "webpHash": "85c694b96965e3ce",
+    "avifHash": "2273214dabdc0714",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 52480,
+    "avifSize": 53295,
+    "updatedAt": "2026-04-23"
+  },
+  "mask-sheet-placenta": {
+    "webpHash": "4c771cecf22c27ff",
+    "avifHash": "1dcae82d9eec4d5b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 43476,
+    "avifSize": 44755,
+    "updatedAt": "2026-04-23"
+  },
+  "mic-calendula": {
+    "webpHash": "9bd7356a27d4cd65",
+    "avifHash": "3fe60ee463ac7458",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 44556,
+    "avifSize": 49245,
+    "updatedAt": "2026-04-23"
+  },
+  "model": {
+    "webpHash": "6b9eda2abe11090f",
+    "avifHash": "eb11c4cb78d45b5b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 64562,
+    "avifSize": 38121,
+    "updatedAt": "2026-04-23"
+  },
+  "onda-result-1": {
+    "webpHash": "bd7c4823a72f267f",
+    "avifHash": "95d3f923a7112f6c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 136966,
+    "avifSize": 104738,
+    "updatedAt": "2026-04-23"
+  },
+  "onda-result-2": {
+    "webpHash": "250fa125a7ba591d",
+    "avifHash": "d307d672378c8508",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 44886,
+    "avifSize": 28975,
+    "updatedAt": "2026-04-23"
+  },
+  "onda-result-3": {
+    "webpHash": "50accd55d746815c",
+    "avifHash": "6982910e8457ce62",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 49026,
+    "avifSize": 32037,
+    "updatedAt": "2026-04-23"
+  },
+  "park": {
+    "webpHash": "2250da3abd8a513d",
+    "avifHash": "63b3dd058f7f5a9f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 98032,
+    "avifSize": 68050,
+    "updatedAt": "2026-04-23"
+  },
+  "PAS": {
+    "webpHash": "f792e9f8ea3cecca",
+    "avifHash": "33288fa549797bf1",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 141352,
+    "avifSize": 97147,
+    "updatedAt": "2026-04-23"
+  },
+  "PAS-vn": {
+    "webpHash": "81cff5622a298de9",
+    "avifHash": "c971c847e11165a0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 166064,
+    "avifSize": 122964,
+    "updatedAt": "2026-04-23"
+  },
+  "patch-black-pearl": {
+    "webpHash": "eca4cf02309e7df3",
+    "avifHash": "372fb9c2248f532c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 39362,
+    "avifSize": 37544,
+    "updatedAt": "2026-04-23"
+  },
+  "promo-hero": {
+    "webpHash": "798ddefd2e2560e8",
+    "avifHash": "9d439f6b8ad47fdd",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 318868,
+    "avifSize": 251408,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-beeliftbee": {
+    "webpHash": "232e8c85e1eeff75",
+    "avifHash": "e9617909600e51e9",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 278124,
+    "avifSize": 213462,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-bio-ultimate": {
+    "webpHash": "0bbf7c034b4d3226",
+    "avifHash": "878969329fed9d39",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 278430,
+    "avifSize": 239787,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-capello": {
+    "webpHash": "c4d395f924e99c69",
+    "avifHash": "a2f7ec74169a1bda",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 185506,
+    "avifSize": 154848,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-deka-general": {
+    "webpHash": "8775e5b5b565e68c",
+    "avifHash": "918cfb5f4714dbb5",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 353270,
+    "avifSize": 315472,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-deka-onda": {
+    "webpHash": "93ab6dbcc7416239",
+    "avifHash": "5ddc11e12a4c4630",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 359188,
+    "avifSize": 321085,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-deka-redtouch": {
+    "webpHash": "18dfc02fea550103",
+    "avifHash": "3a00dd33e522daee",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 261836,
+    "avifSize": 206836,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-deka-synchro": {
+    "webpHash": "b4adaf24777b39bc",
+    "avifHash": "f25cdbb5c32952f3",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 266784,
+    "avifSize": 226539,
+    "updatedAt": "2026-04-23"
+  },
+  "reg-udostoverenie-lahta-milon": {
+    "webpHash": "04e77d1cbda1bde5",
+    "avifHash": "04973d32d37fcccc",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 154186,
+    "avifSize": 114117,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-hero": {
+    "webpHash": "2fdca8ea38b8ee92",
+    "avifHash": "cb630239253b45b2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 121366,
+    "avifSize": 74859,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-keratoma": {
+    "webpHash": "de79f5185730b772",
+    "avifHash": "e9af2921eb93146b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 13128,
+    "avifSize": 11562,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-nevus": {
+    "webpHash": "cbdc4b9412eebc35",
+    "avifHash": "e137e5abd874fe59",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 31840,
+    "avifSize": 25136,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-papilloma": {
+    "webpHash": "5a860e9a7af4e705",
+    "avifHash": "a9fa00c420a3e366",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 44422,
+    "avifSize": 28138,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-01": {
+    "webpHash": "77a377fd4a63040f",
+    "avifHash": "735aca435be47247",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 461672,
+    "avifSize": 381587,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-02": {
+    "webpHash": "530c7f96cf74a6fc",
+    "avifHash": "4f1bbd26cfc30f7d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 440692,
+    "avifSize": 355850,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-03": {
+    "webpHash": "c0d7894681be0b76",
+    "avifHash": "a530f1e8fe513f46",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 208190,
+    "avifSize": 163218,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-04": {
+    "webpHash": "46556a292c85a012",
+    "avifHash": "2f3a4ef35c057bc4",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 546296,
+    "avifSize": 441806,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-05": {
+    "webpHash": "a045d815406f7b69",
+    "avifHash": "1769cf20589c1d03",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 154214,
+    "avifSize": 100219,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-06": {
+    "webpHash": "b347307cb1af409e",
+    "avifHash": "0376e54ee234afde",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 228418,
+    "avifSize": 166326,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-07": {
+    "webpHash": "8b3f6d9e9d5e0ae1",
+    "avifHash": "d5fd8637baaa33ce",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 49658,
+    "avifSize": 32563,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-08": {
+    "webpHash": "06f02d7301ceb18d",
+    "avifHash": "794db5faafa21568",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 214154,
+    "avifSize": 155508,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-09": {
+    "webpHash": "3402a22f003a4a85",
+    "avifHash": "05b30da990db7f2c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 123100,
+    "avifSize": 85992,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-10": {
+    "webpHash": "ea2951037b5e87b7",
+    "avifHash": "a23e4f1237be2143",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 139800,
+    "avifSize": 98827,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-11": {
+    "webpHash": "691bd4b380e59fd6",
+    "avifHash": "ad93b001bac2aa45",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 164404,
+    "avifSize": 116374,
+    "updatedAt": "2026-04-23"
+  },
+  "removal-result-12": {
+    "webpHash": "a43950593f6df473",
+    "avifHash": "7926558654f538f9",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 94276,
+    "avifSize": 63897,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-1": {
+    "webpHash": "531149fb3e10b07a",
+    "avifHash": "4a3c11b6e3e44de8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 33818,
+    "avifSize": 26630,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-10": {
+    "webpHash": "bf4aa2fef6df30a1",
+    "avifHash": "090bc68e8df6789d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 36254,
+    "avifSize": 33222,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-2": {
+    "webpHash": "5b7303e98e5278a4",
+    "avifHash": "b65c8bb24ca6f15a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 30094,
+    "avifSize": 23410,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-3": {
+    "webpHash": "f4e49a3fbc3c1d6a",
+    "avifHash": "95d93cd915bbc3b0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 28582,
+    "avifSize": 25584,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-4": {
+    "webpHash": "70e2ca99e3e245b9",
+    "avifHash": "6f8f1eb46bbbc873",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 20526,
+    "avifSize": 18350,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-5": {
+    "webpHash": "000cde2678683643",
+    "avifHash": "549fd4ec73cd4f15",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 25578,
+    "avifSize": 23311,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-6": {
+    "webpHash": "85a96d4d059e336d",
+    "avifHash": "67a5661b074e45e1",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 17544,
+    "avifSize": 15820,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-7": {
+    "webpHash": "908da278e002fb7d",
+    "avifHash": "e57791b9c8ca90d7",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 36090,
+    "avifSize": 33030,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-8": {
+    "webpHash": "84d73ff2a5133ee4",
+    "avifHash": "a642561f10a1da97",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 14026,
+    "avifSize": 10732,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-9": {
+    "webpHash": "9450c8cc602752e9",
+    "avifHash": "674494a84825c948",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 7136,
+    "avifSize": 5575,
+    "updatedAt": "2026-04-23"
+  },
+  "reviews-hero": {
+    "webpHash": "c8bf477dd483212a",
+    "avifHash": "aee05e6443c2a560",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 78408,
+    "avifSize": 56007,
+    "updatedAt": "2026-04-23"
+  },
+  "s-aest": {
+    "webpHash": "6beac9e243bbd5cd",
+    "avifHash": "49ae26a031130908",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 63914,
+    "avifSize": 38453,
+    "updatedAt": "2026-04-23"
+  },
+  "s-body": {
+    "webpHash": "12d3002ea254d1da",
+    "avifHash": "8db853029cf2f84c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 56084,
+    "avifSize": 40437,
+    "updatedAt": "2026-04-23"
+  },
+  "s-hard": {
+    "webpHash": "694478ab96cd0d87",
+    "avifHash": "fc56889c65eaaf43",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 74620,
+    "avifSize": 50519,
+    "updatedAt": "2026-04-23"
+  },
+  "s-inject": {
+    "webpHash": "3e59595279b94819",
+    "avifHash": "82524c8baa0c27c7",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 53716,
+    "avifSize": 31030,
+    "updatedAt": "2026-04-23"
+  },
+  "s-laser": {
+    "webpHash": "f1c12f318f4abd6b",
+    "avifHash": "e8de646d5f70003b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 97738,
+    "avifSize": 61906,
+    "updatedAt": "2026-04-23"
+  },
+  "s-remove": {
+    "webpHash": "9344419ee5474318",
+    "avifHash": "c840d47637461aaf",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 89570,
+    "avifSize": 51642,
+    "updatedAt": "2026-04-23"
+  },
+  "serum-whitening": {
+    "webpHash": "ece5879215baa544",
+    "avifHash": "f07d6c7bdc03f388",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 29420,
+    "avifSize": 29557,
+    "updatedAt": "2026-04-23"
+  },
+  "serum-wrinkle": {
+    "webpHash": "071040836f210b88",
+    "avifHash": "fa980c4870295ac6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 37460,
+    "avifSize": 39289,
+    "updatedAt": "2026-04-23"
+  },
+  "set-metacos": {
+    "webpHash": "3bab1939478eab3c",
+    "avifHash": "501fbd086967be9d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 20956,
+    "avifSize": 23311,
+    "updatedAt": "2026-04-23"
+  },
+  "set-mini-wrinkle": {
+    "webpHash": "14f03dfd825d38a5",
+    "avifHash": "a89e171f26f380f2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 57046,
+    "avifSize": 58130,
+    "updatedAt": "2026-04-23"
+  },
+  "slide-1": {
+    "webpHash": "1bc4d912b442bccf",
+    "avifHash": "5ca66dc21e76bb00",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 148502,
+    "avifSize": 96424,
+    "updatedAt": "2026-04-23"
+  },
+  "slide-2": {
+    "webpHash": "3221ee4e58431de5",
+    "avifHash": "4e2f2c12dec23eee",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 149246,
+    "avifSize": 110383,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-beelift-ep": {
+    "webpHash": "4d782649b704a536",
+    "avifHash": "9bc5ed569a019282",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 18266,
+    "avifSize": 10416,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-1": {
+    "webpHash": "c3b82f9d23c641a4",
+    "avifHash": "92ad3d7dc524bc3f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 190166,
+    "avifSize": 117439,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-10": {
+    "webpHash": "9dbc6e79e5ebaef7",
+    "avifHash": "50fc75aac1ef16cf",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 117486,
+    "avifSize": 64500,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-2": {
+    "webpHash": "73bbd708d79b9862",
+    "avifHash": "ccbee949183bbd6e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 100552,
+    "avifSize": 75917,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-3": {
+    "webpHash": "581b36f31612704c",
+    "avifHash": "87e920a8d539dcf5",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 145314,
+    "avifSize": 90823,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-4": {
+    "webpHash": "ee6e8721c3ea2d52",
+    "avifHash": "abd3daf9f518afc7",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 176408,
+    "avifSize": 115693,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-5": {
+    "webpHash": "dfd501cef52bb071",
+    "avifHash": "60d408915005762c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 155640,
+    "avifSize": 97393,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-6": {
+    "webpHash": "0a6e59e21159b5cf",
+    "avifHash": "a6034d6996e32a73",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 121766,
+    "avifSize": 67227,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-7": {
+    "webpHash": "885e467e4a20190f",
+    "avifHash": "7bc18fb426be4695",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 230344,
+    "avifSize": 147156,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-8": {
+    "webpHash": "8bb1041b1f834513",
+    "avifHash": "21f8ee484af67ce0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 156348,
+    "avifSize": 89934,
+    "updatedAt": "2026-04-23"
+  },
+  "smas-result-9": {
+    "webpHash": "f776dc06f7abfe9a",
+    "avifHash": "c6847253c4359d87",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 107072,
+    "avifSize": 56815,
+    "updatedAt": "2026-04-23"
+  },
+  "team-1": {
+    "webpHash": "e4e2235395848085",
+    "avifHash": "233a5b5e1f850ac2",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 112238,
+    "avifSize": 91930,
+    "updatedAt": "2026-04-23"
+  },
+  "team-2": {
+    "webpHash": "6498e526415eb90b",
+    "avifHash": "ab67f6b198e84800",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 49070,
+    "avifSize": 35648,
+    "updatedAt": "2026-04-23"
+  },
+  "team-3": {
+    "webpHash": "11822c86bdce88ac",
+    "avifHash": "9df0dd643885a0a3",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 82188,
+    "avifSize": 64480,
+    "updatedAt": "2026-04-23"
+  },
+  "team-main": {
+    "webpHash": "aaede0873e3d4dbf",
+    "avifHash": "0560bbdde60ccfc1",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 186694,
+    "avifSize": 124460,
+    "updatedAt": "2026-04-23"
+  },
+  "toner-aroma-ac": {
+    "webpHash": "a8358bc297fb7e98",
+    "avifHash": "8b9ee1800e39300b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 32426,
+    "avifSize": 32980,
+    "updatedAt": "2026-04-23"
+  },
+  "toner-wrinkle": {
+    "webpHash": "927165f1af5f4565",
+    "avifHash": "686285395c346bc6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 37354,
+    "avifSize": 37498,
+    "updatedAt": "2026-04-23"
+  },
+  "VTO": {
+    "webpHash": "8aca595c5878bd2d",
+    "avifHash": "0c81c12d1753894f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 217652,
+    "avifSize": 132350,
+    "updatedAt": "2026-04-23"
+  },
+  "VTO-vn": {
+    "webpHash": "ef780d273cbd7649",
+    "avifHash": "0ceed59c394aa708",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 183398,
+    "avifSize": 129237,
+    "updatedAt": "2026-04-23"
+  },
+  "ZDA": {
+    "webpHash": "3174ee8ae788cf76",
+    "avifHash": "0dbf3b918102e7cf",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 290128,
+    "avifSize": 226121,
+    "updatedAt": "2026-04-23"
+  },
+  "ZDA-vn": {
+    "webpHash": "d72eaf327ffaa6b7",
+    "avifHash": "ffae3acaa3a7e023",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 165870,
+    "avifSize": 134248,
+    "updatedAt": "2026-04-23"
+  }
+}
