@@ -19,11 +19,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const INDEX_HTML = path.join(DIST_DIR, 'index.html');
 
-// На GH Pages Vite добавляет /<repo>/ к путям ассетов. Critters нужно знать этот префикс,
-// чтобы корректно найти CSS-файлы на диске.
-const BASE = process.env.GITHUB_REPOSITORY
-  ? '/' + process.env.GITHUB_REPOSITORY.split('/')[1] + '/'
-  : '/';
+// У нас везде base='/', прямое соответствие dist/ и URL-префикса.
+const BASE = '/';
 
 async function main() {
   console.log('🚀 Critical CSS Generator (Critters)\n');

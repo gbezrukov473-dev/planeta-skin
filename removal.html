@@ -17,6 +17,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#44C8D2">
+    <!-- Ускоряем подключение к счетчикам -->
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+    <link rel="preconnect" href="https://top-fwz1.mail.ru" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://top-fwz1.mail.ru">
     
     <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -223,7 +228,7 @@
     <main id="main-content">
         <!-- HERO -->
         <section class="relative h-[500px] flex items-center overflow-hidden bg-brand-dark">
-            <picture><source srcset="/img/removal-hero.avif" type="image/avif"><img src="/img/removal-hero.webp" alt="Удаление новообразований" class="absolute inset-0 w-full h-full object-cover opacity-60" aria-hidden="true"></picture>
+            <picture><source srcset="/img/removal-hero.avif" type="image/avif"><img src="/img/removal-hero.webp" alt="Удаление новообразований" class="absolute inset-0 w-full h-full object-cover opacity-60" aria-hidden="true" width="1920" height="1282"></picture>
             <div class="absolute inset-0 bg-gradient-to-r from-brand-tiffany/90 via-brand-tiffany/60 to-transparent"></div>
             <div class="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-white">
                 <div class="max-w-3xl">
@@ -278,7 +283,7 @@
                     <!-- Родинки / Невусы -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <picture><source srcset="/img/removal-nevus.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/removal-nevus.webp" alt="Удаление родинки" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img"></picture>
+                            <picture><source srcset="/img/removal-nevus.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/removal-nevus.webp" alt="Удаление родинки" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img" width="850" height="567"></picture>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Родинки (Невусы)</h3>
@@ -294,7 +299,7 @@
                     <!-- Папилломы -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <picture><source srcset="/img/removal-papilloma.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/removal-papilloma.webp" alt="Удаление папиллом" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img"></picture>
+                            <picture><source srcset="/img/removal-papilloma.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/removal-papilloma.webp" alt="Удаление папиллом" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img" width="1024" height="768"></picture>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Папилломы</h3>
@@ -310,7 +315,7 @@
                     <!-- Бородавки / Кератомы -->
                     <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-md group border-0">
                         <div class="md:w-5/12 h-64 md:h-auto relative shrink-0 overflow-hidden bg-gray-100 border-none">
-                            <picture><source srcset="/img/removal-keratoma.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/removal-keratoma.webp" alt="Удаление кератомы" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img"></picture>
+                            <picture><source srcset="/img/removal-keratoma.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/removal-keratoma.webp" alt="Удаление кератомы" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block lazy-img" width="420" height="165"></picture>
                         </div>
                         <div class="md:w-7/12 p-8 flex flex-col justify-center">
                             <h3 class="font-serif text-2xl text-brand-dark mb-3">Бородавки и Кератомы</h3>
@@ -359,7 +364,7 @@
                         <button type="button" class="js-scroll-to-form bg-brand-peach text-brand-dark font-bold py-4 px-8 rounded-full hover:bg-white transition shadow-lg">Записаться на осмотр</button>
                     </div>
                     <div class="lg:w-1/2 relative z-10">
-                        <picture><source srcset="/img/dermatoscopy.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/dermatoscopy.webp" alt="Дерматоскопия" class="rounded-3xl shadow-2xl border-4 border-white/10 w-full h-auto lazy-img"></picture>
+                        <picture><source srcset="/img/dermatoscopy.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/dermatoscopy.webp" alt="Дерматоскопия" class="rounded-3xl shadow-2xl border-4 border-white/10 w-full h-auto lazy-img" width="1443" height="876"></picture>
                     </div>
                 </div>
             </div>
@@ -515,7 +520,7 @@
                     <!-- Врач 1: Павлова -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
-                            <picture><source srcset="/img/PAS-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/PAS-vn.webp" alt="Павлова Алена Сергеевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img"></picture>
+                            <picture><source srcset="/img/PAS-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/PAS-vn.webp" alt="Павлова Алена Сергеевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img" width="1200" height="723"></picture>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Павлова Алена Сергеевна</h3>
@@ -529,7 +534,7 @@
                     <!-- Врач 2: Волкова -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
-                            <picture><source srcset="/img/VTO-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/VTO-vn.webp" alt="Волкова Татьяна Олеговна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img"></picture>
+                            <picture><source srcset="/img/VTO-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/VTO-vn.webp" alt="Волкова Татьяна Олеговна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img" width="1200" height="723"></picture>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Волкова Татьяна Олеговна</h3>
@@ -614,7 +619,7 @@
                            <button
                              type="button"
                              class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
-                             data-method="whatsapp"
+                             data-method="max"
                              role="radio"
                              aria-checked="false"
                            >

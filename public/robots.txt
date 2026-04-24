@@ -1,25 +1,19 @@
 User-agent: *
 Allow: /
 
-# Запрещаем индексацию служебных страниц
+# Служебные директории
 Disallow: /send-form/
 Disallow: /data/
+Disallow: /icons-preview
+Disallow: /thanks/
+Disallow: /offline
 
-# Разрешаем индексацию основных страниц
-Allow: /index.html
-Allow: /about.html
-Allow: /specialists.html
-Allow: /equipment.html
-Allow: /promo.html
-Allow: /reviews.html
-Allow: /certificates.html
-Allow: /legal.html
-Allow: /laser.html
-Allow: /removal.html
-Allow: /hardware.html
-Allow: /inject.html
-Allow: /aesthetic.html
-Allow: /body.html
+# Поисковые/рекламные параметры, которые создают дубли страниц
+Disallow: /*?utm_
+Disallow: /*?gclid=
+Disallow: /*?yclid=
 
-# Sitemap
+# Рекомендация: не ходить по служебным ассетам чаще, чем нужно
+Crawl-delay: 2
+
 Sitemap: https://hs-planet.ru/sitemap.xml

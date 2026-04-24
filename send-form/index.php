@@ -116,6 +116,35 @@ function ensure_dir(string $dir): void {
 }
 
 /**
+ * Ротация лога leads.jsonl:
+ *  - если log существует и его "месяц последней модификации" отличается от текущего,
+ *    переименовываем его в leads-YYYY-MM.jsonl (архив предыдущего месяца);
+ *  - чистим записи в каталоге ratelimit старше TTL.
+ *
+ * Идемпотентно — можно звать на каждом запросе.
+ */
+function maintain_logs(string $logDir, string $rlDir): void {
+    $logFile = $logDir . '/leads.jsonl';
+    if (is_file($logFile)) {
+        $mtime = @filemtime($logFile);
+        if ($mtime && date('Y-m', $mtime) !== date('Y-m')) {
+            $archive = $logDir . '/leads-' . date('Y-m', $mtime) . '.jsonl';
+            if (!is_file($archive)) @rename($logFile, $archive);
+        }
+    }
+
+    // чистка ratelimit: файлы старше часа не нужны
+    if (is_dir($rlDir)) {
+        $now = time();
+        foreach ((array) @scandir($rlDir) as $f) {
+            if ($f === '.' || $f === '..' || !str_ends_with($f, '.json')) continue;
+            $p = $rlDir . '/' . $f;
+            if (is_file($p) && ($now - (int) @filemtime($p)) > 3600) @unlink($p);
+        }
+    }
+}
+
+/**
  * Валидирует корзину, пришедшую с клиента, против серверного каталога.
  * Цены и названия берем только с сервера, с клиента принимаем лишь id и qty.
  *
@@ -328,10 +357,13 @@ if (!$consent) {
     $fieldErrors['consent'] = 'Нужно согласие на обработку персональных данных.';
 }
 
-$allowedMethods = ['call', 'whatsapp', 'telegram'];
+$allowedMethods = ['call', 'max'];
 if (!in_array($contactMethod, $allowedMethods, true)) {
     $contactMethod = 'call';
 }
+
+// Человекочитаемая подпись способа связи — используется в email-уведомлении
+$methodLabel = $contactMethod === 'max' ? 'MAX (мессенджер)' : 'Звонок';
 
 if (!empty($fieldErrors)) {
     if (wants_json()) {
@@ -348,6 +380,7 @@ if (!empty($fieldErrors)) {
 // логирование
 $logDir = __DIR__ . '/../data';
 ensure_dir($logDir);
+maintain_logs($logDir, $rlDir);
 
 $logData = [
     'date' => date('Y-m-d H:i:s'),
@@ -394,7 +427,7 @@ $lines[] = $isOrder ? 'Новый заказ косметики Pro You' : 'Но
 $lines[] = '';
 $lines[] = 'Телефон: ' . $normalized['display'];
 if ($name !== '') $lines[] = 'Имя: ' . $name;
-$lines[] = 'Способ связи: ' . $contactMethod;
+$lines[] = 'Способ связи: ' . $methodLabel;
 if ($service !== '') $lines[] = 'Услуга: ' . $service;
 $lines[] = 'Страница: ' . ($pageFromPost !== '' ? $pageFromPost : $returnTo);
 
@@ -427,13 +460,42 @@ $lines[] = 'Дата: ' . date('d.m.Y H:i');
 $lines[] = 'Согласие: получено';
 $body = implode("\n", $lines);
 
-// лучше использовать From на домене сайта (поменяешь под свой домен)
-$from = 'no-reply@hs-planet.ru';
-$headers = "From: {$from}\r\n";
-$headers .= "Reply-To: {$from}\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+/*
+ * Отправка email. Используем mail() + корректные заголовки — это даёт
+ * приличную доставляемость при условии, что у reg.ru на домене hs-planet.ru
+ * настроены SPF+DKIM (проверьте в панели reg.ru → Почта → DNS).
+ * Если доставляемость плохая — нужно перейти на SMTP-отправку через PHPMailer
+ * c аутентификацией под mc@hs-planet.ru. См. README раздел "Почта".
+ */
+$fromDomain = 'hs-planet.ru';
+$fromEmail  = 'no-reply@' . $fromDomain;
+$fromName   = 'Планета здоровой кожи';
+$replyEmail = $normalized['e164']; // что написать в Reply-To нельзя — это не email пациента.
+$replyTo    = $to; // отвечаем сами себе на внутренний ящик
 
-@mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers);
+$messageId = sprintf(
+    '<%s.%s@%s>',
+    date('YmdHis'),
+    bin2hex(random_bytes(6)),
+    $fromDomain
+);
+
+$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+$encodedFrom    = '=?UTF-8?B?' . base64_encode($fromName) . '?= <' . $fromEmail . '>';
+
+$headers  = 'From: ' . $encodedFrom . "\r\n";
+$headers .= 'Reply-To: ' . $replyTo . "\r\n";
+$headers .= 'Return-Path: ' . $fromEmail . "\r\n";
+$headers .= 'Message-ID: ' . $messageId . "\r\n";
+$headers .= 'Date: ' . date('r') . "\r\n";
+$headers .= 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+$headers .= 'Content-Transfer-Encoding: 8bit' . "\r\n";
+$headers .= 'X-Mailer: planeta-skin-site' . "\r\n";
+$headers .= 'Auto-Submitted: auto-generated' . "\r\n";
+
+// -f задаёт envelope sender (важно для SPF). Нужно, чтобы домен совпадал с From.
+@mail($to, $encodedSubject, $body, $headers, '-f' . $fromEmail);
 
 // успех
 if (wants_json()) {

@@ -17,6 +17,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#44C8D2">
+    <!-- Ускоряем подключение к счетчикам -->
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+    <link rel="preconnect" href="https://top-fwz1.mail.ru" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://top-fwz1.mail.ru">
   
   <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -107,7 +112,7 @@
   <main id="main-content">
       <!-- HERO -->
       <section class="relative h-[500px] flex items-center overflow-hidden bg-brand-dark">
-          <picture><source srcset="/img/promo-hero.avif" type="image/avif"><img src="/img/promo-hero.webp" alt="Акции и спецпредложения" class="absolute inset-0 w-full h-full object-cover opacity-40" aria-hidden="true"></picture>
+          <picture><source srcset="/img/promo-hero.avif" type="image/avif"><img src="/img/promo-hero.webp" alt="Акции и спецпредложения" class="absolute inset-0 w-full h-full object-cover opacity-40" aria-hidden="true" width="1920" height="994"></picture>
           <div class="absolute inset-0 bg-gradient-to-r from-brand-tiffany/90 via-brand-tiffany/60 to-transparent"></div>
 
           <div class="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center text-white">
@@ -127,7 +132,7 @@
                   <!-- Скидка на первый визит -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <picture><source srcset="/img/aesthetic-hero.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/aesthetic-hero.webp" alt="Скидка на первый визит" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
+                          <picture><source srcset="/img/aesthetic-hero.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/aesthetic-hero.webp" alt="Скидка на первый визит" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" width="1920" height="1282"></picture>
                           <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-15%</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
@@ -144,7 +149,7 @@
                       <div class="absolute inset-0">
                           <picture>
                               <source srcset="/img/birthday.avif" type="image/avif">
-                              <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/birthday.webp" alt="" class="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500 lazy-img" aria-hidden="true">
+                              <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/birthday.webp" alt="" class="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500 lazy-img" aria-hidden="true" width="1598" height="1920">
                           </picture>
                       </div>
                       <div class="p-8 flex flex-col flex-grow items-center text-center justify-center relative z-10">
@@ -160,7 +165,7 @@
                   <!-- Комбо услуг -->
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
-                          <picture><source srcset="/img/smas-beelift-ep.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/smas-beelift-ep.webp" alt="Комбо услуг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img"></picture>
+                          <picture><source srcset="/img/smas-beelift-ep.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/smas-beelift-ep.webp" alt="Комбо услуг" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" width="886" height="531"></picture>
                           <div class="absolute top-4 left-4 bg-brand-turquoise text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-10%</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
@@ -251,7 +256,7 @@
                   <div class="absolute inset-0 md:relative md:hidden">
                       <picture>
                           <source srcset="/img/model.avif" type="image/avif">
-                          <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/model.webp" alt="Стань моделью" class="w-full h-full object-cover opacity-30 lazy-img">
+                          <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/model.webp" alt="Стань моделью" class="w-full h-full object-cover opacity-30 lazy-img" width="1920" height="1521">
                       </picture>
                   </div>
                   
@@ -278,7 +283,7 @@
                       <div class="hidden md:block md:w-1/3 relative">
                           <picture>
                               <source srcset="/img/model.avif" type="image/avif">
-                              <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/model.webp" alt="Стань моделью" class="absolute inset-0 w-full h-full object-cover lazy-img">
+                              <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/model.webp" alt="Стань моделью" class="absolute inset-0 w-full h-full object-cover lazy-img" width="1920" height="1521">
                           </picture>
                       </div>
                   </div>
@@ -359,7 +364,7 @@
                          <button
                            type="button"
                            class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
-                           data-method="whatsapp"
+                           data-method="max"
                            role="radio"
                            aria-checked="false"
                          >

@@ -44,8 +44,8 @@ function setupLeadForm(form) {
 
   persistAndFillTracking(form);
 
-  // Способ связи (call / whatsapp)
-  const allowedMethods = ["call", "whatsapp"];
+  // Способ связи (call / max — мессенджер MAX)
+  const allowedMethods = ["call", "max"];
 
   const setMethod = (method) => {
     if (!allowedMethods.includes(method)) method = "call";

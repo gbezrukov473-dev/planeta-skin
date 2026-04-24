@@ -1,6 +1,17 @@
 /**
- * Скрипт для генерации SVG-спрайта из официальных иконок Font Awesome 6.4.0
- * Запуск: node scripts/build-icons-sprite.mjs
+ * Скрипт для генерации SVG-спрайта из официальных иконок Font Awesome 6.4.0.
+ *
+ * Запускается РЕДКО — только когда нужно добавить новые иконки в спрайт.
+ * Сам спрайт (public/img/icons.svg) закоммичен в репозиторий.
+ *
+ * Запуск:
+ *   npm install @fortawesome/fontawesome-free --no-save
+ *   npm run icons
+ *   (после этого node_modules/@fortawesome можно удалить)
+ *
+ * Пакет не держим в devDependencies, потому что он весит ~30 МБ, а нужен
+ * 2–3 раза в год. Кастомные иконки (i-subway, i-car) дописаны руками в
+ * public/img/icons.svg и скриптом не управляются.
  */
 
 import fs from 'fs';

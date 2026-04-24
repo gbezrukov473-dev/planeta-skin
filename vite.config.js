@@ -8,22 +8,14 @@ import { deployPlugin } from './vite-plugin-deploy.js';
 function getHtmlEntries() {
   const pages = {};
   for (const file of fs.readdirSync(__dirname)) {
-    if (file.endsWith('.html')) {
-      const name = file.replace('.html', '');
-      pages[name] = resolve(__dirname, file);
-    }
+    if (!file.endsWith('.html')) continue;
+    // icons-preview — служебная страница, на проде не нужна
+    if (file === 'icons-preview.html') continue;
+    const name = file.replace('.html', '');
+    pages[name] = resolve(__dirname, file);
   }
   return pages;
 }
-
-// На GitHub Pages (project site) base = /<repo>/, на reg.ru — '/'
-const isGhPages = Boolean(process.env.GITHUB_REPOSITORY);
-const base = isGhPages
-  ? '/' + process.env.GITHUB_REPOSITORY.split('/')[1] + '/'
-  : '/';
-
-// Origin production-домена (используется для абсолютных form action на GH Pages)
-const PROD_ORIGIN = process.env.PROD_ORIGIN || 'https://hs-planet.ru';
 
 /**
  * Dev-сервер: на reg.ru красивые URL /about/ отдает Apache. Чтобы это работало
@@ -50,23 +42,19 @@ function devCleanUrlPlugin() {
 }
 
 export default defineConfig({
-  base,
+  base: '/',
   appType: 'mpa',
   plugins: [
     devCleanUrlPlugin(),
     htmlTemplatePlugin(),
-    deployPlugin({ isGhPages, base, prodOrigin: PROD_ORIGIN }),
+    deployPlugin(),
   ],
   build: {
     rollupOptions: {
       input: getHtmlEntries(),
     },
     cssCodeSplit: true,
-    minify: 'esbuild',
+    // rolldown-vite использует Oxc (не esbuild), minify идёт по умолчанию
     chunkSizeWarningLimit: 1000,
-  },
-  esbuild: {
-    // Убираем console.log и debugger в production-бандле
-    drop: ['console', 'debugger'],
   },
 });

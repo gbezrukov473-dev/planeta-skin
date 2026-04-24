@@ -5,18 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:prod": "vite build && node scripts/critical.mjs",
+    "prebuild": "node scripts/build-sitemap.mjs",
+    "build": "vite build && node scripts/critical.mjs",
+    "build:fast": "vite build",
     "preview": "vite preview",
     "icons": "node scripts/build-icons-sprite.mjs",
     "critical": "node scripts/critical.mjs",
+    "sitemap": "node scripts/build-sitemap.mjs",
     "social-meta": "node scripts/inject-social-meta.mjs",
     "lazy-images": "node scripts/inject-lazy-images.mjs",
     "images:compress": "node scripts/compress-images.mjs",
+    "images:dimensions": "node scripts/inject-image-dimensions.mjs",
     "images:picture": "node scripts/inject-picture-tags.mjs"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.4.0",
     "@tailwindcss/postcss": "^4.1.17",
     "autoprefixer": "^10.4.22",
     "critters": "^0.0.23",

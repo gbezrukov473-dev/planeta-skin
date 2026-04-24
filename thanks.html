@@ -1,11 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Заявка принята | Планета здоровой кожи</title>
+
+  <meta name="description" content="Спасибо, ваша заявка отправлена — администратор клиники свяжется с вами в течение 15 минут.">
   <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://hs-planet.ru/thanks/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Заявка принята | Планета здоровой кожи">
+  <meta property="og:description" content="Спасибо! Администратор свяжется с вами в течение 15 минут.">
+  <meta property="og:url" content="https://hs-planet.ru/thanks/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Планета здоровой кожи">
+
   <script type="module" src="/src/main.js"></script>
+
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -13,55 +26,44 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
   <meta name="theme-color" content="#44C8D2">
+    <!-- Ускоряем подключение к счетчикам -->
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+    <link rel="preconnect" href="https://top-fwz1.mail.ru" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://top-fwz1.mail.ru">
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+  <!--
+    На thanks.html не грузим Метрику и Top.Mail.Ru: счётчики цели «отправка формы»
+    удобнее вешать на DataLayer/SendForm event внутри основной страницы. Страница
+    закрыта от индексации, трекинг здесь даёт только шум.
+  -->
 
-        ym(99676053, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <!-- /Yandex.Metrika counter -->
-    <!-- Top.Mail.Ru counter -->
-    <script type="text/javascript">
-    var _tmr = window._tmr || (window._tmr = []);
-    _tmr.push({id: "3748697", type: "pageView", start: (new Date()).getTime()});
-    (function (d, w, id) {
-      if (d.getElementById(id)) return;
-      var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-      ts.src = "https://top-fwz1.mail.ru/js/code.js";
-      var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-      if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-    })(document, window, "tmr-code");
-    </script>
-    <!-- /Top.Mail.Ru counter -->
-    <!-- TODO: Добавить цель конверсии ym(99676053, 'reachGoal', 'form_submit'); -->
+  <!-- Очистка корзины после успешного заказа. Пробрасываем в ранний inline-скрипт,
+       чтобы не зависеть от загрузки основного бандла и SW. -->
+  <script>
+    try {
+      // Ключ должен совпадать с STORAGE_KEY в src/js/modules/shop.js
+      localStorage.removeItem('pzk_cart_v1');
+    } catch (_) { /* приватный режим или заблокированное хранилище — ок */ }
+  </script>
 </head>
 <body class="bg-slate-50 text-gray-700 font-sans antialiased flex items-center justify-center min-h-screen">
-<noscript><div><img src="https://mc.yandex.ru/watch/99676053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3748697;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
-  
   <main id="main-content" class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-10 text-center m-4">
       <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
           </svg>
       </div>
-      
+
       <h1 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Спасибо!</h1>
       <p class="text-lg text-gray-600 mb-8 leading-relaxed">
           Ваша заявка успешно отправлена.<br>
           Наш администратор свяжется с вами в течение 15 минут (в рабочее время).
       </p>
-      
+
       <a href="/" class="inline-block w-full bg-brand-turquoise text-white font-bold py-4 rounded-xl hover:bg-brand-tiffany transition shadow-lg uppercase tracking-widest text-sm">
         Вернуться на главную
       </a>
   </main>
-
 </body>
 </html>

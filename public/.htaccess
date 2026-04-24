@@ -1,6 +1,12 @@
 RewriteEngine On
 RewriteBase /
 
+# === Принудительный HTTPS ===
+# На reg.ru SSL-сертификат работает, HTTP-клиентов редиректим.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
 # === Канонизация URL ===
 
 # 1. Убираем index.html из любых URL
@@ -23,9 +29,29 @@ RewriteRule ^(.*)$ /$1/ [R=301,L]
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-  # HSTS включайте ТОЛЬКО если сайт полностью на HTTPS и не будете откатываться:
-  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+  # HSTS: включаем HTTPS-first на год. Важно: включаем только ПОСЛЕ того, как
+  # убедились, что сайт полноценно работает на HTTPS — откатить можно только
+  # через те же 12 месяцев, так как браузеры кешируют заголовок.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Content-Security-Policy: разрешаем только собственные ресурсы + аналитику
+  # (Яндекс.Метрика, Top.Mail.Ru) + карту яндекса в iframe. 'unsafe-inline' нужен
+  # Яндекс.Метрике (она инжектит инлайн-скрипты) и inline-стилям в HTML.
+  Header set Content-Security-Policy "default-src 'self'; \
+    script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://top-fwz1.mail.ru https://yandex.ru; \
+    style-src 'self' 'unsafe-inline'; \
+    img-src 'self' data: https: blob:; \
+    font-src 'self' data:; \
+    connect-src 'self' https://mc.yandex.ru https://top-fwz1.mail.ru; \
+    frame-src 'self' https://mc.yandex.ru https://yandex.ru https://yandex.com; \
+    media-src 'self'; \
+    object-src 'none'; \
+    base-uri 'self'; \
+    form-action 'self'; \
+    frame-ancestors 'self'; \
+    upgrade-insecure-requests"
 
   # Долгоживущее кеширование для неизменных ассетов (hash в имени файла)
   <FilesMatch "\.(?:js|css|woff2|woff|svg|png|jpg|jpeg|webp|avif|gif|ico)$">
@@ -36,9 +62,14 @@ RewriteRule ^(.*)$ /$1/ [R=301,L]
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
+
+  # sitemap.xml и robots.txt — короткое кеширование для быстрой раскатки изменений
+  <FilesMatch "(sitemap\.xml|robots\.txt)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 # === GZIP ===
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>

@@ -16,6 +16,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#44C8D2">
+    <!-- Ускоряем подключение к счетчикам -->
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+    <link rel="preconnect" href="https://top-fwz1.mail.ru" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://top-fwz1.mail.ru">
     
     <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -292,7 +297,7 @@
                           <button type="button" class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-brand-turquoise text-white border-brand-turquoise" data-method="call" role="radio" aria-checked="true">
                             <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
                           </button>
-                          <button type="button" class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200" data-method="whatsapp" role="radio" aria-checked="false">
+                          <button type="button" class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200" data-method="max" role="radio" aria-checked="false">
                             <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-max"></use></svg>Max
                           </button>
                         </div>

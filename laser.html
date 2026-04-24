@@ -17,6 +17,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#44C8D2">
+    <!-- Ускоряем подключение к счетчикам -->
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
+    <link rel="preconnect" href="https://top-fwz1.mail.ru" crossorigin>
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://top-fwz1.mail.ru">
     
     <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -298,7 +303,7 @@
     <main id="main-content">
         <!-- HERO -->
         <section class="relative h-[500px] md:h-[600px] flex items-center overflow-hidden bg-brand-dark">
-            <picture><source srcset="/img/s-laser.avif" type="image/avif"><img src="/img/s-laser.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-50" aria-hidden="true"></picture>
+            <picture><source srcset="/img/s-laser.avif" type="image/avif"><img src="/img/s-laser.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-50" aria-hidden="true" width="1413" height="944"></picture>
             <div class="absolute inset-0 bg-gradient-to-r from-brand-tiffany/90 via-brand-tiffany/60 to-transparent"></div>
             <div class="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-white">
                 <div class="max-w-3xl">
@@ -619,7 +624,7 @@
                     <!-- Врач 1: Леоненко -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
-                            <picture><source srcset="/img/LEV-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/LEV-vn.webp" alt="Леоненко Екатерина Витальевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img"></picture>
+                            <picture><source srcset="/img/LEV-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/LEV-vn.webp" alt="Леоненко Екатерина Витальевна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img" width="1200" height="723"></picture>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Леоненко Екатерина Витальевна</h3>
@@ -637,7 +642,7 @@
                     <!-- Врач 2: Дашичева -->
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-100 flex flex-col">
                         <div class="h-64 overflow-hidden relative">
-                            <picture><source srcset="/img/DMM-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/DMM-vn.webp" alt="Дашичева Мария Михайловна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img"></picture>
+                            <picture><source srcset="/img/DMM-vn.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/DMM-vn.webp" alt="Дашичева Мария Михайловна" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 lazy-img" width="1200" height="723"></picture>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="font-serif text-xl text-gray-800 mb-2">Дашичева Мария Михайловна</h3>
@@ -806,7 +811,7 @@
                            <button
                              type="button"
                              class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
-                             data-method="whatsapp"
+                             data-method="max"
                              role="radio"
                              aria-checked="false"
                            >
