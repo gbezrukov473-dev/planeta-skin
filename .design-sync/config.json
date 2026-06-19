@@ -1,0 +1,5 @@
+{
+  "projectId": "38422ca3-70cb-4f1f-a858-cc9460480eb9",
+  "shape": "brand-theme",
+  "note": "Static MPA, no component library — brand-theme-only sync (tokens + fonts + logo + base CSS). Hand-built layout, converter not applicable."
+}
