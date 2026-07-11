@@ -489,16 +489,6 @@
     "avifSize": 12069,
     "updatedAt": "2026-04-23"
   },
-  "deka-redtouch-ep": {
-    "webpHash": "fe3951034d2c6fae",
-    "avifHash": "6b362bd145e89aa8",
-    "qualityWebp": 85,
-    "qualityAvif": 65,
-    "maxWidth": 1920,
-    "webpSize": 21198,
-    "avifSize": 14731,
-    "updatedAt": "2026-04-23"
-  },
   "deka-result-1": {
     "webpHash": "b490ab05694d9bf6",
     "avifHash": "aaccffd843421f80",
@@ -1099,6 +1089,706 @@
     "avifSize": 251408,
     "updatedAt": "2026-04-23"
   },
+  "proyou-1-10a-aged-foam-cleansing-165-ml": {
+    "webpHash": "3fabe8cb0c951824",
+    "avifHash": "3c7eb40f1128da22",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 42346,
+    "avifSize": 32021,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-11a-ac-pure-foam-cleansing-165-ml": {
+    "webpHash": "f2dd381ba27ac16c",
+    "avifHash": "484e316dfa0b1b7c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 68500,
+    "avifSize": 53554,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-12a-sensitive-atp-foam-cleansing-165-ml": {
+    "webpHash": "e66a318e5ce0c554",
+    "avifHash": "587f4c5588c1c118",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 35284,
+    "avifSize": 25911,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-1a-coenzyme-q10-cleansing-lotion-165-ml": {
+    "webpHash": "4f8b12a1f4989f23",
+    "avifHash": "617bad20064e6feb",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 33578,
+    "avifSize": 25873,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-2a-vita-balance-cleansing-emulsion-165-ml": {
+    "webpHash": "70c4f6ef8a7cf202",
+    "avifHash": "46deab8e9d1b92ae",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 36514,
+    "avifSize": 27531,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-3a-aroma-ac-cleansing-emulsion-165-ml": {
+    "webpHash": "7e4cda5fa24210b2",
+    "avifHash": "228235eef34d81af",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 50640,
+    "avifSize": 37576,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-4a-hydration-cleansing-emulsion-165-ml": {
+    "webpHash": "17986afbeaa422a7",
+    "avifHash": "fb82e35ce0d0210c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 39038,
+    "avifSize": 29602,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-1-6a-eye-make-up-remover-165-ml": {
+    "webpHash": "da27751097ce72ee",
+    "avifHash": "3d5e6991e6a88ed6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 41822,
+    "avifSize": 31578,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-11-1a-whitening-soft-mask-150-g": {
+    "webpHash": "3620b56bf2b32dd8",
+    "avifHash": "0ab4fe6764b736e4",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 38010,
+    "avifSize": 30683,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-11-2a-coenzyme-q10-mask-150-g": {
+    "webpHash": "817ec45237500b43",
+    "avifHash": "47c9968e8678f590",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 42344,
+    "avifSize": 33722,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-11-3a-vita-balance-mask-150-g копия": {
+    "webpHash": "5d75e50e5d91a086",
+    "avifHash": "30ac9164f72e2099",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 41362,
+    "avifSize": 42180,
+    "updatedAt": "2026-05-14"
+  },
+  "proyou-11-4a-aroma-ac-mask-150-g": {
+    "webpHash": "b4642caf8a1495b8",
+    "avifHash": "ef48af5507b6868e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 44022,
+    "avifSize": 36438,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-11-5a-hydration-mask-150-g": {
+    "webpHash": "ac3184484c50bb0a",
+    "avifHash": "32bcee9baa8e08f6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 40854,
+    "avifSize": 33233,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-11-6a-phyto-collagen-mask-150-g": {
+    "webpHash": "35c10cc3580d9ab9",
+    "avifHash": "2b461ae6b4eb81dc",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 47140,
+    "avifSize": 37265,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-13-3a-soothing-night-gel-mask-165-ml": {
+    "webpHash": "f2c532c2d4a309c9",
+    "avifHash": "49f90257953e5142",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 26418,
+    "avifSize": 22807,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-14-11a-rose-body-moisture-lotion-300-ml": {
+    "webpHash": "c7f21c705ff66c89",
+    "avifHash": "6575b91d2458cdcd",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 30126,
+    "avifSize": 26117,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-15-6a-pore-control-facial-mask-100-g": {
+    "webpHash": "4e6bb749ec8d13ae",
+    "avifHash": "ae79d121ca8e1ef0",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 39130,
+    "avifSize": 31433,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-15-7a-pore-tightening-charcoal-mask-50-g": {
+    "webpHash": "199009479214c398",
+    "avifHash": "d989a9fcd50a1ee4",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 36228,
+    "avifSize": 29902,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-16-5a-one-week-nature-program-for-well-being-treatment-25-ml-6-sht": {
+    "webpHash": "9e18ecdbf6819b3f",
+    "avifHash": "c566e72b2f9c56a8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 65686,
+    "avifSize": 58377,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-16-6a-prori-soothing-hydration-sheet-mask-160-ml": {
+    "webpHash": "4a5c76c46afbe5b4",
+    "avifHash": "a05af5b1b947c925",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 28926,
+    "avifSize": 23565,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-2-2a-whitening-skin-toner-130-ml": {
+    "webpHash": "fc654f9ebb4b6ff1",
+    "avifHash": "5cced961a4d9c579",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 62412,
+    "avifSize": 38715,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-2-3a-coenzyme-q10-skin-toner-130-ml": {
+    "webpHash": "13d41a56bf3438b0",
+    "avifHash": "ab1230d44b36b40e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24216,
+    "avifSize": 20126,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-2-4a-vita-balance-skin-toner-130-ml": {
+    "webpHash": "aa030b12c6e8dc7f",
+    "avifHash": "10fa2171adc849fe",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 26214,
+    "avifSize": 21584,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-2-6a-hydration-skin-toner-130-ml": {
+    "webpHash": "c98412cf62a851b6",
+    "avifHash": "b24485d72dee204c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24382,
+    "avifSize": 19559,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-2-9a-aloe-moisture-skin-toner-130-ml": {
+    "webpHash": "42b050ac94eadaf4",
+    "avifHash": "5dcae9fe139a0839",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 31588,
+    "avifSize": 23672,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-24-2a-hermann-white-wrinkle-control-lotion-130-ml": {
+    "webpHash": "2f4c8211d1ef649e",
+    "avifHash": "b0d1d820f2a9586c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 44742,
+    "avifSize": 40148,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-24-3s-hermann-white-wrinkle-control-set-tohep-locoh-polhopazmephye-130-ml-30-ml-130-ml-30-ml": {
+    "webpHash": "b1d5ae5be209265a",
+    "avifHash": "d90a0bda0986b578",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 110796,
+    "avifSize": 100317,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-25-2a-metacos-platinum-wrinkle-peptide-skin-toner-130-ml копия": {
+    "webpHash": "cf5ea88299a9713e",
+    "avifHash": "e5b8cbb52ecfa02b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24086,
+    "avifSize": 24415,
+    "updatedAt": "2026-05-14"
+  },
+  "proyou-25-3a-metacos-platinum-wrinkle-peptide-lotion-130-ml": {
+    "webpHash": "881d162664b87562",
+    "avifHash": "354f12edbdaf1921",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 26088,
+    "avifSize": 20636,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-25-4a-metacos-platinum-wrinkle-peptide-cream-50-g": {
+    "webpHash": "eec5bcd798637019",
+    "avifHash": "16b3a30d15281c5f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 43666,
+    "avifSize": 37613,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-25-5a-metacos-platinum-wrinkle-peptide-eye-decollete-cream-30-g": {
+    "webpHash": "b174680c8722f8ea",
+    "avifHash": "615e35bf84def52b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 37460,
+    "avifSize": 33139,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-25-6a-metacos-platinum-wrinkle-peptide-serum-50-ml": {
+    "webpHash": "ab212417499dd4d4",
+    "avifHash": "a5366b67b02d4686",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 33066,
+    "avifSize": 26287,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-26-1a-mayflo-wrinkle-and-white-vital-active-skin-toner-120-ml": {
+    "webpHash": "0b2cf8b3749bd08f",
+    "avifHash": "f295e16192dc1247",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 30400,
+    "avifSize": 25124,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-26-2a-mayflo-wrinkle-and-white-vital-moisture-cream-100-g": {
+    "webpHash": "4c37d6cd6d59dbad",
+    "avifHash": "d114b393ecf16683",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 43134,
+    "avifSize": 37258,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-26-3a-mayflo-wrinkle-and-white-vital-nutrition-cream-50-g": {
+    "webpHash": "cfb2ea6f89999d99",
+    "avifHash": "0ae65bd56e2ec10f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 30664,
+    "avifSize": 24332,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-26-4a-mayflo-wrinkle-and-white-vital-active-serum-35-ml": {
+    "webpHash": "cdd9e3a4b7e205bc",
+    "avifHash": "9c59344df5ef8f4f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 10102,
+    "avifSize": 8980,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-26-5a-mayflo-wrinkle-and-white-vital-active-lotion-100-ml": {
+    "webpHash": "c63bbc5ca59e5bbc",
+    "avifHash": "5f04f2bb3ac04e9b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 11598,
+    "avifSize": 10476,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-29-2a-pore-fill-up-charcoal-bubble-cleanser-100-ml": {
+    "webpHash": "8c098b70a993317e",
+    "avifHash": "10232bc6562b1e2b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 110696,
+    "avifSize": 101126,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-3-7a-soothing-vital-serum-50-ml": {
+    "webpHash": "dbe1bc64a70afc72",
+    "avifHash": "7048bbb74169e000",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 27742,
+    "avifSize": 22228,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-30-1a-wrinkle-sc-renewal-essence-120-ml": {
+    "webpHash": "13580fe8adf86fe3",
+    "avifHash": "4ee4b448228964ae",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 28846,
+    "avifSize": 24075,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-30-3a-wrinkle-sc-renewal-cream-100-g": {
+    "webpHash": "2ef34fff6e255799",
+    "avifHash": "fa823c9cd1efd709",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 37122,
+    "avifSize": 29727,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-30-9a-pore-control-foam-deep-cleanser-100-ml": {
+    "webpHash": "c7e09d1a4d11054e",
+    "avifHash": "dac5736bdab820ff",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 52660,
+    "avifSize": 40493,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-31-3a-lip-eye-wrinkle-spot-cream-15-g": {
+    "webpHash": "c3e7c892e93a6d91",
+    "avifHash": "765400ce8f77eeb9",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 26042,
+    "avifSize": 20226,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-5-12a-pore-control-minimizing-serum-30-ml": {
+    "webpHash": "6bd0f2ae8dececa8",
+    "avifHash": "cb49ab0352b5830b",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24432,
+    "avifSize": 19379,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-5-8a-white-gold-pearl-fluid-30-ml": {
+    "webpHash": "5abcc76ff253c3ca",
+    "avifHash": "0af905d0f9190609",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 34638,
+    "avifSize": 28766,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-5-9a-coenzyme-q10-eye-serum-30-ml": {
+    "webpHash": "16dee32aa58cb468",
+    "avifHash": "8d49254202bc2870",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 22714,
+    "avifSize": 17582,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-12a-aloe-moisture-essence-50-ml": {
+    "webpHash": "8dd1eac4c61fed2b",
+    "avifHash": "71e3d84a6aefacbe",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 22368,
+    "avifSize": 17376,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-13a-ginseng-nutrition-serum-50-ml": {
+    "webpHash": "a615248fbf4656e8",
+    "avifHash": "a837cbf9b1bcac74",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 27154,
+    "avifSize": 22276,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-3a-coenzyme-q10-essence-50-ml": {
+    "webpHash": "9ebf8a7e24d3a284",
+    "avifHash": "3c3ada30dbda015a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 34198,
+    "avifSize": 27436,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-4a-vita-balance-fluid-50-ml": {
+    "webpHash": "2675812557385ae3",
+    "avifHash": "c99b2b6e0c38df58",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24914,
+    "avifSize": 20101,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-5a-aroma-ac-fluid-50-ml": {
+    "webpHash": "50534bbf6071b950",
+    "avifHash": "2115751c38a0a38f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24438,
+    "avifSize": 19770,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-6a-hydration-fluid-50-ml": {
+    "webpHash": "91160703b5b21456",
+    "avifHash": "a961894196b370c6",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 22142,
+    "avifSize": 17110,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-6-7a-vita-collagen-fluid-50-ml": {
+    "webpHash": "aa9c284436e9311f",
+    "avifHash": "7d57aaadc5c8ef07",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 27924,
+    "avifSize": 21855,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-7-11a-aloe-moisture-cream-60-g": {
+    "webpHash": "2680e99d7de3a549",
+    "avifHash": "33a7bd9b7fdf9301",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 34448,
+    "avifSize": 25462,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-7-14b-aroma-renewal-cream-250-g": {
+    "webpHash": "283f71b9386b86f4",
+    "avifHash": "1e5e8bac88de9839",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 19990,
+    "avifSize": 18959,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-7-2a-whitening-moisture-cream-60-g": {
+    "webpHash": "dfe81727a73ede13",
+    "avifHash": "a5325dbfa0ba4fdd",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 42140,
+    "avifSize": 34866,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-7-3a-coenzyme-q10-cream-60-g": {
+    "webpHash": "84c859f40f840efb",
+    "avifHash": "c1b0dcba662baa12",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 13142,
+    "avifSize": 12316,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-7-4a-vita-balance-cream-60-g": {
+    "webpHash": "b5a8395f222b8d03",
+    "avifHash": "e12822f6d5d5b5d8",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 16112,
+    "avifSize": 14626,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-7-5a-aroma-ac-cream-60-g": {
+    "webpHash": "6e9aeff0f081e9d1",
+    "avifHash": "06da1b0f1ffe6d6d",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 34940,
+    "avifSize": 27828,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-8-2a-whitening-eye-cream-30-g": {
+    "webpHash": "cde74f95848c45eb",
+    "avifHash": "e4d6dd5a04228864",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 29704,
+    "avifSize": 24966,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-8-3a-lifting-eye-cream-30-g": {
+    "webpHash": "924c9b8f6283fb88",
+    "avifHash": "743212be6a482561",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 39088,
+    "avifSize": 30674,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-8-4a-vitamin-c-cream-60-g": {
+    "webpHash": "e2fe77c90cb8a49a",
+    "avifHash": "b84f9d0bc9c3a11f",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 40782,
+    "avifSize": 34299,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-1a-wrinkle-peptide-lotion-130-ml": {
+    "webpHash": "6ad893d3cc3c1b83",
+    "avifHash": "b5af85fd6c3df3de",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 25028,
+    "avifSize": 20733,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-2a-whitening-lotion-130-ml": {
+    "webpHash": "b0a4f9a16e3c1bb1",
+    "avifHash": "11bc3c9c688129f3",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 29706,
+    "avifSize": 23091,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-3a-coenzyme-q10-moisture-lotion-130-ml": {
+    "webpHash": "ce0a5b849051335a",
+    "avifHash": "3daaa6a89902dc78",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 22972,
+    "avifSize": 18825,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-4a-vita-balance-moisture-lotion-130-ml": {
+    "webpHash": "c1d87116eade1743",
+    "avifHash": "304f6661b6e86401",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 30694,
+    "avifSize": 24026,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-5a-aroma-ac-lotion-130-ml": {
+    "webpHash": "e636a941085f7b41",
+    "avifHash": "8edd84985c4d824e",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 26416,
+    "avifSize": 22390,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-6a-hydration-lotion-130-ml": {
+    "webpHash": "8e94c6a0424a7d20",
+    "avifHash": "71bea32066429c3a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 24942,
+    "avifSize": 19882,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-7a-aloe-moisture-lotion-130-ml": {
+    "webpHash": "c2693106add14950",
+    "avifHash": "3d997a085747ca2c",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 20202,
+    "avifSize": 16334,
+    "updatedAt": "2026-05-13"
+  },
+  "proyou-9-8a-ginseng-nutrition-lotion-130-ml": {
+    "webpHash": "d99269940fdffba2",
+    "avifHash": "5e9735db6d1fcc3a",
+    "qualityWebp": 85,
+    "qualityAvif": 65,
+    "maxWidth": 1920,
+    "webpSize": 9962,
+    "avifSize": 8793,
+    "updatedAt": "2026-05-13"
+  },
   "reg-udostoverenie-beeliftbee": {
     "webpHash": "232e8c85e1eeff75",
     "avifHash": "e9617909600e51e9",
@@ -1147,16 +1837,6 @@
     "maxWidth": 1920,
     "webpSize": 359188,
     "avifSize": 321085,
-    "updatedAt": "2026-04-23"
-  },
-  "reg-udostoverenie-deka-redtouch": {
-    "webpHash": "18dfc02fea550103",
-    "avifHash": "3a00dd33e522daee",
-    "qualityWebp": 85,
-    "qualityAvif": 65,
-    "maxWidth": 1920,
-    "webpSize": 261836,
-    "avifSize": 206836,
     "updatedAt": "2026-04-23"
   },
   "reg-udostoverenie-deka-synchro": {
@@ -1357,16 +2037,6 @@
     "maxWidth": 1920,
     "webpSize": 36254,
     "avifSize": 33222,
-    "updatedAt": "2026-04-23"
-  },
-  "reviews-2": {
-    "webpHash": "5b7303e98e5278a4",
-    "avifHash": "b65c8bb24ca6f15a",
-    "qualityWebp": 85,
-    "qualityAvif": 65,
-    "maxWidth": 1920,
-    "webpSize": 30094,
-    "avifSize": 23410,
     "updatedAt": "2026-04-23"
   },
   "reviews-3": {

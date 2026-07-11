@@ -16,7 +16,8 @@
     "lazy-images": "node scripts/inject-lazy-images.mjs",
     "images:compress": "node scripts/compress-images.mjs",
     "images:dimensions": "node scripts/inject-image-dimensions.mjs",
-    "images:picture": "node scripts/inject-picture-tags.mjs"
+    "images:picture": "node scripts/inject-picture-tags.mjs",
+    "shop:catalog": "node scripts/build-shop-catalog.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",

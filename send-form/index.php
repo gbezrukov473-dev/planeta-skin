@@ -34,6 +34,40 @@ const ALLOWED_ORIGINS = [
     // 'https://YOUR-GITHUB-USER.github.io',
 ];
 
+// Разрешенные хосты в заголовке Referer. Должны совпадать с тем, откуда
+// действительно может приходить форма (включая превью на Cloudflare Pages).
+const ALLOWED_REFERER_HOSTS = [
+    'hs-planet.ru',
+    'www.hs-planet.ru',
+    'planeta-skin.pages.dev',
+];
+
+// User-Agent'ы, по которым однозначно видно бота. Совпадение по подстроке,
+// case-insensitive. Реальные браузеры эти строки не присылают.
+const BOT_UA_PATTERNS = [
+    'curl/',
+    'wget/',
+    'python-requests/',
+    'python-urllib',
+    'go-http-client',
+    'libwww-perl',
+    'java/',
+    'okhttp/',
+    'axios/',
+    'node-fetch',
+    'postmanruntime',
+    'httpclient',
+    'scrapy',
+    'phantomjs',
+    'headlesschrome',
+    'masscan',
+    'nikto',
+    'sqlmap',
+];
+
+// SmartCaptcha API
+const SMARTCAPTCHA_VALIDATE_URL = 'https://smartcaptcha.yandexcloud.net/validate';
+
 /* ---------------- helpers ---------------- */
 
 function wants_json(): bool {
@@ -59,6 +93,10 @@ function safe_path(string $path, string $fallback = '/'): string {
 
     // норм: "/laser.html?x=1#form"
     if ($path[0] !== '/') $path = '/' . $path;
+
+    // "//evil.com" и "/\evil.com" браузеры трактуют как протокол-относительный
+    // URL на чужой домен — режем, иначе получится open redirect через поле page.
+    if (isset($path[1]) && ($path[1] === '/' || $path[1] === '\\')) return $fallback;
 
     return $path;
 }
@@ -116,22 +154,51 @@ function ensure_dir(string $dir): void {
 }
 
 /**
- * Ротация лога leads.jsonl:
- *  - если log существует и его "месяц последней модификации" отличается от текущего,
- *    переименовываем его в leads-YYYY-MM.jsonl (архив предыдущего месяца);
- *  - чистим записи в каталоге ratelimit старше TTL.
+ * Создаёт каталог и кладёт в него запрещающий .htaccess, если его там нет.
+ *
+ * data/ живёт в вебруте: если при деплое забыть залить data/.htaccess,
+ * leads.jsonl с телефонами клиентов будет публично скачиваться по
+ * предсказуемому URL. Поэтому страхуемся на уровне PHP — защита
+ * восстанавливается при первом же запросе. .htaccess в data/ действует
+ * и на подкаталоги (ratelimit/), отдельно их закрывать не нужно.
+ */
+function ensure_protected_dir(string $dir): void {
+    ensure_dir($dir);
+    $ht = rtrim($dir, '/\\') . DIRECTORY_SEPARATOR . '.htaccess';
+    if (!is_file($ht)) {
+        @file_put_contents(
+            $ht,
+            "# Автосоздано send-form/index.php: каталог с ПД закрыт от веба.\n"
+            . "<IfModule mod_authz_core.c>\n  Require all denied\n</IfModule>\n"
+            . "<IfModule !mod_authz_core.c>\n  Order allow,deny\n  Deny from all\n</IfModule>\n"
+        );
+    }
+}
+
+/**
+ * Месячная ротация JSONL-лога: если месяц последней модификации файла
+ * отличается от текущего, переименовываем его в <name>-YYYY-MM.jsonl.
+ * Идемпотентно — можно звать перед каждой записью.
+ */
+function rotate_monthly(string $file): void {
+    if (!is_file($file)) return;
+    $mtime = @filemtime($file);
+    if ($mtime && date('Y-m', $mtime) !== date('Y-m')) {
+        $archive = preg_replace('/\.jsonl$/', '-' . date('Y-m', $mtime) . '.jsonl', $file);
+        if ($archive !== null && !is_file($archive)) @rename($file, $archive);
+    }
+}
+
+/**
+ * Обслуживание логов:
+ *  - месячная ротация leads.jsonl и drops.jsonl;
+ *  - чистка записей в каталоге ratelimit старше TTL.
  *
  * Идемпотентно — можно звать на каждом запросе.
  */
 function maintain_logs(string $logDir, string $rlDir): void {
-    $logFile = $logDir . '/leads.jsonl';
-    if (is_file($logFile)) {
-        $mtime = @filemtime($logFile);
-        if ($mtime && date('Y-m', $mtime) !== date('Y-m')) {
-            $archive = $logDir . '/leads-' . date('Y-m', $mtime) . '.jsonl';
-            if (!is_file($archive)) @rename($logFile, $archive);
-        }
-    }
+    rotate_monthly($logDir . '/leads.jsonl');
+    rotate_monthly($logDir . '/drops.jsonl');
 
     // чистка ratelimit: файлы старше часа не нужны
     if (is_dir($rlDir)) {
@@ -146,10 +213,16 @@ function maintain_logs(string $logDir, string $rlDir): void {
 
 /**
  * Валидирует корзину, пришедшую с клиента, против серверного каталога.
- * Цены и названия берем только с сервера, с клиента принимаем лишь id и qty.
+ *
+ * Клиент отдаёт массив строк вида:
+ *   {productId, variantId, name, size, code, price, qty}
+ * но мы доверяем только variantId и qty — название/размер/цена и код
+ * перезатираются из shop_catalog() (серверный канон). Старый формат
+ * со значением `id` тоже принимаем, чтобы не сломать заявки от вкладок,
+ * открытых до выкатки.
  *
  * @param string $rawJson raw JSON из поля cart_json
- * @return array{ok:bool, items:array<int,array{id:string,name:string,size:string,price:int,qty:int,sum:int,line:string}>, total:int, error?:string}
+ * @return array{ok:bool, items:array<int,array{id:string,name:string,size:string,price:int,qty:int,sum:int,line:string,code:string}>, total:int, error?:string}
  */
 function build_order_from_cart(string $rawJson): array {
     $rawJson = trim($rawJson);
@@ -173,24 +246,29 @@ function build_order_from_cart(string $rawJson): array {
     foreach ($decoded as $row) {
         if (!is_array($row)) continue;
 
-        $id = isset($row['id']) ? (string)$row['id'] : '';
+        // Новый формат — variantId. Старый — id. Поддерживаем оба.
+        $variantId = '';
+        if (isset($row['variantId'])) $variantId = (string)$row['variantId'];
+        elseif (isset($row['id']))     $variantId = (string)$row['id'];
+
         $qty = isset($row['qty']) ? (int)$row['qty'] : 0;
 
-        if ($id === '' || !isset($catalog[$id])) continue;
+        if ($variantId === '' || !isset($catalog[$variantId])) continue;
         if ($qty < 1) continue;
         if ($qty > MAX_QTY_PER_ITEM) $qty = MAX_QTY_PER_ITEM;
 
-        $p = $catalog[$id];
+        $p = $catalog[$variantId];
         $sum = $p['price'] * $qty;
 
         $items[] = [
-            'id'    => $id,
+            'id'    => $variantId,
             'name'  => $p['name'],
             'size'  => $p['size'],
             'price' => $p['price'],
             'qty'   => $qty,
             'sum'   => $sum,
             'line'  => $p['line'],
+            'code'  => $p['code'],
         ];
 
         $total += $sum;
@@ -201,6 +279,222 @@ function build_order_from_cart(string $rawJson): array {
     }
 
     return ['ok' => true, 'items' => $items, 'total' => $total];
+}
+
+/**
+ * Загружает SMTP-конфиг из config.local.php (gitignored). Возвращает null,
+ * если файла нет, конфиг невалиден или smtp.enabled выключен — в этом случае
+ * index.php откатывается на mail().
+ *
+ * @return array{host:string,port:int,secure:string,username:string,password:string,from:string,fromName:string}|null
+ */
+function load_smtp_config(): ?array {
+    $path = __DIR__ . '/config.local.php';
+    if (!is_file($path)) return null;
+
+    $cfg = @include $path;
+    if (!is_array($cfg) || !isset($cfg['smtp']) || !is_array($cfg['smtp'])) return null;
+
+    $smtp = $cfg['smtp'];
+    if (empty($smtp['enabled'])) return null;
+    if (empty($smtp['host']) || empty($smtp['username']) || empty($smtp['password'])) return null;
+
+    return [
+        'host'     => (string)$smtp['host'],
+        'port'     => (int)($smtp['port'] ?? 465),
+        'secure'   => (string)($smtp['secure'] ?? 'ssl'),
+        'username' => (string)$smtp['username'],
+        'password' => (string)$smtp['password'],
+        'from'     => (string)($smtp['from'] ?? $smtp['username']),
+        'fromName' => (string)($smtp['fromName'] ?? ''),
+    ];
+}
+
+/**
+ * Подключает PHPMailer. Поддерживает два способа установки:
+ *  1) composer require phpmailer/phpmailer  → send-form/vendor/autoload.php
+ *  2) ручная распаковка релиза в send-form/lib/PHPMailer/src/
+ * Возвращает true, если классы PHPMailer\PHPMailer\PHPMailer и SMTP доступны.
+ */
+function load_phpmailer(): bool {
+    if (class_exists('\\PHPMailer\\PHPMailer\\PHPMailer')) return true;
+
+    $vendor = __DIR__ . '/vendor/autoload.php';
+    if (is_file($vendor)) {
+        require_once $vendor;
+        return class_exists('\\PHPMailer\\PHPMailer\\PHPMailer');
+    }
+
+    $libDir = __DIR__ . '/lib/PHPMailer/src';
+    if (is_dir($libDir)) {
+        require_once $libDir . '/Exception.php';
+        require_once $libDir . '/SMTP.php';
+        require_once $libDir . '/PHPMailer.php';
+        return class_exists('\\PHPMailer\\PHPMailer\\PHPMailer');
+    }
+
+    return false;
+}
+
+/**
+ * Отправляет письмо. Сначала пробует SMTP (если настроен и PHPMailer доступен),
+ * иначе откатывается на mail() с правильными заголовками.
+ *
+ * Возвращает true при успехе, false при провале — но index.php в любом случае
+ * считает заявку принятой, потому что она уже залогирована в leads.jsonl.
+ */
+function send_lead_email(string $to, string $subject, string $body, string $fromDomain): bool {
+    $smtp = load_smtp_config();
+
+    if ($smtp !== null && load_phpmailer()) {
+        try {
+            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+            $mail->isSMTP();
+            $mail->Host       = $smtp['host'];
+            $mail->Port       = $smtp['port'];
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $smtp['username'];
+            $mail->Password   = $smtp['password'];
+            if ($smtp['secure'] === 'ssl') {
+                $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
+            } elseif ($smtp['secure'] === 'tls') {
+                $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+            }
+            $mail->CharSet    = 'UTF-8';
+            $mail->Encoding   = \PHPMailer\PHPMailer\PHPMailer::ENCODING_8BIT;
+
+            $mail->setFrom($smtp['from'], $smtp['fromName']);
+            $mail->addAddress($to);
+            $mail->addReplyTo($to);
+
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+
+            return (bool)$mail->send();
+        } catch (\Throwable $e) {
+            error_log('[planeta-skin] SMTP send failed: ' . $e->getMessage());
+            // ниже — откат на mail()
+        }
+    }
+
+    // ----- Fallback: mail() с корректными заголовками -----
+    $fromEmail = 'no-reply@' . $fromDomain;
+    $fromName  = 'Планета здоровой кожи';
+
+    $messageId = sprintf(
+        '<%s.%s@%s>',
+        date('YmdHis'),
+        bin2hex(random_bytes(6)),
+        $fromDomain
+    );
+
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+    $encodedFrom    = '=?UTF-8?B?' . base64_encode($fromName) . '?= <' . $fromEmail . '>';
+
+    $headers  = 'From: ' . $encodedFrom . "\r\n";
+    $headers .= 'Reply-To: ' . $to . "\r\n";
+    $headers .= 'Return-Path: ' . $fromEmail . "\r\n";
+    $headers .= 'Message-ID: ' . $messageId . "\r\n";
+    $headers .= 'Date: ' . date('r') . "\r\n";
+    $headers .= 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+    $headers .= 'Content-Transfer-Encoding: 8bit' . "\r\n";
+    $headers .= 'X-Mailer: planeta-skin-site' . "\r\n";
+    $headers .= 'Auto-Submitted: auto-generated' . "\r\n";
+
+    return @mail($to, $encodedSubject, $body, $headers, '-f' . $fromEmail);
+}
+
+/**
+ * Загружает капча-конфиг из config.local.php. Возвращает null, если файла нет,
+ * секция отсутствует, или captcha.enabled = false. В этом случае проверка
+ * капчи пропускается (полезно для локалки, но в проде включать обязательно).
+ *
+ * @return array{server_key:string}|null
+ */
+function load_captcha_config(): ?array {
+    $path = __DIR__ . '/config.local.php';
+    if (!is_file($path)) return null;
+
+    $cfg = @include $path;
+    if (!is_array($cfg) || !isset($cfg['captcha']) || !is_array($cfg['captcha'])) return null;
+
+    $c = $cfg['captcha'];
+    if (empty($c['enabled'])) return null;
+    if (empty($c['server_key'])) return null;
+
+    return ['server_key' => (string)$c['server_key']];
+}
+
+/**
+ * Проверяет токен SmartCaptcha через Yandex API. Возвращает true, если токен
+ * действительный. Сетевые ошибки трактуем как НЕвалидный токен (fail closed) —
+ * лучше попросить пользователя повторить, чем пропустить ботов в окно сбоя API.
+ */
+function verify_smartcaptcha(string $token, string $serverKey, string $ip): bool {
+    if ($token === '') return false;
+
+    $payload = http_build_query([
+        'secret' => $serverKey,
+        'token'  => $token,
+        'ip'     => $ip,
+    ], '', '&', PHP_QUERY_RFC3986);
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init(SMARTCAPTCHA_VALIDATE_URL);
+        curl_setopt_array($ch, [
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $payload,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 4,
+            CURLOPT_CONNECTTIMEOUT => 3,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/x-www-form-urlencoded'],
+        ]);
+        $resp = curl_exec($ch);
+        $http = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if (!is_string($resp) || $http !== 200) return false;
+    } else {
+        $ctx = stream_context_create([
+            'http' => [
+                'method'        => 'POST',
+                'header'        => "Content-Type: application/x-www-form-urlencoded\r\n",
+                'content'       => $payload,
+                'timeout'       => 4,
+                'ignore_errors' => true,
+            ],
+        ]);
+        $resp = @file_get_contents(SMARTCAPTCHA_VALIDATE_URL, false, $ctx);
+        if (!is_string($resp)) return false;
+    }
+
+    $data = json_decode($resp, true);
+    if (!is_array($data)) return false;
+
+    return isset($data['status']) && $data['status'] === 'ok';
+}
+
+function is_bot_ua(string $ua): bool {
+    $ua = trim($ua);
+    if ($ua === '') return true; // пустой UA — заведомо не браузер
+
+    $needle = strtolower($ua);
+    foreach (BOT_UA_PATTERNS as $pattern) {
+        if (str_contains($needle, $pattern)) return true;
+    }
+    return false;
+}
+
+/**
+ * Проверяет, что Referer пришёл с одного из разрешённых хостов.
+ * Пустой Referer считаем подозрительным (реальные браузеры в same-origin POST
+ * по умолчанию его шлют, а боты с cURL — нет).
+ */
+function referer_ok(string $referer): bool {
+    if ($referer === '') return false;
+    $host = parse_url($referer, PHP_URL_HOST);
+    if (!is_string($host) || $host === '') return false;
+    return in_array(strtolower($host), ALLOWED_REFERER_HOSTS, true);
 }
 
 function rate_limit_ok(string $dir, string $ip, int $maxAttempts = 10, int $windowSec = 600): bool {
@@ -276,28 +570,127 @@ $pageFromPost = str_trim((string)($_POST['page'] ?? ''), 400);
 $returnTo = safe_path($pageFromPost !== '' ? $pageFromPost : '/', '/');
 $returnToWithAnchor = $returnTo . (str_contains($returnTo, '#') ? '' : '#form');
 
-// honeypot
-$honeypot = str_trim((string)($_POST['website'] ?? ''), 200);
-if ($honeypot !== '') {
-    // делаем вид, что все ок
+/**
+ * Все «100%-бот»-сигналы ниже отдают фейковый успех (303 на /thanks/
+ * или JSON ok:true). Цель — не подсказывать ботам, что именно их выдало,
+ * чтобы они не подбирали обход. Заявка при этом НЕ логируется в leads.jsonl
+ * и письмо НЕ уходит.
+ *
+ * Но «тихие» дропы могут зацепить и реального пользователя (приватный браузер
+ * режет Referer, отключён JS — пустой fill_time). Поэтому каждый дроп пишем
+ * в data/drops.jsonl с причиной и контактами из формы: по логу видно масштаб
+ * ложных срабатываний, а потерянному клиенту можно перезвонить.
+ */
+function log_silent_drop(string $reason): void {
+    $logDir = __DIR__ . '/../data';
+    ensure_protected_dir($logDir);
+    rotate_monthly($logDir . '/drops.jsonl');
+
+    $entry = [
+        'date'    => date('Y-m-d H:i:s'),
+        'reason'  => $reason,
+        'ip'      => (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown'),
+        'ua'      => str_trim((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 300),
+        'referer' => str_trim((string)($_SERVER['HTTP_REFERER'] ?? ''), 400),
+        'page'    => str_trim((string)($_POST['page'] ?? ''), 400),
+        'form_id' => str_trim((string)($_POST['form_id'] ?? ''), 60),
+        'name'    => str_trim((string)($_POST['name'] ?? ''), 100),
+        'phone'   => str_trim((string)($_POST['phone'] ?? ''), 80),
+    ];
+
+    @file_put_contents(
+        $logDir . '/drops.jsonl',
+        json_encode($entry, JSON_UNESCAPED_UNICODE) . PHP_EOL,
+        FILE_APPEND
+    );
+}
+
+function silent_drop(string $reason): void {
+    log_silent_drop($reason);
     if (wants_json()) json_out(true, ['redirect' => THANKS_URL]);
     redirect_303(THANKS_URL);
 }
 
-// слишком быстрое заполнение (тихий дроп, чтобы не подсказывать ботам)
+/**
+ * Конфиг капчи загружаем до антибот-эвристик: когда капча включена, она —
+ * основной фильтр ботов, и «мягкие» сигналы (пустой Referer, пустой fill_time)
+ * можно не делать фатальными — реальный человек с приватным браузером дойдёт
+ * до капчи и пройдёт её, а бот — нет.
+ */
+$captchaCfg = load_captcha_config();
+$captchaEnabled = $captchaCfg !== null;
+
+// Bot UA: cURL, python-requests, axios без браузера и т.п.
+if (is_bot_ua((string)($_SERVER['HTTP_USER_AGENT'] ?? ''))) {
+    silent_drop('bot_ua');
+}
+
+// Referer с ЧУЖОГО хоста — однозначно чужая форма или прямой POST бота: режем всегда.
+// Пустой Referer бывает и у живых людей (приватный режим, антитрекинг-расширения),
+// поэтому при включённой капче пропускаем такой запрос дальше — его проверит капча.
+// Без капчи (локалка/деградация) сохраняем прежнее строгое поведение.
+$referer = (string)($_SERVER['HTTP_REFERER'] ?? '');
+if ($referer !== '' && !referer_ok($referer)) {
+    silent_drop('referer_foreign');
+}
+if ($referer === '' && !$captchaEnabled) {
+    silent_drop('referer_empty');
+}
+
+// honeypot
+$honeypot = str_trim((string)($_POST['website'] ?? ''), 200);
+if ($honeypot !== '') {
+    silent_drop('honeypot');
+}
+
+// Слишком быстрое заполнение (< 900 мс) — сигнал бота: живой человек так не успеет.
+// Пустой fill_time_ms означает «нет JS». Без JS не будет и токена капчи, поэтому
+// при включённой капче такой запрос честно упрётся в неё и получит осмысленную
+// ошибку вместо тихого дропа с фейковым «спасибо». Без капчи — строгий режим.
 $fillTimeMs = (int)($_POST['fill_time_ms'] ?? 0);
 if ($fillTimeMs > 0 && $fillTimeMs < 900) {
-    if (wants_json()) json_out(true, ['redirect' => THANKS_URL]);
-    redirect_303(THANKS_URL);
+    silent_drop('fill_time_fast');
+}
+if ($fillTimeMs <= 0 && !$captchaEnabled) {
+    silent_drop('fill_time_empty');
 }
 
 // rate-limit по IP
 $ip = (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+ensure_protected_dir(__DIR__ . '/../data'); // до создания ratelimit/ внутри
 $rlDir = __DIR__ . '/../data/ratelimit';
 if (!rate_limit_ok($rlDir, $ip, 10, 600)) {
     $msg = 'Слишком много попыток. Попробуйте чуть позже или позвоните: +7 (911) 271-78-88';
     if (wants_json()) json_out(false, ['message' => $msg], 429);
     redirect_303($returnToWithAnchor . (str_contains($returnToWithAnchor, '?') ? '&' : '?') . 'lead_error=rate');
+}
+
+/**
+ * SmartCaptcha. В отличие от UA/Referer/honeypot это НЕ silent_drop —
+ * у настоящего пользователя капча иногда подтормаживает или истекает,
+ * поэтому даём осмысленное сообщение (фронт сбросит виджет и пользователь
+ * сможет нажать «Отправить» ещё раз).
+ *
+ * Если config.local.php с captcha.enabled = true не подложен на сервер,
+ * проверка пропускается — это сделано осознанно для удобства локалки.
+ * В проде наличие конфига обязательно, поэтому отсутствие капчи на продовом
+ * хосте не должно оставаться незамеченным: пишем в error_log и добавляем
+ * предупреждение в письмо администратору (см. ниже).
+ */
+$prodHosts = ['hs-planet.ru', 'www.hs-planet.ru'];
+$captchaMissingOnProd = !$captchaEnabled
+    && in_array(strtolower((string)($_SERVER['HTTP_HOST'] ?? '')), $prodHosts, true);
+if ($captchaMissingOnProd) {
+    error_log('[planeta-skin] ВНИМАНИЕ: SmartCaptcha выключена на проде — проверьте send-form/config.local.php (captcha.enabled + server_key)');
+}
+
+if ($captchaEnabled) {
+    $captchaToken = str_trim((string)($_POST['smart-token'] ?? ''), 4096);
+    if (!verify_smartcaptcha($captchaToken, $captchaCfg['server_key'], $ip)) {
+        $msg = 'Не удалось пройти проверку «я не робот». Попробуйте ещё раз или позвоните: +7 (911) 271-78-88';
+        if (wants_json()) json_out(false, ['message' => $msg], 422);
+        redirect_303($returnToWithAnchor . (str_contains($returnToWithAnchor, '?') ? '&' : '?') . 'lead_error=captcha');
+    }
 }
 
 // сбор
@@ -379,7 +772,7 @@ if (!empty($fieldErrors)) {
 
 // логирование
 $logDir = __DIR__ . '/../data';
-ensure_dir($logDir);
+ensure_protected_dir($logDir);
 maintain_logs($logDir, $rlDir);
 
 $logData = [
@@ -436,7 +829,8 @@ if ($isOrder) {
     $lines[] = 'Состав заказа:';
     foreach ($order['items'] as $it) {
         $lines[] = sprintf(
-            ' — %s (%s) × %d × %s ₽ = %s ₽',
+            ' — [%s] %s (%s) × %d × %s ₽ = %s ₽',
+            $it['code'] ?? '—',
             $it['name'],
             $it['size'],
             $it['qty'],
@@ -458,44 +852,36 @@ if ($comment !== '') {
 $lines[] = '';
 $lines[] = 'Дата: ' . date('d.m.Y H:i');
 $lines[] = 'Согласие: получено';
+
+if ($captchaMissingOnProd) {
+    $lines[] = '';
+    $lines[] = '⚠ ВНИМАНИЕ: проверка SmartCaptcha на сервере ВЫКЛЮЧЕНА (нет send-form/config.local.php с captcha.enabled = true). Формы сейчас не защищены капчей — сообщите разработчику.';
+}
+
 $body = implode("\n", $lines);
 
 /*
- * Отправка email. Используем mail() + корректные заголовки — это даёт
- * приличную доставляемость при условии, что у reg.ru на домене hs-planet.ru
- * настроены SPF+DKIM (проверьте в панели reg.ru → Почта → DNS).
- * Если доставляемость плохая — нужно перейти на SMTP-отправку через PHPMailer
- * c аутентификацией под mc@hs-planet.ru. См. README раздел "Почта".
+ * Отправка email. send_lead_email() сначала пробует SMTP (если в
+ * config.local.php прописаны креды и установлен PHPMailer), иначе откатывается
+ * на mail() с корректными заголовками. Заявка в любом случае уже залогирована
+ * в data/leads.jsonl выше — почта это бонусный канал доставки.
+ *
+ * Провал отправки фиксируем в data/mail-failures.jsonl: почтовый сбой сам по
+ * себе невидим (заявки продолжают тихо копиться в leads.jsonl), а по этому логу
+ * его можно заметить и перезвонить клиентам, чьи письма не дошли.
  */
-$fromDomain = 'hs-planet.ru';
-$fromEmail  = 'no-reply@' . $fromDomain;
-$fromName   = 'Планета здоровой кожи';
-$replyEmail = $normalized['e164']; // что написать в Reply-To нельзя — это не email пациента.
-$replyTo    = $to; // отвечаем сами себе на внутренний ящик
-
-$messageId = sprintf(
-    '<%s.%s@%s>',
-    date('YmdHis'),
-    bin2hex(random_bytes(6)),
-    $fromDomain
-);
-
-$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-$encodedFrom    = '=?UTF-8?B?' . base64_encode($fromName) . '?= <' . $fromEmail . '>';
-
-$headers  = 'From: ' . $encodedFrom . "\r\n";
-$headers .= 'Reply-To: ' . $replyTo . "\r\n";
-$headers .= 'Return-Path: ' . $fromEmail . "\r\n";
-$headers .= 'Message-ID: ' . $messageId . "\r\n";
-$headers .= 'Date: ' . date('r') . "\r\n";
-$headers .= 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-Type: text/plain; charset=UTF-8' . "\r\n";
-$headers .= 'Content-Transfer-Encoding: 8bit' . "\r\n";
-$headers .= 'X-Mailer: planeta-skin-site' . "\r\n";
-$headers .= 'Auto-Submitted: auto-generated' . "\r\n";
-
-// -f задаёт envelope sender (важно для SPF). Нужно, чтобы домен совпадал с From.
-@mail($to, $encodedSubject, $body, $headers, '-f' . $fromEmail);
+if (!send_lead_email($to, $subject, $body, 'hs-planet.ru')) {
+    @file_put_contents(
+        $logDir . '/mail-failures.jsonl',
+        json_encode([
+            'date'    => date('Y-m-d H:i:s'),
+            'phone'   => $normalized['e164'],
+            'form_id' => $formId,
+            'subject' => $subject,
+        ], JSON_UNESCAPED_UNICODE) . PHP_EOL,
+        FILE_APPEND
+    );
+}
 
 // успех
 if (wants_json()) {

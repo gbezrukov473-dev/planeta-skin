@@ -37,6 +37,14 @@ npm run preview      # http://localhost:4173 — превью собранног
 - `send-form/` — PHP-скрипт обработки форм и заказов магазина
 - `public/.htaccess` (он копируется в dist автоматически, но нужно убедиться, что
   сервер читает именно актуальный)
+- `data/.htaccess` — **обязательно**: закрывает `data/leads.jsonl` (телефоны и
+  имена клиентов) от публичного скачивания. `send-form/index.php` подстрахует и
+  создаст его сам при первой заявке, но проверить руками после деплоя нужно:
+  `https://hs-planet.ru/data/leads.jsonl` должен отдавать 403.
+
+После деплоя также проверить, что на сервере лежит `send-form/config.local.php`
+с `captcha.enabled => true` — без него проверка SmartCaptcha молча выключена
+(в этом случае в каждое письмо о заявке добавляется предупреждение).
 
 ## Формы и заказы (PHP)
 
@@ -48,6 +56,10 @@ npm run preview      # http://localhost:4173 — превью собранног
 больше не используются — они вырезаны из фронта, бэкенд принимает только
 значения `call` и `max`.
 
+Серверный каталог цен `send-form/catalog.php` — автогенерируемый файл
+(руками не редактировать). После изменения `src/data/products.js` выполнить
+`npm run shop:catalog` и залить обновлённый `catalog.php` на прод.
+
 Логи:
 - `data/leads.jsonl` — JSON Lines, одна заявка на строку.
 - Автоматически ротируется: при первом запросе в новом месяце предыдущий
@@ -56,22 +68,37 @@ npm run preview      # http://localhost:4173 — превью собранног
 
 ### Почта
 
-Уведомления уходят через `mail()` с заголовками, максимально похожими на
-обычный письменный ящик: `Message-ID`, `Date`, `Return-Path`, 8-бит тело,
-конверт-отправитель (`-f`). Чтобы письма не падали в спам:
+`send-form/index.php` пробует два пути: **SMTP** (если настроен) → откат на
+**`mail()`**. Заявка в любом случае уже записана в `data/leads.jsonl`, так
+что письмо — бонус, а не единственный канал.
+
+**Включить SMTP (рекомендуется — лучшая доставляемость):**
+
+1. Поставить PHPMailer одним из двух способов:
+   ```bash
+   # вариант А: composer (если на хостинге доступен)
+   cd send-form && composer require phpmailer/phpmailer
+   # вариант Б: вручную — скачать релиз с github.com/PHPMailer/PHPMailer/releases,
+   # распаковать так, чтобы получилось send-form/lib/PHPMailer/src/PHPMailer.php
+   ```
+2. Скопировать шаблон конфига и заполнить креды:
+   ```bash
+   cp send-form/config.local.php.example send-form/config.local.php
+   # заполнить host / username / password ящика mc@hs-planet.ru,
+   # выставить 'enabled' => true
+   ```
+3. Файлы `send-form/config.local.php` и `send-form/vendor/`, `send-form/lib/`
+   уже в `.gitignore` — пароль в репозиторий не попадёт.
+
+**Если SMTP не настроен**, работает откат на `mail()` с корректными заголовками
+(`Message-ID`, `Date`, `Return-Path`, 8-бит, envelope `-f`). Чтобы такие письма
+не уходили в спам:
 
 1. В панели reg.ru → Почта убедитесь, что для `hs-planet.ru` включён **SPF**:
-   обычно это запись `TXT` вида
-   `v=spf1 include:_spf.reg.ru ~all`.
-2. Там же включите **DKIM** для доменной почты — reg.ru добавит запись в DNS
-   автоматически.
-3. Проверьте результат через [mail-tester.com](https://www.mail-tester.com/):
-   должна быть оценка ≥ 8/10.
-
-Если этого окажется мало (почта всё равно падает в спам), следующий шаг —
-перевести отправку на SMTP через PHPMailer с аутентификацией под
-`mc@hs-planet.ru`. Код в `index.php` специально оставлен на `mail()`, чтобы
-не требовать ввода SMTP-пароля в репозиторий.
+   `TXT v=spf1 include:_spf.reg.ru ~all`.
+2. Там же включите **DKIM** — reg.ru добавит запись в DNS автоматически.
+3. Проверьте через [mail-tester.com](https://www.mail-tester.com/) — оценка
+   должна быть ≥ 8/10.
 
 ## Картинки
 
@@ -146,7 +173,10 @@ npm run icons
 ```
 .
 ├── index.html, laser.html, ...         Страницы-точки входа
-├── templates/                           Общие куски HTML (header, footer)
+├── templates/                           Общие куски HTML
+│   ├── header.html, footer.html        Шапка и подвал
+│   └── lead-form.html                   Лид-форма (подставляется через
+│                                        <!-- LEAD_FORM_PLACEHOLDER --> + pageMap)
 ├── src/
 │   ├── main.js                          Точка входа JS, регистрация SW
 │   ├── style.css                        Tailwind + кастомные стили

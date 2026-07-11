@@ -1,0 +1,9 @@
+# Заголовки для Cloudflare Pages.
+# Apache на reg.ru этот файл не читает — он всего лишь лежит в корне
+# как статика и ни на что не влияет.
+
+# Превью-домен planeta-skin.pages.dev — закрываем от поисковиков.
+# X-Robots-Tag поддерживают и Google, и Яндекс. В отличие от <meta robots>
+# в HTML, этот заголовок применяется и к sitemap.xml, и к картинкам, и к PDF.
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet

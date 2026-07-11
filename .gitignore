@@ -39,3 +39,13 @@ data/ratelimit/
 .env
 .env.*
 
+# SMTP-креденшалы — никогда в репо
+send-form/config.local.php
+
+# PHPMailer (если установлен через composer или скачан вручную)
+send-form/vendor/
+send-form/lib/
+
+
+# design-sync generated bundle (regenerable, not shipped)
+ds-bundle/

@@ -1,0 +1,36 @@
+<?php
+/**
+ * Локальная конфигурация (SMTP + капча). Скопируйте файл в config.local.php
+ * и заполните своими креденшалами. config.local.php в .gitignore — в
+ * репозиторий не попадает.
+ *
+ * Если файла нет или поля пустые:
+ *   - SMTP: index.php автоматически использует mail();
+ *   - капча: проверка ОТКЛЮЧАЕТСЯ, форма пускает всё (только honeypot/UA/etc).
+ *     Для боевого режима капчу обязательно нужно включить.
+ */
+
+return [
+    'smtp' => [
+        'enabled'  => false,                  // переключатель: true → отправляем через SMTP
+        'host'     => 'smtp.reg.ru',          // у reg.ru обычно smtp.reg.ru или mail.hosting.reg.ru
+        'port'     => 465,                    // 465 (SSL) или 587 (TLS)
+        'secure'   => 'ssl',                  // 'ssl' для 465, 'tls' для 587, '' если без шифрования
+        'username' => 'mc@hs-planet.ru',
+        'password' => '',                     // ПАРОЛЬ почтового ящика (НЕ от панели хостинга)
+        'from'     => 'mc@hs-planet.ru',      // должен совпадать с username (иначе письма зарежут)
+        'fromName' => 'Планета здоровой кожи',
+    ],
+
+    /**
+     * Yandex SmartCaptcha — серверный (секретный) ключ. Используется для
+     * валидации токена на https://smartcaptcha.yandexcloud.net/validate.
+     *
+     * Клиентский (публичный) ключ задан в src/js/config.js — его подменять
+     * здесь не нужно. Если ключи разойдутся, валидация всегда будет провальной.
+     */
+    'captcha' => [
+        'enabled'    => true,
+        'server_key' => 'YOUR_SMARTCAPTCHA_SERVER_KEY', // ysc2_... — берётся в консоли Yandex SmartCaptcha, в репозиторий НЕ коммитить
+    ],
+];

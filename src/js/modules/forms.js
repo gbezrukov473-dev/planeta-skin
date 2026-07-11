@@ -10,6 +10,85 @@ import {
   setFieldError,
   persistAndFillTracking,
 } from "../utils/formUtils.js";
+import { SMARTCAPTCHA_SITEKEY } from "../config.js";
+
+/* ---------------- Yandex SmartCaptcha (invisible) ----------------
+ * SDK грузим один раз на страницу. На каждую форму рендерим свой виджет.
+ * В момент submit вызываем execute() — Яндекс молча проверяет браузер
+ * или показывает попап-челлендж. По callback получаем токен и продолжаем
+ * отправку. Бэк (send-form/index.php) проверяет токен через
+ * smartcaptcha.yandexcloud.net/validate и режет всё без валидного токена.
+ */
+let captchaSdkPromise = null;
+
+function loadCaptchaSdk() {
+  if (captchaSdkPromise) return captchaSdkPromise;
+  captchaSdkPromise = new Promise((resolve, reject) => {
+    if (window.smartCaptcha) return resolve(window.smartCaptcha);
+    window.__pzkCaptchaReady = () => resolve(window.smartCaptcha);
+    const s = document.createElement("script");
+    s.src = "https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=__pzkCaptchaReady";
+    s.async = true;
+    s.defer = true;
+    s.onerror = () => reject(new Error("captcha-sdk-load-failed"));
+    document.head.appendChild(s);
+  });
+  return captchaSdkPromise;
+}
+
+function attachCaptcha(form) {
+  const host = form.querySelector("[data-captcha-host]");
+  if (!host) return;
+
+  loadCaptchaSdk()
+    .then((sdk) => {
+      const widgetId = sdk.render(host, {
+        sitekey: SMARTCAPTCHA_SITEKEY,
+        invisible: true,
+        hideShield: false,
+        callback: (token) => {
+          const tokenInput = form.querySelector('input[name="smart-token"]');
+          if (tokenInput) tokenInput.value = token;
+          const resolve = form.__pzkCaptchaResolve;
+          form.__pzkCaptchaResolve = null;
+          form.__pzkCaptchaReject = null;
+          if (resolve) resolve(token);
+        },
+        "error-callback": () => {
+          const reject = form.__pzkCaptchaReject;
+          form.__pzkCaptchaResolve = null;
+          form.__pzkCaptchaReject = null;
+          if (reject) reject(new Error("captcha-error"));
+        },
+      });
+      form.__pzkCaptchaWidgetId = widgetId;
+    })
+    .catch(() => {
+      // SDK не загрузился (адблок, обрыв сети). Submit упрётся в проверку
+      // готовности виджета и покажет пользователю сообщение с просьбой
+      // перезагрузить страницу — это лучше, чем тихо пропускать без капчи.
+    });
+}
+
+function executeCaptcha(form) {
+  return new Promise((resolve, reject) => {
+    if (!window.smartCaptcha || form.__pzkCaptchaWidgetId === undefined) {
+      reject(new Error("captcha-not-ready"));
+      return;
+    }
+    form.__pzkCaptchaResolve = resolve;
+    form.__pzkCaptchaReject = reject;
+    window.smartCaptcha.execute(form.__pzkCaptchaWidgetId);
+  });
+}
+
+function resetCaptcha(form) {
+  if (window.smartCaptcha && form.__pzkCaptchaWidgetId !== undefined) {
+    try { window.smartCaptcha.reset(form.__pzkCaptchaWidgetId); } catch (_) {}
+  }
+  const tokenInput = form.querySelector('input[name="smart-token"]');
+  if (tokenInput) tokenInput.value = "";
+}
 
 /**
  * Инициализация форм заявок
@@ -114,6 +193,9 @@ function setupLeadForm(form) {
     serviceRow.classList.remove("hidden");
   }
 
+  // Невидимая капча: рендерим виджет сразу, токен запросим в момент submit.
+  attachCaptcha(form);
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (inFlight) return;
@@ -148,6 +230,19 @@ function setupLeadForm(form) {
 
     setSending(submitBtn, true);
     inFlight = true;
+
+    // SmartCaptcha: токен ОБЯЗАТЕЛЕН — без него бэк отдаст 403.
+    try {
+      await executeCaptcha(form);
+    } catch (_err) {
+      showError(
+        errorBox,
+        'Не удалось пройти проверку «я не робот». Перезагрузите страницу и попробуйте ещё раз или позвоните нам: <a class="underline" href="tel:+79112717888">+7 (911) 271-78-88</a>'
+      );
+      setSending(submitBtn, false);
+      inFlight = false;
+      return;
+    }
 
     try {
       const res = await fetch(form.action, {
@@ -188,6 +283,7 @@ function setupLeadForm(form) {
             'Не получилось отправить. Позвоните нам: <a class="underline" href="tel:+79112717888">+7 (911) 271-78-88</a>'
         );
 
+        resetCaptcha(form);
         setSending(submitBtn, false);
         inFlight = false;
         return;
@@ -203,6 +299,7 @@ function setupLeadForm(form) {
         'Не получилось отправить. Позвоните нам: <a class="underline" href="tel:+79112717888">+7 (911) 271-78-88</a>'
       );
 
+      resetCaptcha(form);
       setSending(submitBtn, false);
       inFlight = false;
     } catch (err) {
@@ -211,6 +308,7 @@ function setupLeadForm(form) {
         'Не получилось отправить. Проверьте связь или позвоните нам: <a class="underline" href="tel:+79112717888">+7 (911) 271-78-88</a>'
       );
 
+      resetCaptcha(form);
       setSending(submitBtn, false);
       inFlight = false;
     }

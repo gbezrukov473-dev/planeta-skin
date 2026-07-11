@@ -1,19 +1,23 @@
 import "./style.css";
 
-// Импорт модулей
+/**
+ * Стратегия загрузки:
+ *  - core-модули (preloader, мобильное меню, формы, телефон-маска, lazy-images,
+ *    скролл-вспомогательные, cookie-баннер) подключаются всегда — они нужны
+ *    практически на каждой странице или дёшево обходятся при отсутствии целевых
+ *    DOM-узлов.
+ *  - тяжёлые / редкие модули (shop, lightbox, sliders, counters, scroller)
+ *    лениво грузятся только если на странице есть соответствующий маркер.
+ *    Это срезает ~25 КБ JS на страницах без магазина и слайдеров.
+ */
 import { initPreloader } from "./js/modules/preloader.js";
 import { initMobileMenu } from "./js/modules/mobileMenu.js";
 import { initScrollToForm } from "./js/modules/scrollToForm.js";
-import { initHeroSlider, initEquipmentSlider, initRemovalSlider } from "./js/modules/sliders.js";
-import { initScroller } from "./js/modules/scroller.js";
-import { initCounters } from "./js/modules/counters.js";
-import { initLightbox } from "./js/modules/lightbox.js";
 import { initLeadForms } from "./js/modules/forms.js";
 import { initScrollToTop } from "./js/modules/scrollToTop.js";
 import { initCookieBanner } from "./js/modules/cookieBanner.js";
 import { initLazyImages } from "./js/modules/lazyImages.js";
 import { initPhoneMask } from "./js/modules/phoneMask.js";
-import { initShop } from "./js/modules/shop.js";
 
 // === SERVICE WORKER REGISTRATION ===
 // base-путь проекта (BASE_URL заканчивается слэшем: '/' или '/planeta-skin/')
@@ -118,19 +122,43 @@ window.__pzkClearCaches = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Инициализация всех модулей
+  // Core — на каждой странице
   initPreloader();
   initMobileMenu();
   initScrollToForm();
-  initHeroSlider();
-  initEquipmentSlider();
-  initRemovalSlider();
-  initScroller();
-  initCounters();
-  initLightbox();
   initLeadForms();
   initScrollToTop();
   initCookieBanner();
+  initLazyImages();
   initPhoneMask();
-  initShop();
+
+  // Лениво — по DOM-маркерам. Если маркера нет, чанк не загружается вообще.
+  if (document.getElementById("shop-root")) {
+    import("./js/modules/shop.js").then((m) => m.initShop());
+  }
+
+  if (document.getElementById("lightbox")) {
+    import("./js/modules/lightbox.js").then((m) => m.initLightbox());
+  }
+
+  if (document.getElementById("stats-section")) {
+    import("./js/modules/counters.js").then((m) => m.initCounters());
+  }
+
+  if (document.querySelector(".scroller")) {
+    import("./js/modules/scroller.js").then((m) => m.initScroller());
+  }
+
+  // Слайдеры — три независимых init-а в одном файле. DOM-проверки внутри
+  // самих init-ов защищают от запуска без целевых узлов, поэтому достаточно
+  // одной общей проверки «есть хоть один слайдер-маркер».
+  if (
+    document.querySelector(".slide, .equip-slide, .results-slider, .slider-container")
+  ) {
+    import("./js/modules/sliders.js").then((m) => {
+      m.initHeroSlider();
+      m.initEquipmentSlider();
+      m.initRemovalSlider();
+    });
+  }
 });

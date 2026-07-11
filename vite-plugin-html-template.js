@@ -5,31 +5,38 @@
 import { readFileSync } from 'fs';
 import { resolve, basename } from 'path';
 
-// Маппинг файлов на ключи для подсветки
+// Маппинг файлов на ключи для подсветки + параметры лид-формы
+//   menuMain     — какой пункт верхнего меню подсветить
+//   menuService  — какой пункт меню услуг подсветить
+//   formId       — значение data-form-id и hidden form_id (отличает заявки в логах)
+//   formService  — текст услуги, который попадает в письмо/лог; пустая строка = не указано
+//   formIdSuffix — суффикс для DOM id (lead-form-laser, lead-phone-laser …);
+//                  выводится из имени файла, у index — пусто (исторически).
 const pageMap = {
-  'index.html': { main: null, service: null },
-  'about.html': { main: 'about', service: null },
-  'specialists.html': { main: 'specialists', service: null },
-  'equipment.html': { main: 'equipment', service: null },
-  'promo.html': { main: 'promo', service: null },
-  'reviews.html': { main: 'reviews', service: null },
-  'certificates.html': { main: 'certificates', service: null },
-  'laser.html': { main: null, service: 'laser' },
-  'removal.html': { main: null, service: 'removal' },
-  'hardware.html': { main: null, service: 'hardware' },
-  'inject.html': { main: null, service: 'inject' },
-  'aesthetic.html': { main: null, service: 'aesthetic' },
-  'body.html': { main: null, service: 'body' },
-  'contacts.html': { main: 'contacts', service: null },
-  'cosmetics.html': { main: 'cosmetics', service: null },
+  'index.html':        { menuMain: null,           menuService: null,        formId: 'lead_main',         formService: '',                            formIdSuffix: '' },
+  'about.html':        { menuMain: 'about',        menuService: null,        formId: 'lead_about',        formService: '',                            formIdSuffix: '-about' },
+  'specialists.html':  { menuMain: 'specialists',  menuService: null,        formId: 'lead_specialists',  formService: '',                            formIdSuffix: '-specialists' },
+  'equipment.html':    { menuMain: 'equipment',    menuService: null,        formId: 'lead_equipment',    formService: '',                            formIdSuffix: '-equipment' },
+  'promo.html':        { menuMain: 'promo',        menuService: null,        formId: 'lead_promo',        formService: '',                            formIdSuffix: '-promo' },
+  'reviews.html':      { menuMain: 'reviews',      menuService: null,        formId: 'lead_reviews',      formService: '',                            formIdSuffix: '-reviews' },
+  'certificates.html': { menuMain: 'certificates', menuService: null,        formId: 'lead_certificates', formService: 'Подарочный сертификат',       formIdSuffix: '-certificates' },
+  'laser.html':        { menuMain: null,           menuService: 'laser',     formId: 'lead_laser',        formService: 'Лазерная эпиляция Moveo',     formIdSuffix: '-laser' },
+  'removal.html':      { menuMain: null,           menuService: 'removal',   formId: 'lead_removal',      formService: 'Удаление новообразований',    formIdSuffix: '-removal' },
+  'hardware.html':     { menuMain: null,           menuService: 'hardware',  formId: 'lead_hardware',     formService: 'Аппаратная косметология',     formIdSuffix: '-hardware' },
+  'inject.html':       { menuMain: null,           menuService: 'inject',    formId: 'lead_inject',       formService: 'Инъекционная косметология',   formIdSuffix: '-inject' },
+  'aesthetic.html':    { menuMain: null,           menuService: 'aesthetic', formId: 'lead_aesthetic',    formService: 'Эстетическая косметология',   formIdSuffix: '-aesthetic' },
+  'body.html':         { menuMain: null,           menuService: 'body',      formId: 'lead_body',         formService: 'Коррекция фигуры',            formIdSuffix: '-body' },
+  'contacts.html':     { menuMain: 'contacts',     menuService: null,        formId: 'lead_contacts',     formService: 'Запись с страницы контактов', formIdSuffix: '-contacts' },
+  'cosmetics.html':    { menuMain: 'cosmetics',    menuService: null,        formId: 'lead_cosmetics',    formService: '',                            formIdSuffix: '-cosmetics' },
+  'legal.html':        { menuMain: null,           menuService: null,        formId: 'lead_legal',        formService: '',                            formIdSuffix: '-legal' },
 };
 
 function renderHeader(currentPage) {
   const headerPath = resolve(__dirname, 'templates/header.html');
   let header = readFileSync(headerPath, 'utf-8');
-  
-  const pageInfo = pageMap[currentPage] || { main: null, service: null };
-  
+
+  const pageInfo = pageMap[currentPage] || { menuMain: null, menuService: null };
+
   // Подсветка в верхнем меню (десктоп)
   const mainMenuItems = [
     { key: 'about', href: '/about/', text: 'О клинике' },
@@ -44,7 +51,7 @@ function renderHeader(currentPage) {
   
   // Десктопное верхнее меню
   let mainMenuHtml = mainMenuItems.map(item => {
-    const isActive = pageInfo.main === item.key;
+    const isActive = pageInfo.menuMain === item.key;
     const activeClass = isActive 
       ? 'text-brand-turquoise cursor-default' 
       : 'hover:text-brand-tiffany';
@@ -65,7 +72,7 @@ function renderHeader(currentPage) {
   ];
   
   let serviceMenuHtml = serviceMenuItems.map(item => {
-    const isActive = pageInfo.service === item.key;
+    const isActive = pageInfo.menuService === item.key;
     const activeClass = isActive 
       ? 'text-brand-turquoise cursor-default' 
       : 'hover:text-brand-turquoise';
@@ -76,7 +83,7 @@ function renderHeader(currentPage) {
   
   // Мобильное верхнее меню
   let mobileMainMenuHtml = mainMenuItems.map(item => {
-    const isActive = pageInfo.main === item.key;
+    const isActive = pageInfo.menuMain === item.key;
     const activeClass = isActive ? 'text-brand-turquoise font-bold' : '';
     return `<a href="${item.href}" class="pl-2 ${activeClass} hover:text-brand-turquoise">${item.text}</a>`;
   }).join('\n                ');
@@ -94,7 +101,7 @@ function renderHeader(currentPage) {
   ];
   
   let mobileServiceMenuHtml = mobileServiceMenuItems.map(item => {
-    const isActive = pageInfo.service === item.key;
+    const isActive = pageInfo.menuService === item.key;
     const activeClass = isActive ? 'text-brand-turquoise font-bold' : '';
     return `<a href="${item.href}" class="pl-2 text-sm flex items-center ${activeClass}"><svg class="icon text-brand-turquoise text-xs mr-2" aria-hidden="true"><use href="/img/icons.svg#i-chevron-right"></use></svg>${item.text}</a>`;
   }).join('\n                ');
@@ -104,6 +111,28 @@ function renderHeader(currentPage) {
   return header;
 }
 
+/**
+ * Рендерит общую лид-форму с per-page параметрами (form_id, услуга, суффикс DOM-id).
+ * Подставляется в каждую страницу на месте `<!-- LEAD_FORM_PLACEHOLDER -->`.
+ */
+function renderLeadForm(currentPage) {
+  const formPath = resolve(__dirname, 'templates/lead-form.html');
+  const tpl = readFileSync(formPath, 'utf-8');
+
+  const info = pageMap[currentPage] || {};
+  const formId = info.formId || 'lead';
+  const service = info.formService ?? '';
+  const idSuffix = info.formIdSuffix ?? '';
+
+  // Экранирование на случай, если в pageMap появятся кавычки (сейчас их нет, но не повредит).
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+  return tpl
+    .replace(/\{\{ID_SUFFIX\}\}/g, esc(idSuffix))
+    .replace(/\{\{FORM_ID\}\}/g, esc(formId))
+    .replace(/\{\{SERVICE\}\}/g, esc(service));
+}
+
 export function htmlTemplatePlugin() {
   return {
     name: 'html-template',
@@ -111,22 +140,28 @@ export function htmlTemplatePlugin() {
       order: 'pre', // Выполняется ДО обработки Vite, чтобы Vite мог обработать script/link теги из шаблонов
       handler(html, context) {
         const footerPath = resolve(__dirname, 'templates/footer.html');
-        
+
         // Определяем текущую страницу
         const filename = context.filename ? basename(context.filename) : 'index.html';
         const currentPage = filename;
-        
+
         try {
           const header = renderHeader(currentPage);
           const footer = readFileSync(footerPath, 'utf-8');
-          
+
           // Заменяем плейсхолдеры
           html = html.replace('<!-- HEADER_PLACEHOLDER -->', header);
           html = html.replace('<!-- FOOTER_PLACEHOLDER -->', footer);
+
+          // Лид-форма — подставляем только если страница её запросила
+          if (html.includes('<!-- LEAD_FORM_PLACEHOLDER -->')) {
+            const form = renderLeadForm(currentPage);
+            html = html.replace('<!-- LEAD_FORM_PLACEHOLDER -->', form);
+          }
         } catch (error) {
           console.warn('HTML Template Plugin: Could not read templates', error.message);
         }
-        
+
         return html;
       }
     }

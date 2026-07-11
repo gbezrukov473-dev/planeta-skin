@@ -19,7 +19,9 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 // Конфигурация
 const SITE_URL = 'https://hs-planet.ru';
 const SITE_NAME = 'Планета здоровой кожи';
-const DEFAULT_OG_IMAGE = '/img/og/og-default.webp';
+// JPEG, а не WebP: часть мессенджеров (WhatsApp, iMessage) не показывает
+// WebP в превью ссылок. 1200×630, ~60 КБ — укладывается в лимиты краулеров.
+const DEFAULT_OG_IMAGE = '/img/og/og-default.jpg';
 const OG_IMAGE_WIDTH = '1200';
 const OG_IMAGE_HEIGHT = '630';
 

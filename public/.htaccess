@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
+# Собственная страница 404 (dist/404.html заливается в корень домена).
+# Без этой строки Apache отдаёт свою дефолтную страницу ошибки.
+ErrorDocument 404 /404.html
+
 # === Принудительный HTTPS ===
 # На reg.ru SSL-сертификат работает, HTTP-клиентов редиректим.
 RewriteCond %{HTTPS} !=on
@@ -39,13 +43,18 @@ RewriteRule ^(.*)$ /$1/ [R=301,L]
   # Content-Security-Policy: разрешаем только собственные ресурсы + аналитику
   # (Яндекс.Метрика, Top.Mail.Ru) + карту яндекса в iframe. 'unsafe-inline' нужен
   # Яндекс.Метрике (она инжектит инлайн-скрипты) и inline-стилям в HTML.
+  # worker-src нужен SmartCaptcha: SDK подгружает shield-чанк как Web Worker
+  # (часть через прямой URL, часть через Blob). Без явного worker-src браузер
+  # откатывается на default-src 'self' и режет проверку — форма отдаёт пустой
+  # токен и бэк возвращает 422 «капча не пройдена».
   Header set Content-Security-Policy "default-src 'self'; \
-    script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://top-fwz1.mail.ru https://yandex.ru; \
+    script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://top-fwz1.mail.ru https://yandex.ru https://smartcaptcha.yandexcloud.net; \
+    worker-src 'self' blob: https://smartcaptcha.yandexcloud.net; \
     style-src 'self' 'unsafe-inline'; \
     img-src 'self' data: https: blob:; \
     font-src 'self' data:; \
-    connect-src 'self' https://mc.yandex.ru https://top-fwz1.mail.ru; \
-    frame-src 'self' https://mc.yandex.ru https://yandex.ru https://yandex.com; \
+    connect-src 'self' https://mc.yandex.ru https://top-fwz1.mail.ru https://smartcaptcha.yandexcloud.net; \
+    frame-src 'self' https://mc.yandex.ru https://yandex.ru https://yandex.com https://smartcaptcha.yandexcloud.net; \
     media-src 'self'; \
     object-src 'none'; \
     base-uri 'self'; \
@@ -63,11 +72,39 @@ RewriteRule ^(.*)$ /$1/ [R=301,L]
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
 
+  # sw.js — исключение из правила для *.js выше: service worker должен
+  # обновляться сразу, иначе браузеры вправе держать старую версию до суток
+  # (эта секция ниже общей для .js, поэтому её Header set побеждает).
+  <FilesMatch "^sw\.js$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
   # sitemap.xml и robots.txt — короткое кеширование для быстрой раскатки изменений
   <FilesMatch "(sitemap\.xml|robots\.txt)$">
     Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
 </IfModule>
+
+# === Кеширование sw.js ===
+# ФАКТ ПРО REG.RU: статику (.js/.css/картинки) раздаёт фронтовый nginx НАПРЯМУЮ,
+# мимо Apache — поэтому Header set/mod_expires из этого файла на неё не влияют,
+# и sw.js уходит с nginx'овским "Cache-Control: max-age=3888000" (45 дней).
+# Это приемлемо: современные браузеры при проверке обновлений service worker
+# игнорируют HTTP-кеш (спецификация в худшем случае ограничивает его сутками),
+# так что баннер «Доступна новая версия» работает. Блок ниже оставлен на случай,
+# если статика когда-нибудь пойдёт через Apache (смена тарифа/хостинга).
+<IfModule mod_expires.c>
+  <Files "sw.js">
+    ExpiresActive Off
+  </Files>
+</IfModule>
+
+# === Служебные файлы Cloudflare Pages (_headers, _redirects) ===
+# Они попадают в корень при сборке, но на Apache/reg.ru бесполезны.
+# Запрещаем их публичный просмотр, чтобы не светить конфиг.
+<FilesMatch "^_(headers|redirects|routes)$">
+  Require all denied
+</FilesMatch>
 
 # === GZIP ===
 <IfModule mod_deflate.c>

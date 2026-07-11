@@ -133,11 +133,11 @@
                   <div class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden h-full">
                       <div class="h-60 relative overflow-hidden bg-gray-100">
                           <picture><source srcset="/img/aesthetic-hero.avif" type="image/avif"><img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/img/aesthetic-hero.webp" alt="Скидка на первый визит" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lazy-img" width="1920" height="1282"></picture>
-                          <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-15%</div>
+                          <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-10%</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
                           <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Скидка на первый визит</h3>
-                          <p class="text-gray-500 text-sm mb-6 flex-grow">Скидка <strong>15%</strong> для новых пациентов на первое посещение клиники.</p>
+                          <p class="text-gray-500 text-sm mb-6 flex-grow">Скидка <strong>10%</strong> для новых пациентов на первое посещение клиники. Назовите кодовое слово <strong>«Визит»</strong> при записи.</p>
                           <div class="mt-auto">
                               <button type="button" class="js-scroll-to-form w-full border-2 border-brand-dark text-brand-dark font-bold py-3 rounded-xl hover:bg-brand-dark hover:text-white transition">Получить скидку</button>
                           </div>
@@ -169,9 +169,8 @@
                           <div class="absolute top-4 left-4 bg-brand-turquoise text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase">-10%</div>
                       </div>
                       <div class="p-8 flex flex-col flex-grow">
-                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Комбо услуг</h3>
-                          <p class="text-gray-500 text-sm mb-4 flex-grow">Скидка <strong>10%</strong> на весь чек при сочетании: <span class="text-brand-tiffany font-semibold">Аппаратная процедура + Инъекционная процедура</span>.</p>
-                          <p class="text-gray-400 text-xs mb-4">Примеры: СМАС-лифтинг + укол; Фотолечение + препарат.</p>
+                          <h3 class="font-serif text-xl text-brand-dark mb-3 group-hover:text-brand-turquoise transition">Аппаратная процедура + биоревитализация</h3>
+                          <p class="text-gray-500 text-sm mb-4 flex-grow">Скидка <strong>10%</strong> на комбо при сочетании: <span class="text-brand-tiffany font-semibold">Аппаратная процедура + Биоревитализация</span>. Аппаратная методика работает с качеством кожи, тонусом и текстурой, а биоревитализация помогает вернуть увлажнённость и свежесть.</p>
                           <p class="text-red-500 text-xs font-medium mb-4">* Не распространяется на лазерную эпиляцию.</p>
                           <div class="mt-auto">
                               <button type="button" class="js-scroll-to-form w-full bg-brand-turquoise text-white font-bold py-3 rounded-xl hover:bg-brand-tiffany transition">Записаться</button>
@@ -301,152 +300,7 @@
                    <h2 class="font-serif text-3xl md:text-4xl mb-4 text-brand-dark">Запишитесь по акции</h2>
                    <p class="mb-8 text-sm text-gray-500 leading-relaxed">Оставьте заявку, и мы забронируем за вами спецпредложение.</p>
                    
-                   <form
-                     id="lead-form"
-                     class="js-lead-form space-y-5"
-                     method="post"
-                     action="/send-form/index.php"
-                     novalidate
-                     data-form-id="lead_promo"
-                     data-service=""
-                     data-thanks="/thanks/"
-                   >
-                     <!-- Honeypot -->
-                     <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
-
-                     <!-- Телефон -->
-                     <div>
-                       <label for="lead-phone-promo" class="sr-only">Телефон</label>
-                       <input
-                         id="lead-phone-promo"
-                         name="phone"
-                         type="tel"
-                         inputmode="tel"
-                         autocomplete="tel"
-                         placeholder="Номер телефона"
-                         class="mask-phone w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
-                         required
-                       >
-                       <p class="mt-2 text-xs text-red-600 hidden" data-error-for="phone"></p>
-                     </div>
-
-                     <!-- Имя (опционально) -->
-                     <div>
-                       <label for="lead-name-promo" class="sr-only">Как к вам обращаться</label>
-                       <input
-                         id="lead-name-promo"
-                         name="name"
-                         type="text"
-                         autocomplete="name"
-                         placeholder="Как к вам обращаться (необязательно)"
-                         class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
-                         minlength="2"
-                         maxlength="60"
-                       >
-                       <p class="mt-2 text-xs text-red-600 hidden" data-error-for="name"></p>
-                     </div>
-
-                     <!-- Способ связи (только звонок + Max) -->
-                     <div>
-                       <div class="text-xs font-semibold text-gray-600">Как связаться?</div>
-
-                       <div class="mt-2 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Способ связи">
-                         <button
-                           type="button"
-                           class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-brand-turquoise text-white border-brand-turquoise"
-                           data-method="call"
-                           role="radio"
-                           aria-checked="true"
-                         >
-                           <svg class="icon mr-2" aria-hidden="true"><use href="/img/icons.svg#i-phone-alt"></use></svg>Звонок
-                         </button>
-
-                         <button
-                           type="button"
-                           class="method-btn rounded-xl border p-3 text-xs font-bold uppercase tracking-wide transition bg-gray-50 text-gray-700 border-gray-200"
-                           data-method="max"
-                           role="radio"
-                           aria-checked="false"
-                         >
-                           <img src="/img/max-logo.svg" alt="" class="w-4 h-4 mr-2 inline-block align-middle max-logo-icon">Max
-                         </button>
-                       </div>
-
-                       <input type="hidden" name="contact_method" value="call">
-                     </div>
-
-                     <!-- Комментарий (опционально) -->
-                     <details class="group rounded-xl border border-gray-200 bg-gray-50 p-4">
-                       <summary class="cursor-pointer text-sm font-semibold text-gray-700 select-none">
-                         Есть вопрос? Напишите
-                         <span class="ml-2 text-xs text-gray-400 group-open:hidden">(необязательно)</span>
-                       </summary>
-                       <div class="pt-3">
-                         <label for="lead-comment-promo" class="sr-only">Коротко: что беспокоит?</label>
-                         <textarea
-                           id="lead-comment-promo"
-                           name="comment"
-                           rows="3"
-                           placeholder="Коротко: что беспокоит?"
-                           class="w-full resize-none rounded-xl border border-gray-200 bg-white p-3 outline-none focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20 transition"
-                         ></textarea>
-                       </div>
-                     </details>
-
-                     <!-- (Опционально) строка с услугой -->
-                     <div class="hidden text-xs text-gray-500" data-service-row>
-                       Услуга: <span class="font-semibold text-gray-700" data-service-label></span>
-                     </div>
-
-                     <!-- Согласие (текст по центру чекбокса) -->
-                     <div>
-                       <div class="flex items-center gap-3">
-                         <input
-                           id="lead-consent-promo"
-                           name="consent"
-                           type="checkbox"
-                           required
-                           class="h-4 w-4 rounded border-gray-300 text-brand-turquoise focus:ring-brand-turquoise"
-                         >
-                         <label for="lead-consent-promo" class="text-xs text-gray-500 leading-snug">
-                           Согласен на обработку персональных данных и ознакомлен(а) с
-                           <a href="/policy/" class="underline hover:text-brand-turquoise transition">политикой</a>.
-                         </label>
-                       </div>
-                       <p class="mt-2 text-xs text-red-600 hidden" data-error-for="consent"></p>
-                     </div>
-
-                     <p class="text-xs text-gray-500">
-                       Не спамим. Только по записи. Ответит администратор клиники.
-                     </p>
-
-                     <!-- Общие сообщения -->
-                     <div class="hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700" data-form-error></div>
-                     <div class="hidden rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800" data-form-success></div>
-
-                     <!-- Скрытые поля -->
-                     <input type="hidden" name="page" value="">
-                     <input type="hidden" name="service" value="">
-                     <input type="hidden" name="policy_version" value="2025-12-12">
-                     <input type="hidden" name="referrer" value="">
-                     <input type="hidden" name="form_id" value="lead_promo">
-                     <input type="hidden" name="fill_time_ms" value="">
-
-                     <input type="hidden" name="utm_source" value="">
-                     <input type="hidden" name="utm_medium" value="">
-                     <input type="hidden" name="utm_campaign" value="">
-                     <input type="hidden" name="utm_content" value="">
-                     <input type="hidden" name="utm_term" value="">
-                     <input type="hidden" name="gclid" value="">
-                     <input type="hidden" name="yclid" value="">
-
-                     <button
-                       type="submit"
-                       class="w-full bg-brand-peach text-brand-dark font-bold p-4 rounded-xl hover:bg-brand-turquoise hover:text-white transition shadow-lg transform hover:-translate-y-1 uppercase tracking-widest text-sm"
-                     >
-                       Жду звонка
-                     </button>
-                   </form>
+                   <!-- LEAD_FORM_PLACEHOLDER -->
                </div>
           </div>
       </section>
