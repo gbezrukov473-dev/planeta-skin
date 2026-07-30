@@ -18,6 +18,7 @@ import { initScrollToTop } from "./js/modules/scrollToTop.js";
 import { initCookieBanner } from "./js/modules/cookieBanner.js";
 import { initLazyImages } from "./js/modules/lazyImages.js";
 import { initPhoneMask } from "./js/modules/phoneMask.js";
+import { initAnalytics } from "./js/modules/analytics.js";
 
 // === SERVICE WORKER REGISTRATION ===
 // base-путь проекта (BASE_URL заканчивается слэшем: '/' или '/planeta-skin/')
@@ -129,6 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initLeadForms();
   initScrollToTop();
   initCookieBanner();
+  // Строго после баннера: счётчики подключаются только при уже данном
+  // согласии либо по событию из баннера.
+  initAnalytics();
   initLazyImages();
   initPhoneMask();
 

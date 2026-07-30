@@ -12,7 +12,7 @@ import { resolve, basename } from 'path';
 //   formService  — текст услуги, который попадает в письмо/лог; пустая строка = не указано
 //   formIdSuffix — суффикс для DOM id (lead-form-laser, lead-phone-laser …);
 //                  выводится из имени файла, у index — пусто (исторически).
-const pageMap = {
+export const pageMap = {
   'index.html':        { menuMain: null,           menuService: null,        formId: 'lead_main',         formService: '',                            formIdSuffix: '' },
   'about.html':        { menuMain: 'about',        menuService: null,        formId: 'lead_about',        formService: '',                            formIdSuffix: '-about' },
   'specialists.html':  { menuMain: 'specialists',  menuService: null,        formId: 'lead_specialists',  formService: '',                            formIdSuffix: '-specialists' },
@@ -148,6 +148,17 @@ export function htmlTemplatePlugin() {
         try {
           const header = renderHeader(currentPage);
           const footer = readFileSync(footerPath, 'utf-8');
+
+          // Общая часть <head> — только для страниц, которые её запросили.
+          // 404.html / thanks.html / policy.html автономны и плейсхолдера не имеют.
+          if (html.includes('<!-- HEAD_PLACEHOLDER -->')) {
+            // Комментарии из шаблона — документация для разработчика, в прод их
+            // тащить незачем: head.html состоит только из link/meta.
+            const head = readFileSync(resolve(__dirname, 'templates/head.html'), 'utf-8')
+              .replace(/<!--[\s\S]*?-->\s*/g, '')
+              .trim();
+            html = html.replace('<!-- HEAD_PLACEHOLDER -->', head);
+          }
 
           // Заменяем плейсхолдеры
           html = html.replace('<!-- HEADER_PLACEHOLDER -->', header);

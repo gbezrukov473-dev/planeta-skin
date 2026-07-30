@@ -5,12 +5,10 @@ declare(strict_types=1);
  * Planeta Skin - lead form handler
  * - JSON-ответы для fetch (Accept: application/json)
  * - редиректы обратно на страницу формы, если не JSON
- * - honeypot + fill_time + rate limit
+ * - honeypot + fill_time + rate limit + SmartCaptcha (на проде обязательна)
  * - нормализация телефона
- * - лог в data/leads.jsonl
+ * - лог в leads.jsonl (каталог вне вебрута, см. data_dir())
  */
-
-session_start();
 
 require_once __DIR__ . '/catalog.php';
 
@@ -25,13 +23,22 @@ const MAX_QTY_PER_ITEM = 20;
 // Максимальное количество разных позиций в одной заявке
 const MAX_CART_ITEMS = 30;
 
+// Телефон клиники — подставляется во все сообщения об ошибках отправки.
+const CONTACT_PHONE = '+7 (911) 271-78-88';
+
+// Боевые хосты. На них капча обязательна: если конфига нет, форма отвечает
+// ошибкой, а не принимает заявку без проверки (см. fail-closed ниже).
+const PROD_HOSTS = ['hs-planet.ru', 'www.hs-planet.ru'];
+
 // Разрешенные origins для cross-origin отправки форм (GitHub Pages preview и т.п.).
 // Добавьте сюда домены, с которых формам разрешено отправлять на этот бэкенд.
 const ALLOWED_ORIGINS = [
     'https://hs-planet.ru',
     'https://www.hs-planet.ru',
-    // GitHub Pages (замените на ваш логин/организацию):
-    // 'https://YOUR-GITHUB-USER.github.io',
+    // Превью на Cloudflare Pages: PHP там не работает, формы бьют в прод-бэкенд
+    // cross-origin. Хост должен совпадать с ALLOWED_REFERER_HOSTS ниже, иначе
+    // preflight проходит, а сам POST режется проверкой Referer (и наоборот).
+    'https://planeta-skin.pages.dev',
 ];
 
 // Разрешенные хосты в заголовке Referer. Должны совпадать с тем, откуда
@@ -67,6 +74,20 @@ const BOT_UA_PATTERNS = [
 
 // SmartCaptcha API
 const SMARTCAPTCHA_VALIDATE_URL = 'https://smartcaptcha.yandexcloud.net/validate';
+
+/**
+ * Имя каталога с персональными данными (leads/drops/ratelimit).
+ *
+ * ВАЖНО: каталог создаётся на уровень ВЫШЕ вебрута. Раньше он лежал внутри
+ * (send-form/../data) и закрывался только .htaccess — а на reg.ru статику
+ * раздаёт фронтовый nginx напрямую, мимо Apache, поэтому .htaccess на неё
+ * может не подействовать и leads.jsonl с телефонами клиентов скачивался бы
+ * по предсказуемому URL. Единственная надёжная защита — вынести файлы туда,
+ * где веб-сервер их физически не отдаст.
+ *
+ * Путь можно переопределить в config.local.php ключом 'data_dir'.
+ */
+const DATA_DIR_NAME = 'planeta-data';
 
 /* ---------------- helpers ---------------- */
 
@@ -154,13 +175,34 @@ function ensure_dir(string $dir): void {
 }
 
 /**
+ * Читает config.local.php один раз за запрос. Файл gitignored, его может
+ * не быть — тогда null (SMTP откатится на mail(), капча отработает по
+ * правилам fail-closed ниже).
+ */
+function load_local_config(): ?array {
+    static $cfg = null;
+    static $loaded = false;
+
+    if ($loaded) return $cfg;
+    $loaded = true;
+
+    $path = __DIR__ . '/config.local.php';
+    if (!is_file($path)) return null;
+
+    $raw = @include $path;
+    $cfg = is_array($raw) ? $raw : null;
+
+    return $cfg;
+}
+
+/**
  * Создаёт каталог и кладёт в него запрещающий .htaccess, если его там нет.
  *
- * data/ живёт в вебруте: если при деплое забыть залить data/.htaccess,
- * leads.jsonl с телефонами клиентов будет публично скачиваться по
- * предсказуемому URL. Поэтому страхуемся на уровне PHP — защита
- * восстанавливается при первом же запросе. .htaccess в data/ действует
- * и на подкаталоги (ratelimit/), отдельно их закрывать не нужно.
+ * Нужен только для легаси-режима, когда data_dir() не смог создать каталог
+ * вне вебрута и откатился на send-form/../data. Тогда файлы с ПД лежат в
+ * публичной зоне и .htaccess — единственная (и, из-за nginx на reg.ru,
+ * ненадёжная) преграда, поэтому восстанавливаем его при каждом запросе.
+ * .htaccess действует и на подкаталоги (ratelimit/), отдельно их не закрываем.
  */
 function ensure_protected_dir(string $dir): void {
     ensure_dir($dir);
@@ -176,6 +218,85 @@ function ensure_protected_dir(string $dir): void {
 }
 
 /**
+ * Пригоден ли каталог для хранения ПД: существует (или создался) и доступен
+ * на запись. Права 0700 — читать файлы должен только пользователь, от которого
+ * работает PHP.
+ */
+function dir_is_usable(string $dir): bool {
+    if ($dir === '') return false;
+    if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) return false;
+    return is_writable($dir);
+}
+
+/**
+ * Разовый переезд логов из старого каталога (внутри вебрута) в новый.
+ * Идемпотентно: файлы, уже лежащие в новом месте, не трогаем.
+ */
+function migrate_legacy_data(string $from, string $to): void {
+    if (!is_dir($from)) return;
+
+    $realFrom = realpath($from);
+    $realTo   = realpath($to);
+    if ($realFrom !== false && $realFrom === $realTo) return;
+
+    foreach ((@glob($from . '/*.jsonl') ?: []) as $src) {
+        $dst = rtrim($to, '/\\') . DIRECTORY_SEPARATOR . basename($src);
+        if (!is_file($dst)) @rename($src, $dst);
+    }
+}
+
+/**
+ * Возвращает каталог для логов с ПД, создавая его при необходимости.
+ *
+ * Порядок выбора:
+ *  1) config.local.php → 'data_dir' (абсолютный путь, задаётся на хостинге);
+ *  2) <родитель вебрута>/planeta-data — вне зоны видимости веб-сервера;
+ *  3) send-form/../data — легаси-путь ВНУТРИ вебрута. Используется, только
+ *     если первые два недоступны на запись: терять заявки хуже, чем хранить
+ *     их в вебруте. В этом случае каталог закрывается .htaccess и в error_log
+ *     пишется предупреждение — это состояние надо чинить руками.
+ */
+function data_dir(): string {
+    static $resolved = null;
+    if ($resolved !== null) return $resolved;
+
+    $legacy = __DIR__ . '/../data';
+    $default = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . DATA_DIR_NAME;
+
+    $candidates = [];
+    $cfg = load_local_config();
+    if (!empty($cfg['data_dir']) && is_string($cfg['data_dir'])) {
+        $candidates[] = rtrim($cfg['data_dir'], '/\\');
+    }
+    // send-form/ → корень сайта → его родитель (уже вне вебрута)
+    $candidates[] = $default;
+
+    foreach ($candidates as $dir) {
+        if (dir_is_usable($dir)) {
+            // Страховка на случай нестандартной разметки хостинга, где родитель
+            // вебрута сам оказался доступен по HTTP: каталог всё равно закрываем.
+            ensure_protected_dir($dir);
+
+            // Забираем логи из всех прежних мест: из вебрута (самый первый
+            // вариант) и из каталога по умолчанию — на случай, когда data_dir
+            // прописали позже, уже после накопления заявок.
+            migrate_legacy_data($legacy, $dir);
+            migrate_legacy_data($default, $dir);
+
+            return $resolved = $dir;
+        }
+    }
+
+    error_log(
+        '[planeta-skin] ВНИМАНИЕ: каталог для персональных данных не удалось создать вне вебрута, '
+        . 'используется ' . $legacy . ' — задайте data_dir в send-form/config.local.php'
+    );
+    ensure_protected_dir($legacy);
+
+    return $resolved = $legacy;
+}
+
+/**
  * Месячная ротация JSONL-лога: если месяц последней модификации файла
  * отличается от текущего, переименовываем его в <name>-YYYY-MM.jsonl.
  * Идемпотентно — можно звать перед каждой записью.
@@ -187,6 +308,68 @@ function rotate_monthly(string $file): void {
         $archive = preg_replace('/\.jsonl$/', '-' . date('Y-m', $mtime) . '.jsonl', $file);
         if ($archive !== null && !is_file($archive)) @rename($file, $archive);
     }
+}
+
+/**
+ * Счётчики операционных проблем по дням (<data_dir>/ops-counters.json).
+ *
+ * Проблема, которую они решают: непрошедшие письма видны только в
+ * mail-failures.jsonl, а этот файл никто не открывает — сбой может копиться
+ * неделями. Счётчик за последние сутки подклеивается к письму о заявке, то есть
+ * попадает туда, куда клиника и так смотрит каждый день.
+ *
+ * Считается сейчас единственный ключ — mail_failures. Отказы форм тоже когда-то
+ * попадали в письмо, но администраторы не могут открыть drops.jsonl, поэтому
+ * строку убрали, а вместе с ней и счётчик soft_drops.
+ *
+ * Хранятся только три последних дня — файл не растёт.
+ */
+function ops_bump(string $key): void {
+    $file = data_dir() . '/ops-counters.json';
+
+    $fp = @fopen($file, 'c+');
+    if (!$fp) return;
+
+    flock($fp, LOCK_EX);
+
+    $raw = stream_get_contents($fp);
+    $data = (is_string($raw) && $raw !== '') ? json_decode($raw, true) : [];
+    if (!is_array($data)) $data = [];
+
+    $today = date('Y-m-d');
+    $data[$today][$key] = (int)($data[$today][$key] ?? 0) + 1;
+
+    $keep = [$today, date('Y-m-d', strtotime('-1 day')), date('Y-m-d', strtotime('-2 day'))];
+    $data = array_intersect_key($data, array_flip($keep));
+
+    ftruncate($fp, 0);
+    rewind($fp);
+    fwrite($fp, json_encode($data, JSON_UNESCAPED_UNICODE));
+
+    flock($fp, LOCK_UN);
+    fclose($fp);
+}
+
+/**
+ * Суммарные счётчики за сегодня и вчера. Пустой массив — проблем не было.
+ *
+ * @return array<string,int>
+ */
+function ops_recent(): array {
+    $file = data_dir() . '/ops-counters.json';
+    if (!is_file($file)) return [];
+
+    $data = json_decode((string)@file_get_contents($file), true);
+    if (!is_array($data)) return [];
+
+    $sum = [];
+    foreach ([date('Y-m-d'), date('Y-m-d', strtotime('-1 day'))] as $day) {
+        foreach ((array)($data[$day] ?? []) as $key => $value) {
+            $sum[$key] = ($sum[$key] ?? 0) + (int)$value;
+        }
+    }
+
+    return array_filter($sum);
 }
 
 /**
@@ -289,10 +472,7 @@ function build_order_from_cart(string $rawJson): array {
  * @return array{host:string,port:int,secure:string,username:string,password:string,from:string,fromName:string}|null
  */
 function load_smtp_config(): ?array {
-    $path = __DIR__ . '/config.local.php';
-    if (!is_file($path)) return null;
-
-    $cfg = @include $path;
+    $cfg = load_local_config();
     if (!is_array($cfg) || !isset($cfg['smtp']) || !is_array($cfg['smtp'])) return null;
 
     $smtp = $cfg['smtp'];
@@ -413,17 +593,51 @@ function send_lead_email(string $to, string $subject, string $body, string $from
  * @return array{server_key:string}|null
  */
 function load_captcha_config(): ?array {
-    $path = __DIR__ . '/config.local.php';
-    if (!is_file($path)) return null;
-
-    $cfg = @include $path;
+    $cfg = load_local_config();
     if (!is_array($cfg) || !isset($cfg['captcha']) || !is_array($cfg['captcha'])) return null;
 
     $c = $cfg['captcha'];
     if (empty($c['enabled'])) return null;
     if (empty($c['server_key'])) return null;
 
-    return ['server_key' => (string)$c['server_key']];
+    $key = (string)$c['server_key'];
+
+    /**
+     * Самая частая ошибка настройки: в server_key вставлен КЛИЕНТСКИЙ ключ.
+     * Ключи выглядят почти одинаково (оба 53 символа), но клиентский начинается
+     * с ysc1_, а серверный — с ysc2_. С ysc1_ Яндекс отвечает 403 «Authentication
+     * failed. Invalid secret» на каждую заявку, и форма превращается в «не удалось
+     * пройти проверку я не робот» — то есть винит посетителя в поломке конфига.
+     *
+     * Возвращаем null: дальше сработает штатный fail-closed для прода — человек
+     * увидит честное «техническая проблема на сервере» и телефон, заявка попадёт
+     * в drops.jsonl как captcha_misconfigured, а в error_log — строка ниже.
+     */
+    if (str_starts_with($key, 'ysc1_')) {
+        error_log(
+            '[planeta-skin] captcha: в config.local.php captcha.server_key начинается с ysc1_ — '
+            . 'это КЛИЕНТСКИЙ ключ (тот же, что в src/js/config.js). Нужен СЕРВЕРНЫЙ ключ той же '
+            . 'капчи, он начинается с ysc2_: консоль Yandex Cloud → SmartCaptcha → ваша капча → ключ сервера.'
+        );
+        return null;
+    }
+
+    return ['server_key' => $key];
+}
+
+/**
+ * Осознанное разрешение работать на проде БЕЗ капчи (captcha.allow_missing).
+ *
+ * Нужно как аварийный клапан: если Yandex SmartCaptcha недоступна или ключи
+ * протухли, владелец сайта может временно вернуть приём заявок, поставив флаг
+ * вручную. По умолчанию выключено — отсутствие конфига на проде трактуется
+ * как поломка, а не как «капча не нужна».
+ */
+function captcha_allow_missing(): bool {
+    $cfg = load_local_config();
+    return is_array($cfg)
+        && isset($cfg['captcha']) && is_array($cfg['captcha'])
+        && !empty($cfg['captcha']['allow_missing']);
 }
 
 /**
@@ -431,8 +645,12 @@ function load_captcha_config(): ?array {
  * действительный. Сетевые ошибки трактуем как НЕвалидный токен (fail closed) —
  * лучше попросить пользователя повторить, чем пропустить ботов в окно сбоя API.
  */
-function verify_smartcaptcha(string $token, string $serverKey, string $ip): bool {
-    if ($token === '') return false;
+function verify_smartcaptcha(string $token, string $serverKey, string $ip, ?string &$reason = null): bool {
+    if ($token === '') {
+        $reason = 'empty_token';
+        error_log('[planeta-skin] captcha: пустой smart-token — виджет не отдал токен (адблок, ошибка SDK или старая сборка фронтенда без капчи)');
+        return false;
+    }
 
     $payload = http_build_query([
         'secret' => $serverKey,
@@ -452,8 +670,31 @@ function verify_smartcaptcha(string $token, string $serverKey, string $ip): bool
         ]);
         $resp = curl_exec($ch);
         $http = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlErr = curl_error($ch);
         curl_close($ch);
-        if (!is_string($resp) || $http !== 200) return false;
+        // 403 от Яндекса — это НЕ сетевая проблема, а отвергнутый серверный
+        // ключ («Authentication failed. Invalid secret»). Разделяем случаи:
+        // иначе в логе окажется совет чинить исходящий HTTPS, который исправен.
+        if ($http === 403) {
+            $reason = 'bad_secret';
+            error_log(
+                '[planeta-skin] captcha: Yandex не принял серверный ключ (HTTP 403). '
+                . 'В config.local.php должен лежать ключ вида ysc2_ от той же капчи, '
+                . 'что и клиентский ysc1_ в src/js/config.js. Ответ: ' . substr((string)$resp, 0, 200)
+            );
+            return false;
+        }
+
+        if (!is_string($resp) || $http !== 200) {
+            $reason = 'network';
+            error_log(sprintf(
+                '[planeta-skin] captcha: запрос к Yandex не удался (HTTP %d, curl: %s). '
+                . 'Похоже на заблокированный исходящий HTTPS с хостинга.',
+                $http,
+                $curlErr !== '' ? $curlErr : 'без ошибки'
+            ));
+            return false;
+        }
     } else {
         $ctx = stream_context_create([
             'http' => [
@@ -465,13 +706,37 @@ function verify_smartcaptcha(string $token, string $serverKey, string $ip): bool
             ],
         ]);
         $resp = @file_get_contents(SMARTCAPTCHA_VALIDATE_URL, false, $ctx);
-        if (!is_string($resp)) return false;
+        if (!is_string($resp)) {
+            $reason = 'network';
+            error_log('[planeta-skin] captcha: file_get_contents к Yandex не удался (cURL на хостинге нет, исходящий HTTPS закрыт?)');
+            return false;
+        }
     }
 
     $data = json_decode($resp, true);
-    if (!is_array($data)) return false;
+    if (!is_array($data)) {
+        $reason = 'bad_response';
+        error_log('[planeta-skin] captcha: ответ Yandex не разобран как JSON: ' . substr($resp, 0, 200));
+        return false;
+    }
 
-    return isset($data['status']) && $data['status'] === 'ok';
+    if (($data['status'] ?? '') !== 'ok') {
+        $reason = 'rejected';
+        // Самая частая причина здесь — ключи от разных капча-инстансов:
+        // клиентский ysc1_ в src/js/config.js и серверный ysc2_ в config.local.php
+        // должны принадлежать одной капче в консоли Yandex Cloud.
+        error_log(sprintf(
+            '[planeta-skin] captcha: Yandex отклонил токен (status=%s, message=%s, длина токена=%d). '
+            . 'Проверьте, что ysc1_ на фронте и ysc2_ на сервере — от одной капчи, '
+            . 'и что на сервере лежит актуальная сборка dist/.',
+            (string)($data['status'] ?? 'нет'),
+            (string)($data['message'] ?? 'нет'),
+            strlen($token)
+        ));
+        return false;
+    }
+
+    return true;
 }
 
 function is_bot_ua(string $ua): bool {
@@ -571,19 +836,22 @@ $returnTo = safe_path($pageFromPost !== '' ? $pageFromPost : '/', '/');
 $returnToWithAnchor = $returnTo . (str_contains($returnTo, '#') ? '' : '#form');
 
 /**
- * Все «100%-бот»-сигналы ниже отдают фейковый успех (303 на /thanks/
- * или JSON ok:true). Цель — не подсказывать ботам, что именно их выдало,
- * чтобы они не подбирали обход. Заявка при этом НЕ логируется в leads.jsonl
- * и письмо НЕ уходит.
+ * Антибот-сигналы делятся на две группы.
  *
- * Но «тихие» дропы могут зацепить и реального пользователя (приватный браузер
- * режет Referer, отключён JS — пустой fill_time). Поэтому каждый дроп пишем
- * в data/drops.jsonl с причиной и контактами из формы: по логу видно масштаб
- * ложных срабатываний, а потерянному клиенту можно перезвонить.
+ * ЖЁСТКИЕ (bot_ua, referer_foreign, honeypot, fill_time_fast) — за ними живого
+ * человека быть не может. Они отдают фейковый успех (303 на /thanks/ или JSON
+ * ok:true), чтобы бот не понял, что именно его выдало, и не подбирал обход.
+ *
+ * МЯГКИЕ (пустой Referer, пустой fill_time) — так выглядит и бот, и реальный
+ * человек в приватном режиме или с отключённым JS. Раньше они тоже отдавали
+ * фейковое «спасибо»: человек уходил уверенным, что записался, а заявки не было.
+ * Теперь такие запросы получают честную ошибку с телефоном (reject_lead).
+ *
+ * Дроп любой группы пишется в drops.jsonl с причиной и контактами из формы:
+ * по логу видно масштаб ложных срабатываний, а клиенту можно перезвонить.
  */
 function log_silent_drop(string $reason): void {
-    $logDir = __DIR__ . '/../data';
-    ensure_protected_dir($logDir);
+    $logDir = data_dir();
     rotate_monthly($logDir . '/drops.jsonl');
 
     $entry = [
@@ -612,6 +880,20 @@ function silent_drop(string $reason): void {
 }
 
 /**
+ * Честный отказ: в отличие от silent_drop() НЕ притворяется успехом.
+ *
+ * Применяется там, где за сигналом может стоять живой человек (приватный
+ * браузер без Referer, выключённый JS, сломанная капча). Пользователь видит
+ * причину и телефон, а контакты всё равно уходят в drops.jsonl — клинике
+ * есть кому перезвонить, даже если отправка не прошла.
+ */
+function reject_lead(string $reason, string $message, string $errorCode, string $returnTo, int $status = 422): void {
+    log_silent_drop($reason);
+    if (wants_json()) json_out(false, ['message' => $message], $status);
+    redirect_303($returnTo . (str_contains($returnTo, '?') ? '&' : '?') . 'lead_error=' . $errorCode);
+}
+
+/**
  * Конфиг капчи загружаем до антибот-эвристик: когда капча включена, она —
  * основной фильтр ботов, и «мягкие» сигналы (пустой Referer, пустой fill_time)
  * можно не делать фатальными — реальный человек с приватным браузером дойдёт
@@ -634,7 +916,13 @@ if ($referer !== '' && !referer_ok($referer)) {
     silent_drop('referer_foreign');
 }
 if ($referer === '' && !$captchaEnabled) {
-    silent_drop('referer_empty');
+    reject_lead(
+        'referer_empty',
+        'Не удалось подтвердить, что форма отправлена с нашего сайта. Обновите страницу '
+        . 'и попробуйте ещё раз или позвоните: ' . CONTACT_PHONE,
+        'browser',
+        $returnToWithAnchor
+    );
 }
 
 // honeypot
@@ -646,21 +934,26 @@ if ($honeypot !== '') {
 // Слишком быстрое заполнение (< 900 мс) — сигнал бота: живой человек так не успеет.
 // Пустой fill_time_ms означает «нет JS». Без JS не будет и токена капчи, поэтому
 // при включённой капче такой запрос честно упрётся в неё и получит осмысленную
-// ошибку вместо тихого дропа с фейковым «спасибо». Без капчи — строгий режим.
+// ошибку. Без капчи отвечаем сами — но тоже честно, а не фейковым «спасибо».
 $fillTimeMs = (int)($_POST['fill_time_ms'] ?? 0);
 if ($fillTimeMs > 0 && $fillTimeMs < 900) {
     silent_drop('fill_time_fast');
 }
 if ($fillTimeMs <= 0 && !$captchaEnabled) {
-    silent_drop('fill_time_empty');
+    reject_lead(
+        'fill_time_empty',
+        'Похоже, в браузере отключён JavaScript — форму не получится отправить. '
+        . 'Включите его и попробуйте ещё раз или позвоните: ' . CONTACT_PHONE,
+        'nojs',
+        $returnToWithAnchor
+    );
 }
 
 // rate-limit по IP
 $ip = (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown');
-ensure_protected_dir(__DIR__ . '/../data'); // до создания ratelimit/ внутри
-$rlDir = __DIR__ . '/../data/ratelimit';
+$rlDir = data_dir() . '/ratelimit';
 if (!rate_limit_ok($rlDir, $ip, 10, 600)) {
-    $msg = 'Слишком много попыток. Попробуйте чуть позже или позвоните: +7 (911) 271-78-88';
+    $msg = 'Слишком много попыток. Попробуйте чуть позже или позвоните: ' . CONTACT_PHONE;
     if (wants_json()) json_out(false, ['message' => $msg], 429);
     redirect_303($returnToWithAnchor . (str_contains($returnToWithAnchor, '?') ? '&' : '?') . 'lead_error=rate');
 }
@@ -671,25 +964,59 @@ if (!rate_limit_ok($rlDir, $ip, 10, 600)) {
  * поэтому даём осмысленное сообщение (фронт сбросит виджет и пользователь
  * сможет нажать «Отправить» ещё раз).
  *
- * Если config.local.php с captcha.enabled = true не подложен на сервер,
- * проверка пропускается — это сделано осознанно для удобства локалки.
- * В проде наличие конфига обязательно, поэтому отсутствие капчи на продовом
- * хосте не должно оставаться незамеченным: пишем в error_log и добавляем
- * предупреждение в письмо администратору (см. ниже).
+ * На локалке и на превью-хостах отсутствие config.local.php просто отключает
+ * проверку. На проде это трактуется как поломка: раньше форма продолжала
+ * принимать заявки без всякой проверки (fail-open) и об этом узнавали только
+ * из письма постфактум. Теперь — fail-closed: заявка не принимается, человек
+ * видит телефон, контакты падают в drops.jsonl, а в error_log уходит причина.
+ *
+ * Аварийный клапан: captcha.allow_missing = true в config.local.php возвращает
+ * приём заявок без капчи (например, если SmartCaptcha недоступна).
  */
-$prodHosts = ['hs-planet.ru', 'www.hs-planet.ru'];
 $captchaMissingOnProd = !$captchaEnabled
-    && in_array(strtolower((string)($_SERVER['HTTP_HOST'] ?? '')), $prodHosts, true);
+    && in_array(strtolower((string)($_SERVER['HTTP_HOST'] ?? '')), PROD_HOSTS, true);
+
 if ($captchaMissingOnProd) {
     error_log('[planeta-skin] ВНИМАНИЕ: SmartCaptcha выключена на проде — проверьте send-form/config.local.php (captcha.enabled + server_key)');
+
+    if (!captcha_allow_missing()) {
+        reject_lead(
+            'captcha_misconfigured',
+            'Форма временно не работает из-за технической проблемы на сервере. '
+            . 'Позвоните, пожалуйста: ' . CONTACT_PHONE . ' — мы запишем вас сразу.',
+            'captcha_config',
+            $returnToWithAnchor,
+            503
+        );
+    }
 }
 
 if ($captchaEnabled) {
-    $captchaToken = str_trim((string)($_POST['smart-token'] ?? ''), 4096);
-    if (!verify_smartcaptcha($captchaToken, $captchaCfg['server_key'], $ip)) {
-        $msg = 'Не удалось пройти проверку «я не робот». Попробуйте ещё раз или позвоните: +7 (911) 271-78-88';
-        if (wants_json()) json_out(false, ['message' => $msg], 422);
-        redirect_303($returnToWithAnchor . (str_contains($returnToWithAnchor, '?') ? '&' : '?') . 'lead_error=captcha');
+    // Токены SmartCaptcha длиннее 4096 символов не встречаются, но обрезка
+    // молча превратила бы валидный токен в невалидный — поэтому режем с запасом.
+    $captchaToken = str_trim((string)($_POST['smart-token'] ?? ''), 8192);
+
+    $captchaReason = null;
+    if (!verify_smartcaptcha($captchaToken, $captchaCfg['server_key'], $ip, $captchaReason)) {
+        // Неверный ключ, недоступный сервис или неразобранный ответ — это
+        // поломка на нашей стороне. Просить в таком случае «попробуйте ещё раз»
+        // жестоко: результат не изменится, сколько ни жми. Отправляем к телефону.
+        $ourFault = in_array($captchaReason, ['bad_secret', 'network', 'bad_response'], true);
+
+        // Через reject_lead, а не напрямую: у человека, не прошедшего капчу,
+        // раньше терялись и заявка, и контакты. Теперь телефон попадает
+        // в drops.jsonl с точной причиной — и перезвонить есть кому,
+        // и причину сбоя видно без доступа к error_log хостинга.
+        reject_lead(
+            'captcha_' . ($captchaReason ?? 'failed'),
+            $ourFault
+                ? 'Форма временно не работает из-за технической проблемы на сервере. '
+                  . 'Позвоните, пожалуйста: ' . CONTACT_PHONE . ' — мы запишем вас сразу.'
+                : 'Не удалось пройти проверку «я не робот». Попробуйте ещё раз или позвоните: ' . CONTACT_PHONE,
+            $ourFault ? 'captcha_config' : 'captcha',
+            $returnToWithAnchor,
+            $ourFault ? 503 : 422
+        );
     }
 }
 
@@ -771,8 +1098,7 @@ if (!empty($fieldErrors)) {
 }
 
 // логирование
-$logDir = __DIR__ . '/../data';
-ensure_protected_dir($logDir);
+$logDir = data_dir();
 maintain_logs($logDir, $rlDir);
 
 $logData = [
@@ -853,9 +1179,30 @@ $lines[] = '';
 $lines[] = 'Дата: ' . date('d.m.Y H:i');
 $lines[] = 'Согласие: получено';
 
+// Досюда с $captchaMissingOnProd = true можно дойти только при явно включённом
+// аварийном клапане captcha.allow_missing — иначе заявка отклоняется выше.
 if ($captchaMissingOnProd) {
     $lines[] = '';
-    $lines[] = '⚠ ВНИМАНИЕ: проверка SmartCaptcha на сервере ВЫКЛЮЧЕНА (нет send-form/config.local.php с captcha.enabled = true). Формы сейчас не защищены капчей — сообщите разработчику.';
+    $lines[] = '⚠ ВНИМАНИЕ: проверка SmartCaptcha ВЫКЛЮЧЕНА, форма работает в аварийном режиме '
+        . '(captcha.allow_missing = true в send-form/config.local.php). Защиты от ботов сейчас нет — '
+        . 'верните капчу и снимите флаг, как только это станет возможно.';
+}
+
+/**
+ * Сводка операционных проблем за последние сутки. Появляется только когда есть
+ * о чём сообщить, чтобы не превращаться в шум, который перестают читать.
+ *
+ * Строки про отклонённые отправки здесь больше нет: она отсылала к drops.jsonl,
+ * а у администраторов, читающих эти письма, доступа к файлам на сервере нет —
+ * получалась тревога без возможности что-то с ней сделать. Отказы по-прежнему
+ * пишутся в drops.jsonl для того, кто может туда посмотреть.
+ */
+$ops = ops_recent();
+if (!empty($ops['mail_failures'])) {
+    $lines[] = '';
+    $lines[] = '— За последние сутки —';
+    $lines[] = 'Писем не доставлено: ' . $ops['mail_failures']
+        . '. Заявки при этом сохранены, список — в mail-failures.jsonl.';
 }
 
 $body = implode("\n", $lines);
@@ -871,6 +1218,10 @@ $body = implode("\n", $lines);
  * его можно заметить и перезвонить клиентам, чьи письма не дошли.
  */
 if (!send_lead_email($to, $subject, $body, 'hs-planet.ru')) {
+    // Счётчик увидят в следующем успешно доставленном письме: пока почта лежит,
+    // сообщить о поломке почтой всё равно невозможно.
+    ops_bump('mail_failures');
+
     @file_put_contents(
         $logDir . '/mail-failures.jsonl',
         json_encode([

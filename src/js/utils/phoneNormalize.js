@@ -1,6 +1,9 @@
 /**
  * Строгая нормализация телефона РФ для отправки/валидации.
- * Живая маска ввода находится в src/js/modules/phoneMask.js.
+ *
+ * Не путать с src/js/modules/phoneMask.js — это живая маска ввода. Файлы
+ * раньше назывались одинаково и различались только каталогом; этот
+ * переименован, чтобы имя отражало роль.
  */
 export function normalizeRuPhoneStrict(value) {
   let digits = String(value || "").replace(/\D/g, "");

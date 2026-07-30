@@ -1,4 +1,4 @@
-import { normalizeRuPhoneStrict } from "../utils/phoneMask.js";
+import { normalizeRuPhoneStrict } from "../utils/phoneNormalize.js";
 import {
   setHidden,
   getHidden,

@@ -26,17 +26,16 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
   <meta name="theme-color" content="#44C8D2">
-    <!-- Ускоряем подключение к счетчикам -->
-    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
-    <link rel="preconnect" href="https://top-fwz1.mail.ru" crossorigin>
-    <link rel="dns-prefetch" href="https://mc.yandex.ru">
-    <link rel="dns-prefetch" href="https://top-fwz1.mail.ru">
-
   <!--
     На thanks.html не грузим Метрику и Top.Mail.Ru: счётчики цели «отправка формы»
     удобнее вешать на DataLayer/SendForm event внутри основной страницы. Страница
     закрыта от индексации, трекинг здесь даёт только шум.
+
+    Страница подключает /src/main.js (ради очистки корзины и общих модулей), а он
+    теперь содержит analytics.js. Мета-тег ниже — явный опт-аут, иначе счётчики
+    включились бы здесь сами при уже данном согласии на cookies.
   -->
+  <meta name="pzk-analytics" content="off">
 
   <!-- Очистка корзины после успешного заказа. Пробрасываем в ранний inline-скрипт,
        чтобы не зависеть от загрузки основного бандла и SW. -->

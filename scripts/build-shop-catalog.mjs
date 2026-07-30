@@ -13,11 +13,17 @@
  * Варианты с hidden: true в PHP-каталог не попадают — их нельзя заказать.
  */
 
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { PRODUCTS, CATEGORIES } from '../src/data/products.js';
 
 const OUT = fileURLToPath(new URL('../send-form/catalog.php', import.meta.url));
+
+// --check: ничего не пишем, только сверяем существующий catalog.php с тем,
+// что получилось бы из products.js. Используется в prebuild — сборка падает,
+// если каталог забыли перегенерировать, вместо того чтобы молча уехать в прод
+// с ценами, расходящимися с витриной.
+const CHECK_ONLY = process.argv.includes('--check');
 
 const categoryTitles = new Map(CATEGORIES.map((c) => [c.id, c.title]));
 
@@ -91,5 +97,27 @@ ${lines.join('\n')}
 }
 `;
 
-writeFileSync(OUT, php, 'utf8');
-console.log(`OK: send-form/catalog.php сгенерирован, позиций: ${count}`);
+// Переводы строк нормализуем: после клонирования с core.autocrlf=true файл
+// в рабочей копии может лежать с CRLF, а генератор всегда пишет LF.
+const normalize = (s) => s.replace(/\r\n/g, '\n');
+
+if (CHECK_ONLY) {
+  if (!existsSync(OUT)) {
+    console.error('ОШИБКА: send-form/catalog.php отсутствует. Выполните: npm run shop:catalog');
+    process.exit(1);
+  }
+
+  if (normalize(readFileSync(OUT, 'utf8')) !== normalize(php)) {
+    console.error(
+      'ОШИБКА: send-form/catalog.php разошёлся с src/data/products.js.\n' +
+      '        Серверные цены не совпадут с витриной — заказы уйдут с неверной суммой.\n' +
+      '        Выполните: npm run shop:catalog — и залейте catalog.php на прод.'
+    );
+    process.exit(1);
+  }
+
+  console.log(`OK: send-form/catalog.php соответствует products.js, позиций: ${count}`);
+} else {
+  writeFileSync(OUT, php, 'utf8');
+  console.log(`OK: send-form/catalog.php сгенерирован, позиций: ${count}`);
+}

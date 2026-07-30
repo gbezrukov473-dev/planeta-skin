@@ -1,0 +1,20 @@
+<!--
+    Общая часть <head>: фавиконки, манифест, цвет темы и preload шрифтов.
+    Подставляется плагином vite-plugin-html-template.js на месте плейсхолдера
+    HEAD_PLACEHOLDER в каждой странице из pageMap.
+
+    Раньше эти 10 строк были скопированы в каждый файл — добавление одного
+    мета-тега означало 16 одинаковых правок. Страницы 404.html, thanks.html и
+    policy.html намеренно автономны: у них свой набор тегов, плейсхолдера нет
+    и подстановка их не касается.
+-->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#44C8D2">
+    <link rel="preload" href="/fonts/Anticva-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
